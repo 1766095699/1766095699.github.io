@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    435
+                    615
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -488,12 +488,12 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="再次提醒：下文内容不考虑线程安全问题-仅就总结多线程的创建方式"><a href="#再次提醒：下文内容不考虑线程安全问题-仅就总结多线程的创建方式" class="headerlink" title="再次提醒：下文内容不考虑线程安全问题,仅就总结多线程的创建方式"></a>再次提醒：下文内容不考虑线程安全问题,仅就总结多线程的创建方式</h1><h2 id="一-程序-进程-线程的基本概念"><a href="#一-程序-进程-线程的基本概念" class="headerlink" title="一.程序,进程,线程的基本概念"></a>一.程序,进程,线程的基本概念</h2><p><img src="https://i.loli.net/2020/07/20/atozTYeqNsSMl3H.png" alt=""><br> 这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释</p>
-<h2 id="二-创建多线程的四种方式-以多线程抢票为背景"><a href="#二-创建多线程的四种方式-以多线程抢票为背景" class="headerlink" title="二.创建多线程的四种方式(以多线程抢票为背景)"></a>二.创建多线程的四种方式(以多线程抢票为背景)</h2><h2 id="在JDK5-0之前："><a href="#在JDK5-0之前：" class="headerlink" title="在JDK5.0之前："></a><strong><em>在JDK5.0之前：</em></strong></h2><p> 方式一：继承Thread类  </p>
-<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//一.创建一个子类继承Thread</span>
+<h2 id="二-创建多线程的四种方式-以多线程抢票为背景"><a href="#二-创建多线程的四种方式-以多线程抢票为背景" class="headerlink" title="二.创建多线程的四种方式(以多线程抢票为背景)"></a>二.创建多线程的四种方式(以多线程抢票为背景)</h2><h2 id="①在JDK5-0之前："><a href="#①在JDK5-0之前：" class="headerlink" title="①在JDK5.0之前："></a>①<strong><em>在JDK5.0之前：</em></strong></h2><p> 方式一：继承Thread类  </p>
+<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个子类继承Thread</span>
     <span class="token keyword">class</span> <span class="token class-name">Mythread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span><span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token keyword">static</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
 
-    <span class="token comment" spellcheck="true">//二.重写run方法</span>
+    <span class="token comment" spellcheck="true">//2.重写run方法</span>
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -513,14 +513,14 @@
     <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test1</span>  <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-           <span class="token comment" spellcheck="true">// 三.实例化子类对象</span>
+           <span class="token comment" spellcheck="true">// 3.实例化子类对象</span>
             Mythread t1<span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Mythread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             Mythread t2<span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Mythread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             t1<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"线程一"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             t2<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"线程二"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-           <span class="token comment" spellcheck="true">// 四.start开启线程</span>
+           <span class="token comment" spellcheck="true">// 4.start开启线程</span>
             t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
@@ -529,36 +529,49 @@
 <p><strong><em>总结：继承Thread创建多线程的步骤：<br>  1.创建一个子类继承Thread<br>  2.重写run方法<br>  3.实例化子类对象<br>  4.start开启线程</em></strong></p>
 <hr>
 <p> 方式二：实现Runnable接口</p>
-<pre class=" language-Java"><code class="language-Java">    class Mythread implements Runnable{
-    private int ticket=100;
-    @Override
-    public void run() {
-        while (true){
-            if(ticket>=1){
-                System.out.println(Thread.currentThread().getName()+"抢到票"+ticket);
-                ticket--;
-            }
-            else {
-                  System.out.println(Thread.currentThread().getName()+"票已售罄");
-                  break;
-            }
-        }
-
-    }
-    }
-    public class Test1 {
-        public static void main(String[] args) {
-            Mythread t= new Mythread();
-            Thread t1=new Thread(t);
-            Thread t2=new Thread(t);
-            t1.setName("线程一");
-            t2.setName("线程二");
-            t1.start();
-            t2.start();
-        }
-    }</code></pre>
+<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个实现Runnable接口的类</span>
+    <span class="token keyword">class</span> <span class="token class-name">Mythread</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//2.重写run方法</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">>=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"抢到票"</span><span class="token operator">+</span>ticket<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                ticket<span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"票已售罄"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                  <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>   
+<span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test1</span> <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//3.创建一个实现类的对象</span>
+            Mythread t<span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Mythread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">/*4.每个线程各自创建一个以实现类对象为参数的Thread  
+            类的对象*/</span>
+            Thread t1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Thread t2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            t1<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"线程一"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            t2<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"线程二"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//5.start开启进程</span>
+            t1<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
+<hr>
+<p>总结：继承Thread创建多线程的步骤：<br>  1.创建一个实现Runnable接口的类<br>  2.重写run方法<br>  3.创建一个实现类的对象<br>  4.每个线程各自创建一个以实现类对象为参数的Thread类的对象<br>  5.start开启进程</p>
+<hr>
+<p>关于Thead带参构造器的源码：</p>
+<pre><code>public Thread(Runnable target) {
+    init(null, target, "Thread-" + nextThreadNum(), 0);
+}</code></pre><p>不难发现,其参数必须是Runnable接口实现类的对象  </p>
 <p><strong><em>注:相比于继承Thread类,方式二可以直接实现数据共享,方式一需要用static修饰成员变量(这一点在讲同步的时候尤其重要)</em></strong></p>
-<script>
+<hr>
+<h2 id="①在JDK5-0之后："><a href="#①在JDK5-0之后：" class="headerlink" title="①在JDK5.0之后："></a>①<strong><em>在JDK5.0之后：</em></strong></h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -727,7 +740,7 @@
                     <div class="summary block-with-text">
                         
                             再次提醒：下文内容不考虑线程安全问题,仅就总结多线程的创建方式一.程序,进程,线程的基本概念 这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释
-二.创建多线程的四种方式(以多线程抢票为背景)在JDK5.0之前： 
+二.创建多线程的四种方式(以多线程抢票为背景)①在JDK5.0之前：
                         
                     </div>
                     <div class="publish-info">
