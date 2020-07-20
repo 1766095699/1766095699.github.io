@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BB%A3%E7%A0%81/">
-                                <span class="chip bg-color">基本概念和代码</span>
+                            <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
+                                <span class="chip bg-color">基本概念 代码实现</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java/" class="post-category">
-                                Java
+                            <a href="/categories/Java-%E7%BA%BF%E7%A8%8B/" class="post-category">
+                                Java 线程
                             </a>
                         
                     </div>
@@ -487,7 +487,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="再次提醒：下文内容不考虑线程安全问题-仅就总结多线程的创建方式"><a href="#再次提醒：下文内容不考虑线程安全问题-仅就总结多线程的创建方式" class="headerlink" title="再次提醒：下文内容不考虑线程安全问题,仅就总结多线程的创建方式"></a>再次提醒：下文内容不考虑线程安全问题,仅就总结多线程的创建方式</h1><h2 id="一-程序-进程-线程的基本概念"><a href="#一-程序-进程-线程的基本概念" class="headerlink" title="一.程序,进程,线程的基本概念"></a>一.程序,进程,线程的基本概念</h2><p><img src="https://i.loli.net/2020/07/20/atozTYeqNsSMl3H.png" alt=""><br> 这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释</p>
+                <h1 id="再次提醒：下文内容仅就总结多线程的创建方式-不考虑线程安全问题-且为了直观-在异常处理方面大量省略"><a href="#再次提醒：下文内容仅就总结多线程的创建方式-不考虑线程安全问题-且为了直观-在异常处理方面大量省略" class="headerlink" title="再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略"></a>再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略</h1><h2 id="一-程序-进程-线程的基本概念"><a href="#一-程序-进程-线程的基本概念" class="headerlink" title="一.程序,进程,线程的基本概念"></a>一.程序,进程,线程的基本概念</h2><p><img src="https://i.loli.net/2020/07/20/atozTYeqNsSMl3H.png" alt=""><br> 这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释</p>
 <h2 id="二-创建多线程的四种方式-以多线程抢票为背景"><a href="#二-创建多线程的四种方式-以多线程抢票为背景" class="headerlink" title="二.创建多线程的四种方式(以多线程抢票为背景)"></a>二.创建多线程的四种方式(以多线程抢票为背景)</h2><h2 id="①在JDK5-0之前："><a href="#①在JDK5-0之前：" class="headerlink" title="①在JDK5.0之前："></a>①<strong><em>在JDK5.0之前：</em></strong></h2><h3 id="emsp-方式一：继承Thread类"><a href="#emsp-方式一：继承Thread类" class="headerlink" title=" 方式一：继承Thread类"></a> 方式一：继承Thread类</h3><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个子类继承Thread</span>
     <span class="token keyword">class</span> <span class="token class-name">Mythread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span><span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token keyword">static</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
@@ -496,7 +496,7 @@
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">>=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
                 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"抢到票"</span><span class="token operator">+</span>ticket<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 ticket<span class="token operator">--</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
@@ -534,7 +534,7 @@
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">>=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
                 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"抢到票"</span><span class="token operator">+</span>ticket<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 ticket<span class="token operator">--</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
@@ -614,7 +614,7 @@
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">>=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
             System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"票"</span><span class="token operator">+</span>ticket<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
             ticket<span class="token operator">--</span><span class="token punctuation">;</span>
@@ -723,8 +723,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BB%A3%E7%A0%81/">
-                                    <span class="chip bg-color">基本概念和代码</span>
+                                <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
+                                    <span class="chip bg-color">基本概念 代码实现</span>
                                 </a>
                             
                         </div>
@@ -810,8 +810,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            再次提醒：下文内容不考虑线程安全问题,仅就总结多线程的创建方式一.程序,进程,线程的基本概念 这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释
-二.创建多线程的四种方式(以多线程抢票为背景)①在JDK5.0之前：
+                            再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略一.程序,进程,线程的基本概念 这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释
+二.创建多线程的四种方式(以多线
                         
                     </div>
                     <div class="publish-info">
@@ -822,8 +822,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/Java-%E7%BA%BF%E7%A8%8B/" class="post-category">
+                                    Java 线程
                                 </a>
                             
                             
@@ -834,8 +834,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BB%A3%E7%A0%81/">
-                        <span class="chip bg-color">基本概念和代码</span>
+                    <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
+                        <span class="chip bg-color">基本概念 代码实现</span>
                     </a>
                     
                 </div>
