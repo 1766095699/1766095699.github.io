@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    258
+                    435
                 </div>
                 
 
@@ -491,7 +491,7 @@
 <h2 id="二-创建多线程的四种方式-以多线程抢票为背景"><a href="#二-创建多线程的四种方式-以多线程抢票为背景" class="headerlink" title="二.创建多线程的四种方式(以多线程抢票为背景)"></a>二.创建多线程的四种方式(以多线程抢票为背景)</h2><h2 id="在JDK5-0之前："><a href="#在JDK5-0之前：" class="headerlink" title="在JDK5.0之前："></a><strong><em>在JDK5.0之前：</em></strong></h2><p> 方式一：继承Thread类  </p>
 <pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//一.创建一个子类继承Thread</span>
     <span class="token keyword">class</span> <span class="token class-name">Mythread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span><span class="token punctuation">{</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token keyword">static</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
 
     <span class="token comment" spellcheck="true">//二.重写run方法</span>
     <span class="token annotation punctuation">@Override</span>
@@ -510,7 +510,6 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
-
     <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test1</span>  <span class="token punctuation">{</span>
         <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
@@ -526,6 +525,39 @@
             t2<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span></code></pre>
+<hr>
+<p><strong><em>总结：继承Thread创建多线程的步骤：<br>  1.创建一个子类继承Thread<br>  2.重写run方法<br>  3.实例化子类对象<br>  4.start开启线程</em></strong></p>
+<hr>
+<p> 方式二：实现Runnable接口</p>
+<pre class=" language-Java"><code class="language-Java">    class Mythread implements Runnable{
+    private int ticket=100;
+    @Override
+    public void run() {
+        while (true){
+            if(ticket>=1){
+                System.out.println(Thread.currentThread().getName()+"抢到票"+ticket);
+                ticket--;
+            }
+            else {
+                  System.out.println(Thread.currentThread().getName()+"票已售罄");
+                  break;
+            }
+        }
+
+    }
+    }
+    public class Test1 {
+        public static void main(String[] args) {
+            Mythread t= new Mythread();
+            Thread t1=new Thread(t);
+            Thread t2=new Thread(t);
+            t1.setName("线程一");
+            t2.setName("线程二");
+            t1.start();
+            t2.start();
+        }
+    }</code></pre>
+<p><strong><em>注:相比于继承Thread类,方式二可以直接实现数据共享,方式一需要用static修饰成员变量(这一点在讲同步的时候尤其重要)</em></strong></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -632,6 +664,33 @@
             
         </div>
     </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2020-07-19T09-22-23',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
 
     
 
@@ -742,43 +801,6 @@
 
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 比企谷八幡<br />'
-            + '文章作者: 灿若星河<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
 
 <!-- 代码块功能依赖 -->
@@ -947,7 +969,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                    type="playlist"
                    id="5128304262"
                    fixed='true'
-                   autoplay='true'
+                   autoplay='false'
                    theme='#42b983'
                    loop='all'
                    order='list'
