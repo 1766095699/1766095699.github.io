@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>线程以及线程安全问题</title>
+      <title>创建多线程的四种方式(暂时不考虑线程安全问题)</title>
       <link href="/2020/07/19/jin-cheng-yu-xian-cheng/"/>
       <url>/2020/07/19/jin-cheng-yu-xian-cheng/</url>
       
-        <content type="html"><![CDATA[<h1 id="一-程序-进程-线程的基本概念"><a href="#一-程序-进程-线程的基本概念" class="headerlink" title="一.程序,进程,线程的基本概念"></a>一.程序,进程,线程的基本概念</h1><p><img src="https://i.loli.net/2020/07/19/pPiu2mSEBdODKF6.png" alt="1.png"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="再次提醒：下文内容不考虑线程安全问题-仅就总结多线程的创建方式"><a href="#再次提醒：下文内容不考虑线程安全问题-仅就总结多线程的创建方式" class="headerlink" title="再次提醒：下文内容不考虑线程安全问题,仅就总结多线程的创建方式"></a>再次提醒：下文内容不考虑线程安全问题,仅就总结多线程的创建方式</h1><h2 id="一-程序-进程-线程的基本概念"><a href="#一-程序-进程-线程的基本概念" class="headerlink" title="一.程序,进程,线程的基本概念"></a>一.程序,进程,线程的基本概念</h2><p><img src="https://i.loli.net/2020/07/20/atozTYeqNsSMl3H.png" alt="11.png"><br> 这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释</p><h2 id="二-创建多线程的四种方式"><a href="#二-创建多线程的四种方式" class="headerlink" title="二.创建多线程的四种方式"></a>二.创建多线程的四种方式</h2><p><strong><em>在JDK5.0之前：</em></strong><br> 方式一：继承Thread类  </p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
