@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-07-21T05:18:27.553Z</updated>
+  <updated>2020-07-21T06:14:42.784Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>openjdk14的安装和JOL的使用</title>
+    <title>JOL的安装</title>
     <link href="https://1766095699.github.io/2020/07/21/openjdk14-de-an-zhuang-he-jol-de-shi-yong/"/>
     <id>https://1766095699.github.io/2020/07/21/openjdk14-de-an-zhuang-he-jol-de-shi-yong/</id>
     <published>2020-07-21T05:18:27.000Z</published>
-    <updated>2020-07-21T05:18:27.553Z</updated>
+    <updated>2020-07-21T06:14:42.784Z</updated>
     
     <summary type="html">
     
@@ -29,11 +29,7 @@
       
         
         
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
+          &lt;p&gt;[按照教程在这里下载JOL的包][1]&lt;br&gt;[1]:&lt;a
         
       
     
