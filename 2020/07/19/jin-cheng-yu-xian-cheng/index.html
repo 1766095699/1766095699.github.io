@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -431,8 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
-                                <span class="chip bg-color">基本概念 代码实现</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+                                <span class="chip bg-color">基本概念</span>
                             </a>
                         
                     </div>
@@ -443,8 +447,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java-%E7%BA%BF%E7%A8%8B/" class="post-category">
-                                Java 线程
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                            <a href="/categories/Java/%E7%BA%BF%E7%A8%8B/" class="post-category">
+                                线程
                             </a>
                         
                     </div>
@@ -496,7 +504,7 @@
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">>=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
                 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"抢到票"</span><span class="token operator">+</span>ticket<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 ticket<span class="token operator">--</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
@@ -534,7 +542,7 @@
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">>=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
                 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"抢到票"</span><span class="token operator">+</span>ticket<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 ticket<span class="token operator">--</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
@@ -615,7 +623,7 @@
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">>=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
             System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"票"</span><span class="token operator">+</span>ticket<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
             ticket<span class="token operator">--</span><span class="token punctuation">;</span>
@@ -642,8 +650,8 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span></code></pre>
 <p>线程池的好处:</p>
-<p><img src="https://i.loli.net/2020/07/20/bYuxqV2FJLMR3fw.png" alt=""><br>注:用survice.getClass()可以找到survice的实现类,可以发现是ThreadPoolExxcutor,然后上属的方法要通过强转才能用：  </p>
-<pre><code>ThreadPoolExxcutor survice1=(ThreadPoolExxcutor) survice;</code></pre><script>
+<p><img src="https://i.loli.net/2020/07/20/bYuxqV2FJLMR3fw.png" alt=""><br>注:用survice.getClass()可以找到survice的实现类,可以发现是ThreadPoolExxcutor,然后上属的方法要通过强转才能用：<br>    ThreadPoolExxcutor survice1=(ThreadPoolExxcutor) survice;</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -724,8 +732,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
-                                    <span class="chip bg-color">基本概念 代码实现</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+                                    <span class="chip bg-color">基本概念</span>
                                 </a>
                             
                         </div>
@@ -794,49 +806,58 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/19/jin-cheng-yu-xian-cheng/">
+                <a href="/2020/07/21/synchronized-guan-jian-zi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="创建多线程的四种方式(暂时不考虑线程安全问题)">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="synchronized关键字">
                         
-                        <span class="card-title">创建多线程的四种方式(暂时不考虑线程安全问题)</span>
+                        <span class="card-title">synchronized关键字</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略一.程序,进程,线程的基本概念 这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释
-二.创建多线程的四种方式(以多线
+                            Sy手段
+
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { r
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java-%E7%BA%BF%E7%A8%8B/" class="post-category">
-                                    Java 线程
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            <a href="/categories/Java/%E7%BA%BF%E7%A8%8B/" class="post-category">
+                                    线程
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
-                        <span class="chip bg-color">基本概念 代码实现</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
