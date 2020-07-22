@@ -486,14 +486,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -640,7 +640,7 @@ public static void main(String[] args) {
     System.out.println(t2.getState());
     }
 }</code></pre><p>代码结果: <img src="https://i.loli.net/2020/07/22/bMRwQJrl41xHhNT.png" alt=""><br>当线程一还在执行的时候,线程二处于阻塞状态,即便手动暂停,线程二依旧处于阻塞状态,体现了synchronized的不可中断性,线程二只能在synchronized那一行等着锁释放</p>
-<h3 id="四-Reentrantlock的可中断和不可中断"><a href="#四-Reentrantlock的可中断和不可中断" class="headerlink" title="四.Reentrantlock的可中断和不可中断"></a>四.Reentrantlock的可中断和不可中断</h3><h4 id="emsp-1-Lock可中断代码-lock-lock"><a href="#emsp-1-Lock可中断代码-lock-lock" class="headerlink" title=" 1.Lock可中断代码(lock.lock())"></a> 1.Lock可中断代码(lock.lock())</h4><pre><code>class Mythread implements Runnable{
+<h2 id="四-Reentrantlock的可中断和不可中断"><a href="#四-Reentrantlock的可中断和不可中断" class="headerlink" title="四.Reentrantlock的可中断和不可中断"></a>四.Reentrantlock的可中断和不可中断</h2><h4 id="emsp-1-Lock可中断代码-lock-lock"><a href="#emsp-1-Lock可中断代码-lock-lock" class="headerlink" title=" 1.Lock可中断代码(lock.lock())"></a> 1.Lock可中断代码(lock.lock())</h4><pre><code>class Mythread implements Runnable{
 Lock lock=new ReentrantLock();
 @Override
 public void run() {
@@ -675,9 +675,17 @@ public class Test1 {
         System.out.println(t1.getState());
         System.out.println(t2.getState());
     }
-}</code></pre><p>代码结果 :   <img src="https://i.loli.net/2020/07/22/QxqPIBuYdVa3R7t.png" alt=""><br>结果显示 :线程二处于WAITING状态,不可暂停<br> 2.lock的可中断性代码示例(trylock()):<br><img src="https://i.loli.net/2020/07/22/C6O4qlkLdsbzjf2.png" alt="1.png"><br><strong><em>就是利用了 trylock</em></strong></p>
+}</code></pre><p>代码结果 :   <img src="https://i.loli.net/2020/07/22/QxqPIBuYdVa3R7t.png" alt=""><br>结果显示 :线程二处于WAITING状态,不可暂停  </p>
+<h4 id="emsp-2-lock的可中断性代码示例-trylock"><a href="#emsp-2-lock的可中断性代码示例-trylock" class="headerlink" title=" 2.lock的可中断性代码示例(trylock()):"></a> 2.lock的可中断性代码示例(trylock()):</h4><p><img src="https://i.loli.net/2020/07/22/C6O4qlkLdsbzjf2.png" alt=""></p>
+<p><strong><em>就是利用了 trylock,第二个参数是单位,比如SECOND就是秒</em></strong></p>
 <hr>
-<h2 id="五"><a href="#五" class="headerlink" title="五."></a>五.</h2><script>
+<h2 id="五-javap反汇编学习synchronized的原理"><a href="#五-javap反汇编学习synchronized的原理" class="headerlink" title="五.javap反汇编学习synchronized的原理"></a>五.javap反汇编学习synchronized的原理</h2><h3 id="一-monitorenter"><a href="#一-monitorenter" class="headerlink" title="一.monitorenter"></a>一.monitorenter</h3><h4 id="1-JVM规范文档和反汇编代码"><a href="#1-JVM规范文档和反汇编代码" class="headerlink" title="1.JVM规范文档和反汇编代码"></a>1.JVM规范文档和反汇编代码</h4><p><img src="https://i.loli.net/2020/07/22/thSP8pnbC5AVYHJ.png" alt="JVM规范中描述monitorenter"><br><img src="https://i.loli.net/2020/07/22/xtgrq6MEQO4iRbC.png" alt="左边是代码,右边是反编译的结果"></p>
+<h4 id="emsp-2-monitorenter小结"><a href="#emsp-2-monitorenter小结" class="headerlink" title=" 2.monitorenter小结"></a> 2.monitorenter小结</h4><p> synchronized的锁对象会关联一个monitor,这个monitor不是我们主动创建的,，是JVM的线程执行到这个同步代码块,发现锁对象没有monitor就会创建monitor monitor内部有两个重要的成员变量owner:拥有这把锁的线程,recursions会记录线程拥有锁的次数,当一个线程拥有monitor后其他线程只能等待</p>
+<h3 id="二-monitorexit"><a href="#二-monitorexit" class="headerlink" title="二.monitorexit"></a>二.monitorexit</h3><h4 id="emsp-1-JVM规范文档和反汇编代码"><a href="#emsp-1-JVM规范文档和反汇编代码" class="headerlink" title=" 1.JVM规范文档和反汇编代码"></a> 1.JVM规范文档和反汇编代码</h4><p><img src="https://i.loli.net/2020/07/22/Vwltz6pyBC21YZn.png" alt="JVM规范中描述monitorexit"><br><img src="https://i.loli.net/2020/07/22/K2Q4BsAVd37SrF9.png" alt="左边是代码,右边是反编译的结果"></p>
+<p><strong><em>注意：从反汇编的Exception table可以看出：synchronized一旦出现异常是会释放锁的</em></strong></p>
+<h4 id="三-同步方法"><a href="#三-同步方法" class="headerlink" title="三.同步方法"></a>三.同步方法</h4><p><img src="https://i.loli.net/2020/07/22/fTW3lakubmZS4Fs.png" alt="1.png"><br><strong><em>也就是说在进入方法时隐式调用monitorenter,结束的时候隐式调用monitorexit</em></strong></p>
+<h4 id="四-小结"><a href="#四-小结" class="headerlink" title="四.小结"></a>四.小结</h4><p>  通过javap反汇编我们看到synchronized使用编程了monitorentor和monitorexit两个指令.每个锁对象都会关联一个monitor(监视器,它才是真正的锁对象),它内部有两个重要的成员变量owner会保存获得锁的线程,recursions会保存线程获得锁的次数当执行到monitorexit时,recursions会-1 ,当计数器减到0时这个线程就会释放锁</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
