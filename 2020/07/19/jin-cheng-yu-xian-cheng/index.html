@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -471,7 +471,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-21
+                    2020-07-22
                 </div>
                 
 
@@ -498,7 +498,7 @@
                 <h1 id="再次提醒：下文内容仅就总结多线程的创建方式-不考虑线程安全问题-且为了直观-在异常处理方面大量省略"><a href="#再次提醒：下文内容仅就总结多线程的创建方式-不考虑线程安全问题-且为了直观-在异常处理方面大量省略" class="headerlink" title="再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略"></a>再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略</h1><h2 id="一-程序-进程-线程的基本概念"><a href="#一-程序-进程-线程的基本概念" class="headerlink" title="一.程序,进程,线程的基本概念"></a>一.程序,进程,线程的基本概念</h2><p><img src="https://i.loli.net/2020/07/20/atozTYeqNsSMl3H.png" alt=""><br> 这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释</p>
 <h2 id="二-创建多线程的四种方式-以多线程抢票为背景"><a href="#二-创建多线程的四种方式-以多线程抢票为背景" class="headerlink" title="二.创建多线程的四种方式(以多线程抢票为背景)"></a>二.创建多线程的四种方式(以多线程抢票为背景)</h2><h2 id="①在JDK5-0之前："><a href="#①在JDK5-0之前：" class="headerlink" title="①在JDK5.0之前："></a>①<strong><em>在JDK5.0之前：</em></strong></h2><h3 id="emsp-方式一：继承Thread类"><a href="#emsp-方式一：继承Thread类" class="headerlink" title=" 方式一：继承Thread类"></a> 方式一：继承Thread类</h3><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个子类继承Thread</span>
     <span class="token keyword">class</span> <span class="token class-name">Mythread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span><span class="token punctuation">{</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token keyword">static</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
 
     <span class="token comment" spellcheck="true">//2.重写run方法</span>
     <span class="token annotation punctuation">@Override</span>
@@ -822,8 +822,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一.并发编程的三大问题一.可见性 1.概念:对于共享数据,一个线程对该数据的值进行修改后另一个线程无法得到修改后的值 2.代码演示：public class Test1 {
-private static boolean flag=true;
+                            一.并发编程的三大问题一.可见性 1.概念: 对于共享数据,一个线程对该数据的值进行修改后另一个线程无法得到修改后的值  
+ 2.代码演示：public class Test1 {
+private static boolean flag=t
                         
                     </div>
                     <div class="publish-info">
