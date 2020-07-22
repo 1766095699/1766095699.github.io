@@ -574,7 +574,7 @@ public static void main(String[] args) throws InterruptedException {
 <h4 id="emsp-4-解决方法"><a href="#emsp-4-解决方法" class="headerlink" title=" 4.解决方法"></a> 4.解决方法</h4><p>  方式一(syncronized)：用synchronized进行同步的代码块,哪个进程拿到锁就哪个进程执行,如果没拿到的只能在外面等着,这保证了代码块最多只能有一个进程在执行   </p>
 <p>例如:对于上面的代码示例中while内部用synchronized包起来,这样当线程一拿到锁开始抢票的时候其他线程都在while那里等着不往下执行,等线程一执行完代码块后锁释放出来再和其他进程一起去抢<br><img src="https://i.loli.net/2020/07/22/yxKSQ4LJvbIEzmX.png" alt=""></p>
 <p><strong><em>注意： synchronized如果是把while也包进来了结果会是只有一个进程直接把所有票抢完,原因可以结合上面的原理自行分析<br>所以使用synchronized有一个原则:不能包的太多也不能太少</em></strong></p>
-<h2 id="三-有序性"><a href="#三-有序性" class="headerlink" title="三.有序性"></a>三.有序性</h2><h4 id="emsp-1-概念-2"><a href="#emsp-1-概念-2" class="headerlink" title=" 1.概念:"></a> 1.概念:</h4><p> 代码执行顺序不是严格按照顺序从上到下执行的</p>
+<h3 id="三-有序性"><a href="#三-有序性" class="headerlink" title="三.有序性"></a>三.有序性</h3><h4 id="emsp-1-概念-2"><a href="#emsp-1-概念-2" class="headerlink" title=" 1.概念:"></a> 1.概念:</h4><p> 代码执行顺序不是严格按照顺序从上到下执行的</p>
 <h4 id="emsp-2-代码示例"><a href="#emsp-2-代码示例" class="headerlink" title=" 2.代码示例():"></a> 2.代码示例():</h4><p><img src="https://i.loli.net/2020/07/22/jUxlerpFIzoRmn4.png" alt=""></p>
 <pre><code>ready=true;
 num=2;
