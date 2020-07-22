@@ -543,7 +543,7 @@ public static void main(String[] args) throws InterruptedException {
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">>=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ticket<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
                 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"抢到票"</span><span class="token operator">+</span>ticket<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 ticket<span class="token operator">--</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
@@ -640,7 +640,7 @@ public static void main(String[] args) {
     System.out.println(t2.getState());
     }
 }</code></pre><p>代码结果: <img src="https://i.loli.net/2020/07/22/bMRwQJrl41xHhNT.png" alt=""><br>当线程一还在执行的时候,线程二处于阻塞状态,即便手动暂停,线程二依旧处于阻塞状态,体现了synchronized的不可中断性,线程二只能在synchronized那一行等着锁释放</p>
-<h2 id="四-Reentrantlock的可中断和不可中断"><a href="#四-Reentrantlock的可中断和不可中断" class="headerlink" title="四.Reentrantlock的可中断和不可中断"></a>四.Reentrantlock的可中断和不可中断</h2><h4 id="emsp-1-Lock可中断代码-lock-lock"><a href="#emsp-1-Lock可中断代码-lock-lock" class="headerlink" title=" 1.Lock可中断代码(lock.lock())"></a> 1.Lock可中断代码(lock.lock())</h4><pre><code>class Mythread implements Runnable{
+<h2 id="四-Reentrantlock的可中断和不可中断"><a href="#四-Reentrantlock的可中断和不可中断" class="headerlink" title="四.Reentrantlock的可中断和不可中断"></a>四.Reentrantlock的可中断和不可中断</h2><h4 id="1-Lock可中断代码-lock-lock"><a href="#1-Lock可中断代码-lock-lock" class="headerlink" title="1.Lock可中断代码(lock.lock())"></a>1.Lock可中断代码(lock.lock())</h4><pre><code>class Mythread implements Runnable{
 Lock lock=new ReentrantLock();
 @Override
 public void run() {
@@ -676,7 +676,7 @@ public class Test1 {
         System.out.println(t2.getState());
     }
 }</code></pre><p>代码结果 :   <img src="https://i.loli.net/2020/07/22/QxqPIBuYdVa3R7t.png" alt=""><br>结果显示 :线程二处于WAITING状态,不可暂停  </p>
-<h4 id="emsp-2-lock的可中断性代码示例-trylock"><a href="#emsp-2-lock的可中断性代码示例-trylock" class="headerlink" title=" 2.lock的可中断性代码示例(trylock()):"></a> 2.lock的可中断性代码示例(trylock()):</h4><p><img src="https://i.loli.net/2020/07/22/C6O4qlkLdsbzjf2.png" alt=""></p>
+<h4 id="2-lock的可中断性代码示例-trylock"><a href="#2-lock的可中断性代码示例-trylock" class="headerlink" title="2.lock的可中断性代码示例(trylock()):"></a>2.lock的可中断性代码示例(trylock()):</h4><p><img src="https://i.loli.net/2020/07/22/C6O4qlkLdsbzjf2.png" alt=""></p>
 <p><strong><em>就是利用了 trylock,第二个参数是单位,比如SECOND就是秒</em></strong></p>
 <hr>
 <h2 id="五-javap反汇编学习synchronized的原理"><a href="#五-javap反汇编学习synchronized的原理" class="headerlink" title="五.javap反汇编学习synchronized的原理"></a>五.javap反汇编学习synchronized的原理</h2><h3 id="一-monitorenter"><a href="#一-monitorenter" class="headerlink" title="一.monitorenter"></a>一.monitorenter</h3><h4 id="1-JVM规范文档和反汇编代码"><a href="#1-JVM规范文档和反汇编代码" class="headerlink" title="1.JVM规范文档和反汇编代码"></a>1.JVM规范文档和反汇编代码</h4><p><img src="https://i.loli.net/2020/07/22/thSP8pnbC5AVYHJ.png" alt="JVM规范中描述monitorenter"><br><img src="https://i.loli.net/2020/07/22/xtgrq6MEQO4iRbC.png" alt="左边是代码,右边是反编译的结果"></p>
