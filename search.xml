@@ -46,7 +46,7 @@
       <link href="/2020/07/21/synchronized-guan-jian-zi/"/>
       <url>/2020/07/21/synchronized-guan-jian-zi/</url>
       
-        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h2 id="一-并发编程的三大问题"><a href="#一-并发编程的三大问题" class="headerlink" title="一.并发编程的三大问题"></a>一.并发编程的三大问题</h2><h3 id="一-可见性"><a href="#一-可见性" class="headerlink" title="一.可见性"></a>一.可见性</h3><h4 id="emsp-1-概念-对于共享数据-一个线程对该数据的值进行修改后另一个线程无法得到修改后的值"><a href="#emsp-1-概念-对于共享数据-一个线程对该数据的值进行修改后另一个线程无法得到修改后的值" class="headerlink" title=" 1.概念:对于共享数据,一个线程对该数据的值进行修改后另一个线程无法得到修改后的值"></a> 1.概念:对于共享数据,一个线程对该数据的值进行修改后另一个线程无法得到修改后的值</h4><h4 id="emsp-2-代码演示："><a href="#emsp-2-代码演示：" class="headerlink" title=" 2.代码演示："></a> 2.代码演示：</h4><pre><code>public class Test1 {private static boolean flag=true;public static void main(String[] args) throws InterruptedException {    new Thread(){        @Override        public void run() {            while (flag){                ;            }            System.out.println("flag已修改");        }    }.start();    Thread.sleep(2000);    new Thread(){        @Override        public void run() {            flag=false;            System.out.println("已经被我修改");            }        }.start();    }}  </code></pre><p> 运行结果：<img src="https://i.loli.net/2020/07/22/vYbSzhJt4VXW5RF.png" alt=""><br> <strong><em>不难发现,当线程二将flag改为true的时候线程一并不能提前得到最新数据,导致程序依旧停留在while循环中</em></strong>  </p><h4 id="3-原因分析"><a href="#3-原因分析" class="headerlink" title="3.原因分析"></a>3.原因分析</h4><p> <br><img src="https://i.loli.net/2020/07/22/wtyEl7iIvfadGxz.png" alt="内存模型"><br>线程工作原理:在线程操作变量时,会先将主内存中的变量拷贝到工作内存中,然后对工作内存中的拷贝变量进行赋值计算等操作,操作完之后再赋值给主内存  </p><p>分析:比如示例代码的上下两个线程分别表示线程1和线程2,线程一的工作内存复制的值是true,当线程2将flag改为false并且赋给主内存后,线程一并不会去读取主内存中的值,这也就导致了线程一卡在while循环无法出来</p><h4 id="4-解决方法"><a href="#4-解决方法" class="headerlink" title="4.解决方法"></a>4.解决方法</h4><p>1.放</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -63,6 +63,10 @@
             <tag> Java </tag>
             
             <tag> JVM </tag>
+            
+            <tag> synchronized </tag>
+            
+            <tag> volatile </tag>
             
         </tags>
       
