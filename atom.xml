@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-07-21T06:31:42.829Z</updated>
+  <updated>2020-07-21T11:19:11.853Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java内存模型</title>
+    <link href="https://1766095699.github.io/2020/07/21/java-nei-cun-mo-xing/"/>
+    <id>https://1766095699.github.io/2020/07/21/java-nei-cun-mo-xing/</id>
+    <published>2020-07-21T11:19:11.000Z</published>
+    <updated>2020-07-21T11:19:11.853Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>JOL的安装</title>
@@ -48,7 +75,7 @@
     <link href="https://1766095699.github.io/2020/07/21/synchronized-guan-jian-zi/"/>
     <id>https://1766095699.github.io/2020/07/21/synchronized-guan-jian-zi/</id>
     <published>2020-07-21T00:01:18.000Z</published>
-    <updated>2020-07-21T00:14:39.337Z</updated>
+    <updated>2020-07-22T01:58:19.819Z</updated>
     
     <summary type="html">
     
@@ -56,11 +83,11 @@
       
         
         
-          &lt;p&gt;Sy手段&lt;/p&gt;
-&lt;script&gt;
+          &lt;script&gt;
         document.querySelectorAll(&#39;.github-emoji&#39;)
           .forEach(el =&gt; {
-            if (!el.dataset.src) {
+            if (!el.dataset.src) { return; }
+       
         
       
     
