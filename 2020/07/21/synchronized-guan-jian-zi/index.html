@@ -486,14 +486,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -685,6 +685,9 @@ public class Test1 {
 <p><strong><em>注意：从反汇编的Exception table可以看出：synchronized一旦出现异常是会释放锁的</em></strong></p>
 <h3 id="三-同步方法"><a href="#三-同步方法" class="headerlink" title="三.同步方法"></a>三.同步方法</h3><p><img src="https://i.loli.net/2020/07/22/fTW3lakubmZS4Fs.png" alt=""><br><strong><em>也就是说在进入方法时隐式调用monitorenter,结束的时候隐式调用monitorexit</em></strong></p>
 <h3 id="四-小结"><a href="#四-小结" class="headerlink" title="四.小结"></a>四.小结</h3><p>  通过javap反汇编我们看到synchronized使用编程了monitorentor和monitorexit两个指令.每个锁对象都会关联一个monitor(监视器,它才是真正的锁对象),它内部有两个重要的成员变量owner会保存获得锁的线程,recursions会保存线程获得锁的次数当执行到monitorexit时,recursions会-1 ,当计数器减到0时这个线程就会释放锁</p>
+<h2 id="amp-emsp；synchronized和lock的区别-面试题"><a href="#amp-emsp；synchronized和lock的区别-面试题" class="headerlink" title="&amp;emsp；synchronized和lock的区别(面试题)"></a>&amp;emsp；synchronized和lock的区别(面试题)</h2><p><img src="https://i.loli.net/2020/07/22/HU81YTzqOyjGNZo.png" alt=""><br>注1:由于synchronized是重量锁,效率比较低,虽然相较于以前进行了优化<br>注2:ReentranLock是否是公平锁可以自己控制,在实例化lock的时候参数不写就默认非公平,(fair)表示公平锁  </p>
+<pre><code>    ReentrantLock lock=new ReentrantLock();//非公平锁
+    ReentrantLock lock=new ReentrantLock();//公平锁</code></pre><p>公平锁 :即满足队列的原则,先进先出<br>非公平锁 :所有进程同时抢一把锁看运气</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
