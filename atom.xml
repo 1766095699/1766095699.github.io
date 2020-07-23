@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-07-23T15:35:38.111Z</updated>
+  <updated>2020-07-23T16:10:24.602Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://1766095699.github.io/2020/07/22/synchronized-guan-jian-zi-er/"/>
     <id>https://1766095699.github.io/2020/07/22/synchronized-guan-jian-zi-er/</id>
     <published>2020-07-22T13:03:46.000Z</published>
-    <updated>2020-07-23T15:35:38.111Z</updated>
+    <updated>2020-07-23T16:10:24.602Z</updated>
     
     <summary type="html">
     
@@ -40,6 +40,8 @@
     
       <category term="线程" scheme="https://1766095699.github.io/categories/Java/%E7%BA%BF%E7%A8%8B/"/>
     
+      <category term="线程安全" scheme="https://1766095699.github.io/categories/Java/%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/"/>
+    
     
       <category term="Java" scheme="https://1766095699.github.io/tags/Java/"/>
     
@@ -47,7 +49,7 @@
     
       <category term="synchronized" scheme="https://1766095699.github.io/tags/synchronized/"/>
     
-      <category term="volatile" scheme="https://1766095699.github.io/tags/volatile/"/>
+      <category term="锁" scheme="https://1766095699.github.io/tags/%E9%94%81/"/>
     
   </entry>
   

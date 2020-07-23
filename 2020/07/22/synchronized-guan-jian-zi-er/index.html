@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -443,8 +443,8 @@
                                 <span class="chip bg-color">synchronized</span>
                             </a>
                         
-                            <a href="/tags/volatile/">
-                                <span class="chip bg-color">volatile</span>
+                            <a href="/tags/%E9%94%81/">
+                                <span class="chip bg-color">锁</span>
                             </a>
                         
                     </div>
@@ -463,6 +463,10 @@
                                 线程
                             </a>
                         
+                            <a href="/categories/Java/%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/" class="post-category">
+                                线程安全
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -479,7 +483,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-23
+                    2020-07-24
                 </div>
                 
 
@@ -543,8 +547,9 @@
 <p><strong><em>总结:</em></strong> </p>
 <p><strong><em>虚拟机会根据你之前拿到锁所需要的自旋次数来自适应的选出一个较优方案,如果自旋次数很大,就会自动转入重量级锁,如果较小,那么下次自旋会给出一个比这次大一点点的自旋数</em></strong>    </p>
 <h3 id="五-锁消除和锁粗化"><a href="#五-锁消除和锁粗化" class="headerlink" title="五.锁消除和锁粗化"></a>五.锁消除和锁粗化</h3><p>精确定义：锁消除是指虚拟机即时编译器（JIT）在运行时，对一些代码上要求同步，但是被检测到不可能存在共享 数据竞争的锁进行消除。锁消除的主要判定依据来源于逃逸分析的数据支持，如果判断在一段代码中， 堆上的所有数据都不会逃逸出去从而被其他线程访问到，那就可以把它们当做栈上数据对待，认为它们 是线程私有的，同步加锁自然就无须进行。变量是否逃逸，对于虚拟机来说需要使用数据流分析来确 定，但是程序员自己应该是很清楚的，怎么会在明知道不存在数据争用的情况下要求同步呢?实际上有 许多同步措施并不是程序员自己加入的，同步的代码在Java程序中的普遍程度也许超过了大部分读者的 想象。下面这段非常简单的代码仅仅是输出3个字符串相加的结果，无论是源码字面上还是程序语义上 都没有同步。</p>
-<p>我的总结：<br>锁消除：如果代码时不需要同步,但是你加了sychronized,那么程序会自动把synchronized忽略掉,这样就省去了同步的时间,提高效率 </p>
-<p>锁粗化：JVM会探测到一连串细小的操作都使用同一个对象加锁，将同步代码块的范围放大，放到这串操作的外面，这样只需要加一次锁即可。<br>比如：synchronized放在for循环的内部和外部不影响结果,那么如果你放在内部的话会影响程序效率,这时候程序会把synchronized优化放到外面去,这样只需要进入同步代码块一次即可</p>
+<p><strong><em>总结：</em></strong>  </p>
+<p><strong><em>锁消除：如果代码时不需要同步,但是你加了sychronized,那么程序会自动把synchronized忽略掉,这样就省去了同步的时间,提高效率</em></strong> </p>
+<p><strong><em>锁粗化：JVM会探测到一连串细小的操作都使用同一个对象加锁，将同步代码块的范围放大，放到这串操作的外面，这样只需要加一次锁即可。<br>比如：synchronized放在for循环的内部和外部不影响结果,那么如果你放在内部的话会影响程序效率,这时候程序会把synchronized优化放到外面去,这样只需要进入同步代码块一次即可</em></strong></p>
 
             </div>
             <hr/>
@@ -620,8 +625,8 @@
                                     <span class="chip bg-color">synchronized</span>
                                 </a>
                             
-                                <a href="/tags/volatile/">
-                                    <span class="chip bg-color">volatile</span>
+                                <a href="/tags/%E9%94%81/">
+                                    <span class="chip bg-color">锁</span>
                                 </a>
                             
                         </div>
@@ -727,6 +732,10 @@
                                     线程
                                 </a>
                             
+                            <a href="/categories/Java/%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/" class="post-category">
+                                    线程安全
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -747,8 +756,8 @@
                         <span class="chip bg-color">synchronized</span>
                     </a>
                     
-                    <a href="/tags/volatile/">
-                        <span class="chip bg-color">volatile</span>
+                    <a href="/tags/%E9%94%81/">
+                        <span class="chip bg-color">锁</span>
                     </a>
                     
                 </div>
