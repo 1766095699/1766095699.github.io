@@ -486,14 +486,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    254
+                    574
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -505,11 +505,16 @@
             <div id="articleContent">
                 <h2 id="emsp-一-monitor的JVM源码深入解析"><a href="#emsp-一-monitor的JVM源码深入解析" class="headerlink" title="&emsp;一.monitor的JVM源码深入解析"></a>&emsp;一.monitor的JVM源码深入解析</h2><p><img src="https://i.loli.net/2020/07/22/BSqiyrktVT1zaCw.png" alt="JVM源码"></p>
 <h3 id="一-代码解析："><a href="#一-代码解析：" class="headerlink" title="一.代码解析："></a>一.代码解析：</h3><p>&emsp; 1.在多个线程竞争锁的时候,线程1如果抢到锁,那么后面时刻进来的其他线程就会进入_cxq这个单向列表里等着(处在block状态),当线程一执行完一次同步代码块之后,如果此时依旧是线程1抢到了锁,那么单项列表里线程会被加到_EntryList这个列表中  </p>
-<p><strong><em>注:monitor是重量级锁</em></strong></p>
 <h3 id="二-monitor竞争"><a href="#二-monitor竞争" class="headerlink" title="二.monitor竞争"></a>二.monitor竞争</h3><p><img src="https://i.loli.net/2020/07/23/sn4GTgMzZIjbJ5p.png" alt="源码位置"></p>
 <p>&emsp;1.代码含义<br>&emsp;从源码中我们可以得出以下结论(在(一)中提到过了):<br>&emsp;①有新线程进入synchronized时,通过CAS操作把owner字段设置成当前线程<br>&emsp;②recursions遇到进入sychronized的”{“就会+1,出去的时候减1,对于重入锁,recursions可记录重入的次数<br>&emsp;③第一次进入的线程,owner会改为该线程,recursions会赋成1<br>&emsp;④如果获取锁失败,则等待锁的释放  </p>
 <h3 id="三-monitor等待"><a href="#三-monitor等待" class="headerlink" title="三.monitor等待"></a>三.monitor等待</h3><p><img src="https://i.loli.net/2020/07/23/fAospXhJcNqgOb2.png" alt="源码位置"><br><img src="https://i.loli.net/2020/07/23/NEvpMwfjFi4DqnR.png" alt="代码概括"></p>
 <h3 id="四-monitor释放"><a href="#四-monitor释放" class="headerlink" title="四.monitor释放"></a>四.monitor释放</h3><p><img src="https://i.loli.net/2020/07/23/ZNnmR8I3UebjMiF.png" alt="源码位置"><br><img src="https://i.loli.net/2020/07/23/2COuLacbdFHAq6t.png" alt="代码概括"></p>
+<h3 id="五-monitor是重量级锁"><a href="#五-monitor是重量级锁" class="headerlink" title="五.monitor是重量级锁"></a>五.monitor是重量级锁</h3><p><img src="https://i.loli.net/2020/07/23/mBNJsKiUqtd8fHQ.png" alt="Linx系统体系架构"><br><img src="https://i.loli.net/2020/07/23/VAWI4ayxzNJjlKP.png" alt="解析"><br>注:正是由于内核态和用户态的的频繁切换,导致synchronized效率很低</p>
+<h2 id="二-CAS简介"><a href="#二-CAS简介" class="headerlink" title="二.CAS简介"></a>二.CAS简介</h2><h3 id="emsp-1-CAS概述和作用"><a href="#emsp-1-CAS概述和作用" class="headerlink" title="&emsp;1.CAS概述和作用"></a>&emsp;1.CAS概述和作用</h3><p><img src="https://i.loli.net/2020/07/23/IrGSsoJkLOPTvYa.png" alt=""><br><img src="https://i.loli.net/2020/07/23/tIvJz456ngxQryj.png" alt="代码"><br>内存中的值,旧的预估值和要改的新值之间的关系是,如果内存值和预估值不同,就一直在while循环中进行比较,如果相同,就赋给新值</p>
+<h3 id="emsp-2-乐观锁和悲观锁"><a href="#emsp-2-乐观锁和悲观锁" class="headerlink" title="&emsp;2.乐观锁和悲观锁"></a>&emsp;2.乐观锁和悲观锁</h3><p><img src="https://i.loli.net/2020/07/23/imhNGwOpU5FnD9s.png" alt=""><br><strong><em>总结:<br>&emsp;①悲观锁会造成线程阻塞,性能差<br>&emsp;②乐观锁的处理机制是判断别人有没有改过数据,如果没人改就自己更新,有人改就重试,总体性能较好<br>&emsp;③乐观锁适用于竞争不激烈,多核CPU的场景下,因为如果不断重试效率可能还不如synchronized</em></strong></p>
+<h2 id="三-synchronized优化"><a href="#三-synchronized优化" class="headerlink" title="三.synchronized优化"></a>三.synchronized优化</h2><h3 id="emsp-一-Java对象布局细节"><a href="#emsp-一-Java对象布局细节" class="headerlink" title="&emsp;一.Java对象布局细节"></a>&emsp;一.Java对象布局细节</h3><h4 id="emsp-1-对象布局"><a href="#emsp-1-对象布局" class="headerlink" title="&emsp;1.对象布局"></a>&emsp;1.对象布局</h4><p><img src="https://i.loli.net/2020/07/23/dSPG3JvkHDxuUA4.png" alt=""><br><strong><em>实例数据:也就是在对象中声明的变量等数据</em></strong>  </p>
+<p><strong><em>对齐数据:由于字节位数的关系,一个对象的字节数必须是8的整数倍。例如 : 一个对象内存总共是13字节,那么为了对齐数据,总内存会占16字节,补充了3字节</em></strong></p>
+<p><strong><em>对象头:每个对象生来就有的,对象头主要分为Mark Word和Klass pointer</em></strong></p>
 
             </div>
             <hr/>
