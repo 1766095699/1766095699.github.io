@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-07-21T11:19:11.853Z</updated>
+  <updated>2020-07-22T13:04:35.502Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>synchronized关键字(二)</title>
+    <link href="https://1766095699.github.io/2020/07/22/synchronized-guan-jian-zi-er/"/>
+    <id>https://1766095699.github.io/2020/07/22/synchronized-guan-jian-zi-er/</id>
+    <published>2020-07-22T13:03:46.000Z</published>
+    <updated>2020-07-22T13:04:35.502Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;emsp-一-monitor的深入解析&quot;&gt;&lt;a href=&quot;#emsp-一-monitor的深入解析&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://1766095699.github.io/categories/Java/"/>
+    
+      <category term="线程" scheme="https://1766095699.github.io/categories/Java/%E7%BA%BF%E7%A8%8B/"/>
+    
+    
+      <category term="Java" scheme="https://1766095699.github.io/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://1766095699.github.io/tags/JVM/"/>
+    
+      <category term="synchronized" scheme="https://1766095699.github.io/tags/synchronized/"/>
+    
+      <category term="volatile" scheme="https://1766095699.github.io/tags/volatile/"/>
+    
+  </entry>
   
   <entry>
     <title>Java内存模型</title>
@@ -71,11 +106,11 @@
   </entry>
   
   <entry>
-    <title>synchronized关键字</title>
+    <title>synchronized关键字(一)</title>
     <link href="https://1766095699.github.io/2020/07/21/synchronized-guan-jian-zi/"/>
     <id>https://1766095699.github.io/2020/07/21/synchronized-guan-jian-zi/</id>
     <published>2020-07-21T00:01:18.000Z</published>
-    <updated>2020-07-22T12:30:26.364Z</updated>
+    <updated>2020-07-22T13:04:11.672Z</updated>
     
     <summary type="html">
     

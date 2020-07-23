@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>synchronized关键字(二)</title>
+      <link href="/2020/07/22/synchronized-guan-jian-zi-er/"/>
+      <url>/2020/07/22/synchronized-guan-jian-zi-er/</url>
+      
+        <content type="html"><![CDATA[<h2 id="emsp-一-monitor的深入解析"><a href="#emsp-一-monitor的深入解析" class="headerlink" title="&emsp;一.monitor的深入解析"></a>&emsp;一.monitor的深入解析</h2><p><img src="https://i.loli.net/2020/07/22/BSqiyrktVT1zaCw.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+          <category> 线程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> JVM </tag>
+            
+            <tag> synchronized </tag>
+            
+            <tag> volatile </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java内存模型</title>
       <link href="/2020/07/21/java-nei-cun-mo-xing/"/>
       <url>/2020/07/21/java-nei-cun-mo-xing/</url>
@@ -42,7 +75,7 @@
     
     
     <entry>
-      <title>synchronized关键字</title>
+      <title>synchronized关键字(一)</title>
       <link href="/2020/07/21/synchronized-guan-jian-zi/"/>
       <url>/2020/07/21/synchronized-guan-jian-zi/</url>
       
