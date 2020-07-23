@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    574
+                    731
                 </div>
                 
 
@@ -514,7 +514,14 @@
 <h3 id="emsp-2-乐观锁和悲观锁"><a href="#emsp-2-乐观锁和悲观锁" class="headerlink" title="&emsp;2.乐观锁和悲观锁"></a>&emsp;2.乐观锁和悲观锁</h3><p><img src="https://i.loli.net/2020/07/23/imhNGwOpU5FnD9s.png" alt=""><br><strong><em>总结:<br>&emsp;①悲观锁会造成线程阻塞,性能差<br>&emsp;②乐观锁的处理机制是判断别人有没有改过数据,如果没人改就自己更新,有人改就重试,总体性能较好<br>&emsp;③乐观锁适用于竞争不激烈,多核CPU的场景下,因为如果不断重试效率可能还不如synchronized</em></strong></p>
 <h2 id="三-synchronized优化"><a href="#三-synchronized优化" class="headerlink" title="三.synchronized优化"></a>三.synchronized优化</h2><h3 id="emsp-一-Java对象布局细节"><a href="#emsp-一-Java对象布局细节" class="headerlink" title="&emsp;一.Java对象布局细节"></a>&emsp;一.Java对象布局细节</h3><h4 id="emsp-1-对象布局"><a href="#emsp-1-对象布局" class="headerlink" title="&emsp;1.对象布局"></a>&emsp;1.对象布局</h4><p><img src="https://i.loli.net/2020/07/23/dSPG3JvkHDxuUA4.png" alt=""><br><strong><em>实例数据:也就是在对象中声明的变量等数据</em></strong>  </p>
 <p><strong><em>对齐数据:由于字节位数的关系,一个对象的字节数必须是8的整数倍。例如 : 一个对象内存总共是13字节,那么为了对齐数据,总内存会占16字节,补充了3字节</em></strong></p>
-<p><strong><em>对象头:每个对象生来就有的,对象头主要分为Mark Word和Klass pointer</em></strong></p>
+<p><strong><em>对象头:每个对象生来就有的,对象头主要分为Mark Word和Klass pointer(类型指针)</em></strong></p>
+<h3 id="2-对象头的大小"><a href="#2-对象头的大小" class="headerlink" title="2.对象头的大小"></a>2.对象头的大小</h3><p><img src="https://i.loli.net/2020/07/23/rAIYV1SmTCPdOJg.png" alt=""><br>用JOL工具包显示出的对象头大小结果（平时是IDA默认是开启指针压缩的）:<br><img src="https://i.loli.net/2020/07/23/dkKIyU6Eh7MDFsQ.png" alt="指针压缩时"><br><img src="https://i.loli.net/2020/07/23/QbfvLnYwI3OSAyB.png" alt="取消指针压缩时"><br>由于平时默认指针压缩时开着的,如果开启了指针压缩,那么会占,12字节,Klass Pointer会被压缩4个字节(由上图比较可以发现)  </p>
+<p><img src="https://i.loli.net/2020/07/23/fHa4IdJu5qSLzON.png" alt="Klass pointer详解"></p>
+<h3 id="3-关于JOL工具包显示结果中Value值的含义"><a href="#3-关于JOL工具包显示结果中Value值的含义" class="headerlink" title="3.关于JOL工具包显示结果中Value值的含义"></a>3.关于JOL工具包显示结果中Value值的含义</h3><p><img src="https://i.loli.net/2020/07/23/JLXQkDx7zMV19gO.png" alt="Mark Word的存储结构"><br><img src="https://i.loli.net/2020/07/23/3IXJNsOeBogDZUM.png" alt=""><br>输出obj.hashCode之后可以发现,由于hashCode的高位对应value的低位(小端存储)</p>
+<hr>
+<p>四.锁</p>
+<p><strong><em>锁的进化过程:无锁–&gt;偏向锁–&gt;轻量级锁–&gt;重量级锁</em></strong></p>
+<p>一.偏向锁</p>
 
             </div>
             <hr/>
