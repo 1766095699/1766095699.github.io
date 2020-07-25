@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-07-23T16:10:24.602Z</updated>
+  <updated>2020-07-25T05:00:28.368Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android Stuidio中创建Fragment</title>
+    <link href="https://1766095699.github.io/2020/07/25/stuidio/"/>
+    <id>https://1766095699.github.io/2020/07/25/stuidio/</id>
+    <published>2020-07-25T04:42:19.000Z</published>
+    <updated>2020-07-25T05:00:28.368Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>底部导航栏布局和界面切换</title>
+    <link href="https://1766095699.github.io/2020/07/25/di-bu-cai-dan-lan-bu-ju/"/>
+    <id>https://1766095699.github.io/2020/07/25/di-bu-cai-dan-lan-bu-ju/</id>
+    <published>2020-07-25T00:38:42.000Z</published>
+    <updated>2020-07-25T02:50:53.878Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;&lt;em&gt;先看以下想要实现的效果：&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;&lt;img src=&quot;https://i.loli.net/2020/07/25/JvQVIcnFhyP7uWA.png&quot; alt=&quot;效果图&quot;&gt;&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Android开发" scheme="https://1766095699.github.io/categories/Android%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android开发" scheme="https://1766095699.github.io/tags/Android%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="UI布局" scheme="https://1766095699.github.io/tags/UI%E5%B8%83%E5%B1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>synchronized关键字(二)</title>

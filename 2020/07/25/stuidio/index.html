@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="synchronized关键字(二), 比企谷八幡">
+    <meta name="keywords" content="Android Stuidio中创建Fragment, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>synchronized关键字(二) | 比企谷八幡</title>
+    <title>Android Stuidio中创建Fragment | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">synchronized关键字(二)</h1>
+                    <h1 class="description center-align post-title">Android Stuidio中创建Fragment</h1>
                 </div>
             </div>
         </div>
@@ -429,45 +429,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
-                            <a href="/tags/JVM/">
-                                <span class="chip bg-color">JVM</span>
-                            </a>
-                        
-                            <a href="/tags/synchronized/">
-                                <span class="chip bg-color">synchronized</span>
-                            </a>
-                        
-                            <a href="/tags/%E9%94%81/">
-                                <span class="chip bg-color">锁</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Java/" class="post-category">
-                                Java
-                            </a>
-                        
-                            <a href="/categories/Java/%E7%BA%BF%E7%A8%8B/" class="post-category">
-                                线程
-                            </a>
-                        
-                            <a href="/categories/Java/%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/" class="post-category">
-                                线程安全
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -476,28 +443,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-22
+                    2020-07-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-24
+                    2020-07-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    1 分
                 </div>
                 
 
@@ -507,50 +474,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="emsp-一-monitor的JVM源码深入解析"><a href="#emsp-一-monitor的JVM源码深入解析" class="headerlink" title="&emsp;一.monitor的JVM源码深入解析"></a>&emsp;一.monitor的JVM源码深入解析</h2><p><img src="https://i.loli.net/2020/07/22/BSqiyrktVT1zaCw.png" alt="JVM源码"></p>
-<h3 id="一-代码解析："><a href="#一-代码解析：" class="headerlink" title="一.代码解析："></a>一.代码解析：</h3><p>&emsp; 1.在多个线程竞争锁的时候,线程1如果抢到锁,那么后面时刻进来的其他线程就会进入_cxq这个单向列表里等着(处在block状态),当线程一执行完一次同步代码块之后,如果此时依旧是线程1抢到了锁,那么单项列表里线程会被加到_EntryList这个列表中  </p>
-<h3 id="二-monitor竞争"><a href="#二-monitor竞争" class="headerlink" title="二.monitor竞争"></a>二.monitor竞争</h3><p><img src="https://i.loli.net/2020/07/23/sn4GTgMzZIjbJ5p.png" alt="源码位置"></p>
-<p>&emsp;1.代码含义<br>&emsp;从源码中我们可以得出以下结论(在(一)中提到过了):<br>&emsp;①有新线程进入synchronized时,通过CAS操作把owner字段设置成当前线程<br>&emsp;②recursions遇到进入sychronized的”{“就会+1,出去的时候减1,对于重入锁,recursions可记录重入的次数<br>&emsp;③第一次进入的线程,owner会改为该线程,recursions会赋成1<br>&emsp;④如果获取锁失败,则等待锁的释放  </p>
-<h3 id="三-monitor等待"><a href="#三-monitor等待" class="headerlink" title="三.monitor等待"></a>三.monitor等待</h3><p><img src="https://i.loli.net/2020/07/23/fAospXhJcNqgOb2.png" alt="源码位置"><br><img src="https://i.loli.net/2020/07/23/NEvpMwfjFi4DqnR.png" alt="代码概括"></p>
-<h3 id="四-monitor释放"><a href="#四-monitor释放" class="headerlink" title="四.monitor释放"></a>四.monitor释放</h3><p><img src="https://i.loli.net/2020/07/23/ZNnmR8I3UebjMiF.png" alt="源码位置"><br><img src="https://i.loli.net/2020/07/23/2COuLacbdFHAq6t.png" alt="代码概括"></p>
-<h3 id="五-monitor是重量级锁"><a href="#五-monitor是重量级锁" class="headerlink" title="五.monitor是重量级锁"></a>五.monitor是重量级锁</h3><p><img src="https://i.loli.net/2020/07/23/mBNJsKiUqtd8fHQ.png" alt="Linx系统体系架构"><br><img src="https://i.loli.net/2020/07/23/VAWI4ayxzNJjlKP.png" alt="解析"><br>注:正是由于内核态和用户态的的频繁切换,导致synchronized效率很低</p>
-<h2 id="二-CAS简介"><a href="#二-CAS简介" class="headerlink" title="二.CAS简介"></a>二.CAS简介</h2><h3 id="emsp-1-CAS概述和作用"><a href="#emsp-1-CAS概述和作用" class="headerlink" title="&emsp;1.CAS概述和作用"></a>&emsp;1.CAS概述和作用</h3><p><img src="https://i.loli.net/2020/07/23/IrGSsoJkLOPTvYa.png" alt=""><br><img src="https://i.loli.net/2020/07/23/tIvJz456ngxQryj.png" alt="代码"><br>内存中的值,旧的预估值和要改的新值之间的关系是,如果内存值和预估值不同,就一直在while循环中进行比较,如果相同,就赋给新值</p>
-<h3 id="emsp-2-乐观锁和悲观锁"><a href="#emsp-2-乐观锁和悲观锁" class="headerlink" title="&emsp;2.乐观锁和悲观锁"></a>&emsp;2.乐观锁和悲观锁</h3><p><img src="https://i.loli.net/2020/07/23/imhNGwOpU5FnD9s.png" alt=""><br><strong><em>总结:<br>&emsp;①悲观锁会造成线程阻塞,性能差<br>&emsp;②乐观锁的处理机制是判断别人有没有改过数据,如果没人改就自己更新,有人改就重试,总体性能较好<br>&emsp;③乐观锁适用于竞争不激烈,多核CPU的场景下,因为如果不断重试效率可能还不如synchronized</em></strong></p>
-<h2 id="三-synchronized优化"><a href="#三-synchronized优化" class="headerlink" title="三.synchronized优化"></a>三.synchronized优化</h2><h3 id="emsp-一-Java对象布局细节"><a href="#emsp-一-Java对象布局细节" class="headerlink" title="&emsp;一.Java对象布局细节"></a>&emsp;一.Java对象布局细节</h3><h4 id="emsp-1-对象布局"><a href="#emsp-1-对象布局" class="headerlink" title="&emsp;1.对象布局"></a>&emsp;1.对象布局</h4><p><img src="https://i.loli.net/2020/07/23/dSPG3JvkHDxuUA4.png" alt=""><br><strong><em>实例数据:也就是在对象中声明的变量等数据</em></strong>  </p>
-<p><strong><em>对齐数据:由于字节位数的关系,一个对象的字节数必须是8的整数倍。例如 : 一个对象内存总共是13字节,那么为了对齐数据,总内存会占16字节,补充了3字节</em></strong></p>
-<p><strong><em>对象头:每个对象生来就有的,对象头主要分为Mark Word和Klass pointer(类型指针)</em></strong></p>
-<h3 id="2-对象头的大小"><a href="#2-对象头的大小" class="headerlink" title="2.对象头的大小"></a>2.对象头的大小</h3><p><img src="https://i.loli.net/2020/07/23/rAIYV1SmTCPdOJg.png" alt=""><br>用JOL工具包显示出的对象头大小结果（平时是IDA默认是开启指针压缩的）:<br><img src="https://i.loli.net/2020/07/23/dkKIyU6Eh7MDFsQ.png" alt="指针压缩时"><br><img src="https://i.loli.net/2020/07/23/QbfvLnYwI3OSAyB.png" alt="取消指针压缩时"><br>由于平时默认指针压缩时开着的,如果开启了指针压缩,那么会占,12字节,Klass Pointer会被压缩4个字节(由上图比较可以发现)  </p>
-<p><img src="https://i.loli.net/2020/07/23/fHa4IdJu5qSLzON.png" alt="Klass pointer详解"></p>
-<h3 id="3-关于JOL工具包显示结果中Value值的含义"><a href="#3-关于JOL工具包显示结果中Value值的含义" class="headerlink" title="3.关于JOL工具包显示结果中Value值的含义"></a>3.关于JOL工具包显示结果中Value值的含义</h3><p><img src="https://i.loli.net/2020/07/23/JLXQkDx7zMV19gO.png" alt="Mark Word的存储结构"><br><img src="https://i.loli.net/2020/07/23/3IXJNsOeBogDZUM.png" alt=""><br>输出obj.hashCode之后可以发现,由于hashCode的高位对应value的低位(小端存储)</p>
-<hr>
-<h2 id="四-锁"><a href="#四-锁" class="headerlink" title="四.锁"></a>四.锁</h2><p><strong><em>锁的进化过程:无锁–&gt;偏向锁–&gt;轻量级锁–&gt;重量级锁</em></strong></p>
-<h3 id="一-偏向锁"><a href="#一-偏向锁" class="headerlink" title="一.偏向锁"></a>一.偏向锁</h3><h4 id="1-引入偏向锁的目的"><a href="#1-引入偏向锁的目的" class="headerlink" title="1.引入偏向锁的目的"></a>1.引入偏向锁的目的</h4><p>&emsp;由于实践中通常程序第一个线程会被多次调用,所以出现了偏向锁</p>
-<h4 id="2-基本原理"><a href="#2-基本原理" class="headerlink" title="2.基本原理"></a>2.基本原理</h4><p>&emsp; 当线程第一次访问同步块并获取锁时，偏向锁处理流程如下：<br>①虚拟机将会把对象头中的标志位设为“01”，即偏向模式。<br>②同时使用CAS操作把获取到这个锁的线程的ID记录在对象的Mark Word之中 ，如果CAS操作成功，持有偏向锁的线程以后每次进入这个锁相关的同步块时，虚拟机都可以不再进行任何同步操作，偏向锁的效率高。  </p>
-<h4 id="3-偏向锁的撤销"><a href="#3-偏向锁的撤销" class="headerlink" title="3.偏向锁的撤销"></a>3.偏向锁的撤销</h4><p>①偏向锁的撤销动作必须等待全局安全点(所有线程都停下来的时候)<br>②暂停拥有偏向锁的线程，判断锁对象是否处于被锁定状态<br>③撤销偏向锁，恢复到无锁（标志位为 01）或轻量级锁（标志位为 00）的状态  </p>
-<p>偏向锁在Java 6之后是默认启用的，但在应用程序启动几秒钟之后才激活，可以使用XX:BiasedLockingStartupDelay=0 参数关闭延迟，如果确定应用程序中所有锁通常情况下处于竞争 状态，可以通过 XX:-UseBiasedLocking=false 参数关闭偏向锁。</p>
-<h4 id="4-偏向锁的好处与不足"><a href="#4-偏向锁的好处与不足" class="headerlink" title="4.偏向锁的好处与不足"></a>4.偏向锁的好处与不足</h4><p>好处:  适用于只有一个线程反复多次拿到同一把锁的情况(竞争不强),提高性能<br>不足： 如果竞争太过强烈，比如开线程池导致一把锁被多个线程访问,那么偏模式就是多余的 </p>
-<hr>
-<h3 id="二-轻量级锁"><a href="#二-轻量级锁" class="headerlink" title="二.轻量级锁"></a>二.轻量级锁</h3><p><img src="https://i.loli.net/2020/07/23/zflbAcPaVq6dC1S.png" alt="原理示意图"></p>
-<p>&emsp;栈帧 : 一个进入栈的方法就是一个栈帧</p>
-<p><img src="https://i.loli.net/2020/07/23/JLXQkDx7zMV19gO.png" alt="Mark Word的存储结构"></p>
-<h4 id="1-基本原理-见上图和下文文字说明"><a href="#1-基本原理-见上图和下文文字说明" class="headerlink" title="1.基本原理(见上图和下文文字说明)"></a>1.基本原理(见上图和下文文字说明)</h4><p>&emsp;1. 判断当前对象是否处于无锁状态（hashcode、0、01），如果是，则JVM首先将在当前线程的栈帧中建立一个名为锁记录（Lock Record）的空间，用于存储锁对象目前的Mark Word的拷贝（官方把这份拷贝加了一个Displaced前缀，即Displaced Mark Word），将对象的Mark Word复制到栈帧中的Lock Record中，将Lock Reocrd中的owner指向当前对象。<br>&emsp;2. JVM利用CAS操作尝试将对象的Mark Word更新为指向Lock Record的指针，如果成功表示竞争到锁，则将锁标志位变成00，执行同步操作。<br>&emsp;3. 如果失败则判断当前对象的Mark Word是否指向当前线程的栈帧(查看是否当前已经指向了)，如果是则表示当前线程已经持有当前对象的锁，则直接执行同步代码块；否则只能说明该锁对象已经被其他线程抢占了**(出现竞争)，这时轻量级锁需要膨胀为重量级锁，锁标志位变成10，后面等待的线程将会进入阻塞状态。 </p>
-<p><strong><em>原理总结</em></strong>：<br><strong><em>&emsp;1.栈帧中生成LockRecord获取Mark Word的信息,Mark Word指向LockRecord指向的地址，并LockRecord中的owner标记锁<br>&emsp;2.指针修改成功则锁标志位改成00,若修改失败,则判断是否已经指向当前栈帧(即值是否相等),若相等则竞争到锁,执行同步代码块,否则等待转化为重量级锁(出现竞争状态)</em></strong></p>
-<h4 id="2-引入轻量级锁的目的"><a href="#2-引入轻量级锁的目的" class="headerlink" title="2.引入轻量级锁的目的"></a>2.引入轻量级锁的目的</h4><p>&emsp;多个线程交替执行时,利用轻量级锁来提高性能<br>&emsp;<strong><em>注意 ：这里指的时交替执行而不是竞争,如果多个线程同时进入临界区,会导致轻量级锁膨胀升级重量级锁，所以轻量级锁的出现并非是要 替代重量级锁。这个两个不同的概念</em></strong></p>
-<h4 id="3-轻量级锁的释放-生成的逆过程"><a href="#3-轻量级锁的释放-生成的逆过程" class="headerlink" title="3.轻量级锁的释放(生成的逆过程)"></a>3.轻量级锁的释放(生成的逆过程)</h4><p>&emsp;1.取数据： 取出在获取轻量级锁保存在Displaced Mark Word中的数据。<br>&emsp;2.换数据 用CAS操作将取出的数据替换当前对象的Mark Word中，如果成功，则说明释放锁成功。<br>&emsp;3.释放失败则锁升级 如果CAS操作替换失败，说明有其他线程尝试获取该锁，则需要将轻量级锁需要膨胀升级为重量级锁。  </p>
-<p><strong><em>疑惑：为什么会CAS操作失败说明其他线程尝试获取该锁</em></strong><br>   <strong><em>百度解释：这里说一下轻量级锁释放失败是就证明锁升级的原理，因为之前 mark word 指向的是本线程的指针，这个是 cas 期望的值，但是被其他线程更改为了指向互斥量的对象了，cas 就失败，就证明升级为了重量级锁。<a href="https://zhuanlan.zhihu.com/p/155637411" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/155637411</a></em></strong></p>
-<h4 id="4-轻量级锁的好处和弊端"><a href="#4-轻量级锁的好处和弊端" class="headerlink" title="4.轻量级锁的好处和弊端"></a>4.轻量级锁的好处和弊端</h4><p>好处：在多线程交替执行同步块的情况下，可以避免重量级锁引起的性能消耗。<br>弊端：对于轻量级锁，其性能提升的依据是“对于绝大部分的锁，在整个生命周期内都是不会存在竞争的”，如 果打破这个依据则除了互斥的开销外，还有额外的CAS操作，因此在有多线程竞争的情况下，轻量级锁 比重量级锁更慢。 </p>
-<h3 id="三-自旋锁"><a href="#三-自旋锁" class="headerlink" title="三.自旋锁"></a>三.自旋锁</h3><h4 id="1-自旋锁的原理"><a href="#1-自旋锁的原理" class="headerlink" title="1.自旋锁的原理"></a>1.自旋锁的原理</h4><p>前面我们讨论monitor实现锁的时候，知道monitor会阻塞和唤醒线程，线程的阻塞和唤醒需要CPU从 用户态转为核心态，频繁的阻塞和唤醒对CPU来说是一件负担很重的工作，这些操作给系统的并发性能 带来了很大的压力。同时，虚拟机的开发团队也注意到在许多应用上，共享数据的锁定状态只会持续很 短的一段时间，为了这段时间阻塞和唤醒线程并不值得。如果物理机器有一个以上的处理器，能让两个 或以上的线程同时并行执行，我们就可以让后面请求锁的那个线程“稍等一下”，但不放弃处理器的执行 时间，看看持有锁的线程是否很快就会释放锁。为了让线程等待，我们只需让线程执行一个忙循环(自 旋) , 这项技术就是所谓的自旋锁<br>自旋锁在JDK 1.4.2中就已经引入 ，只不过默认是关闭的，可以使用-XX:+UseSpinning参数来开启，在 JDK 6中 就已经改为默认开启了。自旋等待不能代替阻塞，且先不说对处理器数量的要求，自旋等待本 身虽然避免了线程切换的开销，但它是要占用处理器时间的，因此，如果锁被占用的时间很短，自旋等 待的效果就会非常好，反之，如果锁被占用的时间很长。那么自旋的线程只会白白消耗处理器资源，而 不会做任何有用的工作，反而会带来性 能上的浪费。因此，自旋等待的时间必须要有一定的限度，如果在多线程交替执行同步块的情况下，可以避免重量级锁引起的性能消耗。自旋超过了限定的次数仍然没有成功获得锁，就应当使用传统的方式去挂起线程了。自旋次数的默认值 是10次，用户可以使用参数-XX : PreBlockSpin来更改。 </p>
-<p><strong><em>总结:</em></strong>  </p>
-<p><strong><em>由于重量级锁及其浪费性能,所以在升级成重量级锁之前会先自旋试试看能不能拿到锁,可以剩下线程阻塞和唤醒线程的时间</em></strong>  </p>
-<p><strong><em>就好比你去找别人,到别人家门口了,发现敲了一次们之后没人,如果你间断性的敲门(相当于自旋),可能门一会儿就开了,如果你回家等着等到那个人通知你说门开了再过去,明显前者效率更优</em></strong></p>
-<h4 id="2-适应性自旋锁"><a href="#2-适应性自旋锁" class="headerlink" title="2.适应性自旋锁"></a>2.适应性自旋锁</h4><p>在JDK 6中引入了自适应的自旋锁。自适应意味着自旋的时间不再固定了，而是由前一次在同一个锁上 的自旋时间及锁的拥有者的状态来决定。如果在同一个锁对象上，自旋等待刚刚成功获得过锁，并且持 有锁的线程正在运行中，那么虚拟机就会认为这次自旋也很有可能再次成功，进而它将允许自旋等待持 续相对更长的时间，比如100次循环。另外，如果对于某个锁，自旋很少成功获得过，那在以后要获取 这个锁时将可能省略掉自旋过程，以避免浪费处理器资源。有了自适应自旋，随着程序运行和性能监控 信息的不断完善，虚拟机对程序锁的状况预测就会越来越准确，虛拟机就会变得越来越“聪明”了。 </p>
-<p><strong><em>总结:</em></strong> </p>
-<p><strong><em>虚拟机会根据你之前拿到锁所需要的自旋次数来自适应的选出一个较优方案,如果自旋次数很大,就会自动转入重量级锁,如果较小,那么下次自旋会给出一个比这次大一点点的自旋数</em></strong>    </p>
-<h3 id="五-锁消除和锁粗化"><a href="#五-锁消除和锁粗化" class="headerlink" title="五.锁消除和锁粗化"></a>五.锁消除和锁粗化</h3><p>精确定义：锁消除是指虚拟机即时编译器（JIT）在运行时，对一些代码上要求同步，但是被检测到不可能存在共享 数据竞争的锁进行消除。锁消除的主要判定依据来源于逃逸分析的数据支持，如果判断在一段代码中， 堆上的所有数据都不会逃逸出去从而被其他线程访问到，那就可以把它们当做栈上数据对待，认为它们 是线程私有的，同步加锁自然就无须进行。变量是否逃逸，对于虚拟机来说需要使用数据流分析来确 定，但是程序员自己应该是很清楚的，怎么会在明知道不存在数据争用的情况下要求同步呢?实际上有 许多同步措施并不是程序员自己加入的，同步的代码在Java程序中的普遍程度也许超过了大部分读者的 想象。下面这段非常简单的代码仅仅是输出3个字符串相加的结果，无论是源码字面上还是程序语义上 都没有同步。</p>
-<p><strong><em>总结：</em></strong>  </p>
-<p><strong><em>锁消除：如果代码时不需要同步,但是你加了sychronized,那么程序会自动把synchronized忽略掉,这样就省去了同步的时间,提高效率</em></strong> </p>
-<p><strong><em>锁粗化：JVM会探测到一连串细小的操作都使用同一个对象加锁，将同步代码块的范围放大，放到这串操作的外面，这样只需要加一次锁即可。<br>比如：synchronized放在for循环的内部和外部不影响结果,那么如果你放在内部的话会影响程序效率,这时候程序会把synchronized优化放到外面去,这样只需要进入同步代码块一次即可</em></strong></p>
-
+                
             </div>
             <hr/>
 
@@ -575,7 +499,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/2020/07/22/synchronized-guan-jian-zi-er/">https://1766095699.github.io/2020/07/22/synchronized-guan-jian-zi-er/</a>
+                    <a href="https://1766095699.github.io/2020/07/25/stuidio/">https://1766095699.github.io/2020/07/25/stuidio/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -612,23 +536,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
-                                <a href="/tags/JVM/">
-                                    <span class="chip bg-color">JVM</span>
-                                </a>
-                            
-                                <a href="/tags/synchronized/">
-                                    <span class="chip bg-color">synchronized</span>
-                                </a>
-                            
-                                <a href="/tags/%E9%94%81/">
-                                    <span class="chip bg-color">锁</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -671,7 +579,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-07-22T21-03-46',
+        id: '2020-07-25T12-42-19',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -695,9 +603,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/07/25/stuidio/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Android Stuidio中创建Fragment">
+                        
+                        <span class="card-title">Android Stuidio中创建Fragment</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            灿若星河
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/07/25/di-bu-cai-dan-lan-bu-ju/">
                     <div class="card-image">
@@ -718,9 +665,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -744,46 +691,6 @@
                         <span class="chip bg-color">UI布局</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/21/java-nei-cun-mo-xing/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Java内存模型">
-                        
-                        <span class="card-title">Java内存模型</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            灿若星河
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>

@@ -4,6 +4,46 @@
   
     
     <entry>
+      <title>Android Stuidio中创建Fragment</title>
+      <link href="/2020/07/25/stuidio/"/>
+      <url>/2020/07/25/stuidio/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>底部导航栏布局和界面切换</title>
+      <link href="/2020/07/25/di-bu-cai-dan-lan-bu-ju/"/>
+      <url>/2020/07/25/di-bu-cai-dan-lan-bu-ju/</url>
+      
+        <content type="html"><![CDATA[<p><strong><em>先看以下想要实现的效果：</em></strong><br><img src="https://i.loli.net/2020/07/25/JvQVIcnFhyP7uWA.png" alt="效果图"></p><h2 id="一-RadioGroup和RadioButton设置底部布局"><a href="#一-RadioGroup和RadioButton设置底部布局" class="headerlink" title="一.RadioGroup和RadioButton设置底部布局"></a>一.RadioGroup和RadioButton设置底部布局</h2><pre class=" language-xml"><code class="language-xml">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RadioGroup</span>        <span class="token attr-name"><span class="token namespace">android:</span>id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@+id/main_rg<span class="token punctuation">"</span></span>        <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>match_parent<span class="token punctuation">"</span></span>        <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60dp<span class="token punctuation">"</span></span>        <span class="token attr-name"><span class="token namespace">android:</span>layout_alignParentBottom</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>        <span class="token attr-name"><span class="token namespace">android:</span>background</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@color/lightyellow<span class="token punctuation">"</span></span>        <span class="token attr-name"><span class="token namespace">android:</span>orientation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>horizontal<span class="token punctuation">"</span></span>        <span class="token attr-name"><span class="token namespace">android:</span>padding</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>5dp<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>        &lt;RadioButton            android:id="@+id/main_rb_star"            android:drawableTop="@drawable/main_rb_star"            android:text="@string/label_star"            android:checked="true"            <span class="token comment" spellcheck="true">&lt;!--由于四个按钮下面的属性可以直接封装到style里面进行模块化管理 --></span>            android:layout_width="0dp"            android:layout_height="match_parent"            android:layout_weight="1"            <span class="token comment" spellcheck="true">&lt;!--这里一定要设置成@null才会有按钮的效果 --></span>            android:button="@null"            android:checked="true"            android:gravity="center            android:textSize="12sp"            android:drawablePadding="2dp"            android:textColor="@drawable/main_rbtxt"            />            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>RadioGroup</span><span class="token punctuation">></span></span>            <span class="token comment" spellcheck="true">&lt;!--中间部分用布局占位,会去使用Fragmentt替换这块布局--></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>LinearLayout</span>        <span class="token attr-name"><span class="token namespace">android:</span>id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@+id/main_layout_center<span class="token punctuation">"</span></span>        <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>match_parent<span class="token punctuation">"</span></span>        <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>match_parent<span class="token punctuation">"</span></span>        <span class="token attr-name"><span class="token namespace">android:</span>orientation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>vertical<span class="token punctuation">"</span></span>        <span class="token attr-name"><span class="token namespace">android:</span>layout_below</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@+id/main_tv_title<span class="token punctuation">"</span></span>        <span class="token attr-name"><span class="token namespace">android:</span>layout_above</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@+id/main_rg<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre><p><strong><em>上面的代码总体是在RelativeLayout下进行布局的,！！！！<br> 背景颜色和图片等属性自行调整,想要有图片的效果只要加四个RadioButton即可</em></strong>  </p><p><strong><em>注意:<br>    1.layout_alignParentBottom可以让到导航栏位于底部<br>    2.Group中的padding值可以让导航栏的button分开<br>    3.直接前嵌套多个RadioButton他们回自动评分导航栏<br>    4.button的属性值设置成@null才能有按钮的特效<br>    5.用drawableTop可以将button换成图片,然后直接设置text还有gravity可以实现文字自动居于图片下方<br>    6.想要设置选中和非选中状态文字颜色和图片(textcolor和drawbleTop)：要在drawable中创建一个xml文件,然后设置不同check状态下的情况,改图片用android:drawable,改颜色用android:color</em></strong><br>    <img src="https://i.loli.net/2020/07/25/DWkZejTna9PMwcA.png" alt="自定义不同check状态下的图片"><br>    <strong><em>7.中间部分用布局占位,会去使用Fragmentt替换这块布局</em></strong>   </p><h2 id="二-Fragment页面切换"><a href="#二-Fragment页面切换" class="headerlink" title="二.Fragment页面切换"></a>二.Fragment页面切换</h2><h2 id="三-细节问题"><a href="#三-细节问题" class="headerlink" title="三.细节问题"></a>三.细节问题</h2><h3 id="一-RadioGroup的点击事件"><a href="#一-RadioGroup的点击事件" class="headerlink" title="一.RadioGroup的点击事件"></a>一.RadioGroup的点击事件</h3><p>两种设置方式<img src="https://i.loli.net/2020/07/25/NnKLJucrm5PpX8l.png" alt="方式一"><br><img src="https://i.loli.net/2020/07/25/RJgIomUTvsxdD8S.png" alt="方式二"><br>方式一 : 直接通过匿名对象的方式传参数给点击事件监听器<br>方式二 : 通过调用点击事件接口的形式,在外部重写方法(应为此时MainActivity是Listener的实现类)<br>显然,方式二看上去回更简洁一些,更容易看出代码逻辑</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android开发 </tag>
+            
+            <tag> UI布局 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>synchronized关键字(二)</title>
       <link href="/2020/07/22/synchronized-guan-jian-zi-er/"/>
       <url>/2020/07/22/synchronized-guan-jian-zi-er/</url>
