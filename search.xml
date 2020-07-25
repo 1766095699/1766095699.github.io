@@ -4,13 +4,19 @@
   
     
     <entry>
-      <title>Android Stuidio中创建Fragment</title>
+      <title>Android Stuidio中创建Fragment找不到xml文件的解决方案</title>
       <link href="/2020/07/25/stuidio/"/>
       <url>/2020/07/25/stuidio/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>一.可能是你导入了android.R的包导致的,删去即可<br>二.studio本身的bug,重启stuidio即可</p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> 安卓开发 </tag>
+            
+        </tags>
       
     </entry>
     
