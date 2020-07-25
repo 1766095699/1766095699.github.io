@@ -474,14 +474,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    511
+                    809
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -528,7 +528,61 @@
         <span class="token attr-name"><span class="token namespace">android:</span>layout_above</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@+id/main_rg<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
 <p><strong><em>上面的代码总体是在RelativeLayout下进行布局的,！！！！<br> 背景颜色和图片等属性自行调整,想要有图片的效果只要加四个RadioButton即可</em></strong>  </p>
 <p><strong><em>注意:<br>    1.layout_alignParentBottom可以让到导航栏位于底部<br>    2.Group中的padding值可以让导航栏的button分开<br>    3.直接前嵌套多个RadioButton他们回自动评分导航栏<br>    4.button的属性值设置成@null才能有按钮的特效<br>    5.用drawableTop可以将button换成图片,然后直接设置text还有gravity可以实现文字自动居于图片下方<br>    6.想要设置选中和非选中状态文字颜色和图片(textcolor和drawbleTop)：要在drawable中创建一个xml文件,然后设置不同check状态下的情况,改图片用android:drawable,改颜色用android:color</em></strong><br>    <img src="https://i.loli.net/2020/07/25/DWkZejTna9PMwcA.png" alt="自定义不同check状态下的图片"><br>    <strong><em>7.中间部分用布局占位,会去使用Fragmentt替换这块布局</em></strong>   </p>
-<h2 id="二-Fragment页面切换"><a href="#二-Fragment页面切换" class="headerlink" title="二.Fragment页面切换"></a>二.Fragment页面切换</h2><h2 id="三-细节问题"><a href="#三-细节问题" class="headerlink" title="三.细节问题"></a>三.细节问题</h2><h3 id="一-RadioGroup的点击事件"><a href="#一-RadioGroup的点击事件" class="headerlink" title="一.RadioGroup的点击事件"></a>一.RadioGroup的点击事件</h3><p>两种设置方式<img src="https://i.loli.net/2020/07/25/NnKLJucrm5PpX8l.png" alt="方式一"><br><img src="https://i.loli.net/2020/07/25/RJgIomUTvsxdD8S.png" alt="方式二"><br>方式一 : 直接通过匿名对象的方式传参数给点击事件监听器<br>方式二 : 通过调用点击事件接口的形式,在外部重写方法(应为此时MainActivity是Listener的实现类)<br>显然,方式二看上去回更简洁一些,更容易看出代码逻辑</p>
+<h2 id="二-Fragment页面切换"><a href="#二-Fragment页面切换" class="headerlink" title="二.Fragment页面切换"></a>二.Fragment页面切换</h2><p>1.新建Fragment(同时新建对应的xml文件)<br>2.创建碎片对象(每一项都按照下面的代码写)</p>
+<pre><code>    Fragment starFrag
+    starFrag=new StarFragment();
+    //StarFragment是1中创建的Fragment的类名</code></pre><p>3.创建一个addFragmentPage()函数来加载四个Fragment  </p>
+<pre><code>    private void addFragmentPage() {  
+        //1.创建碎片管理者(manager是声明的全局的FragmnentManager的对象) 
+         manager = getSupportFragmentManager();  
+         ////2.创建碎片处理事务对象
+        FragmentTransaction transaction=manager.beginTransaction();
+        //3.将四个Fragment统一的添加到布局当中
+        //add的第一个参数是要布局的区域,第二个是要布局的Fragment对象
+        transaction.add(R.id.main_layout_center,starFrag);
+        transaction.add(R.id.main_layout_center,partnerFrag);
+        transaction.add(R.id.main_layout_center,luckFrag);
+        transaction.add(R.id.main_layout_center,meFrag);  
+
+        //4.因为初始的时候第一项时亮的,所以其他的隐藏   
+        transaction.hide(partnerFrag);
+        transaction.hide(luckFrag);
+        transaction.hide(meFrag);
+
+        //5.//5.提交碎片改变后的事务
+        transaction.commit();
+}</code></pre><p> 4.添加点击事件(onCheckedChanged)      </p>
+<pre><code>    @Override
+public void onCheckedChanged(RadioGroup group, int checkedId) {
+    FragmentTransaction transaction=manager.beginTransaction();
+    switch (checkedId){
+        case R.id.main_rb_star:
+            transaction.hide(partnerFrag);
+            transaction.hide(luckFrag);
+            transaction.hide(meFrag);
+            transaction.show(starFrag);
+            break;
+        case R.id.main_rb_partner:
+            transaction.hide(starFrag);
+            transaction.hide(luckFrag);
+            transaction.hide(meFrag);
+            transaction.show(partnerFrag);
+            break;
+        case R.id.main_rb_luck:
+            transaction.hide(partnerFrag);
+            transaction.hide(starFrag);
+            transaction.hide(meFrag);
+            transaction.show(luckFrag);
+            break;
+        case R.id.main_rb_me:
+            transaction.hide(partnerFrag);
+            transaction.hide(luckFrag);
+            transaction.hide(starFrag);
+            transaction.show(meFrag);
+            break;
+    }
+        transaction.commit();
+}     </code></pre><h2 id="三-细节问题"><a href="#三-细节问题" class="headerlink" title="三.细节问题"></a>三.细节问题</h2><h3 id="一-RadioGroup的点击事件"><a href="#一-RadioGroup的点击事件" class="headerlink" title="一.RadioGroup的点击事件"></a>一.RadioGroup的点击事件</h3><p>两种设置方式<img src="https://i.loli.net/2020/07/25/NnKLJucrm5PpX8l.png" alt="方式一"><br><img src="https://i.loli.net/2020/07/25/RJgIomUTvsxdD8S.png" alt="方式二"><br>方式一 : 直接通过匿名对象的方式传参数给点击事件监听器<br>方式二 : 通过调用点击事件接口的形式,在外部重写方法(应为此时MainActivity是Listener的实现类)<br>显然,方式二看上去回更简洁一些,更容易看出代码逻辑</p>
 
             </div>
             <hr/>

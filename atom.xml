@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-07-25T05:16:35.323Z</updated>
+  <updated>2020-07-25T11:50:23.901Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>本地资源的读取</title>
+    <link href="https://1766095699.github.io/2020/07/25/ben-di-zi-yuan-de-du-qu/"/>
+    <id>https://1766095699.github.io/2020/07/25/ben-di-zi-yuan-de-du-qu/</id>
+    <published>2020-07-25T11:50:23.000Z</published>
+    <updated>2020-07-25T11:50:23.901Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Android Stuidio中创建Fragment找不到xml文件的解决方案</title>
@@ -47,7 +62,7 @@
     <link href="https://1766095699.github.io/2020/07/25/di-bu-cai-dan-lan-bu-ju/"/>
     <id>https://1766095699.github.io/2020/07/25/di-bu-cai-dan-lan-bu-ju/</id>
     <published>2020-07-25T00:38:42.000Z</published>
-    <updated>2020-07-25T05:17:00.289Z</updated>
+    <updated>2020-07-25T12:05:37.131Z</updated>
     
     <summary type="html">
     
