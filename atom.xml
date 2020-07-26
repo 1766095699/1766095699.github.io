@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-07-25T11:50:23.901Z</updated>
+  <updated>2020-07-26T15:13:47.529Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -17,17 +17,58 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>本地资源的读取</title>
-    <link href="https://1766095699.github.io/2020/07/25/ben-di-zi-yuan-de-du-qu/"/>
-    <id>https://1766095699.github.io/2020/07/25/ben-di-zi-yuan-de-du-qu/</id>
-    <published>2020-07-25T11:50:23.000Z</published>
-    <updated>2020-07-25T11:50:23.901Z</updated>
+    <title>轮播图(ViewPager)用法</title>
+    <link href="https://1766095699.github.io/2020/07/26/lun-bo-tu/"/>
+    <id>https://1766095699.github.io/2020/07/26/lun-bo-tu/</id>
+    <published>2020-07-26T13:43:17.000Z</published>
+    <updated>2020-07-26T15:13:47.529Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一-XML布局&quot;&gt;&lt;a href=&quot;#一-XML布局&quot; class=&quot;headerlink&quot;
+        
+      
     
     </summary>
     
     
+      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="UI布局" scheme="https://1766095699.github.io/tags/UI%E5%B8%83%E5%B1%80/"/>
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>本地资源的读取</title>
+    <link href="https://1766095699.github.io/2020/07/25/ben-di-zi-yuan-de-du-qu/"/>
+    <id>https://1766095699.github.io/2020/07/25/ben-di-zi-yuan-de-du-qu/</id>
+    <published>2020-07-25T11:50:23.000Z</published>
+    <updated>2020-07-26T01:13:54.240Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/07/25/aSwICF.png&quot; alt=&quot;两种资源文件&quot;&gt;&lt;br&gt;一.读取Assets文件夹中的文件&lt;br&gt;    1.创建工具类AssetUtils 
+        
+      
+    
+    </summary>
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
