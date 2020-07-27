@@ -461,7 +461,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    724
+                    722
                 </div>
                 
 
@@ -547,7 +547,6 @@
 <p>方法四 :getItemId返回position</p>
 <p>前四个方法写法都比较简单</p>
 <p>方法五 ：自定义一个ViewHoder内部类,其中在构造方***法中来初始化xml组件<br>其中CircleImageVie是加了依赖后才可以用的组件    </p>
-<p>***convertView作用：这个convertView其实就是最关键的部分原理上讲 当ListView滑动的过程中 会有item被滑出zhi屏幕 而不再被使用 这时候Android会回收这个条目的view 这个view也就是这里的convertView当item1被移除屏幕的时候 我们会重新new一个View给新显示的item_new 而如果使用了这个convertView 我们其实可以复用它 这样就省去了new View的大量开销</p>
 <pre><code>class ViewHoder{
     CircleImageView iv;
     TextView tv;
@@ -555,7 +554,7 @@
         iv=view.findViewById(R.id.item_star_iv);
         tv=view.findViewById(R.id.item_star_tv);
     }
-}</code></pre><p>方法六(核心):View getView<br>关于converView: 首先我们要知道setTag方法是干什么的，他是给View对象的一个标签，标签可以是任何内容，我们这里把他设置成了一个对象，为了实现复用,使用getTag和setTag实现复用</p>
+}</code></pre><p>方法六(核心):View getView<br>关于converView: 首先我们要知道setTag方法是干什么的，他是给View对象的一个标签，标签可以是任何内容，我们这里把他设置成了一个对象，为了实现复用,使用getTag和setTag实现复用<br>convertView作用：这个convertView其实就是最关键的部分原理上讲当ListView滑动的过程中 会有item被滑出屏幕而不再被使用，这时候Android会回收这个条目的view 这个view也就是这里的convertView当item1被移除屏幕的时候 我们会重新new一个View给新显示的item_new 而如果使用了这个convertView 我们其实可以复用它 这样就省去了new View的大量开销</p>
 <pre class=" language-java"><code class="language-java">        <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> View <span class="token function">getView</span><span class="token punctuation">(</span><span class="token keyword">int</span> position<span class="token punctuation">,</span> View convertView<span class="token punctuation">,</span> ViewGroup parent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         ViewHoder hoder<span class="token operator">=</span>null<span class="token punctuation">;</span>
