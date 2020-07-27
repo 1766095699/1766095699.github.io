@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-07-26T15:13:47.529Z</updated>
+  <updated>2020-07-27T01:19:51.333Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -17,11 +17,53 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>关于网格图GridView的用法</title>
+    <link href="https://1766095699.github.io/2020/07/27/guan-yu-wang-ge-tu-gridview-de-yong-fa/"/>
+    <id>https://1766095699.github.io/2020/07/27/guan-yu-wang-ge-tu-gridview-de-yong-fa/</id>
+    <published>2020-07-27T01:19:51.000Z</published>
+    <updated>2020-07-27T01:19:51.333Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>把矩形图片变成圆形的方法</title>
+    <link href="https://1766095699.github.io/2020/07/27/ba-ju-xing-tu-pian-bian-cheng-yuan-xing-de-fang-fa/"/>
+    <id>https://1766095699.github.io/2020/07/27/ba-ju-xing-tu-pian-bian-cheng-yuan-xing-de-fang-fa/</id>
+    <published>2020-07-27T01:11:46.000Z</published>
+    <updated>2020-07-27T01:15:25.864Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;开源项目的网址：&lt;br&gt;&lt;a href=&quot;https://github.com/1766095699/CircleImageView&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>轮播图(ViewPager)用法</title>
     <link href="https://1766095699.github.io/2020/07/26/lun-bo-tu/"/>
     <id>https://1766095699.github.io/2020/07/26/lun-bo-tu/</id>
     <published>2020-07-26T13:43:17.000Z</published>
-    <updated>2020-07-26T15:13:47.529Z</updated>
+    <updated>2020-07-27T01:19:39.861Z</updated>
     
     <summary type="html">
     
