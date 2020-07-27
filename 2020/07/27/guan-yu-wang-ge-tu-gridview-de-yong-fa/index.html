@@ -547,7 +547,7 @@
 <p>方法四 :getItemId返回position</p>
 <p>前四个方法写法都比较简单</p>
 <p>方法五 ：自定义一个ViewHoder内部类,其中在构造方***法中来初始化xml组件<br>其中CircleImageVie是加了依赖后才可以用的组件    </p>
-<p><strong><em>convertView作用：这个convertView其实就是最关键的部分bai 原理上讲 当duListView滑动的过程中 会有item被滑出zhi屏幕 而不再被使用 这时候daoAndroid会回收这个条目的view 这个view也就是这里的convertView当item1被移除屏幕的时候 我们会重新new一个View给新显示的item_new 而如果使用了这个convertView 我们其实可以复用它 这样就省去了new View的大量开销</em></strong></p>
+<p>***convertView作用：这个convertView其实就是最关键的部分原理上讲 当ListView滑动的过程中 会有item被滑出zhi屏幕 而不再被使用 这时候Android会回收这个条目的view 这个view也就是这里的convertView当item1被移除屏幕的时候 我们会重新new一个View给新显示的item_new 而如果使用了这个convertView 我们其实可以复用它 这样就省去了new View的大量开销</p>
 <pre><code>class ViewHoder{
     CircleImageView iv;
     TextView tv;
