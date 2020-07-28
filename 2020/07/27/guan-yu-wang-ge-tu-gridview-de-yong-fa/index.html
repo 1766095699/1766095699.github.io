@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于网格图GridView的用法, 比企谷八幡">
+    <meta name="keywords" content="网格图GridView的用法+实战, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于网格图GridView的用法 | 比企谷八幡</title>
+    <title>网格图GridView的用法+实战 | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于网格图GridView的用法</h1>
+                    <h1 class="description center-align post-title">网格图GridView的用法+实战</h1>
                 </div>
             </div>
         </div>
@@ -495,16 +495,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[<img src="https://s1.ax1x.com/2020/07/27/aPM5Ps.png" alt="效果图">]<br>一.XML布局<br>    其中numColumns用来控制列数      </p>
-<pre><code>    &lt;GridView
+                <p>[<img src="https://s1.ax1x.com/2020/07/27/aPM5Ps.png" alt="效果图">]  </p>
+<h3 id="一-XML布局"><a href="#一-XML布局" class="headerlink" title="一.XML布局"></a>一.XML布局</h3><pre><code>其中numColumns用来控制列数      </code></pre><pre><code>    &lt;GridView
             android:id=&quot;@+id/starfrag_gv&quot;
             android:layout_width=&quot;match_parent&quot;
             android:layout_height=&quot;match_parent&quot;
             android:numColumns=&quot;4&quot;
             android:layout_below=&quot;@id/starfrag_vp&quot;
-            /&gt;</code></pre><p>二.java代码部分<br>1.创建一个GridView的对象</p>
-<pre><code>    starGv=view.findViewById(R.id.starfrag_gv);</code></pre><p>2.写一个适配器StarBaseAdapter继承于BaseAdapter</p>
-<pre class=" language-java"><code class="language-java">        <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StarBaseAdapter</span> <span class="token keyword">extends</span> <span class="token class-name">BaseAdapter</span> <span class="token punctuation">{</span>
+            /&gt;</code></pre><h3 id="二-java代码部分"><a href="#二-java代码部分" class="headerlink" title="二.java代码部分"></a>二.java代码部分</h3><h4 id="1-创建一个GridView的对象"><a href="#1-创建一个GridView的对象" class="headerlink" title="1.创建一个GridView的对象"></a>1.创建一个GridView的对象</h4><pre><code>    starGv=view.findViewById(R.id.starfrag_gv);</code></pre><h4 id="2-写一个适配器StarBaseAdapter继承于BaseAdapter"><a href="#2-写一个适配器StarBaseAdapter继承于BaseAdapter" class="headerlink" title="2.写一个适配器StarBaseAdapter继承于BaseAdapter"></a>2.写一个适配器StarBaseAdapter继承于BaseAdapter</h4><pre class=" language-java"><code class="language-java">        <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StarBaseAdapter</span> <span class="token keyword">extends</span> <span class="token class-name">BaseAdapter</span> <span class="token punctuation">{</span>
     Context context<span class="token punctuation">;</span>
     List<span class="token operator">&lt;</span>StarInfoBean<span class="token punctuation">.</span>StarinfoBean<span class="token operator">></span>mDatas<span class="token punctuation">;</span>
     Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Bitmap<span class="token operator">></span>logoMap<span class="token punctuation">;</span>
@@ -558,7 +556,7 @@
             tv<span class="token operator">=</span>view<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>item_star_tv<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span></code></pre>
-<p>适配器的解释：<br>方法一：构造方法要注意数据的获取,参数传递的问题,要拿到图片，文字数据下面才能布局</p>
+<h4 id="3-适配器的解释："><a href="#3-适配器的解释：" class="headerlink" title="3.适配器的解释："></a>3.适配器的解释：</h4><p>方法一：构造方法要注意数据的获取,参数传递的问题,要拿到图片，文字数据下面才能布局</p>
 <p>方法二 :getCount返回数据组数大小(size)</p>
 <p>方法三:getItem返回当前item  </p>
 <p>方法四 :getItemId返回position</p>
