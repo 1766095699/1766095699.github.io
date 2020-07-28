@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="listView, 比企谷八幡">
+    <meta name="keywords" content="ListView的用法+实战, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>listView | 比企谷八幡</title>
+    <title>ListView的用法+实战 | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">listView</h1>
+                    <h1 class="description center-align post-title">ListView的用法+实战</h1>
                 </div>
             </div>
         </div>
@@ -478,7 +478,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    772
+                    779
                 </div>
                 
 
@@ -504,119 +504,113 @@
          <span class="token attr-name"><span class="token namespace">android:</span>dividerHeight</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0dp<span class="token punctuation">"</span></span>
          <span class="token attr-name"><span class="token namespace">android:</span>scrollbars</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span>
          <span class="token punctuation">/></span></span>  </code></pre>
-<h4 id="2-额外写一个xml写每个item的布局"><a href="#2-额外写一个xml写每个item的布局" class="headerlink" title="2.额外写一个xml写每个item的布局"></a>2.额外写一个xml写每个item的布局</h4><p><img src="https://i.loli.net/2020/07/28/9et2j5BrVEPDK1N.png" alt="item_star_analysis"></p>
+<h4 id="2-额外写一个xml写每个item的布局"><a href="#2-额外写一个xml写每个item的布局" class="headerlink" title="2.额外写一个xml写每个item的布局"></a>2.额外写一个xml写每个item的布局</h4><p>![item_star_analysis](<a href="https://i.loli.net/2020/07/28/" target="_blank" rel="noopener">https://i.loli.net/2020/07/28/</a><br>9et2j5BrVEPDK1N.png)<br>这个在后面适配器那里加载的时候会用在</p>
 <h3 id="二-java代码部分"><a href="#二-java代码部分" class="headerlink" title="二.java代码部分"></a>二.java代码部分</h3><p><strong><em>关于notifyDataSetChanged方法的使用：<br>notifyDataSetChanged方法强制listview调用getView来刷新每个Item的内容<br>有时候我们需要修改已经生成的列表，添加或者修改数据，notifyDataSetChanged()可以在修改适配器绑定的数组后，不用重新刷新Activity，通知Activity更新ListView</em></strong></p>
 <p>正是因为listView有notifDataSetChanged这个方法,所以下面这种代码的写法是可行的  </p>
-<ol>
-<li><h2 id="ListView适配器的写法"><a href="#ListView适配器的写法" class="headerlink" title="ListView适配器的写法"></a>ListView适配器的写法</h2><p>(思路都差不多,在GridView那里已经做了详细说明了)</p>
-<pre class=" language-java"><code class="language-java">     <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AnalysisBaseAdapter</span> <span class="token keyword">extends</span> <span class="token class-name">BaseAdapter</span> <span class="token punctuation">{</span>
- Context context<span class="token punctuation">;</span>
- List<span class="token operator">&lt;</span>StarAnalysisBean<span class="token operator">></span>mData<span class="token punctuation">;</span>
+<h4 id="1-ListView适配器的写法"><a href="#1-ListView适配器的写法" class="headerlink" title="1.ListView适配器的写法"></a>1.ListView适配器的写法</h4><p>(思路都差不多,在GridView那里已经做了详细说明了)</p>
+<pre class=" language-java"><code class="language-java">        <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AnalysisBaseAdapter</span> <span class="token keyword">extends</span> <span class="token class-name">BaseAdapter</span> <span class="token punctuation">{</span>
+    Context context<span class="token punctuation">;</span>
+    List<span class="token operator">&lt;</span>StarAnalysisBean<span class="token operator">></span>mData<span class="token punctuation">;</span>
 
- <span class="token keyword">public</span> <span class="token function">AnalysisBaseAdapter</span><span class="token punctuation">(</span>Context context<span class="token punctuation">,</span> List<span class="token operator">&lt;</span>StarAnalysisBean<span class="token operator">></span> mDatas<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     <span class="token keyword">this</span><span class="token punctuation">.</span>context <span class="token operator">=</span> context<span class="token punctuation">;</span>
-     <span class="token keyword">this</span><span class="token punctuation">.</span>mData<span class="token operator">=</span>mDatas<span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
-
-</code></pre>
-</li>
-</ol>
-<pre><code>@Override
-public int getCount() {
-    return mData.size();
-}
-
-@Override
-public Object getItem(int position) {
-    return mData.get(position);
-}
-
-@Override
-public long getItemId(int position) {
-    return position;
-}
-
- @Override
-public View getView(int position, View convertView, ViewGroup parent) {
-    ViewHoder holder=null;
-    if(convertView==null){
-        //item_star_analysis是单个item布局方式xml文件
-        convertView= LayoutInflater.from(context).inflate(R.layout.item_star_analysis,null);
-        holder=new ViewHoder(convertView);
-        convertView.setTag(holder);
-    }
-    else {
-        holder= (ViewHoder) convertView.getTag();
-    }
-    StarAnalysisBean bean = mData.get(position);
-    holder.titleTv.setText(bean.getTitle());
-    holder.contentTv.setText(bean.getContent());
-    //改变背景颜色
-    holder.contentTv.setBackgroundResource(bean.getColor());
-    return convertView;
-}
-
-class ViewHoder{
-    TextView titleTv,contentTv;
-    public ViewHoder(View view){
-        titleTv=view.findViewById(R.id.itemstat_tv_title);
-        contentTv=view.findViewById(R.id.itemstat_tv_content);
-    }
-}</code></pre><p> }</p>
-<pre><code>
-
-***下面代码只需要看注释理解就行了,相关核心内容的代码我会在注释前用感叹号标记***
-
-## 2.1方式一 :(先set构造器,再更新数据源)
-```java 
-    //主函数部分
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_star_analysis);
-        //获取上级界面传递过来的数据
-        Intent intent=getIntent();
-        //传过来的是一个类,所以用getSerializableExtra
-        bean= (StarBean.StarinfoBean) intent.getSerializableExtra(&quot;star&quot;);
-
-        //initView的代码我省略了
-        initView();
-        //！！！！！！！！！！
-        mDatas=new ArrayList&lt;&gt;();//初始化显示在ListView上
-        adapter=new AnalysisBaseAdapter(this,mDatas);
-        analysisLv.setAdapter(adapter);
-        //！！！调用函数
-        addDataToList();
-
-    }
+    <span class="token keyword">public</span> <span class="token function">AnalysisBaseAdapter</span><span class="token punctuation">(</span>Context context<span class="token punctuation">,</span> List<span class="token operator">&lt;</span>StarAnalysisBean<span class="token operator">></span> mDatas<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context <span class="token operator">=</span> context<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>mData<span class="token operator">=</span>mDatas<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
 
-         //加载ListView当中的数据源内容
-    private void addDataToList() {
-        //添加数据
-        StarAnalysisBean sab1 = new StarAnalysisBean(&quot;性格特点：&quot;, bean.getTd(), R.color.lightblue);
-        StarAnalysisBean sab2 = new StarAnalysisBean(&quot;掌管宫位：&quot;, bean.getGw(), R.color.lightpink);
-        StarAnalysisBean sab3 = new StarAnalysisBean(&quot;显阴阳性：&quot;, bean.getYy(), R.color.lightgreen);
-        StarAnalysisBean sab4 = new StarAnalysisBean(&quot;最大特征：&quot;, bean.getTz(), R.color.purple);
-        StarAnalysisBean sab5 = new StarAnalysisBean(&quot;主管星球：&quot;, bean.getZg(), R.color.orange);
-        StarAnalysisBean sab6 = new StarAnalysisBean(&quot;幸运颜色：&quot;, bean.getYs(), R.color.colorAccent);
-        StarAnalysisBean sab7 = new StarAnalysisBean(&quot;搭配珠宝：&quot;, bean.getZb(), R.color.colorPrimary);
-        StarAnalysisBean sab8 = new StarAnalysisBean(&quot;幸运号码：&quot;, bean.getHm(), R.color.grey);
-        StarAnalysisBean sab9 = new StarAnalysisBean(&quot;相配金属：&quot;, bean.getJs(), R.color.darkblue);
-        mDatas.add(sab1);
-        mDatas.add(sab2);
-        mDatas.add(sab3);
-        mDatas.add(sab4);
-        mDatas.add(sab5);
-        mDatas.add(sab6);
-        mDatas.add(sab7);
-        mDatas.add(sab8);
-        mDatas.add(sab9);
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> mData<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    //！！！数据源发生变化,提醒适配器更新
-        adapter.notifyDataSetChanged();
-    }</code></pre><p><strong><em>mDatas最开始是没有数据的,但是因为下面调用addDataToList()提醒适配器更新,所以可以addDataToList()写在后面</em></strong></p>
-<h2 id="2-2方式二-可以这样写但是不推荐"><a href="#2-2方式二-可以这样写但是不推荐" class="headerlink" title="2.2方式二(可以这样写但是不推荐):"></a>2.2方式二(可以这样写但是不推荐):</h2><p>addDataToList()写在前面设置适配器的前面,在设置适配器的时候顺便就把数据给赋了,但是在addDataToList()中必须把    adapter.notifyDataSetChanged();这行代码给去掉</p>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Object <span class="token function">getItem</span><span class="token punctuation">(</span><span class="token keyword">int</span> position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> mData<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">long</span> <span class="token function">getItemId</span><span class="token punctuation">(</span><span class="token keyword">int</span> position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> position<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+     <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> View <span class="token function">getView</span><span class="token punctuation">(</span><span class="token keyword">int</span> position<span class="token punctuation">,</span> View convertView<span class="token punctuation">,</span> ViewGroup parent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ViewHoder holder<span class="token operator">=</span>null<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>convertView<span class="token operator">==</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//item_star_analysis是单个item布局方式xml文件</span>
+            convertView<span class="token operator">=</span> LayoutInflater<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">inflate</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>item_star_analysis<span class="token punctuation">,</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            holder<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ViewHoder</span><span class="token punctuation">(</span>convertView<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            convertView<span class="token punctuation">.</span><span class="token function">setTag</span><span class="token punctuation">(</span>holder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            holder<span class="token operator">=</span> <span class="token punctuation">(</span>ViewHoder<span class="token punctuation">)</span> convertView<span class="token punctuation">.</span><span class="token function">getTag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        StarAnalysisBean bean <span class="token operator">=</span> mData<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        holder<span class="token punctuation">.</span>titleTv<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        holder<span class="token punctuation">.</span>contentTv<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//改变背景颜色</span>
+        holder<span class="token punctuation">.</span>contentTv<span class="token punctuation">.</span><span class="token function">setBackgroundResource</span><span class="token punctuation">(</span>bean<span class="token punctuation">.</span><span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> convertView<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">class</span> <span class="token class-name">ViewHoder</span><span class="token punctuation">{</span>
+        TextView titleTv<span class="token punctuation">,</span>contentTv<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token function">ViewHoder</span><span class="token punctuation">(</span>View view<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            titleTv<span class="token operator">=</span>view<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>itemstat_tv_title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            contentTv<span class="token operator">=</span>view<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>itemstat_tv_content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span></code></pre>
+<p><strong><em>下面代码只需要看注释理解就行了,相关核心内容的代码我会在注释前用感叹号标记</em></strong></p>
+<h4 id="2-1方式一-先set构造器-再更新数据源"><a href="#2-1方式一-先set构造器-再更新数据源" class="headerlink" title="2.1方式一 :(先set构造器,再更新数据源)"></a>2.1方式一 :(先set构造器,再更新数据源)</h4><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//主函数部分</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setContentView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_star_analysis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//获取上级界面传递过来的数据</span>
+        Intent intent<span class="token operator">=</span><span class="token function">getIntent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//传过来的是一个类,所以用getSerializableExtra</span>
+        bean<span class="token operator">=</span> <span class="token punctuation">(</span>StarBean<span class="token punctuation">.</span>StarinfoBean<span class="token punctuation">)</span> intent<span class="token punctuation">.</span><span class="token function">getSerializableExtra</span><span class="token punctuation">(</span><span class="token string">"star"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//initView的代码我省略了</span>
+        <span class="token function">initView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//！！！！！！！！！！</span>
+        mDatas<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//初始化显示在ListView上</span>
+        adapter<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">AnalysisBaseAdapter</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>mDatas<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        analysisLv<span class="token punctuation">.</span><span class="token function">setAdapter</span><span class="token punctuation">(</span>adapter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//！！！调用函数</span>
+        <span class="token function">addDataToList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+
+         <span class="token comment" spellcheck="true">//加载ListView当中的数据源内容</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">addDataToList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//添加数据</span>
+        StarAnalysisBean sab1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StarAnalysisBean</span><span class="token punctuation">(</span><span class="token string">"性格特点："</span><span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">getTd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> R<span class="token punctuation">.</span>color<span class="token punctuation">.</span>lightblue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        StarAnalysisBean sab2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StarAnalysisBean</span><span class="token punctuation">(</span><span class="token string">"掌管宫位："</span><span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">getGw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> R<span class="token punctuation">.</span>color<span class="token punctuation">.</span>lightpink<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        StarAnalysisBean sab3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StarAnalysisBean</span><span class="token punctuation">(</span><span class="token string">"显阴阳性："</span><span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">getYy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> R<span class="token punctuation">.</span>color<span class="token punctuation">.</span>lightgreen<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        StarAnalysisBean sab4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StarAnalysisBean</span><span class="token punctuation">(</span><span class="token string">"最大特征："</span><span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">getTz</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> R<span class="token punctuation">.</span>color<span class="token punctuation">.</span>purple<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        StarAnalysisBean sab5 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StarAnalysisBean</span><span class="token punctuation">(</span><span class="token string">"主管星球："</span><span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">getZg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> R<span class="token punctuation">.</span>color<span class="token punctuation">.</span>orange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        StarAnalysisBean sab6 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StarAnalysisBean</span><span class="token punctuation">(</span><span class="token string">"幸运颜色："</span><span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">getYs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> R<span class="token punctuation">.</span>color<span class="token punctuation">.</span>colorAccent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        StarAnalysisBean sab7 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StarAnalysisBean</span><span class="token punctuation">(</span><span class="token string">"搭配珠宝："</span><span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">getZb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> R<span class="token punctuation">.</span>color<span class="token punctuation">.</span>colorPrimary<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        StarAnalysisBean sab8 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StarAnalysisBean</span><span class="token punctuation">(</span><span class="token string">"幸运号码："</span><span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">getHm</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> R<span class="token punctuation">.</span>color<span class="token punctuation">.</span>grey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        StarAnalysisBean sab9 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StarAnalysisBean</span><span class="token punctuation">(</span><span class="token string">"相配金属："</span><span class="token punctuation">,</span> bean<span class="token punctuation">.</span><span class="token function">getJs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> R<span class="token punctuation">.</span>color<span class="token punctuation">.</span>darkblue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDatas<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>sab1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDatas<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>sab2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDatas<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>sab3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDatas<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>sab4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDatas<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>sab5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDatas<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>sab6<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDatas<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>sab7<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDatas<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>sab8<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mDatas<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>sab9<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//！！！数据源发生变化,提醒适配器更新</span>
+        adapter<span class="token punctuation">.</span><span class="token function">notifyDataSetChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<p><strong><em>mDatas最开始是没有数据的,但是因为下面调用addDataToList()提醒适配器更新,所以可以addDataToList()写在后面</em></strong></p>
+<h4 id="2-2方式二-可以这样写但是不推荐"><a href="#2-2方式二-可以这样写但是不推荐" class="headerlink" title="2.2方式二(可以这样写但是不推荐):"></a>2.2方式二(可以这样写但是不推荐):</h4><p>addDataToList()写在前面设置适配器的前面,在设置适配器的时候顺便就把数据给赋了,但是在addDataToList()中必须把    adapter.notifyDataSetChanged();这行代码给去掉</p>
 
             </div>
             <hr/>
@@ -763,9 +757,9 @@ class ViewHoder{
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="listView">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ListView的用法+实战">
                         
-                        <span class="card-title">listView</span>
+                        <span class="card-title">ListView的用法+实战</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
