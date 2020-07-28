@@ -478,7 +478,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    722
+                    741
                 </div>
                 
 
@@ -496,13 +496,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>[<img src="https://s1.ax1x.com/2020/07/27/aPM5Ps.png" alt="效果图">]  </p>
-<h3 id="一-XML布局"><a href="#一-XML布局" class="headerlink" title="一.XML布局"></a>一.XML布局</h3><pre><code>其中numColumns用来控制列数      </code></pre><pre><code>    &lt;GridView
+<h3 id="一-XML布局"><a href="#一-XML布局" class="headerlink" title="一.XML布局"></a>一.XML布局</h3><h4 id="1-主xml写gridview"><a href="#1-主xml写gridview" class="headerlink" title="1.主xml写gridview"></a>1.主xml写gridview</h4><p>其中numColumns用来控制列数      </p>
+<pre><code>    &lt;GridView
             android:id=&quot;@+id/starfrag_gv&quot;
             android:layout_width=&quot;match_parent&quot;
             android:layout_height=&quot;match_parent&quot;
             android:numColumns=&quot;4&quot;
             android:layout_below=&quot;@id/starfrag_vp&quot;
-            /&gt;</code></pre><h3 id="二-java代码部分"><a href="#二-java代码部分" class="headerlink" title="二.java代码部分"></a>二.java代码部分</h3><h4 id="1-创建一个GridView的对象"><a href="#1-创建一个GridView的对象" class="headerlink" title="1.创建一个GridView的对象"></a>1.创建一个GridView的对象</h4><pre><code>    starGv=view.findViewById(R.id.starfrag_gv);</code></pre><h4 id="2-写一个适配器StarBaseAdapter继承于BaseAdapter"><a href="#2-写一个适配器StarBaseAdapter继承于BaseAdapter" class="headerlink" title="2.写一个适配器StarBaseAdapter继承于BaseAdapter"></a>2.写一个适配器StarBaseAdapter继承于BaseAdapter</h4><pre class=" language-java"><code class="language-java">        <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StarBaseAdapter</span> <span class="token keyword">extends</span> <span class="token class-name">BaseAdapter</span> <span class="token punctuation">{</span>
+            /&gt;</code></pre><h4 id="2-额外创建一个xml文件写每个item的布局"><a href="#2-额外创建一个xml文件写每个item的布局" class="headerlink" title="2.额外创建一个xml文件写每个item的布局"></a>2.额外创建一个xml文件写每个item的布局</h4><p><img src="https://i.loli.net/2020/07/28/T3GkcJVydRbsezv.png" alt="item_star_gv"></p>
+<h3 id="二-java代码部分"><a href="#二-java代码部分" class="headerlink" title="二.java代码部分"></a>二.java代码部分</h3><h4 id="1-创建一个GridView的对象"><a href="#1-创建一个GridView的对象" class="headerlink" title="1.创建一个GridView的对象"></a>1.创建一个GridView的对象</h4><pre><code>    starGv=view.findViewById(R.id.starfrag_gv);</code></pre><h4 id="2-写一个适配器StarBaseAdapter继承于BaseAdapter"><a href="#2-写一个适配器StarBaseAdapter继承于BaseAdapter" class="headerlink" title="2.写一个适配器StarBaseAdapter继承于BaseAdapter"></a>2.写一个适配器StarBaseAdapter继承于BaseAdapter</h4><pre class=" language-java"><code class="language-java">        <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StarBaseAdapter</span> <span class="token keyword">extends</span> <span class="token class-name">BaseAdapter</span> <span class="token punctuation">{</span>
     Context context<span class="token punctuation">;</span>
     List<span class="token operator">&lt;</span>StarInfoBean<span class="token punctuation">.</span>StarinfoBean<span class="token operator">></span>mDatas<span class="token punctuation">;</span>
     Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Bitmap<span class="token operator">></span>logoMap<span class="token punctuation">;</span>
