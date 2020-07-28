@@ -435,6 +435,10 @@
                                 <span class="chip bg-color">安卓开发</span>
                             </a>
                         
+                            <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
+                                <span class="chip bg-color">星梦缘</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -445,6 +449,10 @@
                         
                             <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/" class="post-category">
                                 安卓开发
+                            </a>
+                        
+                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
+                                项目实战
                             </a>
                         
                     </div>
@@ -463,14 +471,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-26
+                    2020-07-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    201
+                    354
                 </div>
                 
 
@@ -520,19 +528,44 @@
         <span class="token keyword">return</span> null<span class="token punctuation">;</span>
     <span class="token punctuation">}</span></code></pre>
 <p>3.用Bitmap读图片读图片</p>
-<pre><code> public static Bitmap getBitmapFromAssets(Context context,String filename){
-        Bitmap bitmap=null;
-        //获取文件夹管理者
-        AssetManager am=context.getResources().getAssets();
-        try {
-            InputStream is=am.open(filename);
-            bitmap= BitmapFactory.decodeStream(is);
-            is.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return bitmap;
-    }</code></pre>
+<pre class=" language-java"><code class="language-java"> <span class="token keyword">public</span> <span class="token keyword">static</span> Bitmap <span class="token function">getBitmapFromAssets</span><span class="token punctuation">(</span>Context context<span class="token punctuation">,</span>String filename<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Bitmap bitmap<span class="token operator">=</span>null<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//获取文件夹管理者</span>
+        AssetManager am<span class="token operator">=</span>context<span class="token punctuation">.</span><span class="token function">getResources</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getAssets</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            InputStream is<span class="token operator">=</span>am<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            bitmap<span class="token operator">=</span> BitmapFactory<span class="token punctuation">.</span><span class="token function">decodeStream</span><span class="token punctuation">(</span>is<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            is<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> bitmap<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>4.将数据放入数组  </p>
+<pre><code>     //将Assets文件夹中的图片一起读取,放在内存当中,便于管理
+public static void saveBitmapFromAssets(Context context, StarInfoBean starInfoBean){
+    logoImgMap = new HashMap&lt;&gt;();
+    contentImgMap=new HashMap&lt;&gt;();
+    List&lt;StarInfoBean.StarinfoBean&gt; starlist=starInfoBean.getStarinfo();//注意,之前数据已经解析进starInforBean了
+    for (int i = 0; i &lt;starlist.size() ; i++) {
+        //读取图片
+        String logoname=starlist.get(i).getLogoname();
+        String filename=&quot;xzlogo/&quot;+logoname+&quot;.png&quot;;
+        Bitmap logoBm=getBitmapFromAssets(context,filename);
+        logoImgMap.put(logoname,logoBm);
+
+        String contentName=&quot;xzcontentlogo/&quot;+logoname+&quot;.png&quot;;
+        Bitmap bitmap=getBitmapFromAssets(context,contentName);
+        contentImgMap.put(logoname,bitmap);
+    }
+}</code></pre><p>5.get方法得到数组  </p>
+<pre><code>       public static Map&lt;String,Bitmap&gt;getLogoImgMap(){
+    return logoImgMap;
+}
+
+public static Map&lt;String,Bitmap&gt;getContentImgMap(){
+    return contentImgMap;
+}</code></pre>
             </div>
             <hr/>
 
@@ -597,6 +630,10 @@
                             
                                 <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
                                     <span class="chip bg-color">安卓开发</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
+                                    <span class="chip bg-color">星梦缘</span>
                                 </a>
                             
                         </div>
@@ -698,6 +735,10 @@
                                     安卓开发
                                 </a>
                             
+                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
+                                    项目实战
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -705,12 +746,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/UI%E5%B8%83%E5%B1%80/">
-                        <span class="chip bg-color">UI布局</span>
-                    </a>
-                    
                     <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
                         <span class="chip bg-color">安卓开发</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
+                        <span class="chip bg-color">星梦缘</span>
                     </a>
                     
                 </div>

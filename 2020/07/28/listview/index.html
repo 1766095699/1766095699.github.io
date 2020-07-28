@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="轮播图(ViewPager)用法, 比企谷八幡">
+    <meta name="keywords" content="listView, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>轮播图(ViewPager)用法 | 比企谷八幡</title>
+    <title>listView | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">轮播图(ViewPager)用法</h1>
+                    <h1 class="description center-align post-title">listView</h1>
                 </div>
             </div>
         </div>
@@ -464,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-26
+                    2020-07-28
                 </div>
                 
 
@@ -478,14 +478,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -495,136 +495,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-XML布局"><a href="#一-XML布局" class="headerlink" title="一.XML布局"></a>一.XML布局</h2><p>下面的Liner是用来给小圆点的,其中先align再marin可以让这个布局自动就是再ViewPager的下方</p>
-<pre><code>&lt;androidx.viewpager.widget.ViewPager
-   android:id=&quot;@+id/starfrag_vp&quot;
-   android:layout_width=&quot;match_parent&quot;
-   android:layout_height=&quot;220dp&quot;
-  /&gt;
-  &lt;LinearLayout
-    android:id=&quot;@+id/starfrag_layout&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;10dp&quot;    
-    android:orientation=&quot;horizontal&quot;
-    android:layout_alignBottom=&quot;@id/starfrag_vp&quot;
-    android:layout_marginBottom=&quot;10dp&quot;
-    android:gravity=&quot;center_horizontal&quot;/&gt;</code></pre><h2 id="二-java代码"><a href="#二-java代码" class="headerlink" title="二.java代码"></a>二.java代码</h2><h3 id="1-声明一个ViewPager对象"><a href="#1-声明一个ViewPager对象" class="headerlink" title="1.声明一个ViewPager对象"></a>1.声明一个ViewPager对象</h3><pre><code>ViewPager starVp=getView.findViewById(R.id.xx)</code></pre><h3 id="2-声明一个int数组装本地图片"><a href="#2-声明一个int数组装本地图片" class="headerlink" title="2.声明一个int数组装本地图片"></a>2.声明一个int数组装本地图片</h3><pre><code>int[]imgIds={R.mipmap.bg,R.mipmap.bg1};</code></pre><h3 id="3-声明ViewPager和小圆点ivList的数据源"><a href="#3-声明ViewPager和小圆点ivList的数据源" class="headerlink" title="3.声明ViewPager和小圆点ivList的数据源"></a>3.声明ViewPager和小圆点ivList的数据源</h3><pre><code>List&lt;ImageView&gt;ivList;
-List&lt;ImageView&gt;poinList;</code></pre><h3 id="4-自定义一个initPager函数来将数据传到3的List中"><a href="#4-自定义一个initPager函数来将数据传到3的List中" class="headerlink" title="4.自定义一个initPager函数来将数据传到3的List中"></a>4.自定义一个initPager函数来将数据传到3的List中</h3><pre class=" language-java"><code class="language-java">    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">initPager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        ivList<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        poinList<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span>imgIds<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//ImageView的构造器有多种,我们选择context的这种,用getContext来实例化</span>
-            ImageView iv <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ImageView</span><span class="token punctuation">(</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-            <span class="token comment" spellcheck="true">//设置iv对应的图片资源并且记得设置拉伸XY</span>
-            iv<span class="token punctuation">.</span><span class="token function">setImageResource</span><span class="token punctuation">(</span>imgIds<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            iv<span class="token punctuation">.</span><span class="token function">setScaleType</span><span class="token punctuation">(</span>ImageView<span class="token punctuation">.</span>ScaleType<span class="token punctuation">.</span>FIT_XY<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-            <span class="token comment" spellcheck="true">//设置图片view的宽高,实例化一个LinearLayout.LayoutParams,选择和父类相同</span>
-            LinearLayout<span class="token punctuation">.</span>LayoutParams lp<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">LinearLayout<span class="token punctuation">.</span>LayoutParams</span><span class="token punctuation">(</span>LinearLayout<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>MATCH_PARENT<span class="token punctuation">,</span>LinearLayout<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>MATCH_PARENT<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-            <span class="token comment" spellcheck="true">//把设置的宽高设置进iv</span>
-            iv<span class="token punctuation">.</span><span class="token function">setLayoutParams</span><span class="token punctuation">(</span>lp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-            <span class="token comment" spellcheck="true">//将设置好的图片iv加载到集合当中</span>
-            ivList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>iv<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">//小圆点的做法和上面基本一样-----------------------------------------------</span>
-
-            <span class="token comment" spellcheck="true">//创建图片对应的指示器小圆点</span>
-            ImageView piv <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ImageView</span><span class="token punctuation">(</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            piv<span class="token punctuation">.</span><span class="token function">setImageResource</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>mipmap<span class="token punctuation">.</span>point_normal<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            LinearLayout<span class="token punctuation">.</span>LayoutParams plp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinearLayout<span class="token punctuation">.</span>LayoutParams</span><span class="token punctuation">(</span>LinearLayout<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>WRAP_CONTENT<span class="token punctuation">,</span> LinearLayout<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>WRAP_CONTENT<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">//设置以下margin值让小圆点有间隔</span>
-            plp<span class="token punctuation">.</span><span class="token function">setMargins</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            piv<span class="token punctuation">.</span><span class="token function">setLayoutParams</span><span class="token punctuation">(</span>plp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">//这步特别注意：要将小圆点添加到布局中,ViewPager是再适配器中addview</span>
-            pointLayout<span class="token punctuation">.</span><span class="token function">addView</span><span class="token punctuation">(</span>piv<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">//为了便于操作,将小圆点添加到统一管理的集合当中</span>
-            poinList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>piv<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">//---------------------------------------------------------------------    </span>
-        <span class="token comment" spellcheck="true">//默认第一个小圆点是获取焦点的状态</span>
-        poinList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setImageResource</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>mipmap<span class="token punctuation">.</span>point_focus<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//利用5中的构造方法,传入context和图片的list</span>
-        starPagerAdapter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StarPagerAdapter</span><span class="token punctuation">(</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ivList<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//添加适配器</span>
-        starVp<span class="token punctuation">.</span><span class="token function">setAdapter</span><span class="token punctuation">(</span>starPagerAdapter<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
-<h3 id="5-ViewPager的适配器"><a href="#5-ViewPager的适配器" class="headerlink" title="5.ViewPager的适配器"></a>5.ViewPager的适配器</h3><p>首先要新建一个类StarPagerAdapter继承PagerAdpter   </p>
-<p>第一个构造方法：要去拿一下图片资源(别忘了context)<br>第二个方法返回集合大小<br>第三个方法判断两次对象是不是同一个对象</p>
-<p>对于第四和第五个方法：其中contain是ViewGroup的对象,,position返回当前图片位置</p>
-<p>第四个方法是实例化item, 用imageView获取当前img,然后用addView加入到ViewPager的 布中最后返回imageView<br>第五个方法是销毁item,直接获取到当前的图片,然后用removeView(imageView)来销毁</p>
-<pre class=" language-java"><code class="language-java">    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StarPagerAdapter</span> <span class="token keyword">extends</span> <span class="token class-name">PagerAdapter</span> <span class="token punctuation">{</span>
-            Context context<span class="token punctuation">;</span>
-            List<span class="token operator">&lt;</span>ImageView<span class="token operator">></span>imgList<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token function">StarPagerAdapter</span><span class="token punctuation">(</span>Context context<span class="token punctuation">,</span> List<span class="token operator">&lt;</span>ImageView<span class="token operator">></span> imgList<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>context <span class="token operator">=</span> context<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>imgList <span class="token operator">=</span> imgList<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> imgList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isViewFromObject</span><span class="token punctuation">(</span><span class="token annotation punctuation">@NonNull</span> View view<span class="token punctuation">,</span> <span class="token annotation punctuation">@NonNull</span> Object object<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> view<span class="token operator">==</span>object<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//判断两次对象是不是一个对象</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@NonNull</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> Object <span class="token function">instantiateItem</span><span class="token punctuation">(</span><span class="token annotation punctuation">@NonNull</span> ViewGroup container<span class="token punctuation">,</span> <span class="token keyword">int</span> position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ImageView imageView <span class="token operator">=</span> imgList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        container<span class="token punctuation">.</span><span class="token function">addView</span><span class="token punctuation">(</span>imageView<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> imageView<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroyItem</span><span class="token punctuation">(</span><span class="token annotation punctuation">@NonNull</span> ViewGroup container<span class="token punctuation">,</span> <span class="token keyword">int</span> position<span class="token punctuation">,</span> <span class="token annotation punctuation">@NonNull</span> Object object<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ImageView imageView<span class="token operator">=</span>imgList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        container<span class="token punctuation">.</span><span class="token function">removeView</span><span class="token punctuation">(</span>imageView<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>       </code></pre>
-<h3 id="6-实现滑动图片原点跟着变化监听事件"><a href="#6-实现滑动图片原点跟着变化监听事件" class="headerlink" title="6.实现滑动图片原点跟着变化监听事件"></a>6.实现滑动图片原点跟着变化监听事件</h3><p>里面用到的函数就硬背就行了,功能也好理解</p>
-<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//设置ViewPager的监听器函数</span>
-    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">setVPListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        starVp<span class="token punctuation">.</span><span class="token function">addOnPageChangeListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ViewPager<span class="token punctuation">.</span>SimpleOnPageChangeListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token annotation punctuation">@Override</span>
-            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onPageSelected</span><span class="token punctuation">(</span><span class="token keyword">int</span> position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span>poinList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    poinList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setImageResource</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>mipmap<span class="token punctuation">.</span>point_normal<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                poinList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setImageResource</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>mipmap<span class="token punctuation">.</span>point_focus<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
-<h3 id="7-实现自动轮播效果-利用handler传递信息"><a href="#7-实现自动轮播效果-利用handler传递信息" class="headerlink" title="7.实现自动轮播效果(利用handler传递信息)"></a>7.实现自动轮播效果(利用handler传递信息)</h3><p>先在onCreate主函数中发送一条信息,重写一下Handler中的handleMessage方法,其中内部一定要注意再发送形成循环,对于一种状态,onCreat中只会发一次handler,所以在匿名方法内部要再发送信息形成循环</p>
-<pre class=" language-java"><code class="language-java">    handler<span class="token punctuation">.</span><span class="token function">sendEmptyMessageDelayed</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  </code></pre>
-<pre class=" language-java"><code class="language-java">    Handler handler<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token annotation punctuation">@Override</span>
-        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleMessage</span><span class="token punctuation">(</span><span class="token annotation punctuation">@NonNull</span> Message msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>what<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    <span class="token comment" spellcheck="true">//获取当前ViewPager显示的页面(getCurrentItem是自带的方法)</span>
-                    <span class="token keyword">int</span> currentItem<span class="token operator">=</span>starVp<span class="token punctuation">.</span><span class="token function">getCurrentItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token comment" spellcheck="true">//判断是否为最后一张,如果是最后一张就回到第一张,否则显示最后一张</span>
-                    <span class="token keyword">if</span> <span class="token punctuation">(</span>currentItem<span class="token operator">==</span>ivList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        starVp<span class="token punctuation">.</span><span class="token function">setCurrentItem</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
-                    <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                        currentItem<span class="token operator">++</span><span class="token punctuation">;</span>
-                        starVp<span class="token punctuation">.</span><span class="token function">setCurrentItem</span><span class="token punctuation">(</span>currentItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
-
-                    <span class="token comment" spellcheck="true">//形成循环发送--接受消息的效果,在接受消息的同时也要进行信息发送</span>
-                    handler<span class="token punctuation">.</span><span class="token function">sendEmptyMessageDelayed</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-                <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-
+                
             </div>
             <hr/>
 
@@ -649,7 +520,7 @@ List&lt;ImageView&gt;poinList;</code></pre><h3 id="4-自定义一个initPager函
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/2020/07/26/lun-bo-tu/">https://1766095699.github.io/2020/07/26/lun-bo-tu/</a>
+                    <a href="https://1766095699.github.io/2020/07/28/listview/">https://1766095699.github.io/2020/07/28/listview/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -737,7 +608,7 @@ List&lt;ImageView&gt;poinList;</code></pre><h3 id="4-自定义一个initPager函
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-07-26T21-43-17',
+        id: '2020-07-28T07-13-36',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -761,30 +632,30 @@ List&lt;ImageView&gt;poinList;</code></pre><h3 id="4-自定义一个initPager函
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/27/ba-ju-xing-tu-pian-bian-cheng-yuan-xing-de-fang-fa/">
+                <a href="/2020/07/28/listview/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="把矩形图片变成圆形的方法">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="listView">
                         
-                        <span class="card-title">把矩形图片变成圆形的方法</span>
+                        <span class="card-title">listView</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            开源项目的网址：https://github.com/1766095699/CircleImageView需要导入的依赖      
-    implementation &#39;de.hdodenhof:circleimageview:
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -801,6 +672,7 @@ List&lt;ImageView&gt;poinList;</code></pre><h3 id="4-自定义一个initPager函
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -823,26 +695,25 @@ List&lt;ImageView&gt;poinList;</code></pre><h3 id="4-自定义一个initPager函
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/25/ben-di-zi-yuan-de-du-qu/">
+                <a href="/2020/07/27/gong-xiang-xml-bu-ju/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="本地资源的读取">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="共享xml布局">
                         
-                        <span class="card-title">本地资源的读取</span>
+                        <span class="card-title">共享xml布局</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一.读取Assets文件夹中的文件    1.创建工具类AssetUtils  
-2.自定义参数读取字符串,参数固定(下图时读Json文件),用AssetManager来读文件夹
-        public static String g
+                            一.共享xml布局当有多个页面有相同部分时,可以先写一个共有部分的xml文件(比如标题头部),然后在另一个xml文件中写
+    &lt;include layout=&quot;@layout/xxxx&quot;/&gt;
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
                             </span>
                         <span class="publish-author">
                             
