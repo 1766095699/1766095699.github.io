@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="共享xml布局, 比企谷八幡">
+    <meta name="keywords" content="多个xml布局的共享与拼接, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>共享xml布局 | 比企谷八幡</title>
+    <title>多个xml布局的共享与拼接 | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">共享xml布局</h1>
+                    <h1 class="description center-align post-title">多个xml布局的共享与拼接</h1>
                 </div>
             </div>
         </div>
@@ -478,7 +478,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    57
+                    246
                 </div>
                 
 
@@ -495,8 +495,18 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-共享xml布局"><a href="#一-共享xml布局" class="headerlink" title="一.共享xml布局"></a>一.共享xml布局</h2><p>当有多个页面有相同部分时,可以先写一个共有部分的xml文件(比如标题头部),然后在另一个xml文件中写</p>
-<pre><code>    &lt;include layout=&quot;@layout/xxxx&quot;/&gt;</code></pre>
+                <h2 id="一-在一个xml文件中添加另一个xml文件布局"><a href="#一-在一个xml文件中添加另一个xml文件布局" class="headerlink" title="一.在一个xml文件中添加另一个xml文件布局"></a>一.在一个xml文件中添加另一个xml文件布局</h2><p>当有多个页面有相同部分时,可以先写一个共有部分的xml文件(比如标题头部),然后在另一个xml文件中写</p>
+<pre><code>    &lt;include layout=&quot;@layout/xxxx&quot;/&gt;</code></pre><h2 id="在java中实现对多个xml中布局组件的合并"><a href="#在java中实现对多个xml中布局组件的合并" class="headerlink" title="在java中实现对多个xml中布局组件的合并"></a>在java中实现对多个xml中布局组件的合并</h2><p><img src="https://i.loli.net/2020/07/28/zDPJwdYXf2to5MI.png" alt=""><br>使用LayoutInflater可以实现布局组件的的合并<br>实战案例：(星梦缘star部分二级页面的编写)<br><img src="https://i.loli.net/2020/07/28/E2Z6AkxzvVIpWSe.png" alt="最终效果图1"><br><img src="https://i.loli.net/2020/07/28/WbB5MtoVGO7fIYm.png" alt="最终效果图2"></p>
+<p><img src="https://i.loli.net/2020/07/28/M3rbzJWSPwIGLyN.png" alt="activity_star_analysis.xml"><br><img src="https://i.loli.net/2020/07/28/Ju3qg9X7vpSkDtl.png" alt="footer_star_analysis.xml"><br>分开写了这两个模块之后,想要在ListView下面加上星座解析,在java代码中要这样写 ：   </p>
+<pre class=" language-java"><code class="language-java">        ListView analysisLv<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> TextView footerTv<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ListView底部需要改变的文字</span>
+          <span class="token comment" spellcheck="true">//为ListView添加底部布局</span>
+
+        View footerView <span class="token operator">=</span> LayoutInflater<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">inflate</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>footer_star_analysis<span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//将布局转化成View对象(也可以是组件)</span>
+        analysisLv<span class="token punctuation">.</span><span class="token function">addFooterView</span><span class="token punctuation">(</span>footerView<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//设置底部的位置添加(也可以设置头部)</span>
+        footerTv<span class="token operator">=</span>footerView<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>footerstar_tv_info<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><strong><em>其中analysisLv是ListView的对象,footerstar_tv_info是textview的id,对象我们一般声明在外面的全局区域</em></strong></p>
+
             </div>
             <hr/>
 
@@ -649,7 +659,10 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            效果图属性值一列下来就是用ListView实现的  
+一.xml文件1.ListView布局在主xml &lt;ListView
+         android:id="@+id/staranalysis_lv"
+         and
                         
                     </div>
                     <div class="publish-info">
