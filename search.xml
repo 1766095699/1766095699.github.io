@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>OXChart的详细用法</title>
+      <link href="/2020/07/31/oxchart-de-xiang-xi-yong-fa/"/>
+      <url>/2020/07/31/oxchart-de-xiang-xi-yong-fa/</url>
+      
+        <content type="html"><![CDATA[<h1 id="第三方库来源-原作者的github-："><a href="#第三方库来源-原作者的github-：" class="headerlink" title="第三方库来源(原作者的github)："></a>第三方库来源(原作者的github)：</h1><pre><code>https://github.com/openXu/OXChart</code></pre><h2 id="一-类库接入"><a href="#一-类库接入" class="headerlink" title="一.类库接入"></a>一.类库接入</h2><pre><code>implementation &#39;com.openxu.viewlib:OXViewLib:xxx&#39;//注意：其中xxx是OXChart的版本号(去原作者github上找)//比如下面的这种写法：implementation &#39;com.openxu.viewlib:OXViewLib:1.0.2&#39;</code></pre><h2 id="二"><a href="#二" class="headerlink" title="二."></a>二.</h2><p><img src="https://i.loli.net/2020/07/31/bsTSe2zRVEIXYdf.gif" alt="1.gif"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安卓开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 安卓开发 </tag>
+            
+            <tag> 统计图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>用ScrollView底部显示不全的解决方案</title>
       <link href="/2020/07/29/yong-scrollview-di-bu-xian-shi-bu-quan-de-jie-jue-fang-an/"/>
       <url>/2020/07/29/yong-scrollview-di-bu-xian-shi-bu-quan-de-jie-jue-fang-an/</url>
