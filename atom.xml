@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-07-31T12:17:11.233Z</updated>
+  <updated>2020-08-01T10:50:54.484Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SharedPreferences的简单应用</title>
+    <link href="https://1766095699.github.io/2020/08/01/sharedpreferences-de-jian-dan-ying-yong/"/>
+    <id>https://1766095699.github.io/2020/08/01/sharedpreferences-de-jian-dan-ying-yong/</id>
+    <published>2020-08-01T10:01:17.000Z</published>
+    <updated>2020-08-01T10:50:54.484Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;关于SharePreferences的原理我在此不做赘述(有道云笔记里有写),这里重点分析如果实现首次进入app和之后进入app的页面不同的效果  &lt;/p&gt;
+&lt;h2 id=&quot;一-代码&quot;&gt;&lt;a href=&quot;#一-代码&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="项目实战" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>星梦缘开发的注意事项</title>
+    <link href="https://1766095699.github.io/2020/08/01/xing-meng-yuan-kai-fa-de-zhu-yi-shi-xiang/"/>
+    <id>https://1766095699.github.io/2020/08/01/xing-meng-yuan-kai-fa-de-zhu-yi-shi-xiang/</id>
+    <published>2020-08-01T09:32:30.000Z</published>
+    <updated>2020-08-01T09:34:44.353Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一-依赖的导入&quot;&gt;&lt;a href=&quot;#一-依赖的导入&quot; class=&quot;headerlink&quot; title=&quot;一.依赖的导入&quot;&gt;&lt;/a&gt;一.依赖的导入&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;implementation
+        
+      
+    
+    </summary>
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="项目实战" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="星梦缘" scheme="https://1766095699.github.io/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
+    
+  </entry>
   
   <entry>
     <title>OXChart的详细用法</title>

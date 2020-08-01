@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>SharedPreferences的简单应用</title>
+      <link href="/2020/08/01/sharedpreferences-de-jian-dan-ying-yong/"/>
+      <url>/2020/08/01/sharedpreferences-de-jian-dan-ying-yong/</url>
+      
+        <content type="html"><![CDATA[<p>关于SharePreferences的原理我在此不做赘述(有道云笔记里有写),这里重点分析如果实现首次进入app和之后进入app的页面不同的效果  </p><h2 id="一-代码"><a href="#一-代码" class="headerlink" title="一.代码"></a>一.代码</h2><pre class=" language-java"><code class="language-java">    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WeocomActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>    TextView tv<span class="token punctuation">;</span>    <span class="token keyword">int</span> count<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>    Handler handler<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token annotation punctuation">@SuppressLint</span><span class="token punctuation">(</span><span class="token string">"HandlerLeak"</span><span class="token punctuation">)</span>        <span class="token annotation punctuation">@Override</span>        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleMessage</span><span class="token punctuation">(</span><span class="token annotation punctuation">@NonNull</span> Message msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>what<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>            <span class="token punctuation">{</span>            count<span class="token operator">--</span><span class="token punctuation">;</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>count<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                <span class="token comment" spellcheck="true">//判断是否是第一次进入此应用,如果是第一次进入此应用,跳到引导界面</span>                <span class="token keyword">boolean</span> isfirst<span class="token operator">=</span>first_pref<span class="token punctuation">.</span><span class="token function">getBoolean</span><span class="token punctuation">(</span><span class="token string">"isfirst"</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                Intent intent<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token keyword">if</span><span class="token punctuation">(</span>isfirst<span class="token punctuation">)</span><span class="token punctuation">{</span>                  intent<span class="token punctuation">.</span><span class="token function">setClass</span><span class="token punctuation">(</span>WeocomActivity<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span> GuideActivity<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                  <span class="token comment" spellcheck="true">//为了下一次不跳转更改值</span>                   SharedPreferences<span class="token punctuation">.</span>Editor editor<span class="token operator">=</span>first_pref<span class="token punctuation">.</span><span class="token function">edit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                   editor<span class="token punctuation">.</span><span class="token function">putBoolean</span><span class="token punctuation">(</span><span class="token string">"isfirst"</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                   editor<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>                    intent<span class="token punctuation">.</span><span class="token function">setClass</span><span class="token punctuation">(</span>WeocomActivity<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">,</span>MainActivity<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token punctuation">}</span>                <span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token function">finish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>                tv<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                handler<span class="token punctuation">.</span><span class="token function">sendEmptyMessageDelayed</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">800</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">;</span>    <span class="token keyword">private</span> SharedPreferences first_pref<span class="token punctuation">;</span>    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token function">setContentView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_weocom<span class="token punctuation">)</span><span class="token punctuation">;</span>        tv<span class="token operator">=</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>welcome_tv<span class="token punctuation">)</span><span class="token punctuation">;</span>        first_pref <span class="token operator">=</span> <span class="token function">getSharedPreferences</span><span class="token punctuation">(</span><span class="token string">"first_pref"</span><span class="token punctuation">,</span> MODE_PRIVATE<span class="token punctuation">)</span><span class="token punctuation">;</span>        handler<span class="token punctuation">.</span><span class="token function">sendEmptyMessageDelayed</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">800</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><h2 id="二-分析"><a href="#二-分析" class="headerlink" title="二.分析"></a>二.分析</h2><p>1.利用getSharepreference 创建对象,然后第一个参数是一个标指key,第二个参数的模式,MODE_PRIVATE表示被本应用读写<br>2.在HandleMessage用getXXX来给isfirst进行赋值</p><pre><code>boolean isfirst=first_pref.getBoolean(&quot;isfirst&quot;,true);</code></pre><p>然后写一个判断,创建一个editor对象来更改数据源</p><pre><code> SharedPreferences.Editor editor=first_pref.edit();                    editor.putBoolean(&quot;isfirst&quot;,false);                    editor.commit();</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安卓开发 </category>
+          
+          <category> 项目实战 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>星梦缘开发的注意事项</title>
+      <link href="/2020/08/01/xing-meng-yuan-kai-fa-de-zhu-yi-shi-xiang/"/>
+      <url>/2020/08/01/xing-meng-yuan-kai-fa-de-zhu-yi-shi-xiang/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一-依赖的导入"><a href="#一-依赖的导入" class="headerlink" title="一.依赖的导入"></a>一.依赖的导入</h2><pre><code>implementation &#39;com.google.code.gson:gson:2.2.4&#39;implementation &#39;com.squareup.picasso:picasso:2.5.2&#39;implementation &#39;de.hdodenhof:circleimageview:3.1.0&#39;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安卓开发 </category>
+          
+          <category> 项目实战 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 安卓开发 </tag>
+            
+            <tag> 星梦缘 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>OXChart的详细用法</title>
       <link href="/2020/07/31/oxchart-de-xiang-xi-yong-fa/"/>
       <url>/2020/07/31/oxchart-de-xiang-xi-yong-fa/</url>
