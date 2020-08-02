@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/%20http://zhanglei12138.gitee.io/ljhblog/"/>
-  <updated>2020-08-01T12:11:59.593Z</updated>
+  <updated>2020-08-02T04:07:28.576Z</updated>
   <id>https://1766095699.github.io/%20http://zhanglei12138.gitee.io/ljhblog/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>同时部署在多平台</title>
+    <link href="https://1766095699.github.io/%20http://zhanglei12138.gitee.io/ljhblog/2020/08/02/tong-shi-bu-shu-zai-duo-ping-tai/"/>
+    <id>https://1766095699.github.io/%20http://zhanglei12138.gitee.io/ljhblog/2020/08/02/tong-shi-bu-shu-zai-duo-ping-tai/</id>
+    <published>2020-08-02T04:01:58.000Z</published>
+    <updated>2020-08-02T04:07:28.576Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;如果按照第一篇文章那样做完等一个小时不行的话就结合第二篇文章来重新生成和配置ssh&lt;br&gt;&lt;a href=&quot;https://www.jianshu.com/p/79bd6fb15790&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://1766095699.github.io/ http://zhanglei12138.gitee.io/ljhblog/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://1766095699.github.io/ http://zhanglei12138.gitee.io/ljhblog/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>dialog的用法</title>
@@ -570,29 +597,6 @@
       <category term="Java" scheme="https://1766095699.github.io/ http://zhanglei12138.gitee.io/ljhblog/tags/Java/"/>
     
       <category term="线程" scheme="https://1766095699.github.io/ http://zhanglei12138.gitee.io/ljhblog/tags/%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://1766095699.github.io/%20http://zhanglei12138.gitee.io/ljhblog/2020/07/17/hello-world/"/>
-    <id>https://1766095699.github.io/%20http://zhanglei12138.gitee.io/ljhblog/2020/07/17/hello-world/</id>
-    <published>2020-07-17T15:02:30.340Z</published>
-    <updated>2020-07-17T15:02:30.340Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
-    
-    </summary>
-    
-    
     
   </entry>
   

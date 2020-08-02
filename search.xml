@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>同时部署在多平台</title>
+      <link href="/2020/08/02/tong-shi-bu-shu-zai-duo-ping-tai/"/>
+      <url>/2020/08/02/tong-shi-bu-shu-zai-duo-ping-tai/</url>
+      
+        <content type="html"><![CDATA[<p>如果按照第一篇文章那样做完等一个小时不行的话就结合第二篇文章来重新生成和配置ssh<br><a href="https://www.jianshu.com/p/79bd6fb15790" target="_blank" rel="noopener">https://www.jianshu.com/p/79bd6fb15790</a><br><a href="https://tommy88.gitee.io/%2F2018%2F01%2F02%2FGit-config-multi-SSH-Key%2F" target="_blank" rel="noopener">https://tommy88.gitee.io/%2F2018%2F01%2F02%2FGit-config-multi-SSH-Key%2F</a></p><p><strong><em>注:不用靠 ssh -T <a href="mailto:git@github.com">git@github.com</a>和ssh -T <a href="mailto:git@gitee.com">git@gitee.com</a>来测试配置是否成功。Permission denied (publickey).不影响网页(我自己的这样的)</em></strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>dialog的用法</title>
       <link href="/2020/08/01/dialog-de-yong-fa/"/>
       <url>/2020/08/01/dialog-de-yong-fa/</url>

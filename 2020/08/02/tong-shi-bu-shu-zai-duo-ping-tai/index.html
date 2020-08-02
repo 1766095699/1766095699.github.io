@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="dialog的用法, 比企谷八幡">
+    <meta name="keywords" content="同时部署在多平台, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>dialog的用法 | 比企谷八幡</title>
+    <title>同时部署在多平台 | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">dialog的用法</h1>
+                    <h1 class="description center-align post-title">同时部署在多平台</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/hexo/">
+                                <span class="chip bg-color">hexo</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -439,12 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/" class="post-category">
-                                安卓开发
-                            </a>
-                        
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                项目实战
+                            <a href="/categories/hexo/" class="post-category">
+                                hexo
                             </a>
                         
                     </div>
@@ -456,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-01
+                    2020-08-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-01
+                    2020-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    204
+                    94
                 </div>
                 
 
@@ -487,51 +487,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code>  private void showDialog() {
-    final Dialog dialog=new Dialog(getContext());
-    View dialogView=LayoutInflater.from(getContext()).inflate(R.layout.me_dialog,null);
-    dialog.setContentView(dialogView);
-    dialog.setTitle(&quot;请选择您的星座123&quot;);
-    GridView dialogGv=dialogView.findViewById(R.id.megrag_dialog_gv);
-    //设置适配器
-    LuckBaseAdapter adapter=new LuckBaseAdapter(getContext(),mDatas);
-    dialogGv.setAdapter(adapter);
-    //设置是否能被取消
-    dialog.setCancelable(true);
-    //设置点击弹出框的部分,可以取消弹出框
-    dialog.setCanceledOnTouchOutside(true);
-    dialogGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                <p>如果按照第一篇文章那样做完等一个小时不行的话就结合第二篇文章来重新生成和配置ssh<br><a href="https://www.jianshu.com/p/79bd6fb15790" target="_blank" rel="noopener">https://www.jianshu.com/p/79bd6fb15790</a><br><a href="https://tommy88.gitee.io/%2F2018%2F01%2F02%2FGit-config-multi-SSH-Key%2F" target="_blank" rel="noopener">https://tommy88.gitee.io/%2F2018%2F01%2F02%2FGit-config-multi-SSH-Key%2F</a></p>
+<p><strong><em>注:不用靠 ssh -T <a href="mailto:git@github.com">git@github.com</a>和ssh -T <a href="mailto:git@gitee.com">git@gitee.com</a>来测试配置是否成功。Permission denied (publickey).不影响网页(我自己的这样的)</em></strong></p>
 
-        private Bitmap bitmap;
-        private String logoname;
-        private String name;
-        private StarBean.StarinfoBean bean;
-
-        @Override
-        public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
-            bean = mDatas.get(position);
-            name = bean.getName();
-            logoname = bean.getLogoname();
-            nameTv.setText(name);
-            bitmap = contentImgMap.get(logoname);
-            iconIv.setImageBitmap(bitmap);
-            selectPos=position;//保存选择位置
-            dialog.cancel();
-        }
-    });
-    dialog.show();
-}
-@Override
-public void onPause(){
-    super.onPause();
-    StarBean.StarinfoBean bean = mDatas.get(selectPos);
-    String name=bean.getName();
-    String logoname=bean.getLogoname();
-    SharedPreferences.Editor editor=star_pref.edit();//获取像共享参数zhong写入数据的对象
-    editor.putString(&quot;name&quot;,name);
-    editor.putString(&quot;logoname&quot;,logoname);
-    editor.commit();
-}</code></pre>
             </div>
             <hr/>
 
@@ -556,7 +514,7 @@ public void onPause(){
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/ http://zhanglei12138.gitee.io/ljhblog/2020/08/01/dialog-de-yong-fa/">https://1766095699.github.io/ http://zhanglei12138.gitee.io/ljhblog/2020/08/01/dialog-de-yong-fa/</a>
+                    <a href="https://1766095699.github.io/ http://zhanglei12138.gitee.io/ljhblog/2020/08/02/tong-shi-bu-shu-zai-duo-ping-tai/">https://1766095699.github.io/ http://zhanglei12138.gitee.io/ljhblog/2020/08/02/tong-shi-bu-shu-zai-duo-ping-tai/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -593,7 +551,11 @@ public void onPause(){
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/hexo/">
+                                    <span class="chip bg-color">hexo</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -636,7 +598,7 @@ public void onPause(){
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-08-01T20-11-20',
+        id: '2020-08-02T12-01-58',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -660,9 +622,10 @@ public void onPause(){
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/08/02/tong-shi-bu-shu-zai-duo-ping-tai/">
                     <div class="card-image">
@@ -680,9 +643,9 @@ public void onPause(){
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -695,6 +658,7 @@ public void onPause(){
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -713,20 +677,21 @@ public void onPause(){
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/01/sharedpreferences-de-jian-dan-ying-yong/">
+                <a href="/2020/08/01/dialog-de-yong-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="SharedPreferences的简单应用">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="dialog的用法">
                         
-                        <span class="card-title">SharedPreferences的简单应用</span>
+                        <span class="card-title">dialog的用法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            关于SharePreferences的原理我在此不做赘述(有道云笔记里有写),这里重点分析如果实现首次进入app和之后进入app的页面不同的效果  
-一.代码    public class WeocomActivity extends A
+                              private void showDialog() {
+    final Dialog dialog=new Dialog(getContext());
+    View dialogView=LayoutInflater.from(
                         
                     </div>
                     <div class="publish-info">
