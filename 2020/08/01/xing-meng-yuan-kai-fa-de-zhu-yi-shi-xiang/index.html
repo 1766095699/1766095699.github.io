@@ -478,7 +478,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    36
+                    82
                 </div>
                 
 
@@ -495,9 +495,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-依赖的导入"><a href="#一-依赖的导入" class="headerlink" title="一.依赖的导入"></a>一.依赖的导入</h2><pre><code>implementation &#39;com.google.code.gson:gson:2.2.4&#39;
-implementation &#39;com.squareup.picasso:picasso:2.5.2&#39;
-implementation &#39;de.hdodenhof:circleimageview:3.1.0&#39;</code></pre>
+                <h2 id="一-依赖的导入"><a href="#一-依赖的导入" class="headerlink" title="一.依赖的导入"></a>一.依赖的导入</h2><pre><code>implementation 'com.google.code.gson:gson:2.2.4'
+implementation 'com.squareup.picasso:picasso:2.5.2'
+implementation 'de.hdodenhof:circleimageview:3.1.0'</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -697,7 +715,8 @@ implementation &#39;de.hdodenhof:circleimageview:3.1.0&#39;</code></pre>
                     <div class="summary block-with-text">
                         
                             第三方库来源(原作者的github)：原作者github：https://github.com/openXu/OXChart
-一.类库接入implementation &#39;com.openxu.viewlib:OXViewLib:xx
+一.类库接入implementation 'com.openxu.viewlib:OXViewLib:xxx'
+/
                         
                     </div>
                     <div class="publish-info">

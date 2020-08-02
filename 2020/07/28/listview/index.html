@@ -478,7 +478,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    779
+                    831
                 </div>
                 
 
@@ -611,7 +611,25 @@
     <span class="token punctuation">}</span></code></pre>
 <p><strong><em>mDatas最开始是没有数据的,但是因为下面调用addDataToList()提醒适配器更新,所以可以addDataToList()写在后面</em></strong></p>
 <h4 id="2-2方式二-可以这样写但是不推荐"><a href="#2-2方式二-可以这样写但是不推荐" class="headerlink" title="2.2方式二(可以这样写但是不推荐):"></a>2.2方式二(可以这样写但是不推荐):</h4><p>addDataToList()写在前面设置适配器的前面,在设置适配器的时候顺便就把数据给赋了,但是在addDataToList()中必须把    adapter.notifyDataSetChanged();这行代码给去掉</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -765,6 +783,9 @@
                     <div class="summary block-with-text">
                         
                             
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return
                         
                     </div>
                     <div class="publish-info">
@@ -802,7 +823,7 @@
                     <div class="summary block-with-text">
                         
                             一.在一个xml文件中添加另一个xml文件布局当有多个页面有相同部分时,可以先写一个共有部分的xml文件(比如标题头部),然后在另一个xml文件中写
-    &lt;include layout=&quot;@layout/xxxx&quo
+    &lt;include layout="@layout/xxxx"/&gt;在ja
                         
                     </div>
                     <div class="publish-info">

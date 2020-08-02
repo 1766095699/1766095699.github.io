@@ -474,7 +474,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    642
+                    674
                 </div>
                 
 
@@ -492,11 +492,11 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="第三方库来源-原作者的github-："><a href="#第三方库来源-原作者的github-：" class="headerlink" title="第三方库来源(原作者的github)："></a>第三方库来源(原作者的github)：</h1><p>原作者github：<a href="https://github.com/openXu/OXChart" target="_blank" rel="noopener">https://github.com/openXu/OXChart</a></p>
-<h2 id="一-类库接入"><a href="#一-类库接入" class="headerlink" title="一.类库接入"></a>一.类库接入</h2><pre><code>implementation &#39;com.openxu.viewlib:OXViewLib:xxx&#39;
+<h2 id="一-类库接入"><a href="#一-类库接入" class="headerlink" title="一.类库接入"></a>一.类库接入</h2><pre><code>implementation 'com.openxu.viewlib:OXViewLib:xxx'
 //注意：其中xxx是OXChart的版本号(去原作者github上找)
 //比如下面的这种写法：
-implementation &#39;com.openxu.viewlib:OXViewLib:1.0.2&#39;</code></pre><p>使用主题<br>       <style name="OXViewAppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar"><br>        <item name="android:windowNoTitle">true</item><br>        <item name="android:windowActionBar">false</item><br>        <item name="android:clipToPadding">true</item><br>        <item name="android:windowSoftInputMode">adjustResize</item><br>    </style></p>
-<h2 id="二-南丁格尔玫瑰图"><a href="#二-南丁格尔玫瑰图" class="headerlink" title="二.南丁格尔玫瑰图"></a>二.南丁格尔玫瑰图</h2><p>效果图:<br><img src="https://i.loli.net/2020/07/31/bsTSe2zRVEIXYdf.gif" width = "200" height = "400" />  </p>
+implementation 'com.openxu.viewlib:OXViewLib:1.0.2'</code></pre><p>使用主题<br>       <style name="OXViewAppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar"><br>        <item name="android:windowNoTitle">true</item><br>        <item name="android:windowActionBar">false</item><br>        <item name="android:clipToPadding">true</item><br>        <item name="android:windowSoftInputMode">adjustResize</item><br>    </style></p>
+<h2 id="二-南丁格尔玫瑰图"><a href="#二-南丁格尔玫瑰图" class="headerlink" title="二.南丁格尔玫瑰图"></a>二.南丁格尔玫瑰图</h2><p>效果图:<br><img src="https://i.loli.net/2020/07/31/bsTSe2zRVEIXYdf.gif" width="200" height="400">  </p>
 <h3 id="一-xml布局和结果"><a href="#一-xml布局和结果" class="headerlink" title="一.xml布局和结果"></a>一.xml布局和结果</h3><h4 id="1-若无数据-则显示暂无数据"><a href="#1-若无数据-则显示暂无数据" class="headerlink" title="1.若无数据,则显示暂无数据"></a>1.若无数据,则显示暂无数据</h4><h4 id="2-若有数据-则会显示图表"><a href="#2-若有数据-则会显示图表" class="headerlink" title="2.若有数据,则会显示图表"></a>2.若有数据,则会显示图表</h4><h4 id="3-xml代码写法"><a href="#3-xml代码写法" class="headerlink" title="3.xml代码写法"></a>3.xml代码写法</h4><p>利用下面代码中的写法即可,无多余设置</p>
 <pre class=" language-XML"><code class="language-XML">         <com.openxu.cview.chart.rosechart.NightingaleRoseChart
         android:id="@+id/roseChartMany"
@@ -549,7 +549,7 @@ implementation &#39;com.openxu.viewlib:OXViewLib:1.0.2&#39;</code></pre><p>使�
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setClassName</span><span class="token punctuation">(</span>String className<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         ClassName <span class="token operator">=</span> className<span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
-<h3 id="三-饼状图"><a href="#三-饼状图" class="headerlink" title="三.饼状图"></a>三.饼状图</h3><img src="https://i.loli.net/2020/07/31/MlpUg3PEjuLRdy9.gif" width = "200" height = "400" />     
+<h3 id="三-饼状图"><a href="#三-饼状图" class="headerlink" title="三.饼状图"></a>三.饼状图</h3><img src="https://i.loli.net/2020/07/31/MlpUg3PEjuLRdy9.gif" width="200" height="400">     
 
 <h3 id="一-xml布局和结果-1"><a href="#一-xml布局和结果-1" class="headerlink" title="一.xml布局和结果"></a>一.xml布局和结果</h3><h4 id="1-若无数据-则显示暂无数据-1"><a href="#1-若无数据-则显示暂无数据-1" class="headerlink" title="1.若无数据,则显示暂无数据"></a>1.若无数据,则显示暂无数据</h4><h4 id="2-若有数据-则会显示图表-1"><a href="#2-若有数据-则会显示图表-1" class="headerlink" title="2.若有数据,则会显示图表"></a>2.若有数据,则会显示图表</h4><h4 id="3-xml代码写法-1"><a href="#3-xml代码写法-1" class="headerlink" title="3.xml代码写法"></a>3.xml代码写法</h4><pre class=" language-xml"><code class="language-xml">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>com.openxu.cview.chart.piechart.PieChartLayout</span>
                 <span class="token attr-name"><span class="token namespace">android:</span>id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@+id/pieChart2<span class="token punctuation">"</span></span>
@@ -579,14 +579,32 @@ pieChart2 = (PieChartLayout)findViewById(R.id.pieChart2);
     //请求数据
     List&lt;Object&gt; datalist = new ArrayList&lt;&gt;();
     datalist.clear();
-    datalist.add(new PieBean(20, &quot;IT&quot;));
-    datalist.add(new PieBean(10, &quot;销售&quot;));
-    datalist.add(new PieBean(30, &quot;金融&quot;));
-    datalist.add(new PieBean(8, &quot;林木业&quot;));
-    datalist.add(new PieBean(15, &quot;制造&quot;));
-    datalist.add(new PieBean(15, &quot;农业&quot;));
+    datalist.add(new PieBean(20, "IT"));
+    datalist.add(new PieBean(10, "销售"));
+    datalist.add(new PieBean(30, "金融"));
+    datalist.add(new PieBean(8, "林木业"));
+    datalist.add(new PieBean(15, "制造"));
+    datalist.add(new PieBean(15, "农业"));
     pieChart2.setLoading(false);
-    pieChart2.setChartData(PieBean.class, &quot;Numner&quot;, &quot;Name&quot;,datalist ,null);</code></pre>
+    pieChart2.setChartData(PieBean.class, "Numner", "Name",datalist ,null);</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -739,8 +757,9 @@ pieChart2 = (PieChartLayout)findViewById(R.id.pieChart2);
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一.依赖的导入implementation &#39;com.google.code.gson:gson:2.2.4&#39;
-implementation &#39;com.squareup.picasso:picasso:2.5.2&#
+                            一.依赖的导入implementation 'com.google.code.gson:gson:2.2.4'
+implementation 'com.squareup.picasso:picasso:2.5.2'
+implementati
                         
                     </div>
                     <div class="publish-info">
@@ -799,6 +818,9 @@ implementation &#39;com.squareup.picasso:picasso:2.5.2&#
                         
                             解决方式：在底部最后两行加两个换行
 
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dat
                         
                     </div>
                     <div class="publish-info">

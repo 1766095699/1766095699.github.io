@@ -503,8 +503,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-并发编程的三大问题"><a href="#一-并发编程的三大问题" class="headerlink" title="一.并发编程的三大问题"></a>一.并发编程的三大问题</h2><h3 id="一-可见性"><a href="#一-可见性" class="headerlink" title="一.可见性"></a>一.可见性</h3><h4 id="emsp-1-概念"><a href="#emsp-1-概念" class="headerlink" title="&emsp;1.概念:"></a>&emsp;1.概念:</h4><p>&emsp;对于共享数据,一个线程对该数据的值进行修改后另一个线程无法得到修改后的值  </p>
-<h4 id="emsp-2-代码演示："><a href="#emsp-2-代码演示：" class="headerlink" title="&emsp;2.代码演示："></a>&emsp;2.代码演示：</h4><pre><code>public class Test1 {
+                <h2 id="一-并发编程的三大问题"><a href="#一-并发编程的三大问题" class="headerlink" title="一.并发编程的三大问题"></a>一.并发编程的三大问题</h2><h3 id="一-可见性"><a href="#一-可见性" class="headerlink" title="一.可见性"></a>一.可见性</h3><h4 id="emsp-1-概念"><a href="#emsp-1-概念" class="headerlink" title=" 1.概念:"></a> 1.概念:</h4><p> 对于共享数据,一个线程对该数据的值进行修改后另一个线程无法得到修改后的值  </p>
+<h4 id="emsp-2-代码演示："><a href="#emsp-2-代码演示：" class="headerlink" title=" 2.代码演示："></a> 2.代码演示：</h4><pre><code>public class Test1 {
 private static boolean flag=true;
 public static void main(String[] args) throws InterruptedException {
     new Thread(){
@@ -513,7 +513,7 @@ public static void main(String[] args) throws InterruptedException {
             while (flag){
                 ;
             }
-            System.out.println(&quot;flag已修改&quot;);
+            System.out.println("flag已修改");
         }
     }.start();
     Thread.sleep(2000);
@@ -521,22 +521,22 @@ public static void main(String[] args) throws InterruptedException {
         @Override
         public void run() {
             flag=false;
-            System.out.println(&quot;已经被我修改&quot;);
+            System.out.println("已经被我修改");
             }
         }.start();
     }
 }  </code></pre><p> 运行结果：<img src="https://i.loli.net/2020/07/22/vYbSzhJt4VXW5RF.png" alt=""><br> <strong><em>不难发现,当线程二将flag改为true的时候线程一并不能提前得到最新数据,导致程序依旧停留在while循环中</em></strong>  </p>
-<h4 id="3-原因分析"><a href="#3-原因分析" class="headerlink" title="3.原因分析"></a>3.原因分析</h4><p>&emsp;<br><img src="https://i.loli.net/2020/07/22/wtyEl7iIvfadGxz.png" alt="内存模型"><br>&emsp;线程工作原理:在线程操作变量时,会先将主内存中的变量拷贝到工作内存中,然后对工作内存中的拷贝变量进行赋值计算等操作,操作完之后再赋值给主内存  </p>
-<p>&emsp;分析:比如示例代码的上下两个线程分别表示线程1和线程2,线程一的工作内存复制的值是true,当线程2将flag改为false并且赋给主内存后,线程一并不会去读取主内存中的值,这也就导致了线程一卡在while循环无法出来</p>
-<h4 id="4-解决方法"><a href="#4-解决方法" class="headerlink" title="4.解决方法"></a>4.解决方法</h4><p>&emsp;方式一：用volatile修饰共享变量<br>&emsp;原理：被volatile修饰的变量,当主内存中该变量被别的线程二改变时,会将工作内存中的变量全部作废,这样线程一要重新向主内存中去读取数据的值  </p>
+<h4 id="3-原因分析"><a href="#3-原因分析" class="headerlink" title="3.原因分析"></a>3.原因分析</h4><p> <br><img src="https://i.loli.net/2020/07/22/wtyEl7iIvfadGxz.png" alt="内存模型"><br> 线程工作原理:在线程操作变量时,会先将主内存中的变量拷贝到工作内存中,然后对工作内存中的拷贝变量进行赋值计算等操作,操作完之后再赋值给主内存  </p>
+<p> 分析:比如示例代码的上下两个线程分别表示线程1和线程2,线程一的工作内存复制的值是true,当线程2将flag改为false并且赋给主内存后,线程一并不会去读取主内存中的值,这也就导致了线程一卡在while循环无法出来</p>
+<h4 id="4-解决方法"><a href="#4-解决方法" class="headerlink" title="4.解决方法"></a>4.解决方法</h4><p> 方式一：用volatile修饰共享变量<br> 原理：被volatile修饰的变量,当主内存中该变量被别的线程二改变时,会将工作内存中的变量全部作废,这样线程一要重新向主内存中去读取数据的值  </p>
 <p>给flag添加了volatile之后代码的运行结果：</p>
 <p><img src="https://i.loli.net/2020/07/22/JG7PLNXIlZrY6DW.png" alt="">  </p>
-<p>&emsp; 方式二：用synchronized来保证可见性<br>仅就红色区域为新添的代码(synchronized的参数要放一个对象),也能解决这个问题<br><img src="https://i.loli.net/2020/07/22/WHw6Gop87BEaSON.png" alt="">  </p>
+<p>  方式二：用synchronized来保证可见性<br>仅就红色区域为新添的代码(synchronized的参数要放一个对象),也能解决这个问题<br><img src="https://i.loli.net/2020/07/22/WHw6Gop87BEaSON.png" alt="">  </p>
 <p>原理分析：<br>sychronized的时候会有lock和unlock的操作,在lock的时候会刷新当前线程工作内存中的值,实现工作内存及时读取最新的数据值<br><img src="https://i.loli.net/2020/07/22/ODvapBmMls3Z2Xu.png" alt=""></p>
 <p>补充：正因为如此,所以如果仅仅只在while循环中加一句</p>
-<pre><code> System.out.println(&quot;true&quot;);</code></pre><p>最后的也能退出循环,因为println的源码中有用到synchronized<br><img src="https://i.loli.net/2020/07/22/TOuj3JhNRZVfDG8.png" alt=""></p>
-<h3 id="二-原子性"><a href="#二-原子性" class="headerlink" title="二.原子性"></a>二.原子性</h3><h4 id="emsp-1-概念-1"><a href="#emsp-1-概念-1" class="headerlink" title="&emsp;1.概念:"></a>&emsp;1.概念:</h4><p>&emsp;在一次或多次操作中,要么所有操作都执行，而且不会因为互相干扰出现异常结果,要么都不执行      (经典抢车票中的线程安全问题)</p>
-<h4 id="emsp-2-代码演示-代码选自-创建多线程的四种方式中的方式二"><a href="#emsp-2-代码演示-代码选自-创建多线程的四种方式中的方式二" class="headerlink" title="&emsp;2.代码演示(代码选自 创建多线程的四种方式中的方式二):"></a>&emsp;2.代码演示(代码选自 <a href="https://1766095699.github.io/2020/07/19/jin-cheng-yu-xian-cheng/" target="_blank" rel="noopener">创建多线程的四种方式中的方式二</a>):</h4><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个实现Runnable接口的类</span>
+<pre><code> System.out.println("true");</code></pre><p>最后的也能退出循环,因为println的源码中有用到synchronized<br><img src="https://i.loli.net/2020/07/22/TOuj3JhNRZVfDG8.png" alt=""></p>
+<h3 id="二-原子性"><a href="#二-原子性" class="headerlink" title="二.原子性"></a>二.原子性</h3><h4 id="emsp-1-概念-1"><a href="#emsp-1-概念-1" class="headerlink" title=" 1.概念:"></a> 1.概念:</h4><p> 在一次或多次操作中,要么所有操作都执行，而且不会因为互相干扰出现异常结果,要么都不执行      (经典抢车票中的线程安全问题)</p>
+<h4 id="emsp-2-代码演示-代码选自-创建多线程的四种方式中的方式二"><a href="#emsp-2-代码演示-代码选自-创建多线程的四种方式中的方式二" class="headerlink" title=" 2.代码演示(代码选自 创建多线程的四种方式中的方式二):"></a> 2.代码演示(代码选自 <a href="https://1766095699.github.io/2020/07/19/jin-cheng-yu-xian-cheng/" target="_blank" rel="noopener">创建多线程的四种方式中的方式二</a>):</h4><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个实现Runnable接口的类</span>
     <span class="token keyword">class</span> <span class="token class-name">Mythread</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//2.重写run方法</span>
@@ -570,28 +570,28 @@ public static void main(String[] args) throws InterruptedException {
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span></code></pre>
 <p>运行结果：<img src="https://i.loli.net/2020/07/22/nS9QeX3G67x4qMF.png" alt=""><br><strong><em>不难发现,产生了重票</em></strong></p>
-<h4 id="emsp-3-原因分析："><a href="#emsp-3-原因分析：" class="headerlink" title="&emsp;3.原因分析："></a>&emsp;3.原因分析：</h4><p>&emsp;由于可能在同一时间多个线程同时对共享变量进行操作,正是由于同时操作,所以导致得到的票重复之类的问题<br><img src="https://i.loli.net/2020/07/22/4yRtEDVuIfGYe5i.png" alt=""></p>
-<h4 id="emsp-4-解决方法"><a href="#emsp-4-解决方法" class="headerlink" title="&emsp;4.解决方法"></a>&emsp;4.解决方法</h4><p>&emsp; 方式一(syncronized)：用synchronized进行同步的代码块,哪个进程拿到锁就哪个进程执行,如果没拿到的只能在外面等着,这保证了代码块最多只能有一个进程在执行   </p>
+<h4 id="emsp-3-原因分析："><a href="#emsp-3-原因分析：" class="headerlink" title=" 3.原因分析："></a> 3.原因分析：</h4><p> 由于可能在同一时间多个线程同时对共享变量进行操作,正是由于同时操作,所以导致得到的票重复之类的问题<br><img src="https://i.loli.net/2020/07/22/4yRtEDVuIfGYe5i.png" alt=""></p>
+<h4 id="emsp-4-解决方法"><a href="#emsp-4-解决方法" class="headerlink" title=" 4.解决方法"></a> 4.解决方法</h4><p>  方式一(syncronized)：用synchronized进行同步的代码块,哪个进程拿到锁就哪个进程执行,如果没拿到的只能在外面等着,这保证了代码块最多只能有一个进程在执行   </p>
 <p>例如:对于上面的代码示例中while内部用synchronized包起来,这样当线程一拿到锁开始抢票的时候其他线程都在while那里等着不往下执行,等线程一执行完代码块后锁释放出来再和其他进程一起去抢<br><img src="https://i.loli.net/2020/07/22/yxKSQ4LJvbIEzmX.png" alt=""></p>
 <p><strong><em>注意： synchronized如果是把while也包进来了结果会是只有一个进程直接把所有票抢完,原因可以结合上面的原理自行分析<br>所以使用synchronized有一个原则:不能包的太多也不能太少</em></strong></p>
-<h3 id="三-有序性"><a href="#三-有序性" class="headerlink" title="三.有序性"></a>三.有序性</h3><h4 id="emsp-1-概念-2"><a href="#emsp-1-概念-2" class="headerlink" title="&emsp;1.概念:"></a>&emsp;1.概念:</h4><p>&emsp;代码执行顺序不是严格按照顺序从上到下执行的</p>
-<h4 id="emsp-2-代码示例"><a href="#emsp-2-代码示例" class="headerlink" title="&emsp;2.代码示例():"></a>&emsp;2.代码示例():</h4><p><img src="https://i.loli.net/2020/07/22/jUxlerpFIzoRmn4.png" alt=""></p>
+<h3 id="三-有序性"><a href="#三-有序性" class="headerlink" title="三.有序性"></a>三.有序性</h3><h4 id="emsp-1-概念-2"><a href="#emsp-1-概念-2" class="headerlink" title=" 1.概念:"></a> 1.概念:</h4><p> 代码执行顺序不是严格按照顺序从上到下执行的</p>
+<h4 id="emsp-2-代码示例"><a href="#emsp-2-代码示例" class="headerlink" title=" 2.代码示例():"></a> 2.代码示例():</h4><p><img src="https://i.loli.net/2020/07/22/jUxlerpFIzoRmn4.png" alt=""></p>
 <pre><code>ready=true;
 num=2;
 经过重排序,执行顺序变成
 num=2;
 ready=true</code></pre><p>此时,如果线程二先执行并且重排序的话可能导致r.r1=0,我们要做得就是避免这种情况为了避免这种情况</p>
-<h4 id="emsp-3-原因分析"><a href="#emsp-3-原因分析" class="headerlink" title="&emsp;3.原因分析"></a>&emsp;3.原因分析</h4><p>&emsp;程序代码在执行过程中的先后顺序，由于Java在编译期以及运行期的优化,导致了代码的执行顺序未必就是开发者编写代码时的顺序</p>
-<h4 id="emsp-4-解决方法-1"><a href="#emsp-4-解决方法-1" class="headerlink" title="&emsp;4.解决方法:"></a>&emsp;4.解决方法:</h4><p>&emsp;方式一(synchronized关键字) :给上述代码的actor1和actor2内的代码加上synchronized,即便内部会发生重排序,但是不会影响到外部。因为加了synchronized之后只会有一个线程执行代码块中的内容<br>&emsp;方式二(volatile):给共享变量加上volatile,可以保证不发生重排序</p>
-<h2 id="二-synchronized的可重入性"><a href="#二-synchronized的可重入性" class="headerlink" title="二.synchronized的可重入性"></a>二.synchronized的可重入性</h2><h3 id="emsp-1-概念-3"><a href="#emsp-1-概念-3" class="headerlink" title="&emsp;1.概念:"></a>&emsp;1.概念:</h3><p>&emsp;synchronized允许多层嵌套  </p>
-<h3 id="emsp-2-代码示例-1"><a href="#emsp-2-代码示例-1" class="headerlink" title="&emsp;2.代码示例:"></a>&emsp;2.代码示例:</h3><pre><code>class Mythread extends Thread{
+<h4 id="emsp-3-原因分析"><a href="#emsp-3-原因分析" class="headerlink" title=" 3.原因分析"></a> 3.原因分析</h4><p> 程序代码在执行过程中的先后顺序，由于Java在编译期以及运行期的优化,导致了代码的执行顺序未必就是开发者编写代码时的顺序</p>
+<h4 id="emsp-4-解决方法-1"><a href="#emsp-4-解决方法-1" class="headerlink" title=" 4.解决方法:"></a> 4.解决方法:</h4><p> 方式一(synchronized关键字) :给上述代码的actor1和actor2内的代码加上synchronized,即便内部会发生重排序,但是不会影响到外部。因为加了synchronized之后只会有一个线程执行代码块中的内容<br> 方式二(volatile):给共享变量加上volatile,可以保证不发生重排序</p>
+<h2 id="二-synchronized的可重入性"><a href="#二-synchronized的可重入性" class="headerlink" title="二.synchronized的可重入性"></a>二.synchronized的可重入性</h2><h3 id="emsp-1-概念-3"><a href="#emsp-1-概念-3" class="headerlink" title=" 1.概念:"></a> 1.概念:</h3><p> synchronized允许多层嵌套  </p>
+<h3 id="emsp-2-代码示例-1"><a href="#emsp-2-代码示例-1" class="headerlink" title=" 2.代码示例:"></a> 2.代码示例:</h3><pre><code>class Mythread extends Thread{
 //2.重写run方法
 @Override
 public void run() {
      synchronized (this){
-         System.out.println(getName()+&quot;进入同步代码块1&quot;);
+         System.out.println(getName()+"进入同步代码块1");
          synchronized (this){
-             System.out.println(getName()+&quot;进入同步代码块2&quot;);
+             System.out.println(getName()+"进入同步代码块2");
          }
      }
  }
@@ -600,20 +600,20 @@ public class Test1 {
     public static void main(String[] args) {
         Mythread t1= new Mythread();
         Mythread t2= new Mythread();
-        t1.setName(&quot;线程一&quot;);
-        t2.setName(&quot;线程二&quot;);
+        t1.setName("线程一");
+        t2.setName("线程二");
         t1.start();
         t2.start();
     }
 }</code></pre><p>代码结果：<img src="https://i.loli.net/2020/07/22/XTxWcgEyhAD1dHz.png" alt=""></p>
-<h3 id="emsp-3-可重入的原理-好处-小结"><a href="#emsp-3-可重入的原理-好处-小结" class="headerlink" title="&emsp;3.可重入的原理,好处,小结"></a>&emsp;3.可重入的原理,好处,小结</h3><p><img src="https://i.loli.net/2020/07/22/yq2831ljgsYvVTI.png" alt=""><br><strong><em>关于synchronized的计数器：每进入一层synchronized就+1,到了结尾就-1</em></strong></p>
+<h3 id="emsp-3-可重入的原理-好处-小结"><a href="#emsp-3-可重入的原理-好处-小结" class="headerlink" title=" 3.可重入的原理,好处,小结"></a> 3.可重入的原理,好处,小结</h3><p><img src="https://i.loli.net/2020/07/22/yq2831ljgsYvVTI.png" alt=""><br><strong><em>关于synchronized的计数器：每进入一层synchronized就+1,到了结尾就-1</em></strong></p>
 <hr>
-<h2 id="三-synchronized的不可中断性"><a href="#三-synchronized的不可中断性" class="headerlink" title="三.synchronized的不可中断性"></a>三.synchronized的不可中断性</h2><h3 id="emsp-1-概念-4"><a href="#emsp-1-概念-4" class="headerlink" title="&emsp;1.概念:"></a>&emsp;1.概念:</h3><p>&emsp;一个线程获得锁后,另一个线程想要获得锁，必须处于阻塞或等待状态,如果第一个线程不释放锁， 第二个线程会一直阻塞或等待，不可被中断。</p>
-<h3 id="emsp-1-代码示例"><a href="#emsp-1-代码示例" class="headerlink" title="&emsp;1.代码示例:"></a>&emsp;1.代码示例:</h3><pre><code>class Mythread implements Runnable{
+<h2 id="三-synchronized的不可中断性"><a href="#三-synchronized的不可中断性" class="headerlink" title="三.synchronized的不可中断性"></a>三.synchronized的不可中断性</h2><h3 id="emsp-1-概念-4"><a href="#emsp-1-概念-4" class="headerlink" title=" 1.概念:"></a> 1.概念:</h3><p> 一个线程获得锁后,另一个线程想要获得锁，必须处于阻塞或等待状态,如果第一个线程不释放锁， 第二个线程会一直阻塞或等待，不可被中断。</p>
+<h3 id="emsp-1-代码示例"><a href="#emsp-1-代码示例" class="headerlink" title=" 1.代码示例:"></a> 1.代码示例:</h3><pre><code>class Mythread implements Runnable{
 @Override
 public void run() {
     synchronized (this){
-    System.out.println(Thread.currentThread().getName()+&quot;进入代码块&quot;);
+    System.out.println(Thread.currentThread().getName()+"进入代码块");
         try {
             Thread.sleep(98899);
         } catch (InterruptedException e) {
@@ -627,8 +627,8 @@ public static void main(String[] args) {
     Mythread t= new Mythread();
     Thread t1=new Thread(t);
     Thread t2=new Thread(t);
-    t1.setName(&quot;线程一&quot;);
-    t2.setName(&quot;线程二&quot;);
+    t1.setName("线程一");
+    t2.setName("线程二");
     t1.start();
     try {
         Thread.sleep(1000);
@@ -640,19 +640,19 @@ public static void main(String[] args) {
     System.out.println(t2.getState());
     }
 }</code></pre><p>代码结果: <img src="https://i.loli.net/2020/07/22/bMRwQJrl41xHhNT.png" alt=""><br>当线程一还在执行的时候,线程二处于阻塞状态,即便手动暂停,线程二依旧处于阻塞状态,体现了synchronized的不可中断性,线程二只能在synchronized那一行等着锁释放</p>
-<h2 id="四-Reentrantlock的可中断和不可中断"><a href="#四-Reentrantlock的可中断和不可中断" class="headerlink" title="四.Reentrantlock的可中断和不可中断"></a>四.Reentrantlock的可中断和不可中断</h2><h3 id="emsp-1-Lock可中断代码-lock-lock"><a href="#emsp-1-Lock可中断代码-lock-lock" class="headerlink" title="&emsp;1.Lock可中断代码(lock.lock())"></a>&emsp;1.Lock可中断代码(lock.lock())</h3><pre><code>class Mythread implements Runnable{
+<h2 id="四-Reentrantlock的可中断和不可中断"><a href="#四-Reentrantlock的可中断和不可中断" class="headerlink" title="四.Reentrantlock的可中断和不可中断"></a>四.Reentrantlock的可中断和不可中断</h2><h3 id="emsp-1-Lock可中断代码-lock-lock"><a href="#emsp-1-Lock可中断代码-lock-lock" class="headerlink" title=" 1.Lock可中断代码(lock.lock())"></a> 1.Lock可中断代码(lock.lock())</h3><pre><code>class Mythread implements Runnable{
 Lock lock=new ReentrantLock();
 @Override
 public void run() {
     lock.lock();
-    System.out.println(Thread.currentThread().getName()+&quot;获得锁&quot;);
+    System.out.println(Thread.currentThread().getName()+"获得锁");
         try {
             sleep(50000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         lock.unlock();
-    System.out.println(&quot;释放锁&quot;);
+    System.out.println("释放锁");
     }
 }
 public class Test1 {
@@ -660,8 +660,8 @@ public class Test1 {
         Mythread t= new Mythread();
         Thread t1=new Thread(t);
         Thread t2=new Thread(t);
-        t1.setName(&quot;线程一&quot;);
-        t2.setName(&quot;线程二&quot;);
+        t1.setName("线程一");
+        t2.setName("线程二");
         t1.start();
         t2.start();
         try {
@@ -669,26 +669,44 @@ public class Test1 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(&quot;停止第线程二前&quot;);
+        System.out.println("停止第线程二前");
         t2.interrupt();
-        System.out.println(&quot;停止第线程二后&quot;);
+        System.out.println("停止第线程二后");
         System.out.println(t1.getState());
         System.out.println(t2.getState());
     }
 }</code></pre><p>代码结果 :   <img src="https://i.loli.net/2020/07/22/QxqPIBuYdVa3R7t.png" alt=""><br>结果显示 :线程二处于WAITING状态,不可暂停  </p>
-<h3 id="emsp-2-Lock的可中断性代码示例-trylock"><a href="#emsp-2-Lock的可中断性代码示例-trylock" class="headerlink" title="&emsp;2.Lock的可中断性代码示例(trylock())"></a>&emsp;2.Lock的可中断性代码示例(trylock())</h3><p><img src="https://i.loli.net/2020/07/22/C6O4qlkLdsbzjf2.png" alt=""></p>
+<h3 id="emsp-2-Lock的可中断性代码示例-trylock"><a href="#emsp-2-Lock的可中断性代码示例-trylock" class="headerlink" title=" 2.Lock的可中断性代码示例(trylock())"></a> 2.Lock的可中断性代码示例(trylock())</h3><p><img src="https://i.loli.net/2020/07/22/C6O4qlkLdsbzjf2.png" alt=""></p>
 <p><strong><em>就是利用了 trylock,第二个参数是单位,比如SECOND就是秒</em></strong></p>
 <hr>
 <h2 id="五-javap反汇编学习synchronized的原理"><a href="#五-javap反汇编学习synchronized的原理" class="headerlink" title="五.javap反汇编学习synchronized的原理"></a>五.javap反汇编学习synchronized的原理</h2><h3 id="一-monitorenter"><a href="#一-monitorenter" class="headerlink" title="一.monitorenter"></a>一.monitorenter</h3><h4 id="1-JVM规范文档和反汇编代码"><a href="#1-JVM规范文档和反汇编代码" class="headerlink" title="1.JVM规范文档和反汇编代码"></a>1.JVM规范文档和反汇编代码</h4><p><img src="https://i.loli.net/2020/07/22/thSP8pnbC5AVYHJ.png" alt="JVM规范中描述monitorenter"><br><img src="https://i.loli.net/2020/07/22/xtgrq6MEQO4iRbC.png" alt="左边是代码,右边是反编译的结果"></p>
-<h4 id="emsp-2-monitorenter小结"><a href="#emsp-2-monitorenter小结" class="headerlink" title="&emsp;2.monitorenter小结"></a>&emsp;2.monitorenter小结</h4><p>&emsp;synchronized的锁对象会关联一个monitor,这个monitor不是我们主动创建的,，是JVM的线程执行到这个同步代码块,发现锁对象没有monitor就会创建monitor monitor内部有两个重要的成员变量owner:拥有这把锁的线程,recursions会记录线程拥有锁的次数,当一个线程拥有monitor后其他线程只能等待</p>
-<h3 id="二-monitorexit"><a href="#二-monitorexit" class="headerlink" title="二.monitorexit"></a>二.monitorexit</h3><h4 id="emsp-1-JVM规范文档和反汇编代码"><a href="#emsp-1-JVM规范文档和反汇编代码" class="headerlink" title="&emsp;1.JVM规范文档和反汇编代码"></a>&emsp;1.JVM规范文档和反汇编代码</h4><p><img src="https://i.loli.net/2020/07/22/Vwltz6pyBC21YZn.png" alt="JVM规范中描述monitorexit"><br><img src="https://i.loli.net/2020/07/22/K2Q4BsAVd37SrF9.png" alt="左边是代码,右边是反编译的结果"></p>
+<h4 id="emsp-2-monitorenter小结"><a href="#emsp-2-monitorenter小结" class="headerlink" title=" 2.monitorenter小结"></a> 2.monitorenter小结</h4><p> synchronized的锁对象会关联一个monitor,这个monitor不是我们主动创建的,，是JVM的线程执行到这个同步代码块,发现锁对象没有monitor就会创建monitor monitor内部有两个重要的成员变量owner:拥有这把锁的线程,recursions会记录线程拥有锁的次数,当一个线程拥有monitor后其他线程只能等待</p>
+<h3 id="二-monitorexit"><a href="#二-monitorexit" class="headerlink" title="二.monitorexit"></a>二.monitorexit</h3><h4 id="emsp-1-JVM规范文档和反汇编代码"><a href="#emsp-1-JVM规范文档和反汇编代码" class="headerlink" title=" 1.JVM规范文档和反汇编代码"></a> 1.JVM规范文档和反汇编代码</h4><p><img src="https://i.loli.net/2020/07/22/Vwltz6pyBC21YZn.png" alt="JVM规范中描述monitorexit"><br><img src="https://i.loli.net/2020/07/22/K2Q4BsAVd37SrF9.png" alt="左边是代码,右边是反编译的结果"></p>
 <p><strong><em>注意：从反汇编的Exception table可以看出：synchronized一旦出现异常是会释放锁的</em></strong></p>
 <h3 id="三-同步方法"><a href="#三-同步方法" class="headerlink" title="三.同步方法"></a>三.同步方法</h3><p><img src="https://i.loli.net/2020/07/22/fTW3lakubmZS4Fs.png" alt=""><br><strong><em>也就是说在进入方法时隐式调用monitorenter,结束的时候隐式调用monitorexit</em></strong></p>
-<h3 id="四-小结"><a href="#四-小结" class="headerlink" title="四.小结"></a>四.小结</h3><p>&emsp; 通过javap反汇编我们看到synchronized使用编程了monitorentor和monitorexit两个指令.每个锁对象都会关联一个monitor(监视器,它才是真正的锁对象),它内部有两个重要的成员变量owner会保存获得锁的线程,recursions会保存线程获得锁的次数当执行到monitorexit时,recursions会-1 ,当计数器减到0时这个线程就会释放锁</p>
-<h2 id="emsp-五-synchronized和lock的区别-面试题"><a href="#emsp-五-synchronized和lock的区别-面试题" class="headerlink" title="&emsp;五.synchronized和lock的区别(面试题)"></a>&emsp;五.synchronized和lock的区别(面试题)</h2><p><img src="https://i.loli.net/2020/07/22/HU81YTzqOyjGNZo.png" alt=""><br>注1:由于synchronized是重量锁,效率比较低,虽然相较于以前进行了优化<br>注2:ReentranLock是否是公平锁可以自己控制,在实例化lock的时候参数不写就默认非公平,(fair)表示公平锁  </p>
+<h3 id="四-小结"><a href="#四-小结" class="headerlink" title="四.小结"></a>四.小结</h3><p>  通过javap反汇编我们看到synchronized使用编程了monitorentor和monitorexit两个指令.每个锁对象都会关联一个monitor(监视器,它才是真正的锁对象),它内部有两个重要的成员变量owner会保存获得锁的线程,recursions会保存线程获得锁的次数当执行到monitorexit时,recursions会-1 ,当计数器减到0时这个线程就会释放锁</p>
+<h2 id="emsp-五-synchronized和lock的区别-面试题"><a href="#emsp-五-synchronized和lock的区别-面试题" class="headerlink" title=" 五.synchronized和lock的区别(面试题)"></a> 五.synchronized和lock的区别(面试题)</h2><p><img src="https://i.loli.net/2020/07/22/HU81YTzqOyjGNZo.png" alt=""><br>注1:由于synchronized是重量锁,效率比较低,虽然相较于以前进行了优化<br>注2:ReentranLock是否是公平锁可以自己控制,在实例化lock的时候参数不写就默认非公平,(fair)表示公平锁  </p>
 <pre><code>    ReentrantLock lock=new ReentrantLock();//非公平锁
     ReentrantLock lock=new ReentrantLock();//公平锁</code></pre><p>公平锁 :即满足队列的原则,先进先出<br>非公平锁 :所有进程同时抢一把锁看运气</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -899,8 +917,8 @@ public class Test1 {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略一.程序,进程,线程的基本概念&emsp;这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释
-二.创建多线程的四种方
+                            再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略一.程序,进程,线程的基本概念 这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释
+二.创建多线程的四种方式(以多线
                         
                     </div>
                     <div class="publish-info">

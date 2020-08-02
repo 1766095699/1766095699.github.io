@@ -376,6 +376,9 @@
                         <div class="summary block-with-text">
                             
                                 
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return
                             
                         </div>
                         <div class="publish-info">
@@ -469,7 +472,7 @@
                         <div class="summary block-with-text">
                             
                                 一.在一个xml文件中添加另一个xml文件布局当有多个页面有相同部分时,可以先写一个共有部分的xml文件(比如标题头部),然后在另一个xml文件中写
-    &lt;include layout=&quot;@layout/xxxx&quo
+    &lt;include layout="@layout/xxxx"/&gt;在ja
                             
                         </div>
                         <div class="publish-info">
@@ -527,7 +530,8 @@
                                 []  
 一.XML布局1.主xml写gridview其中numColumns用来控制列数      
     &lt;GridView
-            android:id=&quot;@+id/starfrag_gv&quot;
+            android:id="@+id/starfrag_gv"
+         
                             
                         </div>
                         <div class="publish-info">
@@ -583,7 +587,7 @@
                         <div class="summary block-with-text">
                             
                                 开源项目的网址：https://github.com/1766095699/CircleImageView需要导入的依赖      
-    implementation &#39;de.hdodenhof:circleimageview:
+    implementation 'de.hdodenhof:circleimageview:3.1.
                             
                         </div>
                         <div class="publish-info">
@@ -640,7 +644,7 @@
                             
                                 一.XML布局下面的Liner是用来给小圆点的,其中先align再marin可以让这个布局自动就是再ViewPager的下方
 &lt;androidx.viewpager.widget.ViewPager
-   android:id=&qu
+   android:id="@+
                             
                         </div>
                         <div class="publish-info">

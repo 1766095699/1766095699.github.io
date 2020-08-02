@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    310
+                    358
                 </div>
                 
 
@@ -531,11 +531,29 @@
 
     <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
 <h2 id="二-分析"><a href="#二-分析" class="headerlink" title="二.分析"></a>二.分析</h2><p>1.利用getSharepreference 创建对象,然后第一个参数是一个标指key,第二个参数的模式,MODE_PRIVATE表示被本应用读写<br>2.在HandleMessage用getXXX来给isfirst进行赋值</p>
-<pre><code>boolean isfirst=first_pref.getBoolean(&quot;isfirst&quot;,true);</code></pre><p>然后写一个判断,创建一个editor对象来更改数据源</p>
+<pre><code>boolean isfirst=first_pref.getBoolean("isfirst",true);</code></pre><p>然后写一个判断,创建一个editor对象来更改数据源</p>
 <pre><code> SharedPreferences.Editor editor=first_pref.edit();
-                    editor.putBoolean(&quot;isfirst&quot;,false);
+                    editor.putBoolean("isfirst",false);
                     editor.commit();</code></pre><h3 id="三-后续"><a href="#三-后续" class="headerlink" title="三.后续"></a>三.后续</h3><p>利用ViewPager写第一次进入的跳转页面(略)</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -727,8 +745,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一.依赖的导入implementation &#39;com.google.code.gson:gson:2.2.4&#39;
-implementation &#39;com.squareup.picasso:picasso:2.5.2&#
+                            一.依赖的导入implementation 'com.google.code.gson:gson:2.2.4'
+implementation 'com.squareup.picasso:picasso:2.5.2'
+implementati
                         
                     </div>
                     <div class="publish-info">

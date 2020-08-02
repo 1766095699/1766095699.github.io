@@ -478,7 +478,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    246
+                    296
                 </div>
                 
 
@@ -496,7 +496,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="一-在一个xml文件中添加另一个xml文件布局"><a href="#一-在一个xml文件中添加另一个xml文件布局" class="headerlink" title="一.在一个xml文件中添加另一个xml文件布局"></a>一.在一个xml文件中添加另一个xml文件布局</h2><p>当有多个页面有相同部分时,可以先写一个共有部分的xml文件(比如标题头部),然后在另一个xml文件中写</p>
-<pre><code>    &lt;include layout=&quot;@layout/xxxx&quot;/&gt;</code></pre><h2 id="在java中实现对多个xml中布局组件的合并"><a href="#在java中实现对多个xml中布局组件的合并" class="headerlink" title="在java中实现对多个xml中布局组件的合并"></a>在java中实现对多个xml中布局组件的合并</h2><p><img src="https://i.loli.net/2020/07/28/zDPJwdYXf2to5MI.png" alt=""><br>使用LayoutInflater可以实现布局组件的的合并<br>实战案例：(星梦缘star部分二级页面的编写)<br><img src="https://i.loli.net/2020/07/28/E2Z6AkxzvVIpWSe.png" alt="最终效果图1"><br><img src="https://i.loli.net/2020/07/28/WbB5MtoVGO7fIYm.png" alt="最终效果图2"></p>
+<pre><code>    &lt;include layout="@layout/xxxx"/&gt;</code></pre><h2 id="在java中实现对多个xml中布局组件的合并"><a href="#在java中实现对多个xml中布局组件的合并" class="headerlink" title="在java中实现对多个xml中布局组件的合并"></a>在java中实现对多个xml中布局组件的合并</h2><p><img src="https://i.loli.net/2020/07/28/zDPJwdYXf2to5MI.png" alt=""><br>使用LayoutInflater可以实现布局组件的的合并<br>实战案例：(星梦缘star部分二级页面的编写)<br><img src="https://i.loli.net/2020/07/28/E2Z6AkxzvVIpWSe.png" alt="最终效果图1"><br><img src="https://i.loli.net/2020/07/28/WbB5MtoVGO7fIYm.png" alt="最终效果图2"></p>
 <p><img src="https://i.loli.net/2020/07/28/M3rbzJWSPwIGLyN.png" alt="activity_star_analysis.xml"><br><img src="https://i.loli.net/2020/07/28/Ju3qg9X7vpSkDtl.png" alt="footer_star_analysis.xml"><br>分开写了这两个模块之后,想要在ListView下面加上星座解析,在java代码中要这样写 ：   </p>
 <pre class=" language-java"><code class="language-java">        ListView analysisLv<span class="token punctuation">;</span>
         <span class="token keyword">private</span> TextView footerTv<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ListView底部需要改变的文字</span>
@@ -506,7 +506,25 @@
         analysisLv<span class="token punctuation">.</span><span class="token function">addFooterView</span><span class="token punctuation">(</span>footerView<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//设置底部的位置添加(也可以设置头部)</span>
         footerTv<span class="token operator">=</span>footerView<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>footerstar_tv_info<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><strong><em>其中analysisLv是ListView的对象,footerstar_tv_info是textview的id,对象我们一般声明在外面的全局区域</em></strong></p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -722,7 +740,8 @@
                             []  
 一.XML布局1.主xml写gridview其中numColumns用来控制列数      
     &lt;GridView
-            android:id=&quot;@+id/starfrag_gv&quot;
+            android:id="@+id/starfrag_gv"
+         
                         
                     </div>
                     <div class="publish-info">

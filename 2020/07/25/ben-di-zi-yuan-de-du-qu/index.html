@@ -478,14 +478,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    354
+                    398
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -550,11 +550,11 @@ public static void saveBitmapFromAssets(Context context, StarInfoBean starInfoBe
     for (int i = 0; i &lt;starlist.size() ; i++) {
         //读取图片
         String logoname=starlist.get(i).getLogoname();
-        String filename=&quot;xzlogo/&quot;+logoname+&quot;.png&quot;;
+        String filename="xzlogo/"+logoname+".png";
         Bitmap logoBm=getBitmapFromAssets(context,filename);
         logoImgMap.put(logoname,logoBm);
 
-        String contentName=&quot;xzcontentlogo/&quot;+logoname+&quot;.png&quot;;
+        String contentName="xzcontentlogo/"+logoname+".png";
         Bitmap bitmap=getBitmapFromAssets(context,contentName);
         contentImgMap.put(logoname,bitmap);
     }
@@ -565,7 +565,25 @@ public static void saveBitmapFromAssets(Context context, StarInfoBean starInfoBe
 
 public static Map&lt;String,Bitmap&gt;getContentImgMap(){
     return contentImgMap;
-}</code></pre>
+}</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -720,7 +738,7 @@ public static Map&lt;String,Bitmap&gt;getContentImgMap(){
                         
                             一.XML布局下面的Liner是用来给小圆点的,其中先align再marin可以让这个布局自动就是再ViewPager的下方
 &lt;androidx.viewpager.widget.ViewPager
-   android:id=&qu
+   android:id="@+
                         
                     </div>
                     <div class="publish-info">
@@ -779,6 +797,8 @@ public static Map&lt;String,Bitmap&gt;getContentImgMap(){
                         
                             一.可能是你导入了android.R的包导致的,删去即可二.studio本身的bug,重启stuidio即可
 
+        document.querySelectorAll('.github-emoji')
+          .fo
                         
                     </div>
                     <div class="publish-info">

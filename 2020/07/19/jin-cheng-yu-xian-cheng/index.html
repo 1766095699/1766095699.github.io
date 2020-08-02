@@ -485,7 +485,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -495,8 +495,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="再次提醒：下文内容仅就总结多线程的创建方式-不考虑线程安全问题-且为了直观-在异常处理方面大量省略"><a href="#再次提醒：下文内容仅就总结多线程的创建方式-不考虑线程安全问题-且为了直观-在异常处理方面大量省略" class="headerlink" title="再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略"></a>再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略</h1><h2 id="一-程序-进程-线程的基本概念"><a href="#一-程序-进程-线程的基本概念" class="headerlink" title="一.程序,进程,线程的基本概念"></a>一.程序,进程,线程的基本概念</h2><p><img src="https://i.loli.net/2020/07/20/atozTYeqNsSMl3H.png" alt=""><br>&emsp;这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释</p>
-<h2 id="二-创建多线程的四种方式-以多线程抢票为背景"><a href="#二-创建多线程的四种方式-以多线程抢票为背景" class="headerlink" title="二.创建多线程的四种方式(以多线程抢票为背景)"></a>二.创建多线程的四种方式(以多线程抢票为背景)</h2><h2 id="①在JDK5-0之前："><a href="#①在JDK5-0之前：" class="headerlink" title="①在JDK5.0之前："></a>①<strong><em>在JDK5.0之前：</em></strong></h2><h3 id="emsp-方式一：继承Thread类"><a href="#emsp-方式一：继承Thread类" class="headerlink" title="&emsp;方式一：继承Thread类"></a>&emsp;方式一：继承Thread类</h3><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个子类继承Thread</span>
+                <h1 id="再次提醒：下文内容仅就总结多线程的创建方式-不考虑线程安全问题-且为了直观-在异常处理方面大量省略"><a href="#再次提醒：下文内容仅就总结多线程的创建方式-不考虑线程安全问题-且为了直观-在异常处理方面大量省略" class="headerlink" title="再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略"></a>再次提醒：下文内容仅就总结多线程的创建方式,不考虑线程安全问题,且为了直观,在异常处理方面大量省略</h1><h2 id="一-程序-进程-线程的基本概念"><a href="#一-程序-进程-线程的基本概念" class="headerlink" title="一.程序,进程,线程的基本概念"></a>一.程序,进程,线程的基本概念</h2><p><img src="https://i.loli.net/2020/07/20/atozTYeqNsSMl3H.png" alt=""><br> 这里只要做简单的了解即可,红字部分有印象就行,详细内容在虚拟机部分做具体解释</p>
+<h2 id="二-创建多线程的四种方式-以多线程抢票为背景"><a href="#二-创建多线程的四种方式-以多线程抢票为背景" class="headerlink" title="二.创建多线程的四种方式(以多线程抢票为背景)"></a>二.创建多线程的四种方式(以多线程抢票为背景)</h2><h2 id="①在JDK5-0之前："><a href="#①在JDK5-0之前：" class="headerlink" title="①在JDK5.0之前："></a>①<strong><em>在JDK5.0之前：</em></strong></h2><h3 id="emsp-方式一：继承Thread类"><a href="#emsp-方式一：继承Thread类" class="headerlink" title=" 方式一：继承Thread类"></a> 方式一：继承Thread类</h3><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个子类继承Thread</span>
     <span class="token keyword">class</span> <span class="token class-name">Mythread</span> <span class="token keyword">extends</span> <span class="token class-name">Thread</span><span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">int</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
 
@@ -533,9 +533,9 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span></code></pre>
 <hr>
-<p><strong><em>总结：继承Thread创建多线程的步骤：<br>&emsp; 1.创建一个子类继承Thread<br>&emsp; 2.重写run方法<br>&emsp; 3.实例化子类对象<br>&emsp; 4.start开启线程</em></strong></p>
+<p><strong><em>总结：继承Thread创建多线程的步骤：<br>  1.创建一个子类继承Thread<br>  2.重写run方法<br>  3.实例化子类对象<br>  4.start开启线程</em></strong></p>
 <hr>
-<h3 id="emsp-方式二：实现Runnable接口"><a href="#emsp-方式二：实现Runnable接口" class="headerlink" title="&emsp;方式二：实现Runnable接口"></a>&emsp;方式二：实现Runnable接口</h3><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个实现Runnable接口的类</span>
+<h3 id="emsp-方式二：实现Runnable接口"><a href="#emsp-方式二：实现Runnable接口" class="headerlink" title=" 方式二：实现Runnable接口"></a> 方式二：实现Runnable接口</h3><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个实现Runnable接口的类</span>
     <span class="token keyword">class</span> <span class="token class-name">Mythread</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//2.重写run方法</span>
@@ -569,14 +569,14 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span></code></pre>
 <hr>
-<p><strong><em>总结：继承Thread创建多线程的步骤：<br>&emsp; 1.创建一个实现Runnable接口的类<br>&emsp; 2.重写run方法<br>&emsp; 3.创建一个实现类的对象<br>&emsp; 4.每个线程各自创建一个以实现类对象为参数的Thread类的对象<br>&emsp; 5.start开启进程</em></strong></p>
+<p><strong><em>总结：继承Thread创建多线程的步骤：<br>  1.创建一个实现Runnable接口的类<br>  2.重写run方法<br>  3.创建一个实现类的对象<br>  4.每个线程各自创建一个以实现类对象为参数的Thread类的对象<br>  5.start开启进程</em></strong></p>
 <hr>
 <h3 id="关于Thead带参构造器的源码："><a href="#关于Thead带参构造器的源码：" class="headerlink" title="关于Thead带参构造器的源码："></a>关于Thead带参构造器的源码：</h3><pre><code>public Thread(Runnable target) {
-    init(null, target, &quot;Thread-&quot; + nextThreadNum(), 0);
+    init(null, target, "Thread-" + nextThreadNum(), 0);
 }</code></pre><p>不难发现,其参数必须是Runnable接口实现类的对象  </p>
 <p><strong><em>注:相比于继承Thread类,方式二可以直接实现数据共享,方式一需要用static修饰成员变量(这一点在讲同步的时候尤其重要)</em></strong></p>
 <hr>
-<h2 id="②在JDK5-0新增："><a href="#②在JDK5-0新增：" class="headerlink" title="②在JDK5.0新增："></a>②<strong><em>在JDK5.0新增：</em></strong></h2><h3 id="emsp-方式三-借助FutureTask类和Callable接口"><a href="#emsp-方式三-借助FutureTask类和Callable接口" class="headerlink" title="&emsp;方式三:借助FutureTask类和Callable接口"></a>&emsp;方式三:借助FutureTask类和Callable接口</h3><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个实现Callable接口的类</span>
+<h2 id="②在JDK5-0新增："><a href="#②在JDK5-0新增：" class="headerlink" title="②在JDK5.0新增："></a>②<strong><em>在JDK5.0新增：</em></strong></h2><h3 id="emsp-方式三-借助FutureTask类和Callable接口"><a href="#emsp-方式三-借助FutureTask类和Callable接口" class="headerlink" title=" 方式三:借助FutureTask类和Callable接口"></a> 方式三:借助FutureTask类和Callable接口</h3><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个实现Callable接口的类</span>
     <span class="token keyword">class</span> <span class="token class-name">MyThread</span> <span class="token keyword">implements</span> <span class="token class-name">Callable</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//2.重写call函数(由于多态,Obj的返回值类型可以自动向下转化)</span>
         <span class="token annotation punctuation">@Override</span>
@@ -610,12 +610,12 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span></code></pre>
 <hr>
-<p>总结:<br>&emsp; 1.创建一个实现Callable接口的类<br>&emsp; 2.重写call方法<br>&emsp; 3.创建一个实现类的对象<br>&emsp; 4.创建一个FutureTask的对象,传入Callable实现类的对象<br>&emsp; 5.创建一个Thread类的对象传入对象futureTask并start<br>&emsp; 6.如果需要call函数的返回值,需要调用future.get()的方法</p>
+<p>总结:<br>  1.创建一个实现Callable接口的类<br>  2.重写call方法<br>  3.创建一个实现类的对象<br>  4.创建一个FutureTask的对象,传入Callable实现类的对象<br>  5.创建一个Thread类的对象传入对象futureTask并start<br>  6.如果需要call函数的返回值,需要调用future.get()的方法</p>
 <p><strong><em>注:Callable可以简单认为是Runnable的升级版,Callable允许有返回值功能更强大</em></strong></p>
 <p><img src="https://i.loli.net/2020/07/20/AefVTnO3Wwld7sj.png" alt=""><br><img src="https://i.loli.net/2020/07/20/KdbyL2SRvIpDi3O.png" alt=""></p>
 <h3 id="关于FutureTask构造器的源码解析"><a href="#关于FutureTask构造器的源码解析" class="headerlink" title="关于FutureTask构造器的源码解析"></a>关于FutureTask构造器的源码解析</h3><p><img src="https://i.loli.net/2020/07/20/rAUoceJVH86GYRF.png" alt=""><br><img src="https://i.loli.net/2020/07/20/mShDs6cjOlNERJg.png" alt=""><br><img src="https://i.loli.net/2020/07/20/RhTQ9D47BejrCoz.png" alt=""><br>不难发现,FutrueTask其实继承了Runnable,所以在Tread实例化的时候可以直接带FutureTask的对象,并且上图中的构造器中对callable进行了回调</p>
 <hr>
-<h3 id="emsp-方式四：调用线程池来实现多线程-开发中主要还是用线程池"><a href="#emsp-方式四：调用线程池来实现多线程-开发中主要还是用线程池" class="headerlink" title="&emsp;方式四：调用线程池来实现多线程(开发中主要还是用线程池)"></a>&emsp;方式四：调用线程池来实现多线程(开发中主要还是用线程池)</h3><p><img src="https://i.loli.net/2020/07/20/MmVdAXyKNHCvtUS.png" alt=""></p>
+<h3 id="emsp-方式四：调用线程池来实现多线程-开发中主要还是用线程池"><a href="#emsp-方式四：调用线程池来实现多线程-开发中主要还是用线程池" class="headerlink" title=" 方式四：调用线程池来实现多线程(开发中主要还是用线程池)"></a> 方式四：调用线程池来实现多线程(开发中主要还是用线程池)</h3><p><img src="https://i.loli.net/2020/07/20/MmVdAXyKNHCvtUS.png" alt=""></p>
 <pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个实现Runnable接口的类</span>
     <span class="token keyword">class</span> <span class="token class-name">Mythread</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
@@ -651,7 +651,25 @@
     <span class="token punctuation">}</span></code></pre>
 <p>线程池的好处:</p>
 <p><img src="https://i.loli.net/2020/07/20/bYuxqV2FJLMR3fw.png" alt=""><br>注:用survice.getClass()可以找到survice的实现类,可以发现是ThreadPoolExxcutor,然后上属的方法要通过强转才能用：<br>    ThreadPoolExxcutor survice1=(ThreadPoolExxcutor) survice;</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -804,9 +822,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一.并发编程的三大问题一.可见性&emsp;1.概念:&emsp;对于共享数据,一个线程对该数据的值进行修改后另一个线程无法得到修改后的值  
-&emsp;2.代码演示：public class Test1 {
-private static
+                            一.并发编程的三大问题一.可见性 1.概念: 对于共享数据,一个线程对该数据的值进行修改后另一个线程无法得到修改后的值  
+ 2.代码演示：public class Test1 {
+private static boolean flag=t
                         
                     </div>
                     <div class="publish-info">

@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    204
+                    250
                 </div>
                 
 
@@ -491,7 +491,7 @@
     final Dialog dialog=new Dialog(getContext());
     View dialogView=LayoutInflater.from(getContext()).inflate(R.layout.me_dialog,null);
     dialog.setContentView(dialogView);
-    dialog.setTitle(&quot;请选择您的星座123&quot;);
+    dialog.setTitle("请选择您的星座123");
     GridView dialogGv=dialogView.findViewById(R.id.megrag_dialog_gv);
     //设置适配器
     LuckBaseAdapter adapter=new LuckBaseAdapter(getContext(),mDatas);
@@ -528,10 +528,28 @@ public void onPause(){
     String name=bean.getName();
     String logoname=bean.getLogoname();
     SharedPreferences.Editor editor=star_pref.edit();//获取像共享参数zhong写入数据的对象
-    editor.putString(&quot;name&quot;,name);
-    editor.putString(&quot;logoname&quot;,logoname);
+    editor.putString("name",name);
+    editor.putString("logoname",logoname);
     editor.commit();
-}</code></pre>
+}</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
