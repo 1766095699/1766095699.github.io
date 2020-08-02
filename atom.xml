@@ -5,9 +5,9 @@
   <subtitle>Welcome to my blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://1766095699.github.io/"/>
+  <link href="http://zhanglei12138.gitee.io/ljhblog/"/>
   <updated>2020-08-01T12:11:59.593Z</updated>
-  <id>https://1766095699.github.io/</id>
+  <id>http://zhanglei12138.gitee.io/ljhblog/</id>
   
   <author>
     <name>灿若星河</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>dialog的用法</title>
-    <link href="https://1766095699.github.io/2020/08/01/dialog-de-yong-fa/"/>
-    <id>https://1766095699.github.io/2020/08/01/dialog-de-yong-fa/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/08/01/dialog-de-yong-fa/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/08/01/dialog-de-yong-fa/</id>
     <published>2020-08-01T12:11:20.000Z</published>
     <updated>2020-08-01T12:11:59.593Z</updated>
     
@@ -38,17 +38,17 @@
     </summary>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="项目实战" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+      <category term="项目实战" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
     
     
   </entry>
   
   <entry>
     <title>SharedPreferences的简单应用</title>
-    <link href="https://1766095699.github.io/2020/08/01/sharedpreferences-de-jian-dan-ying-yong/"/>
-    <id>https://1766095699.github.io/2020/08/01/sharedpreferences-de-jian-dan-ying-yong/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/08/01/sharedpreferences-de-jian-dan-ying-yong/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/08/01/sharedpreferences-de-jian-dan-ying-yong/</id>
     <published>2020-08-01T10:01:17.000Z</published>
     <updated>2020-08-01T11:51:38.175Z</updated>
     
@@ -66,17 +66,17 @@
     </summary>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="项目实战" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+      <category term="项目实战" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
     
     
   </entry>
   
   <entry>
     <title>星梦缘开发的注意事项</title>
-    <link href="https://1766095699.github.io/2020/08/01/xing-meng-yuan-kai-fa-de-zhu-yi-shi-xiang/"/>
-    <id>https://1766095699.github.io/2020/08/01/xing-meng-yuan-kai-fa-de-zhu-yi-shi-xiang/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/08/01/xing-meng-yuan-kai-fa-de-zhu-yi-shi-xiang/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/08/01/xing-meng-yuan-kai-fa-de-zhu-yi-shi-xiang/</id>
     <published>2020-08-01T09:32:30.000Z</published>
     <updated>2020-08-01T09:34:44.353Z</updated>
     
@@ -93,21 +93,21 @@
     </summary>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="项目实战" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+      <category term="项目实战" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="星梦缘" scheme="https://1766095699.github.io/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
+      <category term="星梦缘" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
     
   </entry>
   
   <entry>
     <title>OXChart的详细用法</title>
-    <link href="https://1766095699.github.io/2020/07/31/oxchart-de-xiang-xi-yong-fa/"/>
-    <id>https://1766095699.github.io/2020/07/31/oxchart-de-xiang-xi-yong-fa/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/31/oxchart-de-xiang-xi-yong-fa/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/31/oxchart-de-xiang-xi-yong-fa/</id>
     <published>2020-07-31T07:27:49.000Z</published>
     <updated>2020-07-31T12:17:11.233Z</updated>
     
@@ -124,19 +124,19 @@
     </summary>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="统计图" scheme="https://1766095699.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE/"/>
+      <category term="统计图" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>用ScrollView底部显示不全的解决方案</title>
-    <link href="https://1766095699.github.io/2020/07/29/yong-scrollview-di-bu-xian-shi-bu-quan-de-jie-jue-fang-an/"/>
-    <id>https://1766095699.github.io/2020/07/29/yong-scrollview-di-bu-xian-shi-bu-quan-de-jie-jue-fang-an/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/29/yong-scrollview-di-bu-xian-shi-bu-quan-de-jie-jue-fang-an/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/29/yong-scrollview-di-bu-xian-shi-bu-quan-de-jie-jue-fang-an/</id>
     <published>2020-07-29T14:54:59.000Z</published>
     <updated>2020-07-29T14:58:17.923Z</updated>
     
@@ -159,8 +159,8 @@
   
   <entry>
     <title>weight属性的应用</title>
-    <link href="https://1766095699.github.io/2020/07/29/weight-shu-xing-de-ying-yong/"/>
-    <id>https://1766095699.github.io/2020/07/29/weight-shu-xing-de-ying-yong/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/29/weight-shu-xing-de-ying-yong/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/29/weight-shu-xing-de-ying-yong/</id>
     <published>2020-07-29T04:15:07.000Z</published>
     <updated>2020-07-29T04:15:07.109Z</updated>
     
@@ -174,8 +174,8 @@
   
   <entry>
     <title>ListView的用法+实战</title>
-    <link href="https://1766095699.github.io/2020/07/28/listview/"/>
-    <id>https://1766095699.github.io/2020/07/28/listview/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/28/listview/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/28/listview/</id>
     <published>2020-07-27T23:13:36.000Z</published>
     <updated>2020-07-28T04:31:51.818Z</updated>
     
@@ -193,21 +193,21 @@
     </summary>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="项目实战" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+      <category term="项目实战" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="星梦缘" scheme="https://1766095699.github.io/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
+      <category term="星梦缘" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
     
   </entry>
   
   <entry>
     <title>多个xml布局的共享与拼接</title>
-    <link href="https://1766095699.github.io/2020/07/27/gong-xiang-xml-bu-ju/"/>
-    <id>https://1766095699.github.io/2020/07/27/gong-xiang-xml-bu-ju/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/27/gong-xiang-xml-bu-ju/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/27/gong-xiang-xml-bu-ju/</id>
     <published>2020-07-27T08:53:58.000Z</published>
     <updated>2020-07-28T03:06:56.352Z</updated>
     
@@ -224,21 +224,21 @@
     </summary>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="项目实战" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+      <category term="项目实战" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="星梦缘" scheme="https://1766095699.github.io/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
+      <category term="星梦缘" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
     
   </entry>
   
   <entry>
     <title>网格图GridView的用法+实战</title>
-    <link href="https://1766095699.github.io/2020/07/27/guan-yu-wang-ge-tu-gridview-de-yong-fa/"/>
-    <id>https://1766095699.github.io/2020/07/27/guan-yu-wang-ge-tu-gridview-de-yong-fa/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/27/guan-yu-wang-ge-tu-gridview-de-yong-fa/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/27/guan-yu-wang-ge-tu-gridview-de-yong-fa/</id>
     <published>2020-07-27T01:19:51.000Z</published>
     <updated>2020-07-28T04:42:07.195Z</updated>
     
@@ -256,21 +256,21 @@
     </summary>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="项目实战" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+      <category term="项目实战" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="星梦缘" scheme="https://1766095699.github.io/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
+      <category term="星梦缘" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
     
   </entry>
   
   <entry>
     <title>把矩形图片变成圆形的方法</title>
-    <link href="https://1766095699.github.io/2020/07/27/ba-ju-xing-tu-pian-bian-cheng-yuan-xing-de-fang-fa/"/>
-    <id>https://1766095699.github.io/2020/07/27/ba-ju-xing-tu-pian-bian-cheng-yuan-xing-de-fang-fa/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/27/ba-ju-xing-tu-pian-bian-cheng-yuan-xing-de-fang-fa/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/27/ba-ju-xing-tu-pian-bian-cheng-yuan-xing-de-fang-fa/</id>
     <published>2020-07-27T01:11:46.000Z</published>
     <updated>2020-07-28T02:02:40.906Z</updated>
     
@@ -287,21 +287,21 @@
     </summary>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="项目实战" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+      <category term="项目实战" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="星梦缘" scheme="https://1766095699.github.io/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
+      <category term="星梦缘" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
     
   </entry>
   
   <entry>
     <title>轮播图(ViewPager)用法</title>
-    <link href="https://1766095699.github.io/2020/07/26/lun-bo-tu/"/>
-    <id>https://1766095699.github.io/2020/07/26/lun-bo-tu/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/26/lun-bo-tu/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/26/lun-bo-tu/</id>
     <published>2020-07-26T13:43:17.000Z</published>
     <updated>2020-08-01T11:04:10.708Z</updated>
     
@@ -318,21 +318,21 @@
     </summary>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="项目实战" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+      <category term="项目实战" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="星梦缘" scheme="https://1766095699.github.io/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
+      <category term="星梦缘" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
     
   </entry>
   
   <entry>
     <title>本地资源的读取</title>
-    <link href="https://1766095699.github.io/2020/07/25/ben-di-zi-yuan-de-du-qu/"/>
-    <id>https://1766095699.github.io/2020/07/25/ben-di-zi-yuan-de-du-qu/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/25/ben-di-zi-yuan-de-du-qu/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/25/ben-di-zi-yuan-de-du-qu/</id>
     <published>2020-07-25T11:50:23.000Z</published>
     <updated>2020-07-28T02:02:58.893Z</updated>
     
@@ -349,21 +349,21 @@
     </summary>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="项目实战" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+      <category term="项目实战" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
-      <category term="星梦缘" scheme="https://1766095699.github.io/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
+      <category term="星梦缘" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
     
   </entry>
   
   <entry>
     <title>Android Stuidio中创建Fragment找不到xml文件的解决方案</title>
-    <link href="https://1766095699.github.io/2020/07/25/stuidio/"/>
-    <id>https://1766095699.github.io/2020/07/25/stuidio/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/25/stuidio/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/25/stuidio/</id>
     <published>2020-07-25T04:42:19.000Z</published>
     <updated>2020-07-27T01:32:24.056Z</updated>
     
@@ -382,14 +382,14 @@
     
     
     
-      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+      <category term="安卓开发" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
   <entry>
     <title>底部导航栏布局和界面切换</title>
-    <link href="https://1766095699.github.io/2020/07/25/di-bu-cai-dan-lan-bu-ju/"/>
-    <id>https://1766095699.github.io/2020/07/25/di-bu-cai-dan-lan-bu-ju/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/25/di-bu-cai-dan-lan-bu-ju/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/25/di-bu-cai-dan-lan-bu-ju/</id>
     <published>2020-07-25T00:38:42.000Z</published>
     <updated>2020-07-25T12:05:37.131Z</updated>
     
@@ -407,19 +407,19 @@
     </summary>
     
     
-      <category term="Android开发" scheme="https://1766095699.github.io/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android开发" scheme="https://1766095699.github.io/tags/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/Android%E5%BC%80%E5%8F%91/"/>
     
-      <category term="UI布局" scheme="https://1766095699.github.io/tags/UI%E5%B8%83%E5%B1%80/"/>
+      <category term="UI布局" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/UI%E5%B8%83%E5%B1%80/"/>
     
   </entry>
   
   <entry>
     <title>synchronized关键字(二)</title>
-    <link href="https://1766095699.github.io/2020/07/22/synchronized-guan-jian-zi-er/"/>
-    <id>https://1766095699.github.io/2020/07/22/synchronized-guan-jian-zi-er/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/22/synchronized-guan-jian-zi-er/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/22/synchronized-guan-jian-zi-er/</id>
     <published>2020-07-22T13:03:46.000Z</published>
     <updated>2020-07-23T16:10:24.602Z</updated>
     
@@ -436,27 +436,27 @@
     </summary>
     
     
-      <category term="Java" scheme="https://1766095699.github.io/categories/Java/"/>
+      <category term="Java" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/Java/"/>
     
-      <category term="线程" scheme="https://1766095699.github.io/categories/Java/%E7%BA%BF%E7%A8%8B/"/>
+      <category term="线程" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/Java/%E7%BA%BF%E7%A8%8B/"/>
     
-      <category term="线程安全" scheme="https://1766095699.github.io/categories/Java/%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/"/>
+      <category term="线程安全" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/Java/%E7%BA%BF%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="Java" scheme="https://1766095699.github.io/tags/Java/"/>
+      <category term="Java" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/Java/"/>
     
-      <category term="JVM" scheme="https://1766095699.github.io/tags/JVM/"/>
+      <category term="JVM" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/JVM/"/>
     
-      <category term="synchronized" scheme="https://1766095699.github.io/tags/synchronized/"/>
+      <category term="synchronized" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/synchronized/"/>
     
-      <category term="锁" scheme="https://1766095699.github.io/tags/%E9%94%81/"/>
+      <category term="锁" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E9%94%81/"/>
     
   </entry>
   
   <entry>
     <title>Java内存模型</title>
-    <link href="https://1766095699.github.io/2020/07/21/java-nei-cun-mo-xing/"/>
-    <id>https://1766095699.github.io/2020/07/21/java-nei-cun-mo-xing/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/21/java-nei-cun-mo-xing/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/21/java-nei-cun-mo-xing/</id>
     <published>2020-07-21T11:19:11.000Z</published>
     <updated>2020-07-21T11:19:11.853Z</updated>
     
@@ -482,8 +482,8 @@
   
   <entry>
     <title>JOL的安装</title>
-    <link href="https://1766095699.github.io/2020/07/21/openjdk14-de-an-zhuang-he-jol-de-shi-yong/"/>
-    <id>https://1766095699.github.io/2020/07/21/openjdk14-de-an-zhuang-he-jol-de-shi-yong/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/21/openjdk14-de-an-zhuang-he-jol-de-shi-yong/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/21/openjdk14-de-an-zhuang-he-jol-de-shi-yong/</id>
     <published>2020-07-21T05:18:27.000Z</published>
     <updated>2020-07-21T06:31:42.829Z</updated>
     
@@ -500,17 +500,17 @@
     </summary>
     
     
-      <category term="第三方工具安装配置" scheme="https://1766095699.github.io/categories/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="第三方工具安装配置" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="第三方工具安装配置" scheme="https://1766095699.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="第三方工具安装配置" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
   <entry>
     <title>synchronized关键字(一)</title>
-    <link href="https://1766095699.github.io/2020/07/21/synchronized-guan-jian-zi/"/>
-    <id>https://1766095699.github.io/2020/07/21/synchronized-guan-jian-zi/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/21/synchronized-guan-jian-zi/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/21/synchronized-guan-jian-zi/</id>
     <published>2020-07-21T00:01:18.000Z</published>
     <updated>2020-07-22T13:04:11.672Z</updated>
     
@@ -527,25 +527,25 @@
     </summary>
     
     
-      <category term="Java" scheme="https://1766095699.github.io/categories/Java/"/>
+      <category term="Java" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/Java/"/>
     
-      <category term="线程" scheme="https://1766095699.github.io/categories/Java/%E7%BA%BF%E7%A8%8B/"/>
+      <category term="线程" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/Java/%E7%BA%BF%E7%A8%8B/"/>
     
     
-      <category term="Java" scheme="https://1766095699.github.io/tags/Java/"/>
+      <category term="Java" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/Java/"/>
     
-      <category term="JVM" scheme="https://1766095699.github.io/tags/JVM/"/>
+      <category term="JVM" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/JVM/"/>
     
-      <category term="synchronized" scheme="https://1766095699.github.io/tags/synchronized/"/>
+      <category term="synchronized" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/synchronized/"/>
     
-      <category term="volatile" scheme="https://1766095699.github.io/tags/volatile/"/>
+      <category term="volatile" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/volatile/"/>
     
   </entry>
   
   <entry>
     <title>创建多线程的四种方式(暂时不考虑线程安全问题)</title>
-    <link href="https://1766095699.github.io/2020/07/19/jin-cheng-yu-xian-cheng/"/>
-    <id>https://1766095699.github.io/2020/07/19/jin-cheng-yu-xian-cheng/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/19/jin-cheng-yu-xian-cheng/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/19/jin-cheng-yu-xian-cheng/</id>
     <published>2020-07-19T01:22:23.000Z</published>
     <updated>2020-07-23T23:27:06.803Z</updated>
     
@@ -562,21 +562,21 @@
     </summary>
     
     
-      <category term="Java" scheme="https://1766095699.github.io/categories/Java/"/>
+      <category term="Java" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/Java/"/>
     
-      <category term="线程" scheme="https://1766095699.github.io/categories/Java/%E7%BA%BF%E7%A8%8B/"/>
+      <category term="线程" scheme="http://zhanglei12138.gitee.io/ljhblog/categories/Java/%E7%BA%BF%E7%A8%8B/"/>
     
     
-      <category term="Java" scheme="https://1766095699.github.io/tags/Java/"/>
+      <category term="Java" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/Java/"/>
     
-      <category term="线程" scheme="https://1766095699.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
+      <category term="线程" scheme="http://zhanglei12138.gitee.io/ljhblog/tags/%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://1766095699.github.io/2020/07/17/hello-world/"/>
-    <id>https://1766095699.github.io/2020/07/17/hello-world/</id>
+    <link href="http://zhanglei12138.gitee.io/ljhblog/2020/07/17/hello-world/"/>
+    <id>http://zhanglei12138.gitee.io/ljhblog/2020/07/17/hello-world/</id>
     <published>2020-07-17T15:02:30.340Z</published>
     <updated>2020-07-17T15:02:30.340Z</updated>
     
