@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    292
+                    310
                 </div>
                 
 
@@ -534,7 +534,8 @@
 <pre><code>boolean isfirst=first_pref.getBoolean(&quot;isfirst&quot;,true);</code></pre><p>然后写一个判断,创建一个editor对象来更改数据源</p>
 <pre><code> SharedPreferences.Editor editor=first_pref.edit();
                     editor.putBoolean(&quot;isfirst&quot;,false);
-                    editor.commit();</code></pre>
+                    editor.commit();</code></pre><h3 id="三-后续"><a href="#三-后续" class="headerlink" title="三.后续"></a>三.后续</h3><p>利用ViewPager写第一次进入的跳转页面(略)</p>
+
             </div>
             <hr/>
 
@@ -663,31 +664,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/01/sharedpreferences-de-jian-dan-ying-yong/">
+                <a href="/2020/08/01/dialog-de-yong-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="SharedPreferences的简单应用">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="dialog的用法">
                         
-                        <span class="card-title">SharedPreferences的简单应用</span>
+                        <span class="card-title">dialog的用法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            关于SharePreferences的原理我在此不做赘述(有道云笔记里有写),这里重点分析如果实现首次进入app和之后进入app的页面不同的效果  
-一.代码    public class WeocomActivity extends A
+                              private void showDialog() {
+    final Dialog dialog=new Dialog(getContext());
+    View dialogView=LayoutInflater.from(
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -704,7 +705,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
