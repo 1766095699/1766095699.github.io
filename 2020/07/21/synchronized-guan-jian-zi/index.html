@@ -536,7 +536,7 @@ public static void main(String[] args) throws InterruptedException {
 <p>补充：正因为如此,所以如果仅仅只在while循环中加一句</p>
 <pre><code> System.out.println(&quot;true&quot;);</code></pre><p>最后的也能退出循环,因为println的源码中有用到synchronized<br><img src="https://i.loli.net/2020/07/22/TOuj3JhNRZVfDG8.png" alt=""></p>
 <h3 id="二-原子性"><a href="#二-原子性" class="headerlink" title="二.原子性"></a>二.原子性</h3><h4 id="emsp-1-概念-1"><a href="#emsp-1-概念-1" class="headerlink" title="&emsp;1.概念:"></a>&emsp;1.概念:</h4><p>&emsp;在一次或多次操作中,要么所有操作都执行，而且不会因为互相干扰出现异常结果,要么都不执行      (经典抢车票中的线程安全问题)</p>
-<h4 id="emsp-2-代码演示-代码选自-创建多线程的四种方式中的方式二"><a href="#emsp-2-代码演示-代码选自-创建多线程的四种方式中的方式二" class="headerlink" title="&emsp;2.代码演示(代码选自 创建多线程的四种方式中的方式二):"></a>&emsp;2.代码演示(代码选自 <a href="https://1766095699.github.io/2020/07/19/jin-cheng-yu-xian-cheng/">创建多线程的四种方式中的方式二</a>):</h4><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个实现Runnable接口的类</span>
+<h4 id="emsp-2-代码演示-代码选自-创建多线程的四种方式中的方式二"><a href="#emsp-2-代码演示-代码选自-创建多线程的四种方式中的方式二" class="headerlink" title="&emsp;2.代码演示(代码选自 创建多线程的四种方式中的方式二):"></a>&emsp;2.代码演示(代码选自 <a href="https://1766095699.github.io/2020/07/19/jin-cheng-yu-xian-cheng/" target="_blank" rel="noopener">创建多线程的四种方式中的方式二</a>):</h4><pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">//1.创建一个实现Runnable接口的类</span>
     <span class="token keyword">class</span> <span class="token class-name">Mythread</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> ticket<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">//2.重写run方法</span>
@@ -713,7 +713,7 @@ public class Test1 {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/ http://zhanglei12138.gitee.io/ljhblog/2020/07/21/synchronized-guan-jian-zi/">https://1766095699.github.io/ http://zhanglei12138.gitee.io/ljhblog/2020/07/21/synchronized-guan-jian-zi/</a>
+                    <a href="http://zhanglei12138.gitee.io/ljhblog/2020/07/21/synchronized-guan-jian-zi/">http://zhanglei12138.gitee.io/ljhblog/2020/07/21/synchronized-guan-jian-zi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
