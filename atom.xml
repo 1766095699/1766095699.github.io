@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-08-04T07:20:31.969Z</updated>
+  <updated>2020-08-04T09:29:38.533Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DP问题总结</title>
+    <link href="https://1766095699.github.io/2020/08/04/dp-wen-ti-zong-jie/"/>
+    <id>https://1766095699.github.io/2020/08/04/dp-wen-ti-zong-jie/</id>
+    <published>2020-08-04T09:13:41.000Z</published>
+    <updated>2020-08-04T09:29:38.533Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一-DP问题常见的问法-这样问有可能是DP但不绝对&quot;&gt;&lt;a href=&quot;#一-DP问题常见的问法-这样问有可能是DP但不绝对&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="dp" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/dp/"/>
+    
+    
+      <category term="算法" scheme="https://1766095699.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="dp" scheme="https://1766095699.github.io/tags/dp/"/>
+    
+  </entry>
   
   <entry>
     <title>opencv中文文档</title>
@@ -54,13 +85,31 @@
     <link href="https://1766095699.github.io/2020/08/03/pao-tu-lei-dp-wen-ti/"/>
     <id>https://1766095699.github.io/2020/08/03/pao-tu-lei-dp-wen-ti/</id>
     <published>2020-08-03T09:36:58.000Z</published>
-    <updated>2020-08-03T09:36:58.875Z</updated>
+    <updated>2020-08-04T10:18:57.881Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;一-跑图类dp问题的定义&quot;&gt;&lt;a href=&quot;#一-跑图类dp问题的定义&quot; class=&quot;headerlink&quot;
+        
+      
     
     </summary>
     
     
+      <category term="算法" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="dp" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/dp/"/>
+    
+    
+      <category term="算法" scheme="https://1766095699.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="dp" scheme="https://1766095699.github.io/tags/dp/"/>
+    
+      <category term="数字三角形模型" scheme="https://1766095699.github.io/tags/%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
@@ -569,33 +618,6 @@
       <category term="synchronized" scheme="https://1766095699.github.io/tags/synchronized/"/>
     
       <category term="锁" scheme="https://1766095699.github.io/tags/%E9%94%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java内存模型</title>
-    <link href="https://1766095699.github.io/2020/07/21/java-nei-cun-mo-xing/"/>
-    <id>https://1766095699.github.io/2020/07/21/java-nei-cun-mo-xing/</id>
-    <published>2020-07-21T11:19:11.000Z</published>
-    <updated>2020-07-21T11:19:11.853Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
-        
-      
-    
-    </summary>
-    
-    
     
   </entry>
   

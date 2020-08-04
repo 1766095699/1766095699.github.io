@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -429,12 +429,37 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/dp/">
+                                <span class="chip bg-color">dp</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2%E6%A8%A1%E5%9E%8B/">
+                                <span class="chip bg-color">数字三角形模型</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
+                            </a>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/dp/" class="post-category">
+                                dp
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -450,21 +475,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-03
+                    2020-08-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    644
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -474,7 +499,65 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="一-跑图类dp问题的定义"><a href="#一-跑图类dp问题的定义" class="headerlink" title="一.跑图类dp问题的定义"></a>一.跑图类dp问题的定义</h3><p><strong><em>对于数字三角形模型(跑一个金字塔求最值)所演变出来的一系列跑图求最值的模型,我统称为跑图类dp问题</em></strong></p>
+<h3 id="二-经典案例-传纸条"><a href="#二-经典案例-传纸条" class="headerlink" title="二.经典案例(传纸条)"></a>二.经典案例(传纸条)</h3><p><a href="https://www.acwing.com/activity/content/problem/content/1286/1/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/problem/content/1286/1/</a></p>
+<h4 id="1-解法分析"><a href="#1-解法分析" class="headerlink" title="1.解法分析"></a>1.解法分析</h4><p>  本题可以看作是两个人同时从起点出发(原因稍微想一下就明白了),按照闫式分析法，dp[k][i1][i2]表示的含义是走k步,两个人分别走到第i1,i2行的时候dp的最大值,那么从当前状态dp[k][i1][i2]易得：<strong><em>上一个状态的集合dp[k-1]</em></strong> 有四个元素,分别是第一个人和第二个人从向右走和向下走到(i1,k-i1),(i2,k-i2),经过排列组合2X2共有四个元素</p>
+<h4 id="2-AC代码："><a href="#2-AC代码：" class="headerlink" title="2.AC代码："></a>2.AC代码：</h4><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//这题直接套方格取数的模板即可就最后输出的时候要注意以下,出发点和终点会重合</span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">101</span><span class="token punctuation">;</span> 
+<span class="token keyword">int</span> dp<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> g<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">mx</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">,</span><span class="token keyword">int</span> c<span class="token punctuation">,</span><span class="token keyword">int</span> d<span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    a<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    a<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    a<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>n<span class="token operator">>></span>m<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            cin<span class="token operator">>></span>g<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//循环这里可以直接i1和i2&lt;=n即可,但是为了效率更高,我用了min.由于合法的dp值必然是从合法的dp值转移过来,所以不必担心i1,i2超过k的问题</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>k<span class="token operator">&lt;=</span>n<span class="token operator">+</span>m<span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i1<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i1<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i1<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i2<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i2<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i2<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>i1<span class="token operator">==</span>i2<span class="token punctuation">)</span>
+                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token keyword">else</span><span class="token punctuation">{</span>
+                    dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i1<span class="token punctuation">]</span><span class="token punctuation">[</span>i2<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">mx</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i1<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i2<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i1<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i2<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i1<span class="token punctuation">]</span><span class="token punctuation">[</span>i2<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i1<span class="token punctuation">]</span><span class="token punctuation">[</span>i2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span>g<span class="token punctuation">[</span>i1<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token operator">-</span>i1<span class="token punctuation">]</span><span class="token operator">+</span>g<span class="token punctuation">[</span>i2<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token operator">-</span>i2<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//因为他们仅仅只在终点和起点会重合,且这两个点的g值为0,所以算到n+m-1步即可</span>
+    cout<span class="token operator">&lt;&lt;</span>dp<span class="token punctuation">[</span>n<span class="token operator">+</span>m<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="三"><a href="#三" class="headerlink" title="三."></a>三.</h3><p>关于跑图类的模型 其实只要分析清楚定好dp数组的含义,然后找好上一个点集合的元素再列式子就能轻易解决,大部分题目较为简单,但是要注意一下是求最大值还是最小值,数据源有无负数,以及初始化位置dp值的初始化问题</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -536,7 +619,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/dp/">
+                                    <span class="chip bg-color">dp</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2%E6%A8%A1%E5%9E%8B/">
+                                    <span class="chip bg-color">数字三角形模型</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
