@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="DP问题总结, 比企谷八幡">
+    <meta name="keywords" content="最长上升子序列模型, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DP问题总结 | 比企谷八幡</title>
+    <title>最长上升子序列模型 | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -314,7 +314,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DP问题总结</h1>
+                    <h1 class="description center-align post-title">最长上升子序列模型</h1>
                 </div>
             </div>
         </div>
@@ -439,6 +439,10 @@
                                 <span class="chip bg-color">dp</span>
                             </a>
                         
+                            <a href="/tags/%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/">
+                                <span class="chip bg-color">最长上升子序列模型</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -478,7 +482,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    327
+                    233
                 </div>
                 
 
@@ -495,11 +499,53 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-DP问题常见的问法-这样问有可能是DP但不绝对"><a href="#一-DP问题常见的问法-这样问有可能是DP但不绝对" class="headerlink" title="一.DP问题常见的问法(这样问有可能是DP但不绝对)"></a>一.DP问题常见的问法(这样问有可能是DP但不绝对)</h2><p><strong><em>DP问题尤其要注意初始状态和最后状态的设定,即边界值要根据题意和数据源范围来定</em></strong></p>
-<h3 id="1-求最大值"><a href="#1-求最大值" class="headerlink" title="1.求最大值"></a>1.求最大值</h3><p>1.1数据值存在负数时：dp值往往要先初始化成负无穷<br>1.2数据值全为非负数时：声明在全局为0即可</p>
-<h3 id="2-求最小值"><a href="#2-求最小值" class="headerlink" title="2.求最小值"></a>2.求最小值</h3><p>2.1数据值存在负数：声明在全局为0即可<br>2.2数据值全为非负数时：dp值往往要初始化成正无穷</p>
-<h3 id="3-求数量"><a href="#3-求数量" class="headerlink" title="3.求数量"></a>3.求数量</h3><h2 id="二-状态转移方程处常见的坑"><a href="#二-状态转移方程处常见的坑" class="headerlink" title="二.状态转移方程处常见的坑"></a>二.状态转移方程处常见的坑</h2><p>1.关于循环是正向还是逆向的问题,这一点再背包问题出会尤其明显,其总体判断依据是：<strong><em>状态转移方程中的dp量必须是之前已经更新过的正确值,或者是上一轮的值(比如01背包和完全背包),切忌用还未更新的值来转移(有时候转移方程写对但是循环顺序写错了)</em></strong></p>
-<script>
+                <h3 id="一-最长上升子序列问题定义"><a href="#一-最长上升子序列问题定义" class="headerlink" title="一.最长上升子序列问题定义"></a>一.最长上升子序列问题定义</h3><p><strong><em>如字面含义,对于a1,a2,a3,a4…,求出最长的递增的序列,递减的序列反向就相当于递增</em></strong></p>
+<h3 id="二-最长上升子序列代码模板"><a href="#二-最长上升子序列代码模板" class="headerlink" title="二.最长上升子序列代码模板"></a>二.最长上升子序列代码模板</h3><p>注：下面的代码是默认两个相同高度的平台之间不能跳跃,具体看if判断里面是否有等于号,如果是求最长下降子序列,那就把大于号换成小于号</p>
+<pre class=" language-C"><code class="language-C">
+    #include<bits stdc++.h="">
+    using namespace std;
+    const int N=1010;
+    int dp[N],a[N];
+    int main(){
+        int n;
+        cin&gt;&gt;n;
+        for(int i=1;i<n;i++) cin="">&gt;a[i]; 
+        int ans=0;
+        for(int i=1;i&lt;=n;i++){
+            for(int j=1;j&lt;=i;j++){
+                if(a[i]&gt;a[j]){
+                    dp[i]=max(dp[i],dp[j]+1); 
+                }
+            }
+            ans=max(dp[i],ans);
+        }
+        cout&lt;<ans+1; 起始点要算进去所以要+1="" }="" <="" code=""></ans+1;></n;i++)></bits></code></pre><code class="language-C">
+<h3 id="三-由最长递增子序列延伸出来的问题-案例"><a href="#三-由最长递增子序列延伸出来的问题-案例" class="headerlink" title="三.由最长递增子序列延伸出来的问题+案例"></a>三.由最长递增子序列延伸出来的问题+案例</h3><h4 id="1-求先递增再递减的最长序列"><a href="#1-求先递增再递减的最长序列" class="headerlink" title="1.求先递增再递减的最长序列"></a>1.求先递增再递减的最长序列</h4><p><strong><em>登山：<a href="https://www.acwing.com/problem/content/1016/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/1016/</a></em></strong><br>题意分析：由于要求的是严格先递增再递减的序列的最大长度,所以我们一定要找到那个极值点,找到极值点后唯一答案便确定了。所以,用若up[i]表示到i点的最长上升子序列,down[i]表示从i到n的最长下降子序列,只要循环求出最大的up[i]+down[i]即可   </p>
+<p>AC代码：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">1010</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> up<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>down<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    cin<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        cin<span class="token operator">&gt;&gt;</span>h<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+           <span class="token keyword">if</span><span class="token punctuation">(</span>h<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&gt;</span>h<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                up<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>up<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>up<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>n<span class="token punctuation">;</span>i<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//这里一定要倒着求注意dp值的更新必须用到已更新的dp值    </span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+           <span class="token keyword">if</span><span class="token punctuation">(</span>h<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&gt;</span>h<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                down<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>down<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>down<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token keyword">int</span> ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        ans<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>up<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span>down<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+</code><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -542,7 +588,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/2020/08/04/dp-wen-ti-zong-jie/">https://1766095699.github.io/2020/08/04/dp-wen-ti-zong-jie/</a>
+                    <a href="https://1766095699.github.io/2020/08/04/zui-chang-shang-sheng-zi-xu-lie-mo-xing/">https://1766095699.github.io/2020/08/04/zui-chang-shang-sheng-zi-xu-lie-mo-xing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -588,6 +634,10 @@
                                     <span class="chip bg-color">dp</span>
                                 </a>
                             
+                                <a href="/tags/%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/">
+                                    <span class="chip bg-color">最长上升子序列模型</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -630,7 +680,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-08-04T17-13-41',
+        id: '2020-08-04T18-24-32',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -654,9 +704,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/08/04/zui-chang-shang-sheng-zi-xu-lie-mo-xing/">
                     <div class="card-image">
@@ -675,9 +726,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -694,6 +745,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -720,20 +772,20 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/04/opencv-zhong-wen-wen-dang/">
+                <a href="/2020/08/04/dp-wen-ti-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="opencv中文文档">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="DP问题总结">
                         
-                        <span class="card-title">opencv中文文档</span>
+                        <span class="card-title">DP问题总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/tutorials.html
-
+                            一.DP问题常见的问法(这样问有可能是DP但不绝对)DP问题尤其要注意初始状态和最后状态的设定,即边界值要根据题意和数据源范围来定
+1.求最大值1.1数据值存在负数时：dp值往往要先初始化成负无穷1.2数据值全为非负数时：声明在全局为0即可
                         
                     </div>
                     <div class="publish-info">
@@ -744,12 +796,12 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/" class="post-category">
-                                    人脸识别
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
-                            <a href="/categories/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/opencv/" class="post-category">
-                                    opencv
+                            <a href="/categories/%E7%AE%97%E6%B3%95/dp/" class="post-category">
+                                    dp
                                 </a>
                             
                             
@@ -759,16 +811,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/">
-                        <span class="chip bg-color">人脸识别</span>
-                    </a>
-                    
-                    <a href="/tags/opencv/">
-                        <span class="chip bg-color">opencv</span>
+                    <a href="/tags/dp/">
+                        <span class="chip bg-color">dp</span>
                     </a>
                     
                 </div>
