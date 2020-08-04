@@ -482,7 +482,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    233
+                    320
                 </div>
                 
 
@@ -502,42 +502,45 @@
                 <h3 id="一-最长上升子序列问题定义"><a href="#一-最长上升子序列问题定义" class="headerlink" title="一.最长上升子序列问题定义"></a>一.最长上升子序列问题定义</h3><p><strong><em>如字面含义,对于a1,a2,a3,a4…,求出最长的递增的序列,递减的序列反向就相当于递增</em></strong></p>
 <h3 id="二-最长上升子序列代码模板"><a href="#二-最长上升子序列代码模板" class="headerlink" title="二.最长上升子序列代码模板"></a>二.最长上升子序列代码模板</h3><p>注：下面的代码是默认两个相同高度的平台之间不能跳跃,具体看if判断里面是否有等于号,如果是求最长下降子序列,那就把大于号换成小于号</p>
 <pre class=" language-C"><code class="language-C">
-    #include<bits stdc++.h="">
+    #include<bits/stdc++.h>
     using namespace std;
     const int N=1010;
     int dp[N],a[N];
     int main(){
         int n;
-        cin&gt;&gt;n;
-        for(int i=1;i<n;i++) cin="">&gt;a[i]; 
+        cin>>n;
+        for(int i=1;i<n;i++)
+            cin>>a[i]; 
         int ans=0;
-        for(int i=1;i&lt;=n;i++){
-            for(int j=1;j&lt;=i;j++){
-                if(a[i]&gt;a[j]){
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=i;j++){
+                if(a[i]>a[j]){
                     dp[i]=max(dp[i],dp[j]+1); 
                 }
             }
             ans=max(dp[i],ans);
         }
-        cout&lt;<ans+1; 起始点要算进去所以要+1="" }="" <="" code=""></ans+1;></n;i++)></bits></code></pre><code class="language-C">
-<h3 id="三-由最长递增子序列延伸出来的问题-案例"><a href="#三-由最长递增子序列延伸出来的问题-案例" class="headerlink" title="三.由最长递增子序列延伸出来的问题+案例"></a>三.由最长递增子序列延伸出来的问题+案例</h3><h4 id="1-求先递增再递减的最长序列"><a href="#1-求先递增再递减的最长序列" class="headerlink" title="1.求先递增再递减的最长序列"></a>1.求先递增再递减的最长序列</h4><p><strong><em>登山：<a href="https://www.acwing.com/problem/content/1016/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/1016/</a></em></strong><br>题意分析：由于要求的是严格先递增再递减的序列的最大长度,所以我们一定要找到那个极值点,找到极值点后唯一答案便确定了。所以,用若up[i]表示到i点的最长上升子序列,down[i]表示从i到n的最长下降子序列,只要循环求出最大的up[i]+down[i]即可   </p>
+        cout<<ans+1;//起始点要算进去所以要+1
+    } </code></pre>
+<h3 id="三-由最长递增子序列延伸出来的问题-案例"><a href="#三-由最长递增子序列延伸出来的问题-案例" class="headerlink" title="三.由最长递增子序列延伸出来的问题+案例"></a>三.由最长递增子序列延伸出来的问题+案例</h3><h4 id="1-求先递增再递减的最长序列"><a href="#1-求先递增再递减的最长序列" class="headerlink" title="1.求先递增再递减的最长序列"></a>1.求先递增再递减的最长序列</h4><p>登山：<a href="https://www.acwing.com/problem/content/1016/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/1016/</a>  </p>
+<p>题意分析：由于要求的是严格先递增再递减的序列的最大长度,所以我们一定要找到那个极值点,找到极值点后唯一答案便确定了。所以,用若up[i]表示到i点的最长上升子序列,down[i]表示从i到n的最长下降子序列,只要循环求出最大的up[i]+down[i]即可   </p>
 <p>AC代码：</p>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span></span>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
 using namespace std<span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">1010</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> up<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>down<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">int</span> n<span class="token punctuation">;</span>
-    cin<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>n<span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-        cin<span class="token operator">&gt;&gt;</span>h<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        cin<span class="token operator">>></span>h<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
         <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
-           <span class="token keyword">if</span><span class="token punctuation">(</span>h<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&gt;</span>h<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+           <span class="token keyword">if</span><span class="token punctuation">(</span>h<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">></span>h<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
                 up<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>up<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>up<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>n<span class="token punctuation">;</span>i<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//这里一定要倒着求注意dp值的更新必须用到已更新的dp值    </span>
+     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>n<span class="token punctuation">;</span>i<span class="token operator">>=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//这里一定要倒着求注意dp值的更新必须用到已更新的dp值    </span>
         <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
-           <span class="token keyword">if</span><span class="token punctuation">(</span>h<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&gt;</span>h<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+           <span class="token keyword">if</span><span class="token punctuation">(</span>h<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">></span>h<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
                 down<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>down<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>down<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
     <span class="token keyword">int</span> ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
@@ -545,7 +548,7 @@ using namespace std<span class="token punctuation">;</span>
     cout<span class="token operator">&lt;&lt;</span>ans<span class="token punctuation">;</span>
 
 <span class="token punctuation">}</span></code></pre>
-</code><script>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
