@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -429,12 +429,37 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/dp/">
+                                <span class="chip bg-color">dp</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
+                                <span class="chip bg-color">背包问题</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
+                            </a>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/dp/" class="post-category">
+                                dp
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -457,14 +482,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    52
+                    991
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -474,7 +499,79 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <h2 id="一-二维01背包问题"><a href="#一-二维01背包问题" class="headerlink" title="一. 二维01背包问题"></a>一. 二维01背包问题</h2><p>宠物小精灵之收服 : <a href="https://www.acwing.com/problem/content/1024/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/1024/</a></p>
+<h3 id="一-模型定义"><a href="#一-模型定义" class="headerlink" title="一.模型定义"></a>一.模型定义</h3><p><strong><em>一维背包问题是n个物品中选,求总体积不超过V的最大价值<br>二维背包问题不过是多加了一个和V同属性的条件</em></strong></p>
+<h3 id="二-代码解析"><a href="#二-代码解析" class="headerlink" title="二.代码解析"></a>二.代码解析</h3><p>在01背包的模板下多加一层嵌套即可,其他都一样</p>
+<h3 id="三-AC代码"><a href="#三-AC代码" class="headerlink" title="三.AC代码"></a>三.AC代码</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token keyword">const</span> N<span class="token operator">=</span><span class="token number">1001</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> f<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//f[i][j]表示精灵球数量花费不大于i，皮卡丘体力消耗不大于j的状态下捕获最多精灵的个数 </span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> V1<span class="token punctuation">,</span>V2<span class="token punctuation">,</span>n<span class="token punctuation">;</span>
+    cin<span class="token operator">&gt;&gt;</span>V1<span class="token operator">&gt;&gt;</span>V2<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//V1是精灵球初始数量，V2是皮卡丘初始体力 </span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> v1<span class="token punctuation">,</span>v2<span class="token punctuation">;</span>
+        cin<span class="token operator">&gt;&gt;</span>v1<span class="token operator">&gt;&gt;</span>v2<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//v1表示需要花费的精灵球数，v2表示消耗的皮卡丘体积 </span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>V1<span class="token punctuation">;</span>j<span class="token operator">&gt;=</span>v1<span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> h<span class="token operator">=</span>V2<span class="token number">-1</span><span class="token punctuation">;</span>h<span class="token operator">&gt;=</span>v2<span class="token punctuation">;</span>h<span class="token operator">--</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//皮卡丘体力到0就不能抓精灵了所以能消耗的体力值是V2-1 </span>
+                f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>h<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>h<span class="token punctuation">]</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span>j<span class="token operator">-</span>v1<span class="token punctuation">]</span><span class="token punctuation">[</span>h<span class="token operator">-</span>v2<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span>
+    cout<span class="token operator">&lt;&lt;</span>f<span class="token punctuation">[</span>V1<span class="token punctuation">]</span><span class="token punctuation">[</span>V2<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span><span class="token string">" "</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> k<span class="token operator">=</span>V2<span class="token number">-1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>k<span class="token operator">&gt;</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>f<span class="token punctuation">[</span>V1<span class="token punctuation">]</span><span class="token punctuation">[</span>V2<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">==</span>f<span class="token punctuation">[</span>V1<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>k<span class="token operator">--</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//一定是要和k-1比较，因为k-1是下一项，如果相等再k--,找到皮卡丘消耗的最小体力值</span>
+    cout<span class="token operator">&lt;&lt;</span>V2<span class="token operator">-</span>k<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
+</code></pre>
+<h2 id="二-方案数问题：01背包的恰好型数量问题"><a href="#二-方案数问题：01背包的恰好型数量问题" class="headerlink" title="二.方案数问题：01背包的恰好型数量问题"></a>二.方案数问题：01背包的恰好型数量问题</h2><p>数字组合<a href="https://www.acwing.com/problem/content/description/280/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/description/280/</a>  </p>
+<h3 id="1-模型含义"><a href="#1-模型含义" class="headerlink" title="1.模型含义"></a>1.模型含义</h3><p>从n个数(物品)中出恰好满足某条件的<strong><em>数量</em></strong></p>
+<h3 id="2-代码分析"><a href="#2-代码分析" class="headerlink" title="2.代码分析"></a>2.代码分析</h3><p>dp[i]表示和i的方案数</p>
+<h3 id="3-AC代码"><a href="#3-AC代码" class="headerlink" title="3.AC代码"></a>3.AC代码</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> f<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//f[i]表示和为i的方案数</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">,</span>v<span class="token punctuation">;</span>    
+    cin<span class="token operator">&gt;&gt;</span>n<span class="token operator">&gt;&gt;</span>m<span class="token punctuation">;</span>
+    f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//和为0的情况只有一种</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        cin<span class="token operator">&gt;&gt;</span>v<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>m<span class="token punctuation">;</span>j<span class="token operator">&gt;=</span>v<span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//01背包问题逆向循环,一个数只能用一次</span>
+            f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span>f<span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    cout<span class="token operator">&lt;&lt;</span>f<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//https://www.acwing.com/problem/content/280/ </span>
+<span class="token comment" spellcheck="true">//f[j]是由f[j-v]转移过来</span>
+<span class="token comment" spellcheck="true">//处理组合问题中恰好类型的问题</span>
+</code></pre>
+<h2 id="三-方案数问题：完全背包的恰好型数量问题"><a href="#三-方案数问题：完全背包的恰好型数量问题" class="headerlink" title="三.方案数问题：完全背包的恰好型数量问题"></a>三.方案数问题：完全背包的恰好型数量问题</h2><p>买书 <a href="https://www.acwing.com/problem/content/1025/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/1025/</a></p>
+<h3 id="一-模型含义"><a href="#一-模型含义" class="headerlink" title="一.模型含义"></a>一.模型含义</h3><p>在n种物品,每种可以选无限多,问恰好满足某一条件的方案数</p>
+<h3 id="二-代码分析"><a href="#二-代码分析" class="headerlink" title="二.代码分析"></a>二.代码分析</h3><p>dp[i][j]表示从前i件商品里选花费了j元时的方案书,对于每本书有卖和不买两种情况<br><strong><em>注:方案书问题一定要记得初始化,且完全背包问题时正向循环</em></strong></p>
+<h3 id="三-AC代码-1"><a href="#三-AC代码-1" class="headerlink" title="三.AC代码"></a>三.AC代码</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">1010</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> v<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> f<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//f[i][j]表示从前i件商品里选花费j元时买书的方案</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    cin<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//花光m元 </span>
+    f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//挑0件物品花费0元的方案为1，一定要记得写 </span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">4</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>f<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//第i本书还不做选择的时候全部由上一层状态转移过来</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&gt;=</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//价格不能超过j</span>
+                f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//恰好型问题的写法 </span>
+            <span class="token punctuation">}</span> 
+        <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span>
+    cout<span class="token operator">&lt;&lt;</span>f<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//方案数肯定在最后一位 </span>
+<span class="token punctuation">}</span></code></pre>
+<p>补充：完全背包方案数中较难的一道题 ：<br>货币系统<a href="https://www.acwing.com/problem/content/534/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/534/</a><br>本题的难点在于查找数学上的一些性质,如果一个数可以有大于等于两种的方式拼凑出来,那么这个数就可以去掉</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -554,7 +651,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/dp/">
+                                    <span class="chip bg-color">dp</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
+                                    <span class="chip bg-color">背包问题</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -638,10 +747,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            一. 二维01背包问题宠物小精灵之收服 : https://www.acwing.com/problem/content/1024/
+一.模型定义一维背包问题是n个物品中选,求总体积不超过V的最大价值二维背包问题不过是多加了一个和V同属性的
                         
                     </div>
                     <div class="publish-info">
@@ -650,13 +757,37 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            灿若星河
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/dp/" class="post-category">
+                                    dp
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/dp/">
+                        <span class="chip bg-color">dp</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
+                        <span class="chip bg-color">背包问题</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -667,21 +798,20 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/06/qing-hua-pip-jing-xiang/">
+                <a href="/2020/08/06/bei-bao-mo-xing-ji-chu-pian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="清华pip镜像">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="背包模型基础篇">
                         
-                        <span class="card-title">清华pip镜像</span>
+                        <span class="card-title">背包模型基础篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            pip install -i https://pypi.tuna.tsinghua.edu.cn/simple xxxxxx表示的是第三方库的名字
-
-        document.querySelectorAll('.github-em
+                            一.01背包问题一.模型含义 :有限个物品n和体积为V的背包,每个物品只有一个,其价值为w[i],占用体积为v[i],求出在总体积不超过V的情况下能选出的最大价值      
+二.注意点01背包循环体积的时候一定要倒着循环(对于一维dp的写
                         
                     </div>
                     <div class="publish-info">
@@ -692,8 +822,12 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    第三方工具
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/dp/" class="post-category">
+                                    dp
                                 </a>
                             
                             
@@ -703,8 +837,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7/">
-                        <span class="chip bg-color">第三方工具</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/dp/">
+                        <span class="chip bg-color">dp</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
+                        <span class="chip bg-color">背包问题</span>
                     </a>
                     
                 </div>
