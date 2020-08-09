@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="多个xml布局的共享与拼接, 比企谷八幡">
+    <meta name="keywords" content="数组分析一：numpy的使用, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>多个xml布局的共享与拼接 | 比企谷八幡</title>
+    <title>数组分析一：numpy的使用 | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">多个xml布局的共享与拼接</h1>
+                    <h1 class="description center-align post-title">数组分析一：numpy的使用</h1>
                 </div>
             </div>
         </div>
@@ -431,31 +431,22 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
-                                <span class="chip bg-color">安卓开发</span>
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
                             </a>
                         
-                            <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                                <span class="chip bg-color">星梦缘</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">数据分析</span>
+                            </a>
+                        
+                            <a href="/tags/numpy/">
+                                <span class="chip bg-color">numpy</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/" class="post-category">
-                                安卓开发
-                            </a>
-                        
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                项目实战
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -464,28 +455,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-27
+                    2020-08-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-28
+                    2020-08-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    296
+                    756
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -495,17 +486,91 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-在一个xml文件中添加另一个xml文件布局"><a href="#一-在一个xml文件中添加另一个xml文件布局" class="headerlink" title="一.在一个xml文件中添加另一个xml文件布局"></a>一.在一个xml文件中添加另一个xml文件布局</h2><p>当有多个页面有相同部分时,可以先写一个共有部分的xml文件(比如标题头部),然后在另一个xml文件中写</p>
-<pre><code>    &lt;include layout="@layout/xxxx"/&gt;</code></pre><h2 id="在java中实现对多个xml中布局组件的合并"><a href="#在java中实现对多个xml中布局组件的合并" class="headerlink" title="在java中实现对多个xml中布局组件的合并"></a>在java中实现对多个xml中布局组件的合并</h2><p><img src="https://i.loli.net/2020/07/28/zDPJwdYXf2to5MI.png" alt=""><br>使用LayoutInflater可以实现布局组件的的合并<br>实战案例：(星梦缘star部分二级页面的编写)<br><img src="https://i.loli.net/2020/07/28/E2Z6AkxzvVIpWSe.png" alt="最终效果图1"><br><img src="https://i.loli.net/2020/07/28/WbB5MtoVGO7fIYm.png" alt="最终效果图2"></p>
-<p><img src="https://i.loli.net/2020/07/28/M3rbzJWSPwIGLyN.png" alt="activity_star_analysis.xml"><br><img src="https://i.loli.net/2020/07/28/Ju3qg9X7vpSkDtl.png" alt="footer_star_analysis.xml"><br>分开写了这两个模块之后,想要在ListView下面加上星座解析,在java代码中要这样写 ：   </p>
-<pre class=" language-java"><code class="language-java">        ListView analysisLv<span class="token punctuation">;</span>
-        <span class="token keyword">private</span> TextView footerTv<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ListView底部需要改变的文字</span>
-          <span class="token comment" spellcheck="true">//为ListView添加底部布局</span>
+                <p><a href="https://crossincode.com/vip/homework/254/" target="_blank" rel="noopener">https://crossincode.com/vip/homework/254/</a></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
 
-        View footerView <span class="token operator">=</span> LayoutInflater<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">inflate</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>footer_star_analysis<span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//将布局转化成View对象(也可以是组件)</span>
-        analysisLv<span class="token punctuation">.</span><span class="token function">addFooterView</span><span class="token punctuation">(</span>footerView<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//设置底部的位置添加(也可以设置头部)</span>
-        footerTv<span class="token operator">=</span>footerView<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>footerstar_tv_info<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p><strong><em>其中analysisLv是ListView的对象,footerstar_tv_info是textview的id,对象我们一般声明在外面的全局区域</em></strong></p>
+<span class="token comment" spellcheck="true">#任务1：用 numpy 创建一个 2 * 2 的二维数组 ndarray，指定元素类型为 float，命名为 arr1</span>
+<span class="token keyword">def</span> <span class="token function">assign1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    arr1 <span class="token operator">=</span> np<span class="token punctuation">.</span>ndarray<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dtype<span class="token operator">=</span>float<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-----------------assign1-------------------"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>arr1<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#任务二：生成元素全为 0 的 6 * 6 矩阵 arr2；元素全为 1 的 6 * 6 矩阵 arr3；以及 6 * 6 的单位矩阵 arr4（任务提示：单位矩阵对角线元素为 )</span>
+<span class="token keyword">def</span> <span class="token function">assign2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    arr2 <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    arr3 <span class="token operator">=</span> np<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    arr4 <span class="token operator">=</span> np<span class="token punctuation">.</span>eye<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#生成一个n*n的单位矩阵</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-----------------assign2-------------------"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>arr3<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>arr4<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#任务三:运用 arange 函数生成生成 [0, 10) 区间内，步长为 2 的整数序列 arr5</span>
+<span class="token keyword">def</span> <span class="token function">assign3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    arr5 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-----------------assign3-------------------"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>arr5<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#任务四：生成 0~10 间的等差数列 arr6，元素个数为 6</span>
+<span class="token keyword">def</span> <span class="token function">assign4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    arr6 <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span>
+    arr6 <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span>endpoint<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#endpoint默认是true,false的话表示是否包括末尾值</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-----------------assign4-------------------"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>arr6<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#任务五：创建一个长度为 10 的随机数组（每个元素都是整数）并将最大值替换为 0</span>
+<span class="token comment" spellcheck="true"># （任务提示：numpy 随机函数为 random，利用 argmax() 得到数组最大值的位置，然后再将此位置数字利用切片替换</span>
+<span class="token keyword">def</span> <span class="token function">assign5</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    arr7 <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#最小值 最大值 数组size,这样写默认是一维,高维的要加[x,x]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-----------------assign5-------------------"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>arr7<span class="token punctuation">)</span>
+    mx <span class="token operator">=</span> np<span class="token punctuation">.</span>argmax<span class="token punctuation">(</span>arr7<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#一维数组的argmax返回的就是最大值所在位置,高维数组中第二个参数axis=0则返回每一行最大值在哪一列,axis=1则返回每一列最大值在那一行</span>
+    arr7<span class="token punctuation">[</span>mx<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>arr7<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#任务六：计算数组 x = np.array([1,2,3,2,3,4,3,4,5,6]) 和数组 y = np.array([7,2,10,2,7,4,9,4,9,8]) 之间的欧式距离</span>
+<span class="token keyword">def</span> <span class="token function">assign6</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    x <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    y <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 这个是直接用欧式距离公式直白写法</span>
+    dist <span class="token operator">=</span> np<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>np<span class="token punctuation">.</span>sum<span class="token punctuation">(</span>np<span class="token punctuation">.</span>square<span class="token punctuation">(</span>x <span class="token operator">-</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># numpy自带求欧式距离方法</span>
+    dist1 <span class="token operator">=</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>x <span class="token operator">-</span> y<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-----------------assign6-------------------"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span>dist1<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#任务七:利用 seed 生成一组固定的随机数 np.random.seed(1) (阅读参考文章⑫），并用此组成模拟的资金价值曲线 values = np.random.randn(1000).cumsum()</span>
+<span class="token comment" spellcheck="true">#请利用 matplotlib 作出该资金价值曲线图</span>
+<span class="token keyword">def</span> <span class="token function">assign7</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    x<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+    values <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-----------------assign7-------------------"</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>dpi<span class="token operator">=</span><span class="token number">60</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>values<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#缺省x的时候那么x默认长度为len(y)</span>
+    plt<span class="token punctuation">.</span>tick_params<span class="token punctuation">(</span>labelsize<span class="token operator">=</span><span class="token number">19</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#控制坐标轴字体大小</span>
+    plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">"Day"</span><span class="token punctuation">,</span>fontsize <span class="token operator">=</span> <span class="token number">19</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">"Values"</span><span class="token punctuation">,</span>fontsize <span class="token operator">=</span> <span class="token number">19</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>xlim<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+    ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplot<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># ax.set_xlim(1, )</span>
+    <span class="token comment" spellcheck="true"># ax.set_ylim(1, )</span>
+    plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># #附加任务八：求最大回撤率</span>
+    <span class="token comment" spellcheck="true"># max_drawdown = np.max(np.maximum.accumulate(values) - values)</span>
+    <span class="token comment" spellcheck="true"># print(max_drawdown)</span>
+assign1<span class="token punctuation">(</span><span class="token punctuation">)</span>
+assign2<span class="token punctuation">(</span><span class="token punctuation">)</span>
+assign3<span class="token punctuation">(</span><span class="token punctuation">)</span>
+assign4<span class="token punctuation">(</span><span class="token punctuation">)</span>
+assign5<span class="token punctuation">(</span><span class="token punctuation">)</span>
+assign6<span class="token punctuation">(</span><span class="token punctuation">)</span>
+assign7<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -549,7 +614,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/2020/07/27/gong-xiang-xml-bu-ju/">https://1766095699.github.io/2020/07/27/gong-xiang-xml-bu-ju/</a>
+                    <a href="https://1766095699.github.io/2020/08/09/shu-zu-fen-xi-yi-numpy-de-shi-yong/">https://1766095699.github.io/2020/08/09/shu-zu-fen-xi-yi-numpy-de-shi-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -587,12 +652,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
-                                    <span class="chip bg-color">安卓开发</span>
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
                                 </a>
                             
-                                <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                                    <span class="chip bg-color">星梦缘</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">数据分析</span>
+                                </a>
+                            
+                                <a href="/tags/numpy/">
+                                    <span class="chip bg-color">numpy</span>
                                 </a>
                             
                         </div>
@@ -637,7 +706,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-07-27T16-53-58',
+        id: '2020-08-09T20-44-19',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -661,57 +730,56 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/28/listview/">
+                <a href="/2020/08/09/shu-zu-fen-xi-yi-numpy-de-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ListView的用法+实战">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="数组分析一：numpy的使用">
                         
-                        <span class="card-title">ListView的用法+实战</span>
+                        <span class="card-title">数组分析一：numpy的使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            效果图属性值一列下来就是用ListView实现的  
-一.xml文件1.ListView布局在主xml &lt;ListView
-         android:id="@+id/staranalysis_lv"
-         and
+                            https://crossincode.com/vip/homework/254/
+import numpy as np
+import matplotlib.pyplot as plt
+
+#任务1：用 numpy 创建一个 2 * 2 的二
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-09
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/" class="post-category">
-                                    安卓开发
-                                </a>
-                            
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                    项目实战
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            灿若星河
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
-                        <span class="chip bg-color">安卓开发</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                        <span class="chip bg-color">星梦缘</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">数据分析</span>
+                    </a>
+                    
+                    <a href="/tags/numpy/">
+                        <span class="chip bg-color">numpy</span>
                     </a>
                     
                 </div>
@@ -725,39 +793,36 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/27/guan-yu-wang-ge-tu-gridview-de-yong-fa/">
+                <a href="/2020/08/07/bei-bao-mo-xing-jin-jie-pian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="网格图GridView的用法+实战">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="背包模型进阶篇">
                         
-                        <span class="card-title">网格图GridView的用法+实战</span>
+                        <span class="card-title">背包模型进阶篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            []  
-一.XML布局1.主xml写gridview其中numColumns用来控制列数      
-    &lt;GridView
-            android:id="@+id/starfrag_gv"
-         
+                            一. 二维01背包问题宠物小精灵之收服 : https://www.acwing.com/problem/content/1024/
+一.模型定义一维背包问题是n个物品中选,求总体积不超过V的最大价值二维背包问题不过是多加了一个和V同属性的
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/" class="post-category">
-                                    安卓开发
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                    项目实战
+                            <a href="/categories/%E7%AE%97%E6%B3%95/dp/" class="post-category">
+                                    dp
                                 </a>
                             
                             
@@ -767,12 +832,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
-                        <span class="chip bg-color">安卓开发</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                        <span class="chip bg-color">星梦缘</span>
+                    <a href="/tags/dp/">
+                        <span class="chip bg-color">dp</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
+                        <span class="chip bg-color">背包问题</span>
                     </a>
                     
                 </div>
