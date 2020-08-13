@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -471,14 +471,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-05
+                    2020-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    327
+                    362
                 </div>
                 
 
@@ -499,6 +499,7 @@
 <h3 id="1-求最大值"><a href="#1-求最大值" class="headerlink" title="1.求最大值"></a>1.求最大值</h3><p>1.1数据值存在负数时：dp值往往要先初始化成负无穷<br>1.2数据值全为非负数时：声明在全局为0即可</p>
 <h3 id="2-求最小值"><a href="#2-求最小值" class="headerlink" title="2.求最小值"></a>2.求最小值</h3><p>2.1数据值存在负数：声明在全局为0即可<br>2.2数据值全为非负数时：dp值往往要初始化成正无穷</p>
 <h3 id="3-求数量"><a href="#3-求数量" class="headerlink" title="3.求数量"></a>3.求数量</h3><h2 id="二-状态转移方程处常见的坑"><a href="#二-状态转移方程处常见的坑" class="headerlink" title="二.状态转移方程处常见的坑"></a>二.状态转移方程处常见的坑</h2><p>1.关于循环是正向还是逆向的问题,这一点再背包问题出会尤其明显,其总体判断依据是：<strong><em>状态转移方程中的dp量必须是之前已经更新过的正确值,或者是上一轮的值(比如01背包和完全背包),切忌用还未更新的值来转移(有时候转移方程写对但是循环顺序写错了)</em></strong></p>
+<h2 id="三-别的方面"><a href="#三-别的方面" class="headerlink" title="三.别的方面"></a>三.别的方面</h2><p>1.动态规划问题一定要多在草稿上写一些公式,转移方程其实很简单的</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
