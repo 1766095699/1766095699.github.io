@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="如何上传项目到github, 比企谷八幡">
+    <meta name="keywords" content="在Fragment中实现点击其他位置隐藏金盘, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何上传项目到github | 比企谷八幡</title>
+    <title>在Fragment中实现点击其他位置隐藏金盘 | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">如何上传项目到github</h1>
+                    <h1 class="description center-align post-title">在Fragment中实现点击其他位置隐藏金盘</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/git/">
-                                <span class="chip bg-color">git</span>
+                            <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
+                                <span class="chip bg-color">安卓开发</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/git/" class="post-category">
-                                git
+                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/" class="post-category">
+                                安卓开发
                             </a>
                         
                     </div>
@@ -456,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-27
+                    2020-10-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-27
+                    2020-10-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    209
+                    333
                 </div>
                 
 
@@ -487,13 +487,63 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>注意：先找到你想要上传的项目,然后在该项目文件夹中开启gitBush,然后因为基本就是所有文件都上传,所以第二部那里直接git add .就可以了,别漏了点</p>
-<pre><code>git init //初始化仓库
-git add .(文件name) //添加文件到本地仓库
-git commit -m “first commit” //添加文件描述信息
-git remote add origin + 远程仓库地址 //链接远程仓库，创建主分支
-git pull origin master // 把本地仓库的变化连接到远程仓库主分支
-git push -u origin master //把本地仓库的文件推送到远程仓库</code></pre><script>
+                <h2 id="问题：Fragment无法重写dispatchTouchEvent方法"><a href="#问题：Fragment无法重写dispatchTouchEvent方法" class="headerlink" title="问题：Fragment无法重写dispatchTouchEvent方法"></a>问题：Fragment无法重写dispatchTouchEvent方法</h2><h3 id="一-解决方法"><a href="#一-解决方法" class="headerlink" title="一.解决方法"></a>一.解决方法</h3><p>1.先创建一个interface,参数不能乱写</p>
+<pre class=" language-java"><code class="language-java"> <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">OnHideKeyboardListener</span>  <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hideKeyboard</span><span class="token punctuation">(</span>KeyEvent event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>2.调用上面的接口,然后把fragment的父Activiy在顶部声明一下,然后重写onAttach方法(不过目前已经不提倡用activity为参数了了)</p>
+<pre class=" language-JAVA"><code class="language-JAVA">MainActivity mainActivity;
+//获取通信
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mainActivity = (MainActivity) activity;
+        mainActivity.setOnHideKeyboardListener(this);
+
+    }
+    @Override
+    public boolean hideKeyboard(KeyEvent event) {
+        return false;
+    }</code></pre>
+<p>3.在父Activity写接口的set实例化创建方法</p>
+<pre class=" language-JAVA"><code class="language-JAVA">public void setOnHideKeyboardListener(OnHideKeyboardListener onHideKeyboardListener){
+        this.onHideKeyboardListener = onHideKeyboardListener;
+    }</code></pre>
+<p>4.在父Activity重写dispatchTouchEvent方法即可</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">dispatchTouchEvent</span><span class="token punctuation">(</span>MotionEvent ev<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>ev<span class="token punctuation">.</span><span class="token function">getAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> MotionEvent<span class="token punctuation">.</span>ACTION_DOWN<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            View view <span class="token operator">=</span> <span class="token function">getCurrentFocus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isShouldHideInput</span><span class="token punctuation">(</span>view<span class="token punctuation">,</span> ev<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                InputMethodManager Object <span class="token operator">=</span> <span class="token punctuation">(</span>InputMethodManager<span class="token punctuation">)</span> <span class="token function">getSystemService</span><span class="token punctuation">(</span>Context<span class="token punctuation">.</span>INPUT_METHOD_SERVICE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>Object <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    Object<span class="token punctuation">.</span><span class="token function">hideSoftInputFromWindow</span><span class="token punctuation">(</span>view<span class="token punctuation">.</span><span class="token function">getWindowToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">dispatchTouchEvent</span><span class="token punctuation">(</span>ev<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//判断是否隐藏键盘</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isShouldHideInput</span><span class="token punctuation">(</span>View v<span class="token punctuation">,</span> MotionEvent event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>v <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>v <span class="token keyword">instanceof</span> <span class="token class-name">EditText</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> leftTop <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//获取输入框当前的location位置</span>
+            v<span class="token punctuation">.</span><span class="token function">getLocationInWindow</span><span class="token punctuation">(</span>leftTop<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> left <span class="token operator">=</span> leftTop<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> top <span class="token operator">=</span> leftTop<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> bottom <span class="token operator">=</span> top <span class="token operator">+</span> v<span class="token punctuation">.</span><span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> right <span class="token operator">=</span> left <span class="token operator">+</span> v<span class="token punctuation">.</span><span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> left <span class="token operator">&amp;&amp;</span> event<span class="token punctuation">.</span><span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> right
+                    <span class="token operator">&amp;&amp;</span> event<span class="token punctuation">.</span><span class="token function">getY</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> top <span class="token operator">&amp;&amp;</span> event<span class="token punctuation">.</span><span class="token function">getY</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> bottom<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">// 点击的是输入框区域，保留点击EditText的事件</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -536,7 +586,7 @@ git push -u origin master //把本地仓库的文件推送到远程仓库</code>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/2020/09/27/ru-he-shang-chuan-xiang-mu-dao-github/">https://1766095699.github.io/2020/09/27/ru-he-shang-chuan-xiang-mu-dao-github/</a>
+                    <a href="https://1766095699.github.io/2020/10/21/zai-fragment-zhong-shi-xian-dian-ji-qi-ta-wei-zhi-yin-cang-jin-pan/">https://1766095699.github.io/2020/10/21/zai-fragment-zhong-shi-xian-dian-ji-qi-ta-wei-zhi-yin-cang-jin-pan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -574,8 +624,8 @@ git push -u origin master //把本地仓库的文件推送到远程仓库</code>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/git/">
-                                    <span class="chip bg-color">git</span>
+                                <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
+                                    <span class="chip bg-color">安卓开发</span>
                                 </a>
                             
                         </div>
@@ -620,7 +670,7 @@ git push -u origin master //把本地仓库的文件推送到远程仓库</code>
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-09-27T10-47-14',
+        id: '2020-10-21T12-01-35',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -644,9 +694,10 @@ git push -u origin master //把本地仓库的文件推送到远程仓库</code>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/10/21/zai-fragment-zhong-shi-xian-dian-ji-qi-ta-wei-zhi-yin-cang-jin-pan/">
                     <div class="card-image">
@@ -666,9 +717,9 @@ git push -u origin master //把本地仓库的文件推送到远程仓库</code>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -681,6 +732,7 @@ git push -u origin master //把本地仓库的文件推送到远程仓库</code>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -699,37 +751,33 @@ git push -u origin master //把本地仓库的文件推送到远程仓库</code>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/26/jian-yi-cheng-ji-guan-li-xi-tong/">
+                <a href="/2020/09/27/ru-he-shang-chuan-xiang-mu-dao-github/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="简易成绩管理系统">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="如何上传项目到github">
                         
-                        <span class="card-title">简易成绩管理系统</span>
+                        <span class="card-title">如何上传项目到github</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            项目地址：https://github.com/1766095699/Student_grades.git
-一.界面效果图
-
-
-
-
-二.序言这是个非常简易的学生管理系统,主要作用还是来了解swing组件的基本运用以及JDBC的基本应用,本文
+                            注意：先找到你想要上传的项目,然后在该项目文件夹中开启gitBush,然后因为基本就是所有文件都上传,所以第二部那里直接git add .就可以了,别漏了点
+git init //初始化仓库
+git add .(文件name) //添加文件
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java/" class="post-category">
-                                    java
+                            <a href="/categories/git/" class="post-category">
+                                    git
                                 </a>
                             
                             
@@ -739,8 +787,8 @@ git push -u origin master //把本地仓库的文件推送到远程仓库</code>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>

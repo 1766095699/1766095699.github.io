@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-09-27T02:49:45.823Z</updated>
+  <updated>2020-10-21T04:14:15.643Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在Fragment中实现点击其他位置隐藏金盘</title>
+    <link href="https://1766095699.github.io/2020/10/21/zai-fragment-zhong-shi-xian-dian-ji-qi-ta-wei-zhi-yin-cang-jin-pan/"/>
+    <id>https://1766095699.github.io/2020/10/21/zai-fragment-zhong-shi-xian-dian-ji-qi-ta-wei-zhi-yin-cang-jin-pan/</id>
+    <published>2020-10-21T04:01:35.000Z</published>
+    <updated>2020-10-21T04:14:15.643Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;问题：Fragment无法重写dispatchTouchEvent方法&quot;&gt;&lt;a href=&quot;#问题：Fragment无法重写dispatchTouchEvent方法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>如何上传项目到github</title>
@@ -599,33 +626,6 @@ git add .(文件name)
       <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
       <category term="统计图" scheme="https://1766095699.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用ScrollView底部显示不全的解决方案</title>
-    <link href="https://1766095699.github.io/2020/07/29/yong-scrollview-di-bu-xian-shi-bu-quan-de-jie-jue-fang-an/"/>
-    <id>https://1766095699.github.io/2020/07/29/yong-scrollview-di-bu-xian-shi-bu-quan-de-jie-jue-fang-an/</id>
-    <published>2020-07-29T14:54:59.000Z</published>
-    <updated>2020-07-29T14:58:17.923Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;解决方式：在底部最后两行加两个换行&lt;/p&gt;
-&lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if
-        
-      
-    
-    </summary>
-    
-    
     
   </entry>
   
