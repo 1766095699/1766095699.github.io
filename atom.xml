@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-10-21T04:21:43.145Z</updated>
+  <updated>2020-10-22T17:13:53.687Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>在Fragment中实现点击其他位置隐藏金盘</title>
-    <link href="https://1766095699.github.io/2020/10/21/zai-fragment-zhong-shi-xian-dian-ji-qi-ta-wei-zhi-yin-cang-jin-pan/"/>
-    <id>https://1766095699.github.io/2020/10/21/zai-fragment-zhong-shi-xian-dian-ji-qi-ta-wei-zhi-yin-cang-jin-pan/</id>
-    <published>2020-10-21T04:01:35.000Z</published>
-    <updated>2020-10-21T04:21:43.145Z</updated>
+    <title>对于EditText的一些常见问题</title>
+    <link href="https://1766095699.github.io/2020/10/23/dui-yu-edittext-de-yi-xie-chang-jian-wen-ti/"/>
+    <id>https://1766095699.github.io/2020/10/23/dui-yu-edittext-de-yi-xie-chang-jian-wen-ti/</id>
+    <published>2020-10-22T17:00:09.000Z</published>
+    <updated>2020-10-22T17:13:53.687Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,32 @@
       
         
         
-          &lt;h2 id=&quot;问题：Fragment无法重写dispatchTouchEvent方法&quot;&gt;&lt;a href=&quot;#问题：Fragment无法重写dispatchTouchEvent方法&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;一-如何设置长按时选取的文字区域高亮颜色&quot;&gt;&lt;a href=&quot;#一-如何设置长按时选取的文字区域高亮颜色&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>隐藏和弹出软键盘的实现方法</title>
+    <link href="https://1766095699.github.io/2020/10/21/zai-fragment-zhong-shi-xian-dian-ji-qi-ta-wei-zhi-yin-cang-jin-pan/"/>
+    <id>https://1766095699.github.io/2020/10/21/zai-fragment-zhong-shi-xian-dian-ji-qi-ta-wei-zhi-yin-cang-jin-pan/</id>
+    <published>2020-10-21T04:01:35.000Z</published>
+    <updated>2020-10-22T16:59:05.228Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一-在Fragment中实现点击其他位置隐藏金盘&quot;&gt;&lt;a href=&quot;#一-在Fragment中实现点击其他位置隐藏金盘&quot; class=&quot;headerlink&quot;
         
       
     
@@ -597,35 +622,6 @@ git add .(文件name)
       <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
     
       <category term="星梦缘" scheme="https://1766095699.github.io/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OXChart的详细用法</title>
-    <link href="https://1766095699.github.io/2020/07/31/oxchart-de-xiang-xi-yong-fa/"/>
-    <id>https://1766095699.github.io/2020/07/31/oxchart-de-xiang-xi-yong-fa/</id>
-    <published>2020-07-31T07:27:49.000Z</published>
-    <updated>2020-07-31T12:17:11.233Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;第三方库来源-原作者的github-：&quot;&gt;&lt;a href=&quot;#第三方库来源-原作者的github-：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="统计图" scheme="https://1766095699.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE/"/>
     
   </entry>
   
