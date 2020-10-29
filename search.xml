@@ -4,6 +4,69 @@
   
     
     <entry>
+      <title>自定义DatePicker和TimePicker</title>
+      <link href="/2020/10/28/zi-ding-yi-datepicker-he-timepicker/"/>
+      <url>/2020/10/28/zi-ding-yi-datepicker-he-timepicker/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一-功能实现"><a href="#一-功能实现" class="headerlink" title="一.功能实现"></a>一.功能实现</h2><p><strong><em>1.实现数字轮盘滚轮效果选取时间<br>2.自定义显示年月日分秒中的任意单位<br>3.自定义是否可循环<br>4.实现选中时候的动画效果</em></strong></p><hr><h2 id="二-大体思路"><a href="#二-大体思路" class="headerlink" title="二.大体思路"></a>二.大体思路</h2><h2 id="PickerView："><a href="#PickerView：" class="headerlink" title="PickerView："></a>PickerView：</h2><p>1.先自定义一个View来装数字,重写里面的onDraw和onMeasure方法把框架先画出来(当然,其中还有众多细节后面具体说)<br>2.自定义一个DrawText方法来画数字,数字的表现形式等都在里面设置,然后在绘画的时候调用此方法来</p><hr><p><strong><em>完成上面两步之后自定义View大体的轮廓就已经出来了</em></strong></p><hr><p>3.实现添加数据的方法</p><p>4.实现调整data数组的函数</p><hr><p><strong><em>这里说一下这个demo里设计数据的思路 : 因为一次显示五个数,中间的是选中的,而轮盘又要实现从上到下数字递增,所以为了保证能拿到已经选中的数字的前后四个数据,我们可以让选中的数据一直在数组的中间,比如如果轮盘上滑,数字要变大这个时候把头部data[0]的数据删除然后插到末尾,就可以保持选中的数字一直在数组中间(上滑同理)</em></strong></p><hr><p>5.实现闪烁的动画效果<br>6.实现滚动的动画效果(这里主要是通过重绘View实现的)</p><hr><p><strong><em>到上面我们只是实现了对View的绘图和相关功能的设置,接下来要把他安装到CustomDatePicker中</em></strong></p><hr><h2 id="CustomDatePicker-控制整个Dialog"><a href="#CustomDatePicker-控制整个Dialog" class="headerlink" title="CustomDatePicker(控制整个Dialog)"></a>CustomDatePicker(控制整个Dialog)</h2><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安卓开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 安卓开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>时间选择器demo中函数用法</title>
+      <link href="/2020/10/25/decimalformat-de-yong-fa/"/>
+      <url>/2020/10/25/decimalformat-de-yong-fa/</url>
+      
+        <content type="html"><![CDATA[<p>DecimalFormat的用法:<a href="https://www.jianshu.com/p/b3699d73142e" target="_blank" rel="noopener">https://www.jianshu.com/p/b3699d73142e</a></p><p>Timer与TimerTask的真正原理&amp;使用介绍：<a href="https://blog.csdn.net/xieyuooo/article/details/8607220" target="_blank" rel="noopener">https://blog.csdn.net/xieyuooo/article/details/8607220</a>  </p><p>android中handler使用WeakReference防止内存泄露 <a href="https://blog.csdn.net/lanximu/article/details/40522367" target="_blank" rel="noopener">https://blog.csdn.net/lanximu/article/details/40522367</a></p><p>android中invalidate()的使用小结 <a href="https://blog.csdn.net/carlwang100/article/details/19546313" target="_blank" rel="noopener">https://blog.csdn.net/carlwang100/article/details/19546313</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 安卓开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>安卓开发自定义View一</title>
+      <link href="/2020/10/24/an-zhuo-kai-fa-zi-ding-yi-view-yi/"/>
+      <url>/2020/10/24/an-zhuo-kai-fa-zi-ding-yi-view-yi/</url>
+      
+        <content type="html"><![CDATA[<p>参考文章：<a href="https://www.jianshu.com/p/c84693096e41" target="_blank" rel="noopener">https://www.jianshu.com/p/c84693096e41</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 安卓开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>对于EditText的一些常见问题</title>
       <link href="/2020/10/23/dui-yu-edittext-de-yi-xie-chang-jian-wen-ti/"/>
       <url>/2020/10/23/dui-yu-edittext-de-yi-xie-chang-jian-wen-ti/</url>
