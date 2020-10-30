@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-10-29T00:35:46.311Z</updated>
+  <updated>2020-10-30T12:12:02.746Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>自定义Dialog</title>
+    <link href="https://1766095699.github.io/2020/10/30/zi-ding-yi-dialog/"/>
+    <id>https://1766095699.github.io/2020/10/30/zi-ding-yi-dialog/</id>
+    <published>2020-10-30T12:07:15.000Z</published>
+    <updated>2020-10-30T12:12:02.746Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;更详细的方法日后再更新-下面的代码主要出自DatePicker的那个自定义Dialog&quot;&gt;&lt;a href=&quot;#更详细的方法日后再更新-下面的代码主要出自DatePicker的那个自定义Dialog&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>自定义DatePicker和TimePicker</title>
     <link href="https://1766095699.github.io/2020/10/28/zi-ding-yi-datepicker-he-timepicker/"/>
     <id>https://1766095699.github.io/2020/10/28/zi-ding-yi-datepicker-he-timepicker/</id>
     <published>2020-10-28T14:44:26.000Z</published>
-    <updated>2020-10-29T00:35:46.311Z</updated>
+    <updated>2020-10-30T13:39:17.911Z</updated>
     
     <summary type="html">
     
@@ -48,7 +75,7 @@
     <link href="https://1766095699.github.io/2020/10/25/decimalformat-de-yong-fa/"/>
     <id>https://1766095699.github.io/2020/10/25/decimalformat-de-yong-fa/</id>
     <published>2020-10-25T09:37:38.000Z</published>
-    <updated>2020-10-29T00:33:00.429Z</updated>
+    <updated>2020-10-30T11:16:06.182Z</updated>
     
     <summary type="html">
     
@@ -584,33 +611,6 @@ git add .(文件name)
       <category term="dp" scheme="https://1766095699.github.io/tags/dp/"/>
     
       <category term="数字三角形模型" scheme="https://1766095699.github.io/tags/%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2%E6%A8%A1%E5%9E%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>同时部署在多平台</title>
-    <link href="https://1766095699.github.io/2020/08/02/tong-shi-bu-shu-zai-duo-ping-tai/"/>
-    <id>https://1766095699.github.io/2020/08/02/tong-shi-bu-shu-zai-duo-ping-tai/</id>
-    <published>2020-08-02T04:01:58.000Z</published>
-    <updated>2020-08-02T08:21:03.100Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;a href=&quot;https://gitee.com/help/articles/4136#article-header0&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://1766095699.github.io/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="https://1766095699.github.io/tags/hexo/"/>
     
   </entry>
   

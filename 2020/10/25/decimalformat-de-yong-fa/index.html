@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -454,21 +454,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-29
+                    2020-10-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    168
+                    544
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -483,7 +483,62 @@
 <p>3.android中handler使用WeakReference防止内存泄露 <a href="https://blog.csdn.net/lanximu/article/details/40522367" target="_blank" rel="noopener">https://blog.csdn.net/lanximu/article/details/40522367</a></p>
 <p>4.android中invalidate()的使用小结 <a href="https://blog.csdn.net/carlwang100/article/details/19546313" target="_blank" rel="noopener">https://blog.csdn.net/carlwang100/article/details/19546313</a></p>
 <p>5.颜色转换成int类型,其中第一个参数是context(有时候自定义函数想要传入int类型的颜色的时候可以用)</p>
-<pre><code>mLightColor = ContextCompat.getColor(mContext, R.color.date_picker_text_light);</code></pre><script>
+<pre><code>mLightColor = ContextCompat.getColor(mContext, R.color.date_picker_text_light);</code></pre><p>6.判断字符串是否为空</p>
+<pre><code>TextUtils.isEmpty(text)</code></pre><p>7.得到画笔定义的文字的的信息,fm.top + fm.bottom/2得到的是文字的一半高度,不是坐标,具体居中公式推导看下面网址算法,直接看最后部分<br><a href="https://www.jianshu.com/p/8b97627b21c4" target="_blank" rel="noopener">https://www.jianshu.com/p/8b97627b21c4</a><br><a href="https://blog.csdn.net/u012551350/article/details/51361778" target="_blank" rel="noopener">https://blog.csdn.net/u012551350/article/details/51361778</a></p>
+<pre><code>Paint.FontMetrics fm = mPaint.getFontMetrics();
+fm.top + fm.bottom</code></pre><p>在看文章之前需要先明白一些基本概念(注意view中y轴正半轴的向下的)：<br><a href="https://imgchr.com/i/BYCe0I" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/29/BYCe0I.png" alt="BYCe0I.png"></a></p>
+<p>8.时间戳和字符串之间的相互转换</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DateFormatUtils</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String DATE_FORMAT_PATTERN_YMD <span class="token operator">=</span> <span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String DATE_FORMAT_PATTERN_YMD_HM <span class="token operator">=</span> <span class="token string">"yyyy-MM-dd HH:mm"</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 时间戳转字符串
+     *
+     * @param timestamp     时间戳
+     * @param isPreciseTime 是否包含时分
+     * @return 格式化的日期字符串
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">long2Str</span><span class="token punctuation">(</span><span class="token keyword">long</span> timestamp<span class="token punctuation">,</span> <span class="token keyword">boolean</span> isPreciseTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">long2Str</span><span class="token punctuation">(</span>timestamp<span class="token punctuation">,</span> <span class="token function">getFormatPattern</span><span class="token punctuation">(</span>isPreciseTime<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> String <span class="token function">long2Str</span><span class="token punctuation">(</span><span class="token keyword">long</span> timestamp<span class="token punctuation">,</span> String pattern<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> Locale<span class="token punctuation">.</span>CHINA<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>timestamp<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 字符串转时间戳
+     *
+     * @param dateStr       日期字符串
+     * @param isPreciseTime 是否包含时分
+     * @return 时间戳
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">str2Long</span><span class="token punctuation">(</span>String dateStr<span class="token punctuation">,</span> <span class="token keyword">boolean</span> isPreciseTime<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//在这个方法里执行下一个方法(两个模式两个选择)</span>
+        <span class="token keyword">return</span> <span class="token function">str2Long</span><span class="token punctuation">(</span>dateStr<span class="token punctuation">,</span> <span class="token function">getFormatPattern</span><span class="token punctuation">(</span>isPreciseTime<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">str2Long</span><span class="token punctuation">(</span>String dateStr<span class="token punctuation">,</span> String pattern<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> Locale<span class="token punctuation">.</span>CHINA<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>dateStr<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//第二个参数不管他照着填,这行代码是将str以patter的形式进行解析再用getTime得到需要的时间戳</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> ignored<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> String <span class="token function">getFormatPattern</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> showSpecificTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>showSpecificTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> DATE_FORMAT_PATTERN_YMD_HM<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//显示年月日分秒的模式</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> DATE_FORMAT_PATTERN_YMD<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//限制年月日的模式,返回的是字符串格式</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }

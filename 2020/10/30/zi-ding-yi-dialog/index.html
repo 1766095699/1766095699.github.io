@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="多个xml布局的共享与拼接, 比企谷八幡">
+    <meta name="keywords" content="自定义Dialog, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>多个xml布局的共享与拼接 | 比企谷八幡</title>
+    <title>自定义Dialog | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">多个xml布局的共享与拼接</h1>
+                    <h1 class="description center-align post-title">自定义Dialog</h1>
                 </div>
             </div>
         </div>
@@ -435,10 +435,6 @@
                                 <span class="chip bg-color">安卓开发</span>
                             </a>
                         
-                            <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                                <span class="chip bg-color">星梦缘</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -451,10 +447,6 @@
                                 安卓开发
                             </a>
                         
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                项目实战
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -464,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-27
+                    2020-10-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-28
+                    2020-10-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    296
+                    305
                 </div>
                 
 
@@ -495,18 +487,31 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-在一个xml文件中添加另一个xml文件布局"><a href="#一-在一个xml文件中添加另一个xml文件布局" class="headerlink" title="一.在一个xml文件中添加另一个xml文件布局"></a>一.在一个xml文件中添加另一个xml文件布局</h2><p>当有多个页面有相同部分时,可以先写一个共有部分的xml文件(比如标题头部),然后在另一个xml文件中写</p>
-<pre><code>    &lt;include layout="@layout/xxxx"/&gt;</code></pre><h2 id="在java中实现对多个xml中布局组件的合并"><a href="#在java中实现对多个xml中布局组件的合并" class="headerlink" title="在java中实现对多个xml中布局组件的合并"></a>在java中实现对多个xml中布局组件的合并</h2><p><img src="https://i.loli.net/2020/07/28/zDPJwdYXf2to5MI.png" alt=""><br>使用LayoutInflater可以实现布局组件的的合并<br>实战案例：(星梦缘star部分二级页面的编写)<br><img src="https://i.loli.net/2020/07/28/E2Z6AkxzvVIpWSe.png" alt="最终效果图1"><br><img src="https://i.loli.net/2020/07/28/WbB5MtoVGO7fIYm.png" alt="最终效果图2"></p>
-<p><img src="https://i.loli.net/2020/07/28/M3rbzJWSPwIGLyN.png" alt="activity_star_analysis.xml"><br><img src="https://i.loli.net/2020/07/28/Ju3qg9X7vpSkDtl.png" alt="footer_star_analysis.xml"><br>分开写了这两个模块之后,想要在ListView下面加上星座解析,在java代码中要这样写 ：   </p>
-<pre class=" language-java"><code class="language-java">        ListView analysisLv<span class="token punctuation">;</span>
-        <span class="token keyword">private</span> TextView footerTv<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ListView底部需要改变的文字</span>
-          <span class="token comment" spellcheck="true">//为ListView添加底部布局</span>
+                <h2 id="更详细的方法日后再更新-下面的代码主要出自DatePicker的那个自定义Dialog"><a href="#更详细的方法日后再更新-下面的代码主要出自DatePicker的那个自定义Dialog" class="headerlink" title="更详细的方法日后再更新,下面的代码主要出自DatePicker的那个自定义Dialog"></a>更详细的方法日后再更新,下面的代码主要出自DatePicker的那个自定义Dialog</h2><p>一.style部分的核心代码</p>
+<pre><code>  &lt;style name="date_picker_dialog" parent="android:style/Theme.Dialog"&gt;
+        &lt;item name="android:windowFrame"&gt;@null&lt;/item&gt;
+        &lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;
+        &lt;item name="android:windowIsFloating"&gt;true&lt;/item&gt;
+        &lt;item name="android:windowContentOverlay"&gt;@null&lt;/item&gt;
+        &lt;item name="android:windowBackground"&gt;@color/date_picker_bg&lt;/item&gt;//这行代码如果不写的话dialog宽度不能铺满屏幕
+    &lt;/style&gt;
+</code></pre><p>二.java部分的核心代码</p>
+<pre><code>   //下面的代码是自定义View的核心代码
+        //------------------------------------------------------------------------------------------------------------------
+        mPickerDialog = new Dialog(mContext, R.style.date_picker_dialog);//第一个参数是context基础属性在style先调好
+        mPickerDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);//设置窗体常见属性(这里去掉似乎不会有影响,因为在style中已经设置了)
+        mPickerDialog.setContentView(R.layout.dialog_date_picker);//自定义写好的dialog布局
 
-        View footerView <span class="token operator">=</span> LayoutInflater<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">inflate</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>footer_star_analysis<span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//将布局转化成View对象(也可以是组件)</span>
-        analysisLv<span class="token punctuation">.</span><span class="token function">addFooterView</span><span class="token punctuation">(</span>footerView<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//设置底部的位置添加(也可以设置头部)</span>
-        footerTv<span class="token operator">=</span>footerView<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>footerstar_tv_info<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p><strong><em>其中analysisLv是ListView的对象,footerstar_tv_info是textview的id,对象我们一般声明在外面的全局区域</em></strong></p>
-<script>
+        //给window设置参数
+        Window window = mPickerDialog.getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams lp = window.getAttributes();
+            lp.gravity = Gravity.BOTTOM;//Dialog在底部出现
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            window.setAttributes(lp);
+        }
+        //------------------------------------------------------------------------------------------------------------------</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -549,7 +554,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/2020/07/27/gong-xiang-xml-bu-ju/">https://1766095699.github.io/2020/07/27/gong-xiang-xml-bu-ju/</a>
+                    <a href="https://1766095699.github.io/2020/10/30/zi-ding-yi-dialog/">https://1766095699.github.io/2020/10/30/zi-ding-yi-dialog/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -589,10 +594,6 @@
                             
                                 <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
                                     <span class="chip bg-color">安卓开发</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                                    <span class="chip bg-color">星梦缘</span>
                                 </a>
                             
                         </div>
@@ -637,7 +638,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-07-27T16-53-58',
+        id: '2020-10-30T20-07-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -661,32 +662,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/28/listview/">
+                <a href="/2020/10/30/zi-ding-yi-dialog/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ListView的用法+实战">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="自定义Dialog">
                         
-                        <span class="card-title">ListView的用法+实战</span>
+                        <span class="card-title">自定义Dialog</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            效果图属性值一列下来就是用ListView实现的  
-一.xml文件1.ListView布局在主xml &lt;ListView
-         android:id="@+id/staranalysis_lv"
-         and
+                            更详细的方法日后再更新,下面的代码主要出自DatePicker的那个自定义Dialog一.style部分的核心代码
+  &lt;style name="date_picker_dialog" parent="android:style/Th
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -695,23 +695,16 @@
                                     安卓开发
                                 </a>
                             
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                    项目实战
-                                </a>
-                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
                         <span class="chip bg-color">安卓开发</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                        <span class="chip bg-color">星梦缘</span>
                     </a>
                     
                 </div>
@@ -725,28 +718,25 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/27/guan-yu-wang-ge-tu-gridview-de-yong-fa/">
+                <a href="/2020/10/28/zi-ding-yi-datepicker-he-timepicker/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="网格图GridView的用法+实战">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="自定义DatePicker和TimePicker">
                         
-                        <span class="card-title">网格图GridView的用法+实战</span>
+                        <span class="card-title">自定义DatePicker和TimePicker</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            []  
-一.XML布局1.主xml写gridview其中numColumns用来控制列数      
-    &lt;GridView
-            android:id="@+id/starfrag_gv"
-         
+                            代码源自下面链接,略有改动https://github.com/liuwan1992/CustomDatePicker/tree/update_20181221
+一.功能实现1.实现数字轮盘滚轮效果选取时间2.自定义显示年月日分秒中的任意单
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-28
                             </span>
                         <span class="publish-author">
                             
@@ -754,10 +744,6 @@
                             
                             <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/" class="post-category">
                                     安卓开发
-                                </a>
-                            
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                    项目实战
                                 </a>
                             
                             
@@ -769,10 +755,6 @@
                     
                     <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
                         <span class="chip bg-color">安卓开发</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                        <span class="chip bg-color">星梦缘</span>
                     </a>
                     
                 </div>

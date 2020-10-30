@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-29
+                    2020-10-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    3 分
                 </div>
                 
 
@@ -508,110 +508,18 @@
 <hr>
 <p>1.对Dialog的构造器进行自定义,自定义方法都要在这里间接执行，要进行加载页面和设置数据给每一个PickerItem<br>2.对Dialog的打开进行包装(内部加上show方法)<br>3.对年月日时分(不用item)的自定义显示进行设置,同时他们之间的联动动画效果的调用也在这里<br>4.写Destroy方法来回收关闭内存中的东西</p>
 <h2 id="3-MainActivity"><a href="#3-MainActivity" class="headerlink" title="3.MainActivity"></a>3.MainActivity</h2><p>在活动中直接调用CustomDatePicker然后调用包装show的函数即可,同时也可以对相关东西功能进行自定义打开关闭</p>
-<h2 id="三-具体的代码实现"><a href="#三-具体的代码实现" class="headerlink" title="三.具体的代码实现"></a>三.具体的代码实现</h2><p>下面是全局区域的变量</p>
-<pre class=" language-java"><code class="language-java">  <span class="token keyword">private</span> Context mContext<span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> Paint mPaint<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> mLightColor<span class="token punctuation">,</span> mDarkColor<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">float</span> mHalfWidth<span class="token punctuation">,</span> mHalfHeight<span class="token punctuation">,</span> mQuarterHeight<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">float</span> mMinTextSize<span class="token punctuation">,</span> mTextSizeRange<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">float</span> mTextSpacing<span class="token punctuation">,</span> mHalfTextSpacing<span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> <span class="token keyword">float</span> mScrollDistance<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">float</span> mLastTouchY<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>String<span class="token operator">></span> mDataList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> mSelectedIndex<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">boolean</span> mCanScroll <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">boolean</span> mCanScrollLoop <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> OnSelectListener mOnSelectListener<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> ObjectAnimator mScrollAnim<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">boolean</span> mCanShowAnim <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> Timer mTimer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Timer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> TimerTask mTimerTask<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> Handler mHandler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScrollHandler</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 自动回滚到中间的速度
-     */</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">float</span> AUTO_SCROLL_SPEED <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 透明度：最小 120，最大 255，极差 135
-     */</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> TEXT_ALPHA_MIN <span class="token operator">=</span> <span class="token number">120</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> TEXT_ALPHA_RANGE <span class="token operator">=</span> <span class="token number">135</span><span class="token punctuation">;</span>
-</code></pre>
-<h2 id="1-PikerView的部分"><a href="#1-PikerView的部分" class="headerlink" title="1.PikerView的部分"></a>1.PikerView的部分</h2><p>1.绘制自定义View</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token function">PickerView</span><span class="token punctuation">(</span>Context context<span class="token punctuation">,</span> AttributeSet attrs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> attrs<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        mContext <span class="token operator">=</span> context<span class="token punctuation">;</span>
-        <span class="token function">initPaint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-  <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">initPaint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        mPaint <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Paint</span><span class="token punctuation">(</span>Paint<span class="token punctuation">.</span>ANTI_ALIAS_FLAG<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ANTI_ALIAS_FLAG是抗锯齿</span>
-        mPaint<span class="token punctuation">.</span><span class="token function">setStyle</span><span class="token punctuation">(</span>Paint<span class="token punctuation">.</span>Style<span class="token punctuation">.</span>FILL<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//3.Paint.Style.FILL：填充</span>
-        mPaint<span class="token punctuation">.</span><span class="token function">setTextAlign</span><span class="token punctuation">(</span>Paint<span class="token punctuation">.</span>Align<span class="token punctuation">.</span>CENTER<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        mLightColor <span class="token operator">=</span> ContextCompat<span class="token punctuation">.</span><span class="token function">getColor</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> R<span class="token punctuation">.</span>color<span class="token punctuation">.</span>date_picker_text_light<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        mDarkColor <span class="token operator">=</span> ContextCompat<span class="token punctuation">.</span><span class="token function">getColor</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span> R<span class="token punctuation">.</span>color<span class="token punctuation">.</span>date_picker_text_dark<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onDraw</span><span class="token punctuation">(</span>Canvas canvas<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//设置文字距离,绘制文字(这个方法的执行顺序我猜应该是在最后了,等mSelectedIndex改好后再执行)</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onDraw</span><span class="token punctuation">(</span>canvas<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>mSelectedIndex <span class="token operator">>=</span> mDataList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">//不需要特意在循环里控制需要绘制的具体个数,因为超过View范围的会不会显示</span>
-        <span class="token comment" spellcheck="true">// 绘制选中的 text</span>
-        <span class="token function">drawText</span><span class="token punctuation">(</span>canvas<span class="token punctuation">,</span> mLightColor<span class="token punctuation">,</span> mScrollDistance<span class="token punctuation">,</span> mDataList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>mSelectedIndex<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//        // 绘制选中上方的 text</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> mSelectedIndex<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">drawText</span><span class="token punctuation">(</span>canvas<span class="token punctuation">,</span> mDarkColor<span class="token punctuation">,</span> mScrollDistance <span class="token operator">-</span> i <span class="token operator">*</span> mTextSpacing<span class="token punctuation">,</span>
-                    mDataList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>mSelectedIndex <span class="token operator">-</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token comment" spellcheck="true">// 绘制选中下方的 text</span>
-        <span class="token keyword">int</span> size <span class="token operator">=</span> mDataList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> mSelectedIndex<span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">drawText</span><span class="token punctuation">(</span>canvas<span class="token punctuation">,</span> mDarkColor<span class="token punctuation">,</span> mScrollDistance <span class="token operator">+</span> i <span class="token operator">*</span> mTextSpacing<span class="token punctuation">,</span>
-                    mDataList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>mSelectedIndex <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-
-
-    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">drawText</span><span class="token punctuation">(</span>Canvas canvas<span class="token punctuation">,</span> <span class="token keyword">int</span> textColor<span class="token punctuation">,</span> <span class="token keyword">float</span> offsetY<span class="token punctuation">,</span> String text<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//设置文字距离</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>TextUtils<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">float</span> scale <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span>offsetY <span class="token operator">/</span> mQuarterHeight<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这个计算公式应该可以背一下,offsetY越大scale越小</span>
-        scale <span class="token operator">=</span> scale <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> scale<span class="token punctuation">;</span>
-        mPaint<span class="token punctuation">.</span><span class="token function">setTextSize</span><span class="token punctuation">(</span>mMinTextSize <span class="token operator">+</span> mTextSizeRange <span class="token operator">*</span> scale<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        mPaint<span class="token punctuation">.</span><span class="token function">setColor</span><span class="token punctuation">(</span>textColor<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        mPaint<span class="token punctuation">.</span><span class="token function">setAlpha</span><span class="token punctuation">(</span>TEXT_ALPHA_MIN <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>TEXT_ALPHA_RANGE <span class="token operator">*</span> scale<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// text 居中绘制，mHalfHeight + offsetY 是 text 的中心坐标</span>
-        Paint<span class="token punctuation">.</span>FontMetrics fm <span class="token operator">=</span> mPaint<span class="token punctuation">.</span><span class="token function">getFontMetrics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">float</span> baseline <span class="token operator">=</span> mHalfHeight <span class="token operator">+</span> offsetY <span class="token operator">-</span> <span class="token punctuation">(</span>fm<span class="token punctuation">.</span>top <span class="token operator">+</span> fm<span class="token punctuation">.</span>bottom<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2f</span><span class="token punctuation">;</span>
-        canvas<span class="token punctuation">.</span><span class="token function">drawText</span><span class="token punctuation">(</span>text<span class="token punctuation">,</span> mHalfWidth<span class="token punctuation">,</span> baseline<span class="token punctuation">,</span> mPaint<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">}</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onMeasure</span><span class="token punctuation">(</span><span class="token keyword">int</span> widthMeasureSpec<span class="token punctuation">,</span> <span class="token keyword">int</span> heightMeasureSpec<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onMeasure</span><span class="token punctuation">(</span>widthMeasureSpec<span class="token punctuation">,</span> heightMeasureSpec<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        mHalfWidth <span class="token operator">=</span> <span class="token function">getMeasuredWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2f</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> height <span class="token operator">=</span> <span class="token function">getMeasuredHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        mHalfHeight <span class="token operator">=</span> height <span class="token operator">/</span> <span class="token number">2f</span><span class="token punctuation">;</span>
-        mQuarterHeight <span class="token operator">=</span> height <span class="token operator">/</span> <span class="token number">4f</span><span class="token punctuation">;</span>
-        <span class="token keyword">float</span> maxTextSize <span class="token operator">=</span> height <span class="token operator">/</span> <span class="token number">7f</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//设置文字尺寸值,可以根据高度来设定</span>
-        mMinTextSize <span class="token operator">=</span> maxTextSize <span class="token operator">/</span> <span class="token number">2.2f</span><span class="token punctuation">;</span>
-        mTextSizeRange <span class="token operator">=</span> maxTextSize <span class="token operator">-</span> mMinTextSize<span class="token punctuation">;</span>
-        mTextSpacing <span class="token operator">=</span> mMinTextSize <span class="token operator">*</span> <span class="token number">2.8f</span><span class="token punctuation">;</span>
-        mHalfTextSpacing <span class="token operator">=</span> mTextSpacing <span class="token operator">/</span> <span class="token number">2f</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//设置文字间距</span>
-    <span class="token punctuation">}</span></code></pre>
-<p>1.1 构造函数要传入context,ContextCompat.getColor()的第一参数就是对应的context</p>
-<script>
+<h2 id="三-具体的代码实现"><a href="#三-具体的代码实现" class="headerlink" title="三.具体的代码实现"></a>三.具体的代码实现</h2><p><strong><em>具体的内容直接看注释，每个方法都有详细的注释,下面主要讲大体思路：</em></strong></p>
+<h2 id="1-在PickerView中"><a href="#1-在PickerView中" class="headerlink" title="1.在PickerView中"></a>1.在PickerView中</h2><p>1.1实现图的绘制<br>1.2实现数据的设置<br>1.3实现动画效果函数的写法(注意在数据更新时用invalidate可以实现滚动效果,原理这里不展开谈)</p>
+<p><strong><em>总之,直线的功能都是关于PickerView这个自定义控件相关布局和功能的设置</em></strong></p>
+<h2 id="2-CustomDatePicker-主要是自定义的Dialog"><a href="#2-CustomDatePicker-主要是自定义的Dialog" class="headerlink" title="2.CustomDatePicker(主要是自定义的Dialog)"></a>2.CustomDatePicker(主要是自定义的Dialog)</h2><p>2.1实现自定义的Dialog的布局属性<br>2.2初始化相关控件<br>2.3.设置相关的点击事件<br>2.4.重写onSelect方法来将选定后的数据进行处理<br>2.5,设置关联的动画</p>
+<h2 id="四-一些日后补充的内容"><a href="#四-一些日后补充的内容" class="headerlink" title="四.一些日后补充的内容"></a>四.一些日后补充的内容</h2><p>1.关于dialog的style的设置代码</p>
+<pre><code>    &lt;style name="date_picker_dialog" parent="android:style/Theme.Dialog"&gt;
+        &lt;item name="android:windowFrame"&gt;@null&lt;/item&gt;
+        &lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;
+        &lt;item name="android:windowIsFloating"&gt;true&lt;/item&gt;
+        &lt;item name="android:windowContentOverlay"&gt;@null&lt;/item&gt;
+        &lt;item name="android:windowBackground"&gt;@color/date_picker_bg&lt;/item&gt;//这行代码如果不写的话dialog宽度不能铺满屏幕
+    &lt;/style&gt;</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -762,31 +670,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/10/28/zi-ding-yi-datepicker-he-timepicker/">
+                <a href="/2020/10/30/zi-ding-yi-dialog/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="自定义DatePicker和TimePicker">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="自定义Dialog">
                         
-                        <span class="card-title">自定义DatePicker和TimePicker</span>
+                        <span class="card-title">自定义Dialog</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            代码源自下面链接,略有改动https://github.com/liuwan1992/CustomDatePicker/tree/update_20181221
-一.功能实现1.实现数字轮盘滚轮效果选取时间2.自定义显示年月日分秒中的任意单
+                            更详细的方法日后再更新,下面的代码主要出自DatePicker的那个自定义Dialog一.style部分的核心代码
+  &lt;style name="date_picker_dialog" parent="android:style/Th
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -799,7 +706,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
