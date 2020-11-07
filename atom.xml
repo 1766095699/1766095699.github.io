@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-10-30T12:12:02.746Z</updated>
+  <updated>2020-11-07T17:02:29.511Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Handler实现定时器效果</title>
+    <link href="https://1766095699.github.io/2020/11/08/handler-shi-xian-ding-shi-qi-xiao-guo/"/>
+    <id>https://1766095699.github.io/2020/11/08/handler-shi-xian-ding-shi-qi-xiao-guo/</id>
+    <published>2020-11-07T17:01:07.000Z</published>
+    <updated>2020-11-07T17:02:29.511Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>App后台自动运行的方法</title>
+    <link href="https://1766095699.github.io/2020/11/08/app-hou-tai-zi-dong-yun-xing-de-fang-fa/"/>
+    <id>https://1766095699.github.io/2020/11/08/app-hou-tai-zi-dong-yun-xing-de-fang-fa/</id>
+    <published>2020-11-07T16:02:15.000Z</published>
+    <updated>2020-11-07T16:59:37.065Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>自定义Dialog</title>
@@ -48,7 +98,7 @@
     <link href="https://1766095699.github.io/2020/10/28/zi-ding-yi-datepicker-he-timepicker/"/>
     <id>https://1766095699.github.io/2020/10/28/zi-ding-yi-datepicker-he-timepicker/</id>
     <published>2020-10-28T14:44:26.000Z</published>
-    <updated>2020-10-30T13:39:17.911Z</updated>
+    <updated>2020-11-02T07:07:00.934Z</updated>
     
     <summary type="html">
     
@@ -545,72 +595,6 @@ git add .(文件name)
       <category term="算法" scheme="https://1766095699.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="dp" scheme="https://1766095699.github.io/tags/dp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv中文文档</title>
-    <link href="https://1766095699.github.io/2020/08/04/opencv-zhong-wen-wen-dang/"/>
-    <id>https://1766095699.github.io/2020/08/04/opencv-zhong-wen-wen-dang/</id>
-    <published>2020-08-04T07:19:17.000Z</published>
-    <updated>2020-08-04T07:20:31.969Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;a href=&quot;http://www.opencv.org.cn/opencvdoc/2.3.2/html/doc/tutorials/tutorials.html&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="人脸识别" scheme="https://1766095699.github.io/categories/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/"/>
-    
-      <category term="opencv" scheme="https://1766095699.github.io/categories/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/opencv/"/>
-    
-    
-      <category term="python" scheme="https://1766095699.github.io/tags/python/"/>
-    
-      <category term="人脸识别" scheme="https://1766095699.github.io/tags/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/"/>
-    
-      <category term="opencv" scheme="https://1766095699.github.io/tags/opencv/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>跑图类dp问题</title>
-    <link href="https://1766095699.github.io/2020/08/03/pao-tu-lei-dp-wen-ti/"/>
-    <id>https://1766095699.github.io/2020/08/03/pao-tu-lei-dp-wen-ti/</id>
-    <published>2020-08-03T09:36:58.000Z</published>
-    <updated>2020-08-04T23:46:10.276Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;一-跑图类dp问题的定义&quot;&gt;&lt;a href=&quot;#一-跑图类dp问题的定义&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="dp" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/dp/"/>
-    
-    
-      <category term="算法" scheme="https://1766095699.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="dp" scheme="https://1766095699.github.io/tags/dp/"/>
-    
-      <category term="数字三角形模型" scheme="https://1766095699.github.io/tags/%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   

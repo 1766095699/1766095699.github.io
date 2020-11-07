@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-30
+                    2020-11-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    963
                 </div>
                 
 
@@ -513,31 +513,13 @@
 <p><strong><em>总之,直线的功能都是关于PickerView这个自定义控件相关布局和功能的设置</em></strong></p>
 <h2 id="2-CustomDatePicker-主要是自定义的Dialog"><a href="#2-CustomDatePicker-主要是自定义的Dialog" class="headerlink" title="2.CustomDatePicker(主要是自定义的Dialog)"></a>2.CustomDatePicker(主要是自定义的Dialog)</h2><p>2.1实现自定义的Dialog的布局属性<br>2.2初始化相关控件<br>2.3.设置相关的点击事件<br>2.4.重写onSelect方法来将选定后的数据进行处理<br>2.5,设置关联的动画</p>
 <h2 id="四-一些日后补充的内容"><a href="#四-一些日后补充的内容" class="headerlink" title="四.一些日后补充的内容"></a>四.一些日后补充的内容</h2><p>1.关于dialog的style的设置代码</p>
-<pre><code>    &lt;style name="date_picker_dialog" parent="android:style/Theme.Dialog"&gt;
-        &lt;item name="android:windowFrame"&gt;@null&lt;/item&gt;
-        &lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;
-        &lt;item name="android:windowIsFloating"&gt;true&lt;/item&gt;
-        &lt;item name="android:windowContentOverlay"&gt;@null&lt;/item&gt;
-        &lt;item name="android:windowBackground"&gt;@color/date_picker_bg&lt;/item&gt;//这行代码如果不写的话dialog宽度不能铺满屏幕
-    &lt;/style&gt;</code></pre><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<pre><code>    &lt;style name=&quot;date_picker_dialog&quot; parent=&quot;android:style/Theme.Dialog&quot;&gt;
+        &lt;item name=&quot;android:windowFrame&quot;&gt;@null&lt;/item&gt;
+        &lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;
+        &lt;item name=&quot;android:windowIsFloating&quot;&gt;true&lt;/item&gt;
+        &lt;item name=&quot;android:windowContentOverlay&quot;&gt;@null&lt;/item&gt;
+        &lt;item name=&quot;android:windowBackground&quot;&gt;@color/date_picker_bg&lt;/item&gt;//这行代码如果不写的话dialog宽度不能铺满屏幕
+    &lt;/style&gt;</code></pre>
             </div>
             <hr/>
 
