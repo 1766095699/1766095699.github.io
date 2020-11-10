@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-11-07T17:02:29.511Z</updated>
+  <updated>2020-11-09T16:39:42.238Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -15,6 +15,84 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL基础语句</title>
+    <link href="https://1766095699.github.io/2020/11/10/sql-ji-chu-yu-ju-0/"/>
+    <id>https://1766095699.github.io/2020/11/10/sql-ji-chu-yu-ju-0/</id>
+    <published>2020-11-09T16:39:42.000Z</published>
+    <updated>2020-11-09T16:39:42.238Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>sql基础语句</title>
+    <link href="https://1766095699.github.io/2020/11/10/sql-ji-chu-yu-ju/"/>
+    <id>https://1766095699.github.io/2020/11/10/sql-ji-chu-yu-ju/</id>
+    <published>2020-11-09T16:38:09.000Z</published>
+    <updated>2020-11-10T16:36:45.359Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一-查询语句&quot;&gt;&lt;a href=&quot;#一-查询语句&quot; class=&quot;headerlink&quot; title=&quot;一.查询语句&quot;&gt;&lt;/a&gt;一.查询语句&lt;/h2&gt;&lt;h3 id=&quot;基础查询&quot;&gt;&lt;a href=&quot;#基础查询&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Mysql" scheme="https://1766095699.github.io/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>环境搭建问题</title>
+    <link href="https://1766095699.github.io/2020/11/09/huan-jing-da-jian-wen-ti/"/>
+    <id>https://1766095699.github.io/2020/11/09/huan-jing-da-jian-wen-ti/</id>
+    <published>2020-11-09T15:08:09.000Z</published>
+    <updated>2020-11-09T15:56:16.418Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1.phpstudy的Mysql无法连接的解决方案&lt;br&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>phpstudy的Mysql无法连接的问题</title>
+    <link href="https://1766095699.github.io/2020/11/09/phpstudy-de-mysql-wu-fa-lian-jie-de-wen-ti/"/>
+    <id>https://1766095699.github.io/2020/11/09/phpstudy-de-mysql-wu-fa-lian-jie-de-wen-ti/</id>
+    <published>2020-11-09T14:56:43.000Z</published>
+    <updated>2020-11-09T14:56:43.871Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Handler实现定时器效果</title>
@@ -469,132 +547,6 @@ git add .(文件name)
       <category term="dp" scheme="https://1766095699.github.io/tags/dp/"/>
     
       <category term="背包问题" scheme="https://1766095699.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>清华pip镜像</title>
-    <link href="https://1766095699.github.io/2020/08/06/qing-hua-pip-jing-xiang/"/>
-    <id>https://1766095699.github.io/2020/08/06/qing-hua-pip-jing-xiang/</id>
-    <published>2020-08-05T19:44:31.000Z</published>
-    <updated>2020-08-05T19:46:01.284Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;pip install -i &lt;a href=&quot;https://pypi.tuna.tsinghua.edu.cn/simple&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="第三方工具" scheme="https://1766095699.github.io/categories/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="第三方工具" scheme="https://1766095699.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv入门学习(正在更新)</title>
-    <link href="https://1766095699.github.io/2020/08/05/opencv-ru-men-xue-xi-zheng-zai-geng-xin/"/>
-    <id>https://1766095699.github.io/2020/08/05/opencv-ru-men-xue-xi-zheng-zai-geng-xin/</id>
-    <published>2020-08-05T12:26:30.000Z</published>
-    <updated>2020-08-05T12:27:19.090Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
-        
-      
-    
-    </summary>
-    
-    
-      <category term="opencv" scheme="https://1766095699.github.io/categories/opencv/"/>
-    
-      <category term="人脸识别" scheme="https://1766095699.github.io/categories/opencv/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/"/>
-    
-    
-      <category term="人脸识别" scheme="https://1766095699.github.io/tags/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/"/>
-    
-      <category term="opencv" scheme="https://1766095699.github.io/tags/opencv/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最长上升子序列基础模型</title>
-    <link href="https://1766095699.github.io/2020/08/04/zui-chang-shang-sheng-zi-xu-lie-mo-xing/"/>
-    <id>https://1766095699.github.io/2020/08/04/zui-chang-shang-sheng-zi-xu-lie-mo-xing/</id>
-    <published>2020-08-04T10:24:32.000Z</published>
-    <updated>2020-08-09T03:59:24.487Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一-最长上升子序列问题定义&quot;&gt;&lt;a href=&quot;#一-最长上升子序列问题定义&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="dp" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/dp/"/>
-    
-    
-      <category term="算法" scheme="https://1766095699.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="dp" scheme="https://1766095699.github.io/tags/dp/"/>
-    
-      <category term="最长上升子序列模型" scheme="https://1766095699.github.io/tags/%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DP问题总结</title>
-    <link href="https://1766095699.github.io/2020/08/04/dp-wen-ti-zong-jie/"/>
-    <id>https://1766095699.github.io/2020/08/04/dp-wen-ti-zong-jie/</id>
-    <published>2020-08-04T09:13:41.000Z</published>
-    <updated>2020-08-10T00:29:48.466Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一-DP问题常见的问法-这样问有可能是DP但不绝对&quot;&gt;&lt;a href=&quot;#一-DP问题常见的问法-这样问有可能是DP但不绝对&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="dp" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/dp/"/>
-    
-    
-      <category term="算法" scheme="https://1766095699.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="dp" scheme="https://1766095699.github.io/tags/dp/"/>
     
   </entry>
   

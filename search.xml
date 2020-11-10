@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title>SQL基础语句</title>
+      <link href="/2020/11/10/sql-ji-chu-yu-ju-0/"/>
+      <url>/2020/11/10/sql-ji-chu-yu-ju-0/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>sql基础语句</title>
+      <link href="/2020/11/10/sql-ji-chu-yu-ju/"/>
+      <url>/2020/11/10/sql-ji-chu-yu-ju/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一-查询语句"><a href="#一-查询语句" class="headerlink" title="一.查询语句"></a>一.查询语句</h2><h3 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h3><pre class=" language-sql"><code class="language-sql"><span class="token number">1</span><span class="token punctuation">.</span>查询表中某一字段：<span class="token keyword">select</span> 字段名 <span class="token keyword">from</span> 表名<span class="token punctuation">;</span><span class="token number">2</span><span class="token punctuation">.</span>查询表中多个字段：<span class="token keyword">select</span> 字段名<span class="token punctuation">,</span>字段名 <span class="token keyword">from</span> 表名<span class="token punctuation">;</span>  <span class="token punctuation">(</span>字段名用逗号隔开<span class="token punctuation">)</span>  <span class="token number">3</span><span class="token punctuation">.</span>查询表中所有字段: <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> 表名</code></pre><h3 id="进阶查询"><a href="#进阶查询" class="headerlink" title="进阶查询"></a>进阶查询</h3><pre class=" language-sql"><code class="language-sql">    <span class="token number">1</span><span class="token punctuation">.</span><span class="token keyword">select</span> 字段名 <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 筛选条件<span class="token punctuation">;</span></code></pre><p>筛选条件大致有如下这些,其中</p><p><a href="https://imgchr.com/i/BbDWsx" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/11/10/BbDWsx.png" alt="条件查询的条件类型"></a><br>1.&lt;&gt;表示的是不等于<br>2.通配符：<br>① %：表示可以匹配任意多个字符包括0个</p><p>② _：表示可以匹配的任意一个字符</p><p>③ \：表示转字字符</p><p><strong><em>注意：ESCAPE ‘X’可以用来自定义转义字符,比如 where name like ‘<em>$</em>‘;,这个句子表示把$定义为转义字符，那么这句的条件是 第二个字符为x第一个字符任意的数据</em></strong></p><p>3.</p><ul><li>like xx:表示查询的字段值里有xx表达式所表示的内容 </li><li>between xx and yy:在xx和yy之间</li><li>in [‘xx’,’yy’]：和参数列表中字符串格式完全相同的值</li><li>is null ：判断是否为空 (=和&lt;&gt;不能判断null)</li><li>&lt;=&gt;null：安全等于(可读性差,既可以判断null也可以判断普通数值)</li></ul><h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><p><strong><em>字段名用 `` 包括也是可以的,提高可读性,区分关键字和字段</em></strong></p><h2 id="二-删除语句"><a href="#二-删除语句" class="headerlink" title="二.删除语句"></a>二.删除语句</h2><h2 id="三-修改语句"><a href="#三-修改语句" class="headerlink" title="三.修改语句"></a>三.修改语句</h2><h2 id="四-查询语句"><a href="#四-查询语句" class="headerlink" title="四.查询语句"></a>四.查询语句</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>环境搭建问题</title>
+      <link href="/2020/11/09/huan-jing-da-jian-wen-ti/"/>
+      <url>/2020/11/09/huan-jing-da-jian-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<p>1.phpstudy的Mysql无法连接的解决方案<br><a href="https://blog.csdn.net/aokuiyu1635/article/details/101973758?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param" target="_blank" rel="noopener">https://blog.csdn.net/aokuiyu1635/article/details/101973758?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>phpstudy的Mysql无法连接的问题</title>
+      <link href="/2020/11/09/phpstudy-de-mysql-wu-fa-lian-jie-de-wen-ti/"/>
+      <url>/2020/11/09/phpstudy-de-mysql-wu-fa-lian-jie-de-wen-ti/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Handler实现定时器效果</title>
       <link href="/2020/11/08/handler-shi-xian-ding-shi-qi-xiao-guo/"/>
       <url>/2020/11/08/handler-shi-xian-ding-shi-qi-xiao-guo/</url>
