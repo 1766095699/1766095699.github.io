@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -478,10 +478,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-查询语句"><a href="#一-查询语句" class="headerlink" title="一.查询语句"></a>一.查询语句</h2><h3 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h3><pre class=" language-sql"><code class="language-sql"><span class="token number">1</span><span class="token punctuation">.</span>查询表中某一字段：<span class="token keyword">select</span> 字段名 <span class="token keyword">from</span> 表名<span class="token punctuation">;</span>
+                <h2 id="一-查询语句"><a href="#一-查询语句" class="headerlink" title="一.查询语句"></a>一.查询语句</h2><h3 id="1-基础查询"><a href="#1-基础查询" class="headerlink" title="1.基础查询"></a>1.基础查询</h3><pre class=" language-sql"><code class="language-sql"><span class="token number">1</span><span class="token punctuation">.</span>查询表中某一字段：<span class="token keyword">select</span> 字段名 <span class="token keyword">from</span> 表名<span class="token punctuation">;</span>
 <span class="token number">2</span><span class="token punctuation">.</span>查询表中多个字段：<span class="token keyword">select</span> 字段名<span class="token punctuation">,</span>字段名 <span class="token keyword">from</span> 表名<span class="token punctuation">;</span>  <span class="token punctuation">(</span>字段名用逗号隔开<span class="token punctuation">)</span>  
 <span class="token number">3</span><span class="token punctuation">.</span>查询表中所有字段: <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> 表名</code></pre>
-<h3 id="进阶查询"><a href="#进阶查询" class="headerlink" title="进阶查询"></a>进阶查询</h3><pre class=" language-sql"><code class="language-sql">    <span class="token keyword">select</span> 字段名 <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 筛选条件<span class="token punctuation">;</span></code></pre>
+<h3 id="2-进阶查询"><a href="#2-进阶查询" class="headerlink" title="2.进阶查询"></a>2.进阶查询</h3><pre class=" language-sql"><code class="language-sql">    <span class="token keyword">select</span> 字段名 <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 筛选条件<span class="token punctuation">;</span></code></pre>
 <p>筛选条件大致有如下这些,其中</p>
 <p><a href="https://imgchr.com/i/BbDWsx" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/11/10/BbDWsx.png" alt="条件查询的条件类型"></a><br>1.&lt;&gt;表示的是不等于<br>2.通配符：<br>① %：表示可以匹配任意多个字符包括0个</p>
 <p>② _：表示可以匹配的任意一个字符</p>
@@ -495,7 +495,7 @@
 <li>is null ：判断是否为空 (=和&lt;&gt;不能判断null)</li>
 <li>&lt;=&gt;null：安全等于(可读性差,既可以判断null也可以判断普通数值)</li>
 </ul>
-<h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><p>语法</p>
+<h3 id="3-排序查询"><a href="#3-排序查询" class="headerlink" title="3.排序查询"></a>3.排序查询</h3><p>语法</p>
 <pre><code> select xx from 表名 where 筛选条件 order by 排序列表 [asc|desc] 
 
  order by x1 ASC,x2 DESC 表示按照x1升序再按照x2降序</code></pre><p>特点： </p>
@@ -504,7 +504,19 @@
 <li>默认升序(ASC)</li>
 <li>排序列表内可以放表达式,函数，单个字段,多个字段</li>
 </ul>
-<h2 id="二-删除语句"><a href="#二-删除语句" class="headerlink" title="二.删除语句"></a>二.删除语句</h2><h2 id="三-修改语句"><a href="#三-修改语句" class="headerlink" title="三.修改语句"></a>三.修改语句</h2><h2 id="四-查询语句"><a href="#四-查询语句" class="headerlink" title="四.查询语句"></a>四.查询语句</h2><h2 id="五-常见函数"><a href="#五-常见函数" class="headerlink" title="五.常见函数"></a>五.常见函数</h2><h3 id="1-字符函数"><a href="#1-字符函数" class="headerlink" title="1.字符函数"></a>1.字符函数</h3><ul>
+<h3 id="4-分组查询"><a href="#4-分组查询" class="headerlink" title="4.分组查询"></a>4.分组查询</h3><p>语法：</p>
+<pre class=" language-SQL"><code class="language-SQL">select 分组函数，列（要求出现在group by的后面）
+
+from 表
+
+【where 筛选条件】
+
+group by 分组的列表
+
+【having 分组后的筛选】
+
+【order by 子句】</code></pre>
+<h2 id="二-删除语句"><a href="#二-删除语句" class="headerlink" title="二.删除语句"></a>二.删除语句</h2><h2 id="三-修改语句"><a href="#三-修改语句" class="headerlink" title="三.修改语句"></a>三.修改语句</h2><h2 id="四-查询语句"><a href="#四-查询语句" class="headerlink" title="四.查询语句"></a>四.查询语句</h2><h2 id="五-常见函数"><a href="#五-常见函数" class="headerlink" title="五.常见函数"></a>五.常见函数</h2><h2 id="1-字符函数"><a href="#1-字符函数" class="headerlink" title="1.字符函数"></a>1.字符函数</h2><ul>
 <li>concat(x1,x2，***,xn)：连接参数</li>
 <li>length(x)：获取参数值的字节个数</li>
 <li>upper(xx)/lower(xx)：把参数变大小写</li>
@@ -517,7 +529,7 @@
 <li>rpad：同理</li>
 <li>replace(str,x1,X2) ：把str中的x1用x2代替<br>注意:myslq中1表示的就是第一个字符</li>
 </ul>
-<h3 id="2-数学函数"><a href="#2-数学函数" class="headerlink" title="2.数学函数"></a>2.数学函数</h3><ul>
+<h2 id="2-数学函数"><a href="#2-数学函数" class="headerlink" title="2.数学函数"></a>2.数学函数</h2><ul>
 <li>round：四舍五入</li>
 <li>ceil：向上取整，返回&gt;=该参数的最小整数</li>
 <li>floor：向下取整，返回&lt;=该参数的最大整数</li>
@@ -603,7 +615,7 @@ SELECT
     ELSE &#39;D&#39; 
   END AS 工资级别 
 FROM
-  employees ;  </code></pre><h2 id="5-分组函数-统计"><a href="#5-分组函数-统计" class="headerlink" title="5.分组函数(统计)"></a>5.分组函数(统计)</h2><ul>
+  employees ;  </code></pre><h2 id="6-分组函数-统计"><a href="#6-分组函数-统计" class="headerlink" title="6.分组函数(统计)"></a>6.分组函数(统计)</h2><ul>
 <li>sum(xx)/avg(xx):求和,求平均 (一般用于处理数值型数据)</li>
 <li>max/min:求最值 (可以处理任何类型数据)</li>
 <li>count(xx):计数   </li>
@@ -772,10 +784,9 @@ FROM
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一.查询语句基础查询1.查询表中某一字段：select 字段名 from 表名;
+                            一.查询语句1.基础查询1.查询表中某一字段：select 字段名 from 表名;
 2.查询表中多个字段：select 字段名,字段名 from 表名;  (字段名用逗号隔开)  
 3.查询表中所有字段: select * from 表名
-进
                         
                     </div>
                     <div class="publish-info">
