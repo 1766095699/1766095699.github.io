@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -454,21 +454,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-11
+                    2020-11-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    341
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -481,7 +481,7 @@
                 <h2 id="一-查询语句"><a href="#一-查询语句" class="headerlink" title="一.查询语句"></a>一.查询语句</h2><h3 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h3><pre class=" language-sql"><code class="language-sql"><span class="token number">1</span><span class="token punctuation">.</span>查询表中某一字段：<span class="token keyword">select</span> 字段名 <span class="token keyword">from</span> 表名<span class="token punctuation">;</span>
 <span class="token number">2</span><span class="token punctuation">.</span>查询表中多个字段：<span class="token keyword">select</span> 字段名<span class="token punctuation">,</span>字段名 <span class="token keyword">from</span> 表名<span class="token punctuation">;</span>  <span class="token punctuation">(</span>字段名用逗号隔开<span class="token punctuation">)</span>  
 <span class="token number">3</span><span class="token punctuation">.</span>查询表中所有字段: <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> 表名</code></pre>
-<h3 id="进阶查询"><a href="#进阶查询" class="headerlink" title="进阶查询"></a>进阶查询</h3><pre class=" language-sql"><code class="language-sql">    <span class="token number">1</span><span class="token punctuation">.</span><span class="token keyword">select</span> 字段名 <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 筛选条件<span class="token punctuation">;</span></code></pre>
+<h3 id="进阶查询"><a href="#进阶查询" class="headerlink" title="进阶查询"></a>进阶查询</h3><pre class=" language-sql"><code class="language-sql">    <span class="token keyword">select</span> 字段名 <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 筛选条件<span class="token punctuation">;</span></code></pre>
 <p>筛选条件大致有如下这些,其中</p>
 <p><a href="https://imgchr.com/i/BbDWsx" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/11/10/BbDWsx.png" alt="条件查询的条件类型"></a><br>1.&lt;&gt;表示的是不等于<br>2.通配符：<br>① %：表示可以匹配任意多个字符包括0个</p>
 <p>② _：表示可以匹配的任意一个字符</p>
@@ -495,8 +495,134 @@
 <li>is null ：判断是否为空 (=和&lt;&gt;不能判断null)</li>
 <li>&lt;=&gt;null：安全等于(可读性差,既可以判断null也可以判断普通数值)</li>
 </ul>
-<h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><p><strong><em>字段名用 `` 包括也是可以的,提高可读性,区分关键字和字段</em></strong></p>
-<h2 id="二-删除语句"><a href="#二-删除语句" class="headerlink" title="二.删除语句"></a>二.删除语句</h2><h2 id="三-修改语句"><a href="#三-修改语句" class="headerlink" title="三.修改语句"></a>三.修改语句</h2><h2 id="四-查询语句"><a href="#四-查询语句" class="headerlink" title="四.查询语句"></a>四.查询语句</h2>
+<h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><p>语法</p>
+<pre><code> select xx from 表名 where 筛选条件 order by 排序列表 [asc|desc] 
+
+ order by x1 ASC,x2 DESC 表示按照x1升序再按照x2降序</code></pre><p>特点： </p>
+<ul>
+<li>支持按照多字段排序</li>
+<li>默认升序(ASC)</li>
+<li>排序列表内可以放表达式,函数，单个字段,多个字段</li>
+</ul>
+<h2 id="二-删除语句"><a href="#二-删除语句" class="headerlink" title="二.删除语句"></a>二.删除语句</h2><h2 id="三-修改语句"><a href="#三-修改语句" class="headerlink" title="三.修改语句"></a>三.修改语句</h2><h2 id="四-查询语句"><a href="#四-查询语句" class="headerlink" title="四.查询语句"></a>四.查询语句</h2><h2 id="五-常见函数"><a href="#五-常见函数" class="headerlink" title="五.常见函数"></a>五.常见函数</h2><h3 id="1-字符函数"><a href="#1-字符函数" class="headerlink" title="1.字符函数"></a>1.字符函数</h3><ul>
+<li>concat(x1,x2，***,xn)：连接参数</li>
+<li>length(x)：获取参数值的字节个数</li>
+<li>upper(xx)/lower(xx)：把参数变大小写</li>
+<li>substr(str,begin)：第一个参数是一个字符串,第二个参数是从截取从第begin个位置*以及后面全部的字符</li>
+<li>substr(str,begin,end):截取从begin到end(包括end位置)的字符</li>
+<li>instr(str1,str2):返回str2的第一次出现在str1中的索引(第一个字母的位置)  </li>
+<li>trim(str):取消字符串中的空格</li>
+<li>trim(xx from 字符串)：把在字符串中的xx全部去掉</li>
+<li>lpad(str1,n,str2):用指定字符str2来填充str1的左边,让总字符数凑满n个,如果n小于str1的长度,则按照n从str1的左边往右截断,即输出1到n总中的字符</li>
+<li>rpad：同理</li>
+<li>replace(str,x1,X2) ：把str中的x1用x2代替<br>注意:myslq中1表示的就是第一个字符</li>
+</ul>
+<h3 id="2-数学函数"><a href="#2-数学函数" class="headerlink" title="2.数学函数"></a>2.数学函数</h3><ul>
+<li>round：四舍五入</li>
+<li>ceil：向上取整，返回&gt;=该参数的最小整数</li>
+<li>floor：向下取整，返回&lt;=该参数的最大整数</li>
+<li>truncate：截断，小数点后截断到几位</li>
+<li>mod：取余，被除数为正，则为正；被除数为负，则为负</li>
+<li>rand：获取随机数，返回0-1之间的小数</li>
+</ul>
+<h2 id="3-日期函数"><a href="#3-日期函数" class="headerlink" title="3.日期函数"></a>3.日期函数</h2><ul>
+<li>now：返回当前系统日期+时间</li>
+<li>curdate：返回当前系统日期，不包含时间</li>
+<li>curtime：返回当前时间，不包含日期</li>
+<li>可以只取出年月日小时分钟秒 比如 year(now</li>
+<li>str_to_date：将日期格式的字符转换成指定格式的日期  </li>
+<li>date_format：将日期转换成字符串<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> 
+STR_TO_DATE<span class="token punctuation">(</span><span class="token string">'3-1998-2'</span><span class="token punctuation">,</span> <span class="token string">'%c-%Y-%d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">#输出结果： 1988-03-02</span>
+<span class="token comment" spellcheck="true">#两个参数的格式样相同！,左边的符号右边也要有</span>
+</code></pre>
+</li>
+</ul>
+<p>SELECT<br>  DATE_FORMAT(NOW(), ‘%Y年%m月%d日)’);<br>#输出当前xxxx年xx月xx日<br>#第一个参数的时间要是一个正常的时间,比如DATE_FORMAT(‘01-2020-02’, ‘%m月%Y年/%d日)’);就会返回NULL</p>
+<pre><code>[![占位符](https://s3.ax1x.com/2020/11/12/BvLCTI.png)](https://imgchr.com/i/BvLCTI)
+
+## 4.其他函数
+* SELECT VERSION(); 当前数据库服务器的版本
+* SELECT DATABASE();    当前打开的数据库
+* SELECT USER();        当前用户
+* password(&#39;字符&#39;);       返回该字符的密码形式
+* md5(&#39;字符&#39;);            也是加密的一种形式（MD5）
+
+## 5.流程控制函数
+* IF(条件,条件为true输出的内容,条件为false输出的内容)
+```sql
+SELECT 
+  last_name,
+  commission_pct,
+  IF(
+    commission_pct IS NULL,
+    &#39;没奖金，呵呵&#39;,
+    &#39;有奖金，嘻嘻&#39;
+  ) 备注 
+FROM
+  employees ;</code></pre><ul>
+<li>case的用法：<pre class=" language-SQL"><code class="language-SQL">#使用一
+case 要判断的字段或表达式
+when 常量1 then 要显示的值1或语句1;
+when 常量2 then 要显示的值2或语句2;
+...
+else 要显示的值n或语句n;
+end
+</code></pre>
+</li>
+</ul>
+<p>#使用二<br>case<br>when 条件1 then 要显示的值1或语句1<br>when 条件2 then 要显示的值2或语句2<br>…<br>else 要显示的值n或语句n<br>end</p>
+<h1 id="注意如果when后面加语句的话记得加分号"><a href="#注意如果when后面加语句的话记得加分号" class="headerlink" title="注意如果when后面加语句的话记得加分号"></a>注意如果when后面加语句的话记得加分号</h1><pre><code>案例(对应两种不同的用法)
+```sql
+SELECT 
+  salary AS 原始工资,
+  department_id,
+  CASE
+    department_id 
+    WHEN 30 
+    THEN salary * 1.1 
+    WHEN 40 
+    THEN salary * 1.2 
+    WHEN 50 
+    THEN salary * 1.3 
+    ELSE salary 
+  END AS 新工资 
+FROM
+  employees ; 
+
+
+SELECT 
+  salary,
+  CASE
+    WHEN salary &gt; 20000 
+    THEN &#39;A&#39; 
+    WHEN salary &gt; 15000 
+    THEN &#39;B&#39; 
+    WHEN salary &gt; 10000 
+    THEN &#39;C&#39; 
+    ELSE &#39;D&#39; 
+  END AS 工资级别 
+FROM
+  employees ;  </code></pre><h2 id="5-分组函数-统计"><a href="#5-分组函数-统计" class="headerlink" title="5.分组函数(统计)"></a>5.分组函数(统计)</h2><ul>
+<li>sum(xx)/avg(xx):求和,求平均 (一般用于处理数值型数据)</li>
+<li>max/min:求最值 (可以处理任何类型数据)</li>
+<li>count(xx):计数   </li>
+<li><strong>注意:以上分组函数都忽略null值,和分组函数一同查询的字段有限制，要求是group by后的字段*</strong><br>提示:sum,avg,count等函数可以和DISTINCT一起用<br>比如:<pre class=" language-SQL"><code class="language-SQL">SELECT 
+ SUM(DISTINCT salary),
+ SUM(salary) 
+FROM
+ employees ;</code></pre>
+</li>
+</ul>
+<h3 id="count的特殊介绍："><a href="#count的特殊介绍：" class="headerlink" title="count的特殊介绍："></a>count的特殊介绍：</h3><h4 id="使用count-统计一共有多少行"><a href="#使用count-统计一共有多少行" class="headerlink" title="使用count(*) 统计一共有多少行"></a>使用count(*) 统计一共有多少行</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">FROM</span> employees<span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> employees<span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> employees<span class="token punctuation">;</span>
+</code></pre>
+<h4 id="效率上："><a href="#效率上：" class="headerlink" title="效率上："></a>效率上：</h4><ul>
+<li>MYISAM存储引擎下，count(*)的效率高</li>
+<li>INNODB存储引擎下，count(*)和count(1)效率差不多，比count(字段)要高一些</li>
+</ul>
+
             </div>
             <hr/>
 
@@ -709,6 +835,18 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/sqli-labs/">
+                        <span class="chip bg-color">sqli-labs</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">网络安全</span>
+                    </a>
+                    
                 </div>
                 
             </div>
