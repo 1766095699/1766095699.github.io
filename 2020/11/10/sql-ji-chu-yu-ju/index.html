@@ -461,14 +461,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -575,7 +575,7 @@ employees m
 </li>
 </ul>
 <hr>
-<h5 id="一-sql99语法"><a href="#一-sql99语法" class="headerlink" title="一.sql99语法"></a>一.sql99语法</h5><p><a href="https://imgchr.com/i/DPgNGD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/14/DPgNGD.png" alt="sql99语法"></a><br><strong><em>注:这里on和where的作用是on先进行一次筛选再进行where筛选</em></strong></p>
+<h5 id="二-sql99语法"><a href="#二-sql99语法" class="headerlink" title="二.sql99语法"></a>二.sql99语法</h5><p><a href="https://imgchr.com/i/DPgNGD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/14/DPgNGD.png" alt="sql99语法"></a><br><strong><em>注:这里on和where的作用是on先进行一次筛选再进行where筛选</em></strong></p>
 <ul>
 <li>1、 on条件是在生成临时表时使用的条件，它不管on中的条件是否为真，都会返回左边表中的记录。</li>
 <li>2、where条件是在临时表生成好后，再对临时表进行过滤的条件。这时已经没有left join的含义（必须返回左边表的记录）了，条件不为真的就全部过滤掉。</li>
@@ -619,64 +619,89 @@ FROM
 <li>自连接(同理略)</li>
 </ul>
 <hr>
-<h4 id="二-外连接"><a href="#二-外连接" class="headerlink" title="二.外连接"></a>二.外连接</h4><p><a href="https://imgchr.com/i/DP4az8" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/15/DP4az8.png" alt="外连接特性"></a></p>
-<h2 id="二-删除语句"><a href="#二-删除语句" class="headerlink" title="二.删除语句"></a>二.删除语句</h2><h2 id="三-修改语句"><a href="#三-修改语句" class="headerlink" title="三.修改语句"></a>三.修改语句</h2><h2 id="四-查询语句"><a href="#四-查询语句" class="headerlink" title="四.查询语句"></a>四.查询语句</h2><h2 id="五-常见函数"><a href="#五-常见函数" class="headerlink" title="五.常见函数"></a>五.常见函数</h2><h2 id="1-字符函数"><a href="#1-字符函数" class="headerlink" title="1.字符函数"></a>1.字符函数</h2><ul>
-<li>concat(x1,x2，***,xn)：连接参数</li>
-<li>length(x)：获取参数值的字节个数</li>
-<li>upper(xx)/lower(xx)：把参数变大小写</li>
-<li>substr(str,begin)：第一个参数是一个字符串,第二个参数是从截取从第begin个位置*以及后面全部的字符</li>
-<li>substr(str,begin,end):截取从begin到end(包括end位置)的字符</li>
-<li>instr(str1,str2):返回str2的第一次出现在str1中的索引(第一个字母的位置)  </li>
-<li>trim(str):取消字符串中的空格</li>
-<li>trim(xx from 字符串)：把在字符串中的xx全部去掉</li>
-<li>lpad(str1,n,str2):用指定字符str2来填充str1的左边,让总字符数凑满n个,如果n小于str1的长度,则按照n从str1的左边往右截断,即输出1到n总中的字符</li>
-<li>rpad：同理</li>
-<li>replace(str,x1,X2) ：把str中的x1用x2代替<br>注意:myslq中1表示的就是第一个字符</li>
-</ul>
-<h2 id="2-数学函数"><a href="#2-数学函数" class="headerlink" title="2.数学函数"></a>2.数学函数</h2><ul>
-<li>round：四舍五入</li>
-<li>ceil：向上取整，返回&gt;=该参数的最小整数</li>
-<li>floor：向下取整，返回&lt;=该参数的最大整数</li>
-<li>truncate：截断，小数点后截断到几位</li>
-<li>mod：取余，被除数为正，则为正；被除数为负，则为负</li>
-<li>rand：获取随机数，返回0-1之间的小数</li>
-</ul>
-<h2 id="3-日期函数"><a href="#3-日期函数" class="headerlink" title="3.日期函数"></a>3.日期函数</h2><ul>
-<li>now：返回当前系统日期+时间</li>
-<li>curdate：返回当前系统日期，不包含时间</li>
-<li>curtime：返回当前时间，不包含日期</li>
-<li>可以只取出年月日小时分钟秒 比如 year(now</li>
-<li>str_to_date：将日期格式的字符转换成指定格式的日期  </li>
-<li>date_format：将日期转换成字符串<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> 
-STR_TO_DATE<span class="token punctuation">(</span><span class="token string">'3-1998-2'</span><span class="token punctuation">,</span> <span class="token string">'%c-%Y-%d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">#输出结果： 1988-03-02</span>
-<span class="token comment" spellcheck="true">#两个参数的格式样相同！,左边的符号右边也要有</span>
+<h4 id="二-外连接"><a href="#二-外连接" class="headerlink" title="二.外连接"></a>二.外连接</h4><p><a href="https://imgchr.com/i/DPIWb4" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/15/DPIWb4.png" alt="外连接特性"></a></p>
+<ul>
+<li>左外连接(join左边为主表,和从表没有匹配的数据值为null)<br>案例一:查询没有男朋友的女神名<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> 
+<span class="token number">b</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+bo<span class="token punctuation">.</span><span class="token operator">*</span> 
+<span class="token keyword">FROM</span>
+beauty <span class="token number">b</span> 
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> boys bo 
+  <span class="token keyword">ON</span> <span class="token number">b</span><span class="token punctuation">.</span>boyfriend_id <span class="token operator">=</span> bo<span class="token punctuation">.</span>id 
+<span class="token keyword">WHERE</span> bo<span class="token punctuation">.</span><span class="token punctuation">`</span>id<span class="token punctuation">`</span> <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token punctuation">;</span>
 </code></pre>
 </li>
 </ul>
-<p>SELECT<br>  DATE_FORMAT(NOW(), ‘%Y年%m月%d日)’);<br>#输出当前xxxx年xx月xx日<br>#第一个参数的时间要是一个正常的时间,比如DATE_FORMAT(‘01-2020-02’, ‘%m月%Y年/%d日)’);就会返回NULL</p>
-<pre><code>[![占位符](https://s3.ax1x.com/2020/11/12/BvLCTI.png)](https://imgchr.com/i/BvLCTI)
+<pre><code>结果:
+[![案例一没有where条件时的结果](https://s3.ax1x.com/2020/11/15/DPIkNR.png)](https://imgchr.com/i/DPIkNR)
+* 右外连接(同理略)
+* 全外连接(略)
 
-## 4.其他函数
-* SELECT VERSION(); 当前数据库服务器的版本
-* SELECT DATABASE();    当前打开的数据库
-* SELECT USER();        当前用户
-* password(&#39;字符&#39;);       返回该字符的密码形式
-* md5(&#39;字符&#39;);            也是加密的一种形式（MD5）
+## 二.删除语句
 
-## 5.流程控制函数
-* IF(条件,条件为true输出的内容,条件为false输出的内容)
+## 三.修改语句
+
+## 四.查询语句
+
+## 五.常见函数
+## 1.字符函数
+* concat(x1,x2，***,xn)：连接参数
+* length(x)：获取参数值的字节个数
+* upper(xx)/lower(xx)：把参数变大小写
+* substr(str,begin)：第一个参数是一个字符串,第二个参数是从截取从第begin个位置*以及后面全部的字符
+* substr(str,begin,end):截取从begin到end(包括end位置)的字符
+* instr(str1,str2):返回str2的第一次出现在str1中的索引(第一个字母的位置)  
+* trim(str):取消字符串中的空格
+* trim(xx from 字符串)：把在字符串中的xx全部去掉
+* lpad(str1,n,str2):用指定字符str2来填充str1的左边,让总字符数凑满n个,如果n小于str1的长度,则按照n从str1的左边往右截断,即输出1到n总中的字符
+* rpad：同理
+* replace(str,x1,X2) ：把str中的x1用x2代替
+注意:myslq中1表示的就是第一个字符
+
+## 2.数学函数
+* round：四舍五入
+* ceil：向上取整，返回&gt;=该参数的最小整数
+* floor：向下取整，返回&lt;=该参数的最大整数
+* truncate：截断，小数点后截断到几位
+* mod：取余，被除数为正，则为正；被除数为负，则为负
+* rand：获取随机数，返回0-1之间的小数
+
+## 3.日期函数 
+* now：返回当前系统日期+时间
+* curdate：返回当前系统日期，不包含时间
+* curtime：返回当前时间，不包含日期
+* 可以只取出年月日小时分钟秒 比如 year(now
+* str_to_date：将日期格式的字符转换成指定格式的日期  
+* date_format：将日期转换成字符串
 ```sql
 SELECT 
-  last_name,
-  commission_pct,
-  IF(
-    commission_pct IS NULL,
-    &#39;没奖金，呵呵&#39;,
-    &#39;有奖金，嘻嘻&#39;
-  ) 备注 
-FROM
-  employees ;</code></pre><ul>
+  STR_TO_DATE('3-1998-2', '%c-%Y-%d');
+  #输出结果： 1988-03-02
+  #两个参数的格式样相同！,左边的符号右边也要有
+
+SELECT 
+  DATE_FORMAT(NOW(), '%Y年%m月%d日)');
+#输出当前xxxx年xx月xx日  
+#第一个参数的时间要是一个正常的时间,比如DATE_FORMAT('01-2020-02', '%m月%Y年/%d日)');就会返回NULL</code></pre><p><a href="https://imgchr.com/i/BvLCTI" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/12/BvLCTI.png" alt="占位符"></a></p>
+<h2 id="4-其他函数"><a href="#4-其他函数" class="headerlink" title="4.其他函数"></a>4.其他函数</h2><ul>
+<li>SELECT VERSION(); 当前数据库服务器的版本</li>
+<li>SELECT DATABASE();    当前打开的数据库</li>
+<li>SELECT USER();        当前用户</li>
+<li>password(‘字符’);       返回该字符的密码形式</li>
+<li>md5(‘字符’);            也是加密的一种形式（MD5）</li>
+</ul>
+<h2 id="5-流程控制函数"><a href="#5-流程控制函数" class="headerlink" title="5.流程控制函数"></a>5.流程控制函数</h2><ul>
+<li>IF(条件,条件为true输出的内容,条件为false输出的内容)<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> 
+last_name<span class="token punctuation">,</span>
+commission_pct<span class="token punctuation">,</span>
+<span class="token keyword">IF</span><span class="token punctuation">(</span>
+  commission_pct <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token string">'没奖金，呵呵'</span><span class="token punctuation">,</span>
+  <span class="token string">'有奖金，嘻嘻'</span>
+<span class="token punctuation">)</span> 备注 
+<span class="token keyword">FROM</span>
+employees <span class="token punctuation">;</span></code></pre>
+</li>
 <li>case的用法：<pre class=" language-SQL"><code class="language-SQL">#使用一
 case 要判断的字段或表达式
 when 常量1 then 要显示的值1或语句1;
@@ -711,12 +736,12 @@ SELECT
   salary,
   CASE
     WHEN salary &gt; 20000 
-    THEN &#39;A&#39; 
+    THEN 'A' 
     WHEN salary &gt; 15000 
-    THEN &#39;B&#39; 
+    THEN 'B' 
     WHEN salary &gt; 10000 
-    THEN &#39;C&#39; 
-    ELSE &#39;D&#39; 
+    THEN 'C' 
+    ELSE 'D' 
   END AS 工资级别 
 FROM
   employees ;  </code></pre><h2 id="6-分组函数-统计"><a href="#6-分组函数-统计" class="headerlink" title="6.分组函数(统计)"></a>6.分组函数(统计)</h2><ul>
@@ -738,7 +763,25 @@ FROM
 <li>MYISAM存储引擎下，count(*)的效率高</li>
 <li>INNODB存储引擎下，count(*)和count(1)效率差不多，比count(字段)要高一些</li>
 </ul>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
