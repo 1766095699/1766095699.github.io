@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -539,7 +539,7 @@ HAVING 最高工资 > 12000 ;#已经按照id对最高工资进行分组了,然�
 </ul>
 <h3 id="5-连接查询"><a href="#5-连接查询" class="headerlink" title="5.连接查询"></a>5.连接查询</h3><p>含义：又称多表查询，当查询的字段来自于多个表时，就会用到连接查询  </p>
 <p><a href="https://imgchr.com/i/DPslAU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/14/DPslAU.png" alt="连接方式"></a></p>
-<h4 id="一-内连接"><a href="#一-内连接" class="headerlink" title="一.内连接"></a>一.内连接</h4><p>注1:当没有有效连接(比如没有条件的时候)的时候会发生笛卡尔乘积现象</p>
+<h4 id="一-内连接"><a href="#一-内连接" class="headerlink" title="一.内连接"></a>一.内连接</h4><h5 id="一-sql192标准"><a href="#一-sql192标准" class="headerlink" title="一.sql192标准"></a>一.sql192标准</h5><p>注1:当没有有效连接(比如没有条件的时候)的时候会发生笛卡尔乘积现象</p>
 <p>注2：可以通过表名.字段名的形式来具体定义</p>
 <hr>
 <ul>
@@ -575,7 +575,7 @@ employees m
 </li>
 </ul>
 <hr>
-<h4 id="二-sql99语法"><a href="#二-sql99语法" class="headerlink" title="二.sql99语法"></a>二.sql99语法</h4><p><a href="https://imgchr.com/i/DPgNGD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/14/DPgNGD.png" alt="sql99语法"></a><br><strong><em>注:这里on和where的作用是on先进行一次筛选再进行where筛选</em></strong></p>
+<h5 id="一-sql99语法"><a href="#一-sql99语法" class="headerlink" title="一.sql99语法"></a>一.sql99语法</h5><p><a href="https://imgchr.com/i/DPgNGD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/14/DPgNGD.png" alt="sql99语法"></a><br><strong><em>注:这里on和where的作用是on先进行一次筛选再进行where筛选</em></strong></p>
 <ul>
 <li>1、 on条件是在生成临时表时使用的条件，它不管on中的条件是否为真，都会返回左边表中的记录。</li>
 <li>2、where条件是在临时表生成好后，再对临时表进行过滤的条件。这时已经没有left join的含义（必须返回左边表的记录）了，条件不为真的就全部过滤掉。</li>
@@ -619,6 +619,7 @@ FROM
 <li>自连接(同理略)</li>
 </ul>
 <hr>
+<h4 id="二-外连接"><a href="#二-外连接" class="headerlink" title="二.外连接"></a>二.外连接</h4><p><a href="https://imgchr.com/i/DP4az8" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/15/DP4az8.png" alt="外连接特性"></a></p>
 <h2 id="二-删除语句"><a href="#二-删除语句" class="headerlink" title="二.删除语句"></a>二.删除语句</h2><h2 id="三-修改语句"><a href="#三-修改语句" class="headerlink" title="三.修改语句"></a>三.修改语句</h2><h2 id="四-查询语句"><a href="#四-查询语句" class="headerlink" title="四.查询语句"></a>四.查询语句</h2><h2 id="五-常见函数"><a href="#五-常见函数" class="headerlink" title="五.常见函数"></a>五.常见函数</h2><h2 id="1-字符函数"><a href="#1-字符函数" class="headerlink" title="1.字符函数"></a>1.字符函数</h2><ul>
 <li>concat(x1,x2，***,xn)：连接参数</li>
 <li>length(x)：获取参数值的字节个数</li>
