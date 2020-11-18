@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -644,7 +644,6 @@ beauty <span class="token number">b</span>
 <li>右外连接(同理略)</li>
 <li>全外连接(略)</li>
 </ul>
-<hr>
 <h1 id="6-子查询"><a href="#6-子查询" class="headerlink" title="6.子查询"></a>6.子查询</h1><p>简单来说就是查询的嵌套而已,子查询语句用括号括起来<br><a href="https://imgchr.com/i/DZ701g" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/17/DZ701g.png" alt="概念"></a></p>
 <p>案例1：查询员工编号最少并且工资最高的员工信息(where多个条件)</p>
 <pre class=" language-SQL"><code class="language-SQL">SELECT 
@@ -658,7 +657,15 @@ WHERE (employee_id, salary) =
   FROM
     employees) ;
 </code></pre>
-<h1 id="7-联合查询"><a href="#7-联合查询" class="headerlink" title="7.联合查询"></a>7.联合查询</h1><script>
+<h1 id="7-联合查询"><a href="#7-联合查询" class="headerlink" title="7.联合查询"></a>7.联合查询</h1><p>union：联合，合并，将多条查询语句的结果合并成一个结果  </p>
+<p>注:结果集的字段名按照前者的来选，两个表的元素的是一一对应关系，比如name就插在boyname后面,如果把name和id对换的话就会变成id插在boyname下面</p>
+<p>案例:把女生和男生和id和名字分别在同一列输出</p>
+<pre class=" language-SQL"><code class="language-SQL">SELECT id,boyName 
+FROM boys
+UNION SELECT id,NAME
+FROM beauty;</code></pre>
+<p>结果:<br><a href="https://imgchr.com/i/DeX3sU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/18/DeX3sU.png" alt="结果"></a></p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
