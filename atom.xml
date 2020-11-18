@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-11-18T14:57:31.064Z</updated>
+  <updated>2020-11-18T15:40:52.768Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>php基础笔记</title>
+    <link href="https://1766095699.github.io/2020/11/18/php-ji-chu-bi-ji/"/>
+    <id>https://1766095699.github.io/2020/11/18/php-ji-chu-bi-ji/</id>
+    <published>2020-11-18T15:10:51.000Z</published>
+    <updated>2020-11-18T15:40:52.768Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="php" scheme="https://1766095699.github.io/tags/php/"/>
+    
+  </entry>
   
   <entry>
     <title>sql基础———增添语句</title>
@@ -538,39 +563,6 @@ git add .(文件name)
       <category term="数据分析" scheme="https://1766095699.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
       <category term="numpy" scheme="https://1766095699.github.io/tags/numpy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>背包模型进阶篇</title>
-    <link href="https://1766095699.github.io/2020/08/07/bei-bao-mo-xing-jin-jie-pian/"/>
-    <id>https://1766095699.github.io/2020/08/07/bei-bao-mo-xing-jin-jie-pian/</id>
-    <published>2020-08-06T23:06:54.000Z</published>
-    <updated>2020-08-12T02:29:58.138Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一-二维01背包问题&quot;&gt;&lt;a href=&quot;#一-二维01背包问题&quot; class=&quot;headerlink&quot; title=&quot;一. 二维01背包问题&quot;&gt;&lt;/a&gt;一. 二维01背包问题&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;宠物小精灵之收服 : &lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="dp" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/dp/"/>
-    
-    
-      <category term="算法" scheme="https://1766095699.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="dp" scheme="https://1766095699.github.io/tags/dp/"/>
-    
-      <category term="背包问题" scheme="https://1766095699.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
