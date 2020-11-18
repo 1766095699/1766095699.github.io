@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-11-18T02:14:31.630Z</updated>
+  <updated>2020-11-18T14:57:31.064Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>sql基础———增添语句</title>
-    <link href="https://1766095699.github.io/2020/11/18/sql-ji-chu-zeng-tian-yu-ju/"/>
-    <id>https://1766095699.github.io/2020/11/18/sql-ji-chu-zeng-tian-yu-ju/</id>
+    <link href="https://1766095699.github.io/2020/11/18/sql-ji-chu-zeng-shan-gai/"/>
+    <id>https://1766095699.github.io/2020/11/18/sql-ji-chu-zeng-shan-gai/</id>
     <published>2020-11-18T02:12:54.000Z</published>
-    <updated>2020-11-18T02:14:31.630Z</updated>
+    <updated>2020-11-18T14:57:31.064Z</updated>
     
     <summary type="html">
     
@@ -29,73 +29,7 @@
       
         
         
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Mysql" scheme="https://1766095699.github.io/categories/Mysql/"/>
-    
-    
-      <category term="Mysql" scheme="https://1766095699.github.io/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sql基础———修改语句</title>
-    <link href="https://1766095699.github.io/2020/11/18/sql-ji-chu-xiu-gai-yu-ju/"/>
-    <id>https://1766095699.github.io/2020/11/18/sql-ji-chu-xiu-gai-yu-ju/</id>
-    <published>2020-11-18T02:12:44.000Z</published>
-    <updated>2020-11-18T02:15:21.799Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Mysql" scheme="https://1766095699.github.io/categories/Mysql/"/>
-    
-    
-      <category term="Mysql" scheme="https://1766095699.github.io/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sql基础———删除语句</title>
-    <link href="https://1766095699.github.io/2020/11/18/sql-ji-chu-shan-chu-yu-ju/"/>
-    <id>https://1766095699.github.io/2020/11/18/sql-ji-chu-shan-chu-yu-ju/</id>
-    <published>2020-11-18T02:12:33.000Z</published>
-    <updated>2020-11-18T02:15:04.197Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
+          &lt;h1 id=&quot;一-插入语句&quot;&gt;&lt;a href=&quot;#一-插入语句&quot; class=&quot;headerlink&quot; title=&quot;一.插入语句&quot;&gt;&lt;/a&gt;一.插入语句&lt;/h1&gt;&lt;h2 id=&quot;方式一：&quot;&gt;&lt;a href=&quot;#方式一：&quot; class=&quot;headerlink&quot;
         
       
     
@@ -114,7 +48,7 @@
     <link href="https://1766095699.github.io/2020/11/18/sql-ji-chu-chang-jian-han-shu/"/>
     <id>https://1766095699.github.io/2020/11/18/sql-ji-chu-chang-jian-han-shu/</id>
     <published>2020-11-18T02:12:09.000Z</published>
-    <updated>2020-11-18T02:14:00.784Z</updated>
+    <updated>2020-11-18T11:11:05.706Z</updated>
     
     <summary type="html">
     
@@ -122,7 +56,7 @@
       
         
         
-          &lt;h1 id=&quot;五-常见函数&quot;&gt;&lt;a href=&quot;#五-常见函数&quot; class=&quot;headerlink&quot; title=&quot;五.常见函数&quot;&gt;&lt;/a&gt;五.常见函数&lt;/h1&gt;&lt;h2 id=&quot;1-字符函数&quot;&gt;&lt;a href=&quot;#1-字符函数&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;1-字符函数&quot;&gt;&lt;a href=&quot;#1-字符函数&quot; class=&quot;headerlink&quot;
         
       
     
@@ -168,7 +102,7 @@
     <link href="https://1766095699.github.io/2020/11/10/sql-ji-chu-yi-cha-xun-yu-ju/"/>
     <id>https://1766095699.github.io/2020/11/10/sql-ji-chu-yi-cha-xun-yu-ju/</id>
     <published>2020-11-09T16:38:09.000Z</published>
-    <updated>2020-11-18T03:54:11.542Z</updated>
+    <updated>2020-11-18T14:42:33.337Z</updated>
     
     <summary type="html">
     
@@ -575,6 +509,68 @@ git add .(文件name)
       <category term="环境配置问题" scheme="https://1766095699.github.io/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
     
       <category term="记账本" scheme="https://1766095699.github.io/tags/%E8%AE%B0%E8%B4%A6%E6%9C%AC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数组分析一：numpy的使用</title>
+    <link href="https://1766095699.github.io/2020/08/09/shu-zu-fen-xi-yi-numpy-de-shi-yong/"/>
+    <id>https://1766095699.github.io/2020/08/09/shu-zu-fen-xi-yi-numpy-de-shi-yong/</id>
+    <published>2020-08-09T12:44:19.000Z</published>
+    <updated>2020-08-09T13:10:30.176Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://crossincode.com/vip/homework/254/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="python" scheme="https://1766095699.github.io/tags/python/"/>
+    
+      <category term="数据分析" scheme="https://1766095699.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+      <category term="numpy" scheme="https://1766095699.github.io/tags/numpy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>背包模型进阶篇</title>
+    <link href="https://1766095699.github.io/2020/08/07/bei-bao-mo-xing-jin-jie-pian/"/>
+    <id>https://1766095699.github.io/2020/08/07/bei-bao-mo-xing-jin-jie-pian/</id>
+    <published>2020-08-06T23:06:54.000Z</published>
+    <updated>2020-08-12T02:29:58.138Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一-二维01背包问题&quot;&gt;&lt;a href=&quot;#一-二维01背包问题&quot; class=&quot;headerlink&quot; title=&quot;一. 二维01背包问题&quot;&gt;&lt;/a&gt;一. 二维01背包问题&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;宠物小精灵之收服 : &lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="dp" scheme="https://1766095699.github.io/categories/%E7%AE%97%E6%B3%95/dp/"/>
+    
+    
+      <category term="算法" scheme="https://1766095699.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="dp" scheme="https://1766095699.github.io/tags/dp/"/>
+    
+      <category term="背包问题" scheme="https://1766095699.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   

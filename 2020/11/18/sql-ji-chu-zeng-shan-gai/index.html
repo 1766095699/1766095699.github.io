@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="sql基础———删除语句, 比企谷八幡">
+    <meta name="keywords" content="sql基础———增添语句, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>sql基础———删除语句 | 比企谷八幡</title>
+    <title>sql基础———增添语句 | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="比企谷八幡" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">sql基础———删除语句</h1>
+                    <h1 class="description center-align post-title">sql基础———增添语句</h1>
                 </div>
             </div>
         </div>
@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    52
+                    729
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -487,7 +487,148 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <h1 id="一-插入语句"><a href="#一-插入语句" class="headerlink" title="一.插入语句"></a>一.插入语句</h1><h2 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h2><p>语法：insert into 表名（列名，…） values（值1，…）</p>
+<p>示例1：插入的值的类型要与列的类型一致或兼容</p>
+<pre class=" language-SQL"><code class="language-SQL">INSERT INTO beauty (
+  id,
+  NAME,
+  sex,
+  borndate,
+  phone,
+  photo,
+  boyfriend_id
+) 
+VALUES
+  (
+    13,
+    '唐艺昕',
+    '女',
+    '1990-4-23',
+    '18934531234',
+    NULL,
+    2
+  );
+</code></pre>
+<p>案例二:可以省略列名，默认所有列，而且列的顺序和表中列的顺序一致</p>
+<pre class=" language-SQL"><code class="language-SQL">INSERT INTO beauty
+VALUES(18, '李易峰', '男', NULL, '19', NULL, NULL);</code></pre>
+<h2 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h2><p>语法：insert into 表名 set 列名=值，列名=值</p>
+<pre class=" language-SQL"><code class="language-SQL">INSERT INTO beauty SET id = 19,
+NAME = '刘涛',
+phone = '999' ;</code></pre>
+<p>方式1支持插入多行，但是方式2不支持</p>
+<pre class=" language-SQL"><code class="language-SQL">INSERT INTO beauty
+VALUES
+(20, '李易峰', '男', NULL, '19', NULL, NULL),
+(21, '李易峰', '男', NULL, '19', NULL, NULL),
+(22, '李易峰', '男', NULL, '19', NULL, NULL);</code></pre>
+<p>方式1支持子查询，方式2不支持</p>
+<pre class=" language-SQL"><code class="language-SQL">INSERT INTO beauty(id, NAME, phone)
+SELECT 26, '送钱', '12341234';</code></pre>
+<h1 id="二-修改语句"><a href="#二-修改语句" class="headerlink" title="二.修改语句"></a>二.修改语句</h1><p>语法:</p>
+<ul>
+<li>修改单表:<pre class=" language-SQL"><code class="language-SQL">update 表名
+</code></pre>
+</li>
+</ul>
+<p>set 列=新值，列=新值…</p>
+<pre><code>
+
+* 修改多表:
+```SQL
+sql92语法：
+
+update 表1 别名，表2 别名
+
+set 列=值…
+
+where 筛选条件
+
+and 筛选条件；
+
+
+sql99语法：
+
+update 表1 别名
+
+inner | left | right join 表2 别名
+
+on 连接条件
+
+set 列=值，…
+
+where 筛选条件；</code></pre><p>案例1：修改boys表中id号位2的名称为张飞，魅力值为10</p>
+<pre class=" language-SQL"><code class="language-SQL">UPDATE  
+  boys 
+SET
+  boyname = '张飞',
+  usercp = 10 
+WHERE id = 2 ;
+</code></pre>
+<p>案例二:(多表查询)</p>
+<pre class=" language-SQL"><code class="language-SQL">UPDATE
+  boys b 
+  INNER JOIN beauty be 
+    ON b.`id` = be.`boyfriend_id` SET be.`phone` = '114' 
+WHERE b.`boyName` = '张无忌' ;
+</code></pre>
+<h1 id="三-删除语句"><a href="#三-删除语句" class="headerlink" title="三.删除语句"></a>三.删除语句</h1><h2 id="方式一-delete"><a href="#方式一-delete" class="headerlink" title="方式一(delete):"></a>方式一(delete):</h2><p>语法:</p>
+<ul>
+<li>单表的删除<pre class=" language-SQL"><code class="language-SQL">delete from 表名 where 筛选条件</code></pre>
+</li>
+<li>多表的删除<pre class=" language-SQL"><code class="language-SQL">sql92语法
+</code></pre>
+</li>
+</ul>
+<p>delete 别名（要删哪个表就写哪个表的别名，都删就都写）</p>
+<p>from 表1 别名，表2 别名</p>
+<p>where 连接条件</p>
+<p>and 筛选条件</p>
+<p>limit 条目数；</p>
+<pre><code>```SQL
+sql99语法
+
+delete 别名（要删哪个表就写哪个表的别名，都删就都写）
+
+from 表1 别名
+
+inner | left | right join 表2 别名 on 连接条件
+
+where 筛选条件
+
+limit 条目数；</code></pre><p>案例1：删除手机号以9结尾的女神信息</p>
+<pre class=" language-SQL"><code class="language-SQL">DELETE 
+FROM
+  beauty 
+WHERE phone LIKE '%9' ;
+</code></pre>
+<p>案例2：删除黄晓明的信息以及他女朋友的信息</p>
+<pre class=" language-SQL"><code class="language-SQL">DELETE 
+  b,
+  be 
+FROM
+  beauty be 
+  INNER JOIN boys b 
+    ON b.`id` = be.`boyfriend_id` 
+WHERE b.`boyName` = '黄晓明' ;</code></pre>
+<h2 id="方式2-truncate"><a href="#方式2-truncate" class="headerlink" title="方式2(truncate):"></a>方式2(truncate):</h2><p>语法:</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">truncate</span> <span class="token keyword">table</span> 表名；</code></pre>
+<p><strong><em>注1:truncate语句中不许加where</em></strong> </p>
+<p><strong><em>注2:一删全删</em></strong><br>案例:</p>
+<pre class=" language-SQL"><code class="language-SQL">TRUNCATE TABLE boyes ;</code></pre>
+<h2 id="delete和truncate的区别"><a href="#delete和truncate的区别" class="headerlink" title="delete和truncate的区别"></a>delete和truncate的区别</h2><ul>
+<li><p>delete可以加where条件，truncate不可以</p>
+</li>
+<li><p>truncate删除效率高一些</p>
+</li>
+<li><p>假如要删除的表中有自增长列，如果用delete删除后，再插入数据，自增长列的<br>值从断点开始，而truncate删除后，再插入数据，自增长列的值从1开始。</p>
+</li>
+<li><p>truncate删除没有返回值，delete删除有返回值</p>
+</li>
+<li><p>truncate删除不能回滚，delete删除可以回滚</p>
+</li>
+</ul>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -530,7 +671,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/2020/11/18/sql-ji-chu-shan-chu-yu-ju/">https://1766095699.github.io/2020/11/18/sql-ji-chu-shan-chu-yu-ju/</a>
+                    <a href="https://1766095699.github.io/2020/11/18/sql-ji-chu-zeng-shan-gai/">https://1766095699.github.io/2020/11/18/sql-ji-chu-zeng-shan-gai/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -614,7 +755,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-11-18T10-12-33',
+        id: '2020-11-18T10-12-54',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -638,32 +779,36 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/18/sql-ji-chu-xiu-gai-yu-ju/">
+                <a href="/2020/11/18/sql-ji-chu-zeng-shan-gai/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="sql基础———修改语句">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="sql基础———增添语句">
                         
-                        <span class="card-title">sql基础———修改语句</span>
+                        <span class="card-title">sql基础———增添语句</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            一.插入语句方式一：语法：insert into 表名（列名，…） values（值1，…）
+示例1：插入的值的类型要与列的类型一致或兼容
+INSERT INTO beauty (
+  id,
+  NAME,
+  sex,
+  bornda
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -676,6 +821,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -706,11 +852,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            五.常见函数1.字符函数
+                            1.字符函数
 concat(x1,x2，***,xn)：连接参数
 length(x)：获取参数值的字节个数
 upper(xx)/lower(xx)：把参数变大小写
-substr(str,begin)：第一个参数是一个字符串,第二
+substr(str,begin)：第一个参数是一个字符串,第二个参数是从截
                         
                     </div>
                     <div class="publish-info">
