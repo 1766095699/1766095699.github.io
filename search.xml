@@ -8,9 +8,17 @@
       <link href="/2020/11/20/less5-xx/"/>
       <url>/2020/11/20/less5-xx/</url>
       
-        <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<p><a href="https://imgchr.com/i/DMgAD1" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMgAD1.png" alt=""></a></p><h2 id="一-补充知识"><a href="#一-补充知识" class="headerlink" title="一.补充知识"></a>一.补充知识</h2><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> sqli-labs </tag>
+            
+            <tag> SQL注入 </tag>
+            
+        </tags>
       
     </entry>
     
