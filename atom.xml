@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-11-19T16:15:47.157Z</updated>
+  <updated>2020-11-20T00:21:58.502Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://1766095699.github.io/2020/11/20/shua-sqli-labs-de-qian-zhi-zhi-shi/"/>
     <id>https://1766095699.github.io/2020/11/20/shua-sqli-labs-de-qian-zhi-zhi-shi/</id>
     <published>2020-11-19T16:15:47.000Z</published>
-    <updated>2020-11-19T16:15:47.157Z</updated>
+    <updated>2020-11-20T00:21:58.502Z</updated>
     
     <summary type="html">
     
@@ -29,17 +29,20 @@
       
         
         
-          &lt;script&gt;
+          &lt;p&gt;&lt;strong&gt;&lt;em&gt;主要记录我在学mysql时忘掉的或没注意到的知识&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;script&gt;
         document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
+          .forEach(el
         
       
     
     </summary>
     
     
+    
+      <category term="sqli-labs" scheme="https://1766095699.github.io/tags/sqli-labs/"/>
+    
+      <category term="SQL注入" scheme="https://1766095699.github.io/tags/SQL%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
@@ -48,7 +51,7 @@
     <link href="https://1766095699.github.io/2020/11/19/less1-5/"/>
     <id>https://1766095699.github.io/2020/11/19/less1-5/</id>
     <published>2020-11-19T14:56:09.000Z</published>
-    <updated>2020-11-20T00:09:18.055Z</updated>
+    <updated>2020-11-20T01:22:12.310Z</updated>
     
     <summary type="html">
     

