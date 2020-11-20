@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="php基础笔记, 比企谷八幡">
+    <meta name="keywords" content="less5-xx, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>php基础笔记 | 比企谷八幡</title>
+    <title>less5-xx | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">php基础笔记</h1>
+                    <h1 class="description center-align post-title">less5-xx</h1>
                 </div>
             </div>
         </div>
@@ -429,13 +429,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/php/">
-                                <span class="chip bg-color">php</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -447,21 +443,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-18
+                    2020-11-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-19
+                    2020-11-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    382
+                    52
                 </div>
                 
 
@@ -478,93 +474,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面:"></a>写在前面:</h1><p>PHP语句分隔符：<br>1、在PHP中，代码以行为单位，系统需要通过判断行的结束，通常都用；表示结束。<br>注注注：PHP中标记结束符?&gt;有自带语句结束符的效果，最后一行PHP代码可以没有语句结束符。<br>2、PHP中代码的书写并不是全嵌入到HTML中，而是单独存在，所以可以不用标记结束符?&gt;</p>
-<h1 id="一-变量与常量"><a href="#一-变量与常量" class="headerlink" title="一.变量与常量"></a>一.变量与常量</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>1.变量名字必须以”$”开头；</p>
-<p>2.删除变量：unset($var2)</p>
-<p>3.预定义变量<br>即提前定义的变量，由系统定义的变量，存储许多要用到的数据（预定义变量都是数组）</p>
-<p>4.变量传值<br>如果一个变量保存的值刚好是另外一个变量的名字，则可直接通过访问一个变量得到另外一个变量的<br>值：但需在变量前多加一个$符号</p>
-<pre class=" language-SQL"><code class="language-SQL">$a = 'b'; // a变量的内容正好是b变量的名称，故称a为可变变量
-$b = 'bb';
-echo $$a; // 使用时需加一个$符号</code></pre>
-<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>系统常量<br>魔术常量：由双下划线+常量名+双下划线组成，其值会随着环境变化而变化，用户无法改变。</p>
-<pre class=" language-PHP"><code class="language-PHP">$a = 'b'; // a变量的内容正好是b变量的名称，故称a为可变变量
-$b = 'bb';
-echo $$a; // 使用时需加一个$符号</code></pre>
-<h1 id="二-常量"><a href="#二-常量" class="headerlink" title="二.常量"></a>二.常量</h1><pre class=" language-PHP"><code class="language-PHP"><?php
-// 使用函数定义常量
-define('PI',3.1415); // 注意此处与c++不同，#define 为预处理命令，宏定义，无需加；。。
-// 使用const关键字定义
-const PI1 = 3;
-// 定义特殊常量
-define('^-^','smile');
-// const ^-^ // 报错
-// 访问常量
-echo PI1;
-// echo ^-^ // 报错
-constant('^-^'); // 特殊常量的访问
-// 系统常量
-echo '<hr/>',PHP_VERSION,'<br/>',PHP_INI_SIZE,'<br/>',PHP_INI_MAX; // 有符号整形
-// 魔术常量
-echo '<hr/>',__DIR__,'<br/>',__FILE__,'<br/>',__LINE__;
-echo __LINE__; // 输出的行数会变</code></pre>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><a href="https://imgchr.com/i/DnoYmd" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/18/DnoYmd.png" alt="数据类型"></a></p>
-<h2 id="数据转换方式"><a href="#数据转换方式" class="headerlink" title="数据转换方式"></a>数据转换方式</h2><p>1、自动转化：系统根据自己的需求判断，自己转化（用的较多、但效率较低）。  </p>
-<p>强制转换（手动）：在变量之前增加一个()，并在括号里面写上对于的类型，其中NULL特殊，需用<br>unset。  </p>
-<p><strong><em>转换说明：</em></strong></p>
-<ul>
-<li>1、以字母开头的字符串，永远为0；</li>
-<li>2、以数字开头的字符串，取到碰到字符串为止。（不会同时包含两个小数点）</li>
-</ul>
-<p><strong><em>注: var_dump 输出展示展示代码内容，结构与类型。该函数作可以窥探所有内容的类型，以及内部信息</em></strong><br>案例:</p>
-<pre class=" language-PHP"><code class="language-PHP"><?php
-// 数据类型
-// 创建数据
-$a = 'abcd1.1.1';
-$b = '1.1.1abc';
-// 自动转换。算术运算，系统先转化为数值类型，然后运算
-echo $a+$b; // 结果为1.1（0+1.1）
-// 强制转换
-echo '<br/>',(float)$a,(float)$b; // 01.1
-// 类型判断
-echo '<hr/>';
-var_dump(is_int($a)); // bool(FALSE)
-var_dump(is_string($a)); // bool(TRUE)
-// 获取数据类型
-echo '<hr/>';
-echo gettype($a); // string（虽然前面强制转换了，但并未改变本身）
-// 设置类型
-var_dump(settype($b,'int')); // 先将字符串转换为int型，转换成功返回true，var_dump判断
-是否为bool型，故显示 bool（true）
-echo gettype($b),$b; // interger1</code></pre>
-<h3 id="进制转换api"><a href="#进制转换api" class="headerlink" title="进制转换api"></a>进制转换api</h3><ul>
-<li>Decbin():十进制转二进制</li>
-<li>Decoct():十进制转八进制</li>
-<li>Dechex():十进制转十六进制</li>
-<li>Bindec():二进制转十进制</li>
-</ul>
-<h1 id="三-运算符"><a href="#三-运算符" class="headerlink" title="三.运算符"></a>三.运算符</h1><p>php其他的运算符和C都一样,重点看一下比较运算符<br>注:全等于和不全等是是要考虑数据类型的<br><a href="https://imgchr.com/i/Dn7CxU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/18/Dn7CxU.png" alt="比较运算符"></a></p>
-<pre class=" language-PHP"><code class="language-PHP">$a = '123'; // 字符串
-$b = 123; // 整型
-var_dump($a == $b); // 结果： bool(true)
-var_dump($a === $b); // 结果： bool(false) 不全等于
-// 连接运算符 .(将字符串连接一起) .=(将左边内容与右边内容连接起来并重新赋值)
-$e = 'hello';
-$f = 123;
-echo $e . $f; // hello 123（注意，此处有强制类型转换）
-$e .= $e;
-echo $e; // hello 123
-
-// 错误抑制符：@(可能出错的表达式)，在PHP中有一些错误可以提前预知，但又不想报错，这就需要错误
-抑制符。
-$g = 0;
-echo $f % $g; // 此时会报错
-echo @($f % $g); // 不会报错
-
-// 三目运算符(问号表达式) 表达式1 ？ 表达式2：表达式3
-echo $g ==0?1:2;</code></pre>
-<h1 id="四-流程控制"><a href="#四-流程控制" class="headerlink" title="四.流程控制"></a>四.流程控制</h1><p>1.完全和C相同,唯一要注意的就是变量名要记得加上$<br>2. 嵌入到html中的时候语法会有变化<br><a href="https://imgchr.com/i/Duks0A" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/19/Duks0A.png" alt=""></a><br><a href="https://imgchr.com/i/Dukrmd" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/19/Dukrmd.png" alt="结果"></a></p>
-<h1 id="五-文件包含"><a href="#五-文件包含" class="headerlink" title="五.文件包含"></a>五.文件包含</h1><p>1.include ‘文件名’:相当于把文件里的代码加进去,类似于C<br>2.include_once ‘文件名’:<br>3.require:和include相同<br>include会执行多次，导致报错（重复定义变量）。。而include_once不会出现这种情况。<br>require和include区别在于：若未包含文件，则报错形式不一样。（require包含错误文件，则include后不l<br>再执行；include未包含文件，会警告，但是仍会执行后面的。</p>
-<h1 id="六"><a href="#六" class="headerlink" title="六."></a>六.</h1><script>
+                <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -607,7 +517,7 @@ echo $g ==0?1:2;</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/2020/11/18/php-ji-chu-bi-ji/">https://1766095699.github.io/2020/11/18/php-ji-chu-bi-ji/</a>
+                    <a href="https://1766095699.github.io/2020/11/20/less5-xx/">https://1766095699.github.io/2020/11/20/less5-xx/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -644,11 +554,7 @@ echo $g ==0?1:2;</code></pre>
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/php/">
-                                    <span class="chip bg-color">php</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -691,7 +597,7 @@ echo $g ==0?1:2;</code></pre>
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-11-18T23-10-51',
+        id: '2020-11-20T10-24-09',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -715,30 +621,75 @@ echo $g ==0?1:2;</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/19/less1-5/">
+                <a href="/2020/11/20/less5-xx/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Less 1-4">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="less5-xx">
                         
-                        <span class="card-title">Less 1-4</span>
+                        <span class="card-title">less5-xx</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            注:由于为了更方便学习,我在网页源码后面把sql语句输出出来了方便学习,实际学习的时候是要看报错自己推里的一.less1 —— 字符注入(单引号闭合)
-1.首先判断注入的类型:方法：先在后面加一个单引号 ‘  测试一下(注意别用中文单引号)
+                            
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-19
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            灿若星河
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/20/shua-sqli-labs-de-qian-zhi-zhi-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="刷sqli-labs的前置知识">
+                        
+                        <span class="card-title">刷sqli-labs的前置知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            主要记录我在学mysql时忘掉的或没注意到的知识
+
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -756,61 +707,6 @@ echo $g ==0?1:2;</code></pre>
                     
                     <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
                         <span class="chip bg-color">SQL注入</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/11/18/sql-ji-chu-zeng-shan-gai/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="sql基础———增添语句">
-                        
-                        <span class="card-title">sql基础———增添语句</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            一.插入语句方式一：语法：insert into 表名（列名，…） values（值1，…）
-示例1：插入的值的类型要与列的类型一致或兼容
-INSERT INTO beauty (
-  id,
-  NAME,
-  sex,
-  bornda
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-18
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Mysql/" class="post-category">
-                                    Mysql
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Mysql/">
-                        <span class="chip bg-color">Mysql</span>
                     </a>
                     
                 </div>
