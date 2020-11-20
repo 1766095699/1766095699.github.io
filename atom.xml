@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-11-19T14:57:56.020Z</updated>
+  <updated>2020-11-19T16:15:47.157Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Less1 —— 字符型注入</title>
-    <link href="https://1766095699.github.io/2020/11/19/less1/"/>
-    <id>https://1766095699.github.io/2020/11/19/less1/</id>
-    <published>2020-11-19T14:56:09.000Z</published>
-    <updated>2020-11-19T14:57:56.020Z</updated>
+    <title>刷sqli-labs的前置知识</title>
+    <link href="https://1766095699.github.io/2020/11/20/shua-sqli-labs-de-qian-zhi-zhi-shi/"/>
+    <id>https://1766095699.github.io/2020/11/20/shua-sqli-labs-de-qian-zhi-zhi-shi/</id>
+    <published>2020-11-19T16:15:47.000Z</published>
+    <updated>2020-11-19T16:15:47.157Z</updated>
     
     <summary type="html">
     
@@ -34,6 +34,29 @@
           .forEach(el =&gt; {
             if (!el.dataset.src) { return; }
        
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Less1-5</title>
+    <link href="https://1766095699.github.io/2020/11/19/less1-5/"/>
+    <id>https://1766095699.github.io/2020/11/19/less1-5/</id>
+    <published>2020-11-19T14:56:09.000Z</published>
+    <updated>2020-11-20T00:09:18.055Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一-less1-——-字符注入&quot;&gt;&lt;a href=&quot;#一-less1-——-字符注入&quot; class=&quot;headerlink&quot; title=&quot;一.less1 —— 字符注入&quot;&gt;&lt;/a&gt;一.less1 —— 字符注入&lt;/h1&gt;&lt;p&gt;&lt;a
         
       
     
@@ -532,39 +555,6 @@ git add .(文件name)
       <category term="dp" scheme="https://1766095699.github.io/tags/dp/"/>
     
       <category term="状态机" scheme="https://1766095699.github.io/tags/%E7%8A%B6%E6%80%81%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安卓开源项目环境的环境搭建问题</title>
-    <link href="https://1766095699.github.io/2020/08/11/an-zhuo-kai-yuan-xiang-mu-huan-jing-de-huan-jing-da-jian-wen-ti/"/>
-    <id>https://1766095699.github.io/2020/08/11/an-zhuo-kai-yuan-xiang-mu-huan-jing-de-huan-jing-da-jian-wen-ti/</id>
-    <published>2020-08-11T13:15:35.000Z</published>
-    <updated>2020-08-11T13:19:18.566Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;在学习和模仿开源android项目之前,先检查app的grandle和在外层目录的grandle,特别是app中的grandle,如果SDK的版本高于28会出现相当多的依赖添加失败的问题,即使按照提示编程 androidx 也不管用的话,最好的办法就是去Project
-        
-      
-    
-    </summary>
-    
-    
-      <category term="记账本" scheme="https://1766095699.github.io/categories/%E8%AE%B0%E8%B4%A6%E6%9C%AC/"/>
-    
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E8%AE%B0%E8%B4%A6%E6%9C%AC/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="开源项目" scheme="https://1766095699.github.io/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
-    
-      <category term="环境配置问题" scheme="https://1766095699.github.io/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
-    
-      <category term="记账本" scheme="https://1766095699.github.io/tags/%E8%AE%B0%E8%B4%A6%E6%9C%AC/"/>
     
   </entry>
   
