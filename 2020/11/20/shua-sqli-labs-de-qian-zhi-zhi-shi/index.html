@@ -458,14 +458,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-20
+                    2020-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    72
+                    218
                 </div>
                 
 
@@ -482,7 +482,24 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong><em>主要记录我在学mysql时忘掉的或没注意到的知识</em></strong></p>
+                <p><strong><em>主要记录mysql注入天书中Background中的知识</em></strong></p>
+<h2 id="一-Background-1基础知识"><a href="#一-Background-1基础知识" class="headerlink" title="一.Background-1基础知识"></a>一.Background-1基础知识</h2><p>mysql里的一些函数:</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> security<span class="token punctuation">;</span>
+<span class="token keyword">show</span> <span class="token keyword">tables</span>；
+<span class="token keyword">desc</span> emails；<span class="token comment" spellcheck="true">#查看表结构</span>
+<span class="token keyword">use</span> information_schema；</code></pre>
+<p>Mysql有一个系统数据库information_schema，存储着所有的数据库的相关信息，一般的，我们利用该表可以进行一次完整的注入。以下为一般的流程</p>
+<pre class=" language-SQL"><code class="language-SQL">1.查看指定数据库中的表
+select table_name from information_schema.tables where table_schema="security";
+2.猜数据库
+select schema_name from information_schema.schemata
+3.猜某表的所有列名
+select column_name from information_schema.columns where table_name='XXXX'
+4.获取某列的内容
+select *** from ****</code></pre>
+<h2 id="二-Background-2基础知识-less-5-8"><a href="#二-Background-2基础知识-less-5-8" class="headerlink" title="二.Background-2基础知识(less 5-8)"></a>二.Background-2基础知识(less 5-8)</h2><p><a href="https://imgchr.com/i/DMgAD1" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMgAD1.png" alt=""></a></p>
+<h2 id="三-Background-3基础知识"><a href="#三-Background-3基础知识" class="headerlink" title="三.Background-3基础知识"></a>三.Background-3基础知识</h2><p><a href="https://imgchr.com/i/Dl6aFK" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/Dl6aFK.jpg" alt=""></a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -646,19 +663,17 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="less5-xx">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="less5-10">
                         
-                        <span class="card-title">less5-xx</span>
+                        <span class="card-title">less5-10</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-一.补充知识
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) {
+注1:从本节开始忽略order by的步骤,因为都是3所以为了方便不再进行赘述
+注2:less5-10中,除了less7要求是用outfile 的方式来进行注入,其他的关卡界面都一样,只有sql语句返回true才会显示语句,否则不显示如下
                         
                     </div>
                     <div class="publish-info">
