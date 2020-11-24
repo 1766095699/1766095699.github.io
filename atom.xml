@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://1766095699.github.io/"/>
-  <updated>2020-11-21T14:34:07.380Z</updated>
+  <updated>2020-11-24T16:50:48.597Z</updated>
   <id>https://1766095699.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>less19</title>
-    <link href="https://1766095699.github.io/2020/11/21/less19/"/>
-    <id>https://1766095699.github.io/2020/11/21/less19/</id>
-    <published>2020-11-21T14:34:07.000Z</published>
-    <updated>2020-11-21T14:34:07.380Z</updated>
+    <title>less38</title>
+    <link href="https://1766095699.github.io/2020/11/25/less38/"/>
+    <id>https://1766095699.github.io/2020/11/25/less38/</id>
+    <published>2020-11-24T16:50:48.000Z</published>
+    <updated>2020-11-24T16:50:48.597Z</updated>
     
     <summary type="html">
     
@@ -44,11 +44,61 @@
   </entry>
   
   <entry>
-    <title>less11-xx</title>
-    <link href="https://1766095699.github.io/2020/11/21/less11-xx/"/>
-    <id>https://1766095699.github.io/2020/11/21/less11-xx/</id>
+    <title>less1到less22总结</title>
+    <link href="https://1766095699.github.io/2020/11/22/less1-dao-less22-zong-jie/"/>
+    <id>https://1766095699.github.io/2020/11/22/less1-dao-less22-zong-jie/</id>
+    <published>2020-11-22T10:35:21.000Z</published>
+    <updated>2020-11-22T16:29:04.085Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;网址加密解密网站&lt;br&gt;&lt;a href=&quot;http://www.guabu.com/tools/wyjm.htm&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>less23-37</title>
+    <link href="https://1766095699.github.io/2020/11/21/less23/"/>
+    <id>https://1766095699.github.io/2020/11/21/less23/</id>
+    <published>2020-11-21T14:34:07.000Z</published>
+    <updated>2020-11-24T16:50:37.416Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一-less23&quot;&gt;&lt;a href=&quot;#一-less23&quot; class=&quot;headerlink&quot; title=&quot;一.less23&quot;&gt;&lt;/a&gt;一.less23&lt;/h2&gt;&lt;p&gt;本关不能用–+来进行输出,源码中自动换成空格了&lt;br&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="sqli-labs" scheme="https://1766095699.github.io/tags/sqli-labs/"/>
+    
+      <category term="SQL注入" scheme="https://1766095699.github.io/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>less11-22</title>
+    <link href="https://1766095699.github.io/2020/11/21/less11-22/"/>
+    <id>https://1766095699.github.io/2020/11/21/less11-22/</id>
     <published>2020-11-21T02:00:14.000Z</published>
-    <updated>2020-11-21T15:48:55.097Z</updated>
+    <updated>2020-11-23T11:04:30.195Z</updated>
     
     <summary type="html">
     
@@ -105,7 +155,7 @@
     <link href="https://1766095699.github.io/2020/11/20/shua-sqli-labs-de-qian-zhi-zhi-shi/"/>
     <id>https://1766095699.github.io/2020/11/20/shua-sqli-labs-de-qian-zhi-zhi-shi/</id>
     <published>2020-11-19T16:15:47.000Z</published>
-    <updated>2020-11-21T01:24:31.138Z</updated>
+    <updated>2020-11-22T15:18:37.615Z</updated>
     
     <summary type="html">
     
@@ -239,7 +289,7 @@
     <link href="https://1766095699.github.io/2020/11/17/pytouch-xue-xi-bi-ji/"/>
     <id>https://1766095699.github.io/2020/11/17/pytouch-xue-xi-bi-ji/</id>
     <published>2020-11-17T05:44:11.000Z</published>
-    <updated>2020-11-17T05:44:11.165Z</updated>
+    <updated>2020-11-23T11:06:50.713Z</updated>
     
     <summary type="html">
     
@@ -258,6 +308,12 @@
     </summary>
     
     
+    
+      <category term="神经网络" scheme="https://1766095699.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="机器学习" scheme="https://1766095699.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Pytorch" scheme="https://1766095699.github.io/tags/Pytorch/"/>
     
   </entry>
   
@@ -491,62 +547,6 @@
     
     
       <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>隐藏和弹出软键盘的实现方法</title>
-    <link href="https://1766095699.github.io/2020/10/21/zai-fragment-zhong-shi-xian-dian-ji-qi-ta-wei-zhi-yin-cang-jin-pan/"/>
-    <id>https://1766095699.github.io/2020/10/21/zai-fragment-zhong-shi-xian-dian-ji-qi-ta-wei-zhi-yin-cang-jin-pan/</id>
-    <published>2020-10-21T04:01:35.000Z</published>
-    <updated>2020-10-22T16:59:05.228Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一-在Fragment中实现点击其他位置隐藏金盘&quot;&gt;&lt;a href=&quot;#一-在Fragment中实现点击其他位置隐藏金盘&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="安卓开发" scheme="https://1766095699.github.io/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="安卓开发" scheme="https://1766095699.github.io/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何上传项目到github</title>
-    <link href="https://1766095699.github.io/2020/09/27/ru-he-shang-chuan-xiang-mu-dao-github/"/>
-    <id>https://1766095699.github.io/2020/09/27/ru-he-shang-chuan-xiang-mu-dao-github/</id>
-    <published>2020-09-27T02:47:14.000Z</published>
-    <updated>2020-09-27T02:49:45.823Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;注意：先找到你想要上传的项目,然后在该项目文件夹中开启gitBush,然后因为基本就是所有文件都上传,所以第二部那里直接git add .就可以了,别漏了点&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git init //初始化仓库
-git add .(文件name)
-        
-      
-    
-    </summary>
-    
-    
-      <category term="git" scheme="https://1766095699.github.io/categories/git/"/>
-    
-    
-      <category term="git" scheme="https://1766095699.github.io/tags/git/"/>
     
   </entry>
   
