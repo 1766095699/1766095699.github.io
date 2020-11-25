@@ -458,21 +458,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-21
+                    2020-11-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -519,6 +519,7 @@ http://127.0.0.1/sqli-labs/Less-1/?id=-1'union select 1,username,password from u
 <p><a href="https://imgchr.com/i/DQr9AS" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQr9AS.png" alt="结果图"></a></p>
 <p>在sqlyog中的展示:<br><a href="https://imgchr.com/i/DQDI0K" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQDI0K.png" alt=""></a></p>
 <hr>
+<p><strong><em>注：把上面group_cancat(xx)改为count(</em>)即可得知所需数据的个数*</strong></p>
 <h2 id="二-less2-——-整型注入"><a href="#二-less2-——-整型注入" class="headerlink" title="二.less2 —— 整型注入"></a>二.less2 —— 整型注入</h2><p><strong><em>less2和less1的步骤差不多,下面省略不写了,只写主要部分</em></strong><br>分析:<br>当id等于1的时候可以正常回显</p>
 <pre><code>http://127.0.0.1/sqli-labs/Less-2/?id=1</code></pre><h3 id="1-首先判断注入类型"><a href="#1-首先判断注入类型" class="headerlink" title="1.首先判断注入类型"></a>1.首先判断注入类型</h3><p>报错内容(<strong><em>这里的报错和less1中的是不一样的</em></strong>)： </p>
 <pre><code> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' LIMIT 0,1' at line 1</code></pre><p><a href="https://imgchr.com/i/DMtebj" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMtebj.png" alt="DMtebj.png"></a></p>
