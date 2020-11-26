@@ -458,14 +458,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-22
+                    2020-11-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    241
+                    271
                 </div>
                 
 
@@ -482,7 +482,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong><em>主要记录mysql注入天书中Background中的知识</em></strong></p>
+                <p>字符进制转换的网站:<a href="https://www.bejson.com/convert/ox2str/" target="_blank" rel="noopener">https://www.bejson.com/convert/ox2str/</a><br>网址加密解密网站<a href="http://www.guabu.com/tools/wyjm.htm" target="_blank" rel="noopener">http://www.guabu.com/tools/wyjm.htm</a></p>
+<p><strong><em>主要记录mysql注入天书中Background中的知识</em></strong></p>
 <h2 id="一-Background-1基础知识"><a href="#一-Background-1基础知识" class="headerlink" title="一.Background-1基础知识"></a>一.Background-1基础知识</h2><p><a href="https://www.cnblogs.com/csnd/p/11807596.html这里记录了一些敏感操作的注入方法" target="_blank" rel="noopener">https://www.cnblogs.com/csnd/p/11807596.html这里记录了一些敏感操作的注入方法</a><br>mysql里的一些函数:<br><a href="https://imgchr.com/i/DG0Ed0" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DG0Ed0.png" alt=""></a>  </p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span>
 <span class="token keyword">use</span> security<span class="token punctuation">;</span>
@@ -722,8 +723,10 @@ select *** from ****</code></pre>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            注:由于为了更方便学习,我在网页源码后面把sql语句输出出来了方便学习,实际学习的时候是要看报错自己推里的一.less1 —— 字符注入(单引号闭合)
-1.首先判断注入的类型:方法：先在后面加一个单引号 ‘  测试一下(注意别用中文单引号)
+                            注:由于为了更方便学习,我在网页源码后面把sql语句输出出来了方便学习,实际学习的时候是要看报错自己推理测试的
+爆数据库常用的代码集合
+#爆所有数据库名
+select GROUP_CONCAT(schema_name)FROM inform
                         
                     </div>
                     <div class="publish-info">
