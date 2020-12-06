@@ -458,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-23
+                    2020-12-06
                 </div>
                 
 
@@ -483,9 +483,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <ul>
-<li>注1:从现在less11开始,进入post的世界了,前十关都是get请求,post请求在网址上看不见,要开Burpsuit等工具可以看到。下面为为了方便,都以F12中的抓包方式来查看表单<h2 id="1-less11"><a href="#1-less11" class="headerlink" title="1.less11"></a>1.less11</h2></li>
+<li>注1:从现在less11开始,进入post的世界了,前十关都是get请求,post请求在网址上看不见,要开Burpsuit等工具可以看到。下面为为了方便,都以F12中的抓包方式来查看表单<h2 id="一-less11"><a href="#一-less11" class="headerlink" title="一.less11"></a>一.less11</h2></li>
 </ul>
-<p>1.通过查看表单中的信息可以知道,less11的请求就只有简单的username和password,并且值就是我们在输入框输入的值<br><a href="https://imgchr.com/i/DlorZD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlorZD.png" alt=""></a><br>2.假设我们一直存在账号admin，常时通过逻辑改写使用万能密码:  </p>
+<p>1.通过查看表单中的信息可以知道,less11的请求就只有简单的username和password,并且值就是我们在输入框输入的值<br><a href="https://imgchr.com/i/DlorZD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlorZD.png" alt=""></a><br>2.假设我们已经存在账号admin，常时通过逻辑改写使用万能密码:  </p>
 <pre><code>username框中输入 admin'#
 password框随便输</code></pre><p>结果会发现可以也能登陆<br><a href="https://imgchr.com/i/DlIsCn" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlIsCn.png" alt=""></a></p>
 <p>原理:</p>
@@ -514,8 +514,8 @@ admin'  order by 2#</code></pre><p><a href="https://imgchr.com/i/DlqCB6" target=
 </li>
 </ul>
 <pre><code>把id=2的username和password找出来
-1adimin union select 1,username,password from users where id=2 --+</code></pre><h2 id="less12"><a href="#less12" class="headerlink" title="less12"></a>less12</h2><p>双引号单括号闭合: (“admin”),其余不变</p>
-<h2 id="less13"><a href="#less13" class="headerlink" title="less13"></a>less13</h2><p>1.首先测试 admin ,发现由报错<br><a href="https://imgchr.com/i/D3NqHS" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/D3NqHS.png" alt="D3NqHS.png"></a><br><strong><em>所以判断出是单引号+单括号的闭合: (‘admin’)</em></strong><br>登陆成功的用户名:</p>
+1adimin union select 1,username,password from users where id=2 --+</code></pre><h2 id="二-less12"><a href="#二-less12" class="headerlink" title="二.less12"></a>二.less12</h2><p>双引号单括号闭合: (“admin”),其余不变</p>
+<h2 id="三-less13"><a href="#三-less13" class="headerlink" title="三.less13"></a>三.less13</h2><p>1.首先测试 admin ,发现由报错<br><a href="https://imgchr.com/i/D3NqHS" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/D3NqHS.png" alt="D3NqHS.png"></a><br><strong><em>所以判断出是单引号+单括号的闭合: (‘admin’)</em></strong><br>登陆成功的用户名:</p>
 <pre><code>admin')#</code></pre><p>2.当登陆成功时,页面不会由任何数据回显,但是会显示successfully，所以判断这是布尔盲注,盲注手法不再赘述<br><a href="https://imgchr.com/i/D3UiHU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/D3UiHU.png" alt="D3UiHU.png"></a></p>
 <h2 id="四-less14"><a href="#四-less14" class="headerlink" title="四.less14"></a>四.less14</h2><p>依旧是盲注<br><strong><em>本题重点还判断是闭合类型</em></strong><br>1.首先测试单引号’,发现没有报错回显,测试”,有报错回显<br><a href="https://imgchr.com/i/D3U4VU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/D3U4VU.png" alt=""></a><br><strong><em>判断出是双引号闭合：”admin”</em></strong></p>
 <pre><code>admin"#</code></pre><p>其他的同less13</p>
