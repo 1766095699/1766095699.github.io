@@ -458,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-26
+                    2020-12-06
                 </div>
                 
 
@@ -521,7 +521,7 @@ updatexml(1,concat(1,(SELECT GROUP_CONCAT(列名) FROM 表名)),1)</code></pre>
 <li>逻辑测试:id=1’ and 1=1 –+  ,可以正常回显,and 1=2 –+,不显示内容,说明存在布尔sql盲注,返回值为true就正常回显,返回值false就回显异常<br><a href="https://imgchr.com/i/DlRLDJ" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/21/DlRLDJ.png" alt="DlRLDJ.png"></a><br>网页部分源码:(如果sql语句返回true就输出语句,否则不输出)<br><a href="https://imgchr.com/i/DQob4A" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/20/DQob4A.png" alt="DQob4A.png"></a></li>
 </ul>
 <p>猜测sql语句:</p>
-<pre class=" language-SQL"><code class="language-SQL">select xx from xx where id ='XX' and 1=1</code></pre>
+<pre class=" language-SQL"><code class="language-SQL">select xx from xx where id ='XX'</code></pre>
 <h3 id="2-布尔盲注"><a href="#2-布尔盲注" class="headerlink" title="2.布尔盲注"></a>2.布尔盲注</h3><p>布尔盲注 ：就是指利用逻辑关系,看sql语句的返回值是true还是false来判断猜解的内容是否正确</p>
 <p>补充知识:</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#回显的n行的1,n=users表中的行数</span>
@@ -857,8 +857,14 @@ _schema.columns where table_name='users' limit 0,1),1,1))=105,1,sleep(5))</code>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            字符进制转换的网站:https://www.bejson.com/convert/ox2str/网址加密解密网站http://www.guabu.com/tools/wyjm.htm
-主要记录mysql注入天书中Background中的知识
+                            需要使用到的网站以及工具firefox插件：
+
+Hackbar：方便修改网址测试
+HTTPHeader Live：查看请求头
+ModHearder：修改请求头
+Cookie-Editor：修改cookie
+
+字符进制转换的网站:https:
                         
                     </div>
                     <div class="publish-info">
